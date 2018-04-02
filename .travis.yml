@@ -1,14 +1,14 @@
 language: python
-
 python:
-  - "3.6"
-
+- '3.6'
 branches:
   only:
-    - master
-
+  - master
 install:
-  - pip install -r requirements.txt
-
+- pip install -r requirements.txt
 script:
-  - python manage.py test
+- python manage.py test
+deploy:
+  api_key:
+    secure: mzGEMJ9l06lvGmnv0JroKLaTLirrUHd0KhE7eQwKZ+hpYdUd3CXqDT+GSKV6XKPbU60kh5GvNi9y9q7L9N9fHPQXkMliC1CcBkqDLE+UNwlr3xi6NzdRrwm2irMNeQY3wztUihSkTnbiV2w/qQ7TFaBDLYY7Flf4K6WV40uns3Ck7mx9Y+F+4YqRpFM/WkW5XsZTIekegrt6Mn1rddPeh083C1mfGFz7iEbgW65+sYtLXtBUvDsEK2pIz0X0urGAmSWZEJHcvHiZyCsuYU3KSvIxvzeHxy2V7RVvrTmG/m3M1eJUQnBW2qVm/vwnrb4MelzUOmLP8BjKZ/A0YazJJdyW74pFLAxcs39O41mWNlBPDz7bow85g6eKIkg0vcNUDkCz1cI0Igs4LqabC+m8JFMRZCNznGMrqGOAM9WduwE/StQpZxikoyHYqwkvOqmZ2Lpxp3CX5EU0x3jO3xEgKAvFdEugF7ltC2ZzKwnJjCMmbBuyFKkBrSWNR+6JBn3EgX5b0FwY5jJNWWPWaEYHUaFEDM1wRHYXl0zMi6+ryml+YOvx9nEkzy9pkqmp519UmKJePxcTRxkTlUzpQbgDzdM+xkCFeIHHN3cVkIBd39y5kz2KgTUK0IrCAEkiKzEJ042J+E2hcbNSD85dDetlem373d4bnVP0GpzU+XomqWg=
+app: pyconbalkan
