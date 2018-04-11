@@ -20,10 +20,10 @@ from django.contrib import admin
 from django.views.static import serve
 
 from pyconbalkan.core import views
-from pyconbalkan.settings import BASE_DIR, PDF_PATH
+from pyconbalkan.settings import PDF_ROOT
 
 urlpatterns = [
     url(r'^$', views.home, name='index'),
-    url(r'^coc$', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': os.path.join(BASE_DIR, PDF_PATH)}),
+    url(r'^coc$', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     url(r'^admin/', admin.site.urls),
 ]
