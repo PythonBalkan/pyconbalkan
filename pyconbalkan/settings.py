@@ -121,4 +121,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-PDF_PATH = 'pyconbalkan/core/static/pdf/'
+PDF_ROOT = os.path.join(BASE_DIR, 'pyconbalkan/core/static/pdf/')
