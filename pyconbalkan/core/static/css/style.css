@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Montserrat Black'), local('Montserrat-Black'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_epG3gnD_g.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    max-width: 100%;
+    margin: 0;
+    /* The image used */
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background: url("{% static img/background.jpg %}") no-repeat no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.navbar-brand img {
+    height: auto;
+}
+
+.round {
+    border-radius: 24px;
+}
+
+
+.btn-light {
+    background: transparent;
+    color: white;
+    border-color: transparent;
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active
+{
+    color: black;
+    border-color: #F3D66C;
+    outline: none !important;
+    box-shadow: none !important;
+    background: #F3D66C;
+}
+
+.font900 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+.one {
+    margin-bottom: -12px;
+    font-size: 4.5rem;
+}
+
+h2 {
+    max-height: inherit;
+    letter-spacing: 0.01em;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-top: 5px;
+    margin-left: 2px;
+    max-height: inherit;
+    letter-spacing: 0.05em;
+}
+
+
+.row {
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+hr {
+    width: 12%;
+    position: absolute;
+    border-width: 2px;
+    background: #22A4D9;
+}
+
+.details {
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.font-yellow {
+    color: #F3D66C;
+}
+
+.font-blue {
+    color: #22A4D9;
+}
+
+.fa-calendar-alt, .fa-users, .fa-globe{
+    color: #22A4D9;
+    display: inline-block;
+    width: 20px;
+}
+
+.btn-primary {
+    background: #22A4D9;
+    border-color: #22A4D9;
+    color: white;
+    width: 200px;
+}
+
+.sn-icons {
+    margin-top: 30px;
+    margin-right: 30px;
+
+}
+
+#days {
+    font-size: 3rem;
+    border: 10px solid white;
+    border-radius: 20px;
+    background-color: white;
+}
+
+#days-text {
+    padding-left: 10px;
+    font-size: 3rem;
+}
+
+.hms {
+    font-size: 1.8rem;
+}
+
+.hms-text {
+    font-size: 0.6rem;
+    color: white;
+}
+
+.countdown-timer{
+    margin-top: 30px;
+}
+
+ul.countdown {
+    list-style: none;
+    display: inline;
+    text-align: center;
+    padding-left: 15px;
+}
+
+ul.countdown li {
+    display: inline-block;
+    vertical-align: -12px;
+    margin-right: 5px;
+}
+
+ul.countdown li div {
+    margin-top: -5px;
+}
+
+.btn-secondary {
+    background: #F3D66C;
+    border-color: #F3D66C;
+    color: black;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active
+{
+    color: black;
+    border-color: #F3D66C;
+    outline: none !important;
+    box-shadow: none !important;
+    background: #F3D66C;
+}
+
+.moveDown {
+    margin-top: 30px;
+}
+
+#btnBuyNow {
+    width: 120px;
+}
+
+.card {
+    background: transparent;
+    border: none;
+    margin-right: 0 !important;
+}
+
+.card .row {
+    margin-left: 0 !important;
+}
+
+
+.card img {
+    width: 80px;
+    float: left;
+}
+
+.card ul {
+    list-style: none;
+    vertical-align: middle;
+    color: white;
+    padding: 0;
+}
+
+.card li:first-child {
+    font-size: 1rem;
+    display: grid;
+    padding-left: 10px;
+}
+
+.card li {
+    font-size: 0.8rem;
+    display: grid;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+.card hr {
+    display: inline;
+    margin: 0 0 0 10px;
+}
+
+.col-sm {
+    padding: 0;
+}
+
+#seeMore {
+    width: 150px;
+}
+
+#attend {
+    width: auto;
+}
