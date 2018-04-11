@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from pyconbalkan import settings
 from pyconbalkan.core import views
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^$', views.home, name='index'),
+    url(r'^coc$', serve, {'path': '/pdf/coc_pyconbalkan.pdf', 'document_root': settings.STATIC_ROOT}),
     url(r'^admin/', admin.site.urls),
 ]
