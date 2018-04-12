@@ -24,7 +24,7 @@ body {
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
-    background: url("{% static img/background.jpg %}") no-repeat no-repeat center center fixed;
+    background: url('/static/img/background.jpg') no-repeat no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
