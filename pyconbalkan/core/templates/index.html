@@ -122,35 +122,20 @@
         </div>
 
         <div class="card-deck moveDown">
-{#            <div class="card">#}
-{#                <div class="row">#}
-{#                    <div class="col-sm">#}
-{#                        <img src="{% static 'img/user1.png' %}">#}
-{#                        <ul class="card-body h-100 justify-content-center">#}
-{#                            <li><b>Luka Kladarić</b></li>#}
-{#                            <hr>#}
-{#                            <li>Senior Software Engineer at Noom Inc.</li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{##}
-{#                    <div class="col-sm">#}
-{#                        <img src="{% static 'img/user1.png' %}">#}
-{#                        <ul class="card-body h-100 justify-content-center">#}
-{#                            <li><b>Krzysztof Žuraw</b></li>#}
-{#                            <hr>#}
-{#                            <li>Python Developer at STX Next</li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                    <div class="col-sm">#}
-{#                        <img src="{% static 'img/user1.png' %}">#}
-{#                        <ul class="card-body h-100 justify-content-center">#}
-{#                            <li><b>Luka Kladarić</b></li>#}
-{#                            <hr>#}
-{#                            <li>Senior Software Engineer at Noom Inc.</li>#}
-{#                        </ul>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
+            <div class="card">
+                <div class="row">
+                    {% for speaker in speakerPhoto %}
+                    <div class="col-sm">
+                        <img src="{{ speaker.profile_picture }}">
+                        <ul class="card-body h-100 justify-content-center">
+                            <li><b>{{ speaker.speaker.name }}</b></li>
+                            <hr>
+                            <li>{{ speaker.speaker.job }}</li>
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
 
         <div class="moveDown">
