@@ -42,4 +42,3 @@ class SingleActiveModel(ActiveModel):
             qs.update(active=False)
 
         super(SingleActiveModel, self).save(*args, **kwargs)
-

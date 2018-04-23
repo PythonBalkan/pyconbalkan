@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <title>PyCon Balkan 2018</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PyCon Balkan description">
+    <meta name="author" content="Python Balkan community">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Timer JS -->
+    <script src="{% static 'js/timer.js' %}" type="text/javascript"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+
+<div class="row">
+    <div class="col-md-11 offset-0">
+        <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+            <div class="navbar navbar-header mr-auto">
+                <a class="navbar-brand" href="#"><img src="img/logo.jpg"></a>
+            </div>
+            <ul class="nav navbar-nav ml-auto w-100 justify-content-end mb-5 pb-3">
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">News</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">CFP</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">Sponsoring</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">Timetable</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">Travel</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">Tickets</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">Events</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">FAQ</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">About</a></li>
+                <li><a class="btn btn-light btn-sm round" href="#" role="button">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- END of Navigation Bar -->
+
+<div class="row">
+
+    <!-- Left Side -->
+
+
+    <div class="col-xl-3 offset-1">
+        <div>
+            <h1 class="font900 one">PyCon</h1>
+            <h2 class="one">Balkan</h2>
+            <h3>Belgrade 2018</h3>
+        </div>
+        <hr>
+        <div class="details">
+            <h1 class="font900 font-yellow">#1</h1>
+            <p>Hilton, Kralja Milana 35, 11000 Belgrade Serbia</p>
+            <div>
+                <p><i class="far fa-calendar-alt"></i> 8-12 September</p>
+                <p><i class="fas fa-users"></i> Over 400 Attendees</p>
+                <p><i class="fas fa-globe"></i> International Event</p>
+            </div>
+            <div>
+                <a class="btn btn-primary btn-md round" href="#" role="button"><b>JOIN US</b></a>
+            </div>
+            <div>
+                <i class="fa-lg fab fa-facebook-f sn-icons"></i>
+                <i class="fa-lg fab fa-twitter sn-icons"></i>
+                <i class="fa-lg fab fa-linkedin-in sn-icons"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- END of Left Side -->
+
+
+    <!-- Main Content -->
+
+    <div class="col-xl-6 offset-1">
+        <h1 class="font900 font-blue">Early bird tickets</h1>
+        <div class="countdown-timer">
+            <span id="days" class="font900 font-blue"></span>
+            <span class="font-blue font900" id="days-text"> Days</span>
+            <ul class="countdown">
+                <li>
+                    <span id="hours" class="hms font-yellow"></span>
+                    <div class="hms-text">hours</div>
+                </li>
+                <li>
+                    <span id="minutes" class="hms font-yellow"></span>
+                    <div class="hms-text">minutes</div>
+                </li>
+                <li>
+                    <span id="seconds" class="hms font-yellow"></span>
+                    <div class="hms-text">sec</div>
+                </li>
+            </ul>
+        </div>
+        <div class="moveDown">
+            <a class="btn btn-secondary btn-md round" href="#" role="button" id="btnBuyNow"><b>Buy Now</b></a>
+        </div>
+
+        <div class="moveDown">
+            <h1 class="font900 font-yellow">Speakers</h1>
+        </div>
+
+        <div class="card-deck moveDown">
+            <div class="card">
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="img/user1.png">
+                        <ul class="card-body h-100 justify-content-center">
+                            <li><b>Luka Kladarić</b></li>
+                            <hr>
+                            <li>Senior Software Engineer at Noom Inc.</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm">
+                        <img src="img/user1.png">
+                        <ul class="card-body h-100 justify-content-center">
+                            <li><b>Krzysztof Žuraw</b></li>
+                            <hr>
+                            <li>Python Developer at STX Next</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm">
+                        <img src="img/user1.png">
+                        <ul class="card-body h-100 justify-content-center">
+                            <li><b>Luka Kladarić</b></li>
+                            <hr>
+                            <li>Senior Software Engineer at Noom Inc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="moveDown">
+            <a class="btn btn-secondary btn-md round" href="#" role="button" id="seeMore"><b>See More</b></a>
+            <a class="btn btn-primary btn-md round" href="#" role="button" id="attend"><b>Attend</b></a>
+        </div>
+    </div>
+
+
+    <!-- END of Main Content -->
+
+</div>
+
+<!-- Bootstrap 4 scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
