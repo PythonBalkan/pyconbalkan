@@ -16,7 +16,6 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
-
 def organizers(request):
     volunteers = Volunteer.objects.filter(type=Volunteer.VOLUNTEER, active=True)
     organizers = Volunteer.objects.filter(type=Volunteer.ORGANIZER, active=True)
@@ -27,3 +26,6 @@ def organizers(request):
         'conference': conference.first() if conference else None,
     }
     return render(request, 'organizers.html', context)
+
+def tickets(request):
+    return render(request, 'tickets.html')

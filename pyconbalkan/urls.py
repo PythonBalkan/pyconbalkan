@@ -16,6 +16,7 @@ router.extend(organizers)
 
 urlpatterns = [
     url(r'^$', views.home, name='index'),
+    url(r'^tickets$', views.tickets, name='tickets'),
     url(r'^organizers$', views.organizers, name='organizers'),
     url(r'^coc$', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     url(r'^admin/', admin.site.urls),
