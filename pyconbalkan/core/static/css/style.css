@@ -121,6 +121,11 @@ hr {
 
 .font14 {
     font-size: 14px;
+    color: white;
+}
+
+.font-small {
+    font-size: 0.8em;
 }
 
 .fa-calendar-alt, .fa-users, .fa-globe{
@@ -282,4 +287,17 @@ ul.countdown li div {
     color: #ff0000;
     font-size: 16px;
     font-weight: bold;
+}
+
+table.ticket {
+    border-collapse: separate;
+}
+
+.space {
+    width: 100px;
+}
+
+select, option, input[type="text"], input[type="email"], input[type="time"], input[type="date"], input[type="button"]{
+    width: 100%;
+    box-sizing:border-box;
 }

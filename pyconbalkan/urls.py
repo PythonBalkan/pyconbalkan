@@ -32,9 +32,10 @@ urlpatterns = [
     path('', views.home, name='index'),
     path('organizers', organizers_view, name='organizers'),
     path('about', about_view, name='about'),
+    path('tickets', views.tickets, name='tickets'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),  # API
+    path('api/', include(router.urls)), # API
 ]
