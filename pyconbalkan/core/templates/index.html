@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- Timer JS -->
-    <script src="{% static 'js/timer.js' %}" type="text/javascript"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -45,7 +43,7 @@
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Sponsoring</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Timetable</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Travel</a></li>#}
-{#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Tickets</a></li>#}
+                  <li><a class="btn btn-light btn-sm round" href="{% url 'tickets' %}" role="button">Tickets</a></li>
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Events</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">FAQ</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">About</a></li>#}
@@ -149,6 +147,9 @@
     <!-- END of Main Content -->
 
 </div>
+
+<!-- Timer JS -->
+<script src="{% static 'js/timer.js' %}" type="text/javascript"></script>
 
 <!-- Bootstrap 4 scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

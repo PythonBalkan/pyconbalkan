@@ -34,7 +34,7 @@
     <div class="col-md-11 offset-0">
         <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
             <div class="navbar navbar-header mr-auto">
-                <a class="navbar-brand" href="#"><img src="{% static 'img/logo.jpg' %}"></a>
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo.jpg' %}"></a>
             </div>
             <ul class="nav navbar-nav ml-auto w-100 justify-content-end mb-5 pb-3">
                 <li><a class="btn btn-light btn-sm round" href="/#" role="button">Home</a></li>
@@ -98,33 +98,35 @@
         <div class="moveDown">
             <h1 class="font900 font-yellow">Foreign buyers</h1>
         </div>
-        <p class="font-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto asperiores at cupiditate
-            delectus dicta eius esse!</p>
+        <p class="font-white">{# Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto asperiores at cupiditate #}
+            {# delectus dicta eius esse! #}</p>
         <table class="ticket">
             <tr>
                 <td colspan="2">
                     <label for="id_name" class="font400 font-blue">Name and Surname</label><br>
-                    <input type="text" name="name" id="id_name" required />
+                    <input type="text" name="name" id="id_name" class="input_border" required />
                 </td>
-                <td class="space"></td>
+                <td style="width: 10%;"></td>
                 <td colspan="2">
                     <label for="id_country" class="font400 font-blue">Country</label><br>
-                    <input type="text" name="country" id="id_country" required />
+                    <input type="text" name="country" id="id_country" class="input_border" required />
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <label for="id_email" class="font400 font-blue">e-mail</label><br>
-                    <input type="email" name="email" id="id_email" required />
+                    <input type="email" name="email" id="id_email" class="input_border" required />
                 </td>
-                <td class="space"></td>
+                <td></td>
                 <td colspan="2">
                     <label for="id_ticket_type" class="font400 font-blue">Ticket type</label><br>
-                    <select name="ticket_type" id="id_ticket_type" required >
-                        <option value="standart">Standart</option>
-                        <option value="tbd1">TBD</option>
-                        <option value="tbd2">TBD</option>
-                    </select>
+                    <div class="b-select-wrap">
+                        <select name="ticket_type" id="id_ticket_type" class="input_border" required >
+                            <option value="standart">Standart</option>
+                            <option value="tbd1">TBD</option>
+                            <option value="tbd2">TBD</option>
+                        </select>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -133,21 +135,25 @@
                         <span class="font-small"> <br>(Per person)</span></span></label>
                 </td>
                 <td>
-                    <select name="no_tickets" id="id_no_tickets" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <div class="b-select-wrap">
+                        <select name="no_tickets" id="id_no_tickets" class="input_border" onchange="toggleSelect()" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
                 </td>
-                <td class="space"></td>
+                <td></td>
                 <td>
                     <label for="id_lunch" class="font400 font-blue">Lunch <span class="font-white">25$
                         <span class="font-small"> <br>(Per person)</span></span></label>
                 </td>
-                <td>
-                    <input type="time" name="lunch" id="id_lunch" value="12:00" />
+                <td style="width: 10%;">
+                    <div class="b-input-time-wrap">
+                        <input type="time" name="lunch" id="id_lunch" value="12:00" class="input_border" />
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -156,47 +162,57 @@
                         <span class="font-small"> <br>(Per person)</span></span></label>
                 </td>
                 <td>
-                    <select name="airport" id="id_airport" required>
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select>
+                    <div class="b-select-wrap">
+                        <select name="airport" id="id_airport" class="input_border" required onchange="toggleSelect()">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="checkbox" name="book_hotel" id="id_book_hotel" >
+                    <input type="checkbox" name="book_hotel" id="id_book_hotel" onchange="toggleSelect()">
                     <label for="id_book_hotel" class="font400 font-blue">Book hotel</label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="id_no_person" class="font400 font-blue">No. of Person(s) <span class="font-white">110$
+                    <label for="id_no_person" id="id_no_person_label">No. of Person(s) <span class="font-white">110$
                         <span class="font-small"><br>(Per person)</span></span></label>
                 </td>
                 <td>
-                    <select name="no_person" id="id_no_person">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <div class="b-select-wrap">
+                        <select name="no_person" id="id_no_person" class="input_border" disabled onchange="toggleSelect()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
                 </td>
-                <td class="space"></td>
+                <td></td>
                 <td>
-                    <label for="id_no_nights" class="font400 font-blue">No. of Nights</label>
+                    <label for="id_no_nights" id="id_no_nights_label">No. of Nights</label>
                 </td>
                 <td>
-                    <input type="date" name="no_nights" id="id_no_nights" />
+                    <div class="b-input-date-wrap">
+                        <input type="date" name="no_nights" id="id_no_nights" class="input_border" disabled/>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td colspan="3">
-                    <input type="button" name="total_price" id="id_total_price" value="Total price: 160$">
+                    <button name="total_price" id="id_total_price" class="button-style">
+                        <span class="left">Total price: </span>
+                        <span class="right" id="total">0</span>
+                        <span class="right">$</span>
+                    </button>
                 </td>
-                <td>
-                    <input type="button" name="pay" id="id_pay" value="Pay" />
+                <td style="width: 100px;">
+                    <input type="button" name="pay" id="id_pay" value="Pay" class="button-style"/>
                 </td>
             </tr>
         </table>
@@ -205,6 +221,13 @@
     <!-- END of Main Content -->
 
 </div>
+
+<!-- JQuery test -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Checkbox JS -->
+<script src="{% static 'js/checkbox.js' %}" type="text/javascript"></script>
+
 
 <!-- Bootstrap 4 scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
