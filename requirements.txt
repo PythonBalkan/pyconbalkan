@@ -2,6 +2,7 @@ dj-database-url==0.5.0
 dj-static==0.0.6
 Django==1.11.11
 gunicorn==19.7.1
+Pillow==5.1.0
 psycopg2==2.7.4
 python-decouple==3.1
 pytz==2018.3
