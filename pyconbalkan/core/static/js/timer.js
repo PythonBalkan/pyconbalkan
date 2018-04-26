@@ -1,5 +1,5 @@
 // Set the date we're counting down to
-var countDownDate = new Date("Sep 8, 2018 10:00:00").getTime();
+var countDownDate = new Date("May 15, 2018 00:00:01").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
