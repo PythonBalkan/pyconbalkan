@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # apps
     'pyconbalkan.core',
+    'pyconbalkan.conference',
+    'pyconbalkan.speaker',
+    # others
+    'rest_framework',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +128,16 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 PDF_ROOT = os.path.join(BASE_DIR, 'pyconbalkan/core/static/pdf/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pyconbalkan/core/')
+MEDIA_URL = '/img/'
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
+}
