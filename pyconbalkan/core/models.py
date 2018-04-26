@@ -1,16 +1,21 @@
 from django.db import models
 
-# Create your models here.
 
+class SingleActiveModel(models.Model):
+    active = models.BooleanField(default=False)
 
-class Speaker(models.Model):
-    name = models.CharField(max_length=50)
-    job = models.CharField(max_length=100)
+    class Meta:
+        abstract = True
 
-    def __str__(self):
-        return self.name
+    def save(self, *args, **kwargs):
+        if self.active:
+            # select all other active items
+            qs = type(self).objects.filter(active=True)
+            # except self (if self already exists)
+            if self.pk:
+                qs = qs.exclude(pk=self.pk)
+            # and deactive them
+            qs.update(active=False)
 
+        super(SingleActiveModel, self).save(*args, **kwargs)
 
-class SpeakerPhoto(models.Model):
-    speaker = models.ForeignKey('Speaker', related_name='images')
-    profile_picture = models.ImageField(upload_to="static/img")
