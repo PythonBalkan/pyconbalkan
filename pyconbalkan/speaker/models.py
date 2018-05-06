@@ -1,14 +1,10 @@
 from django.db import models
 
-from pyconbalkan.core.models import SingleActiveModel
+from pyconbalkan.core.models import Person, ActiveModel
 
 
-class Speaker(SingleActiveModel):
-    name = models.CharField(max_length=50)
-    job = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
+class Speaker(ActiveModel, Person):
+    pass
 
 
 class SpeakerPhoto(models.Model):

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from pyconbalkan.speaker.models import SpeakerPhoto, Speaker
+from pyconbalkan.speaker.models import Speaker, SpeakerPhoto
 
 
 class SpeakerImageInline(admin.TabularInline):

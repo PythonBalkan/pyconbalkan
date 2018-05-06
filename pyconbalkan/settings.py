@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pyconbalkan.core',
     'pyconbalkan.conference',
     'pyconbalkan.speaker',
+    'pyconbalkan.organizers',
     # others
     'rest_framework',
     'django_countries',
