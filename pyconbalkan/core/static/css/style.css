@@ -244,3 +244,19 @@ ul.countdown li div {
 #attend {
     width: auto;
 }
+
+.blue {
+    font-weight: 900;
+    color: #53A8DC;
+}
+
+.yellow {
+    font-weight: 900;
+    color: #F9D768;
+}
+
+.white {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: bold;
+}
