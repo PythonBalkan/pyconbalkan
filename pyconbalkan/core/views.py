@@ -28,4 +28,8 @@ def organizers(request):
     return render(request, 'organizers.html', context)
 
 def tickets(request):
-    return render(request, 'tickets.html')
+    conference = Conference.objects.filter(active=True)
+    context = {
+        'conference': conference.first() if conference else None,
+    }
+    return render(request, 'tickets.html', context)
