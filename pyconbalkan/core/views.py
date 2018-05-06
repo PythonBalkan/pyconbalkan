@@ -27,3 +27,7 @@ def organizers(request):
         'conference': conference.first() if conference else None,
     }
     return render(request, 'organizers.html', context)
+
+
+def sponsor(request):
+    return render(request, 'sponsor.html')

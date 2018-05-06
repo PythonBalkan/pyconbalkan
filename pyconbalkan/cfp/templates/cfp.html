@@ -4,7 +4,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title>{{ conference.event }} {{ conference.name }} {{ conference.year }}</title>
+    <title>PyCon Balkan 2018</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +20,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- Timer JS -->
-    <!-- Set the date we're counting down to -->
-    <script type="text/javascript"> var countDownDate = parseInt("{{ count_down.count_down|date:"U" }}".concat("000"));</script>
     <script src="{% static 'js/timer.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,15 +30,28 @@
     <![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900"
           rel="stylesheet">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118269305-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-118269305-1');
-    </script>
+    <style>
+        body {
+            font-family: Montserrat, sans-serif;
+        }
+        .blue {
+            font-weight: 900;
+            color: #53A8DC;
+        }
+        .yellow {
+            font-weight: 900;
+            color: #F9D768;
+        }
+        .black {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .white {
+            color: #FFFFFF;
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -50,11 +62,9 @@
     <div class="col-md-11 offset-0">
         <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
             <div class="navbar navbar-header mr-auto">
-                <a class="navbar-brand" href="/#"><img src="{% static 'img/logo.jpg' %}"></a>
+                <a class="navbar-brand" href="#"><img src="{% static 'img/logo.jpg' %}"></a>
             </div>
             <ul class="nav navbar-nav ml-auto w-100 justify-content-end mb-5 pb-3">
-                <li><a class="btn btn-light btn-sm round" href="/#" role="button">Home</a></li>
-{#                <li><a class="btn btn-light btn-sm round" href="#" role="button">About</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">News</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">CFP</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Sponsoring</a></li>#}
@@ -63,8 +73,8 @@
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Tickets</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Events</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">FAQ</a></li>#}
+{#                <li><a class="btn btn-light btn-sm round" href="#" role="button">About</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">Contact</a></li>#}
-                <li><a class="btn btn-light btn-sm round" href="/organizers" role="button">Organizers</a></li>
                 <li><a class="btn btn-light btn-sm round" href="/coc" role="button">CoC</a></li>
             </ul>
         </nav>
@@ -110,9 +120,10 @@
 
     <!-- END of Left Side -->
 
+
     <!-- Main Content -->
 
-    {% block main_content %}{% endblock %}
+
 
     <!-- END of Main Content -->
 

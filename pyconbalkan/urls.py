@@ -19,5 +19,6 @@ urlpatterns = [
     url(r'^organizers$', views.organizers, name='organizers'),
     url(r'^coc$', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls)), # API
+    url(r'^api/', include(router.urls)),  # API
+    url(r'^sponsor$', views.sponsor, name='sponsor'),
 ]
