@@ -29,5 +29,5 @@ def organizers(request):
     return render(request, 'organizers.html', context)
 
 
-def sponsor(request):
-    return render(request, 'sponsor.html')
+def sponsors(request):
+    return render(request, 'sponsors.html')
