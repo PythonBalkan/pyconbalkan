@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <!-- Main Content -->
+
+    <div class="col-xl-6 offset-1">
+        {% if count_down %}
+            <h1 class="font900 font-blue">{{ count_down.title }}</h1>
+                <div class="countdown-timer">
+                    <span id="days" class="font900 font-blue"></span>
+                    <span class="font-blue font900" id="days-text"> Days</span>
+                    <ul class="countdown">
+                        <li>
+                            <span id="hours" class="hms font-yellow"></span>
+                            <div class="hms-text">hours</div>
+                        </li>
+                        <li>
+                            <span id="minutes" class="hms font-yellow"></span>
+                            <div class="hms-text">minutes</div>
+                        </li>
+                        <li>
+                            <span id="seconds" class="hms font-yellow"></span>
+                            <div class="hms-text">sec</div>
+                        </li>
+                    </ul>
+                </div>
+
+{#            <div class="moveDown">#}
+{#                <a class="btn btn-secondary btn-md round" href="#" role="button" id="btnBuyNow"><b>Buy Now</b></a>#}
+{#            </div>#}
+        {% endif %}
+
+            <div class="moveDown">
+                <h1 class="font900 font-yellow">Speakers</h1>
+            </div>
+
+        {% if speakers %}
+            <div class="card-deck moveDown">
+                <div class="card">
+                    <div class="row">
+                        {% for speaker in speakers %}
+                            <div class="col-sm">
+                                <img src="{{ speaker.images.first.profile_picture }}">
+                                <ul class="card-body h-100 justify-content-center">
+                                    <li><b>{{ speaker.name }}</b></li>
+                                    <hr>
+                                    <li>{{ speaker.job }}</li>
+                                </ul>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="white">
+                <span class="blue">C</span>OMING <span class="yellow">S</span>OON
+            </div>
+        {% endif %}
+
+
+{#        <div class="moveDown">#}
+{#            <a class="btn btn-secondary btn-md round" href="#" role="button" id="seeMore"><b>See More</b></a>#}
+{#            <a class="btn btn-primary btn-md round" href="#" role="button" id="attend"><b>Attend</b></a>#}
+{#        </div>#}
+    </div>
+
+
+    <!-- END of Main Content -->
+
+{% endblock %}
