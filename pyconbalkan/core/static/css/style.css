@@ -32,7 +32,11 @@ body {
 }
 
 .navbar-brand img {
-    height: auto;
+    height: 160px;
+}
+
+li.menu-item {
+    margin-left: 5px;
 }
 
 .round {
