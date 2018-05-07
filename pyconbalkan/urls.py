@@ -16,8 +16,10 @@ router.extend(organizers)
 
 urlpatterns = [
     url(r'^$', views.home, name='index'),
+    url(r'^cfp$', views.cfp, name='cfp'),
+    url(r'^sponsors$', views.sponsors, name='sponsors'),
     url(r'^organizers$', views.organizers, name='organizers'),
     url(r'^coc$', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls)), # API
+    url(r'^api/', include(router.urls)),  # API
 ]

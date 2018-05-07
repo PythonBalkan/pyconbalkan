@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <!-- Main Content -->
+
+    <div class="col-xl-6 offset-1">
+        <div>
+            <h1 class="font900 font-yellow">Sponsoring</h1>
+        </div>
+
+
+        <table class="ticket">
+            <tr>
+                <td colspan="2">
+                    <label for="id_sponsor_org" class="font400 font-blue">Sponsor Organization</label><br>
+                    <input type="text" name="sponsor_org" id="id_sponsor_org" class="input_border" required />
+                </td>
+                <td style="width: 10%;"></td>
+                <td colspan="2">
+                    <label for="id_type_org" class="font400 font-blue">Type of organization</label><br>
+                    <input type="radio" name="type_org" id="id_profit_co">
+                    <label for="id_profit_co" class="font400 font-blue">For - profit corporation</label><br>
+                    <input type="radio" name="type_org" id="id_foundation">
+                    <label for="id_foundation" class="font400 font-blue">Foundation / Non profit</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h2 class="font400 font-yellow"><b>Contact</b></h2>
+                </td>
+                <td style="width: 10%;"></td>
+                <td colspan="2" rowspan="4">
+                    <table class="yellow-table">
+                        <tr>
+                            <td colspan="2">
+                                <h2 class="font400"><b>Level of Sponsporship</b></h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="level" id="id_platinum" value="Platinum" onchange="radio(this)">
+                                <label for="id_platinum" class="font400">Platinum</label>
+                            </td>
+                            <td>
+                                <label for="id_platinum" class="font400" id="id_platinum_value">5000$</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="level" id="id_gold" value="Gold" onchange="radio(this)">
+                                <label for="id_gold" class="font400">Gold</label>
+                            </td>
+                            <td>
+                                <label for="id_gold" class="font400" id="id_gold_value">2500$</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="level" id="id_silver" value="Silver" onchange="radio(this)">
+                                <label for="id_silver" class="font400">Silver</label>
+                            </td>
+                            <td>
+                                <label for="id_silver" class="font400" id="id_silver_value">1000$</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="level" id="id_bronze" value="Bronze" onchange="radio(this)">
+                                <label for="id_bronze" class="font400">Bronze</label>
+                            </td>
+                            <td>
+                                <label for="id_bronze" class="font400" id="id_bronze_value">500$</label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="id_name" class="font400 font-blue">Name and Surname</label>
+                    <input type="text" name="name" id="id_name" class="input_border" required />
+                </td>
+                <td style="width: 10%;"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="id_phone" class="font400 font-blue">Phone number</label>
+                    <input type="text" name="phone" id="id_phone" class="input_border" required />
+                </td>
+                <td style="width: 10%;"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="id_email" class="font400 font-blue">e-mail</label><br>
+                    <input type="email" name="email" id="id_email" class="input_border" required />
+                </td>
+                <td style="width: 10%;"></td>
+            </tr>
+            <tr class="moveDown">
+            </tr>
+            <tr>
+                <td style="width: 40%"></td>
+                <td colspan="3">
+                    <button name="level" id="id_level" class="button-style">
+                        <span class="left" id="label_name">Platinum: </span>
+                        <span class="right" id="total">5000$</span>
+                    </button>
+                </td>
+                <td style="width: 100px;">
+                    <input type="button" name="donate" id="id_donate" value="Donate" class="button-style"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- END of Main Content -->
+
+{% endblock %}
