@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import CASCADE
 
 from pyconbalkan.core.models import Person, ActiveModel
 
@@ -12,9 +13,10 @@ class Volunteer(ActiveModel, Person):
         (VOLUNTEER, 'Volunteer'),
     )
 
-    user = models.ForeignKey(User, blank=True, null=True, related_name='volunteer')
+    user = models.ForeignKey(User, blank=True, null=True, related_name='volunteer', on_delete=CASCADE)
     type = models.IntegerField(choices=VOLUNTEER_TYPE, default=VOLUNTEER)
 
+
 class VolunteerPhoto(models.Model):
-    volunteer = models.ForeignKey(Volunteer, related_name='images')
+    volunteer = models.ForeignKey(Volunteer, related_name='images', on_delete=CASCADE)
     profile_picture = models.ImageField(upload_to="static/img")
