@@ -7,7 +7,9 @@ branches:
 install:
 - pip install -r requirements.txt
 script:
-- python manage.py test
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ];
+  then python manage.py test;
+  fi
 deploy:
   provider: heroku
   app: pyconbalkan
