@@ -66,6 +66,11 @@ li.menu-item {
     font-weight: 900;
 }
 
+.font300 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
 .one {
     margin-bottom: -12px;
     font-size: 4.5rem;
@@ -108,6 +113,14 @@ hr {
 
 .font-blue {
     color: #22A4D9;
+}
+
+.font-white {
+    color: #FFFFFF;
+}
+
+.font14 {
+    font-size: 14px;
 }
 
 .fa-calendar-alt, .fa-users, .fa-globe{
