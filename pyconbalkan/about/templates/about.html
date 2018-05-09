@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <!-- Main Content -->
+
+    <div class="col-xl-6 offset-1">
+        {% if about %}
+            <h1 class="font900 font-yellow">{{ about.title|safe }}</h1>
+                <div class="font14 font-white">
+                {{ about.description|safe }}
+                </div>
+        {% else %}
+            <div class="white">
+                <span class="blue">C</span>OMING <span class="yellow">S</span>OON
+            </div>
+        {% endif %}
+    </div>
+
+
+    <!-- END of Main Content -->
+
+{% endblock %}

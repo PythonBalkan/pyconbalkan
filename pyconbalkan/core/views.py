@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 from pyconbalkan.conference.models import Conference, CountDown
-from pyconbalkan.organizers.models import Volunteer
 from pyconbalkan.speaker.models import Speaker
 
 
@@ -17,13 +16,3 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-def organizers(request):
-    volunteers = Volunteer.objects.filter(type=Volunteer.VOLUNTEER, active=True)
-    organizers = Volunteer.objects.filter(type=Volunteer.ORGANIZER, active=True)
-    conference = Conference.objects.filter(active=True)
-    context = {
-        'volunteers': volunteers,
-        'organizers': organizers,
-        'conference': conference.first() if conference else None,
-    }
-    return render(request, 'organizers.html', context)
