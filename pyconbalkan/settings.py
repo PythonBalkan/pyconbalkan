@@ -132,7 +132,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 PDF_ROOT = os.path.join(BASE_DIR, 'pyconbalkan/core/static/pdf/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pyconbalkan/core/')
-MEDIA_URL = '/img/'
+MEDIA_URL = '/'
 
 
 REST_FRAMEWORK = {
