@@ -12,6 +12,7 @@ from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
 from pyconbalkan.sponsors.api_urls import router as sponsors
+from pyconbalkan.cfp.api_urls import router as cfp
 
 router = routers.DefaultRouter()
 router.extend(conference)
@@ -19,6 +20,7 @@ router.extend(speaker)
 router.extend(organizers)
 router.extend(about)
 router.extend(sponsors)
+router.extend(cfp)
 
 urlpatterns = [
     path('', views.home, name='index'),
