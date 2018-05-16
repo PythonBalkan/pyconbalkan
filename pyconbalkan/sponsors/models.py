@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from djchoices import DjangoChoices, ChoiceItem
+from pyconbalkan.core.models import ActiveModel
 
 
 class SponsorshipLevel(DjangoChoices):
@@ -43,3 +44,16 @@ class Sponsor(models.Model):
             )
         super().save(force_insert=force_insert, force_update=force_update,
                      using=using, update_fields=update_fields)
+
+
+class PackageOption(models.Model):
+    name = models.CharField(max_length=256)
+    description = models.TextField(blank=True, null=True)
+
+
+class SponsorshipPackage(ActiveModel):
+    name = models.CharField(max_length=256)
+    limit = models.IntegerField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    description = models.TextField(blank=True, null=True)
+    options = models.ManyToManyField('PackageOption')
