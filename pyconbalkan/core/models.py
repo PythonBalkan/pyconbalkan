@@ -19,6 +19,7 @@ class Person(models.Model):
     def __str__(self):
         return self.name if self.name else str(self.id)
 
+
 class ActiveModel(models.Model):
     active = models.BooleanField(default=False)
 

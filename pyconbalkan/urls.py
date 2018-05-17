@@ -2,6 +2,7 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from django.views.static import serve
+from markdownx import urls as markdownx
 
 from pyconbalkan.cfp.views import cfp_view
 from pyconbalkan.conference.api_urls import router as conference
@@ -42,4 +43,5 @@ urlpatterns = [
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
+    path('markdownx/', include(markdownx)),
 ]

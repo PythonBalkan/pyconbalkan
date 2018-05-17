@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # others
     'rest_framework',
     'django_countries',
+    'markdownx',
 ]
 
 MIDDLEWARE = [

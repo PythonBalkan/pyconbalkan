@@ -4,6 +4,7 @@ Django==2.0.5
 django-choices==1.6.0
 django-countries==5.3
 django-filter==1.1.0
+django-markdownx==2.0.23
 djangorestframework==3.8.2
 gunicorn==19.8.1
 Markdown==2.6.11

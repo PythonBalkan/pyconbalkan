@@ -1,11 +1,11 @@
 from django.db import models
 from django.db.models import CASCADE
-
+from markdownx.models import MarkdownxField
 from pyconbalkan.core.models import Person, ActiveModel
 
 
 class Speaker(ActiveModel, Person):
-    pass
+    biography = MarkdownxField(null=True, blank=True)
 
 
 class SpeakerPhoto(models.Model):
