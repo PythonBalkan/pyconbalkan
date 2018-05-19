@@ -56,12 +56,5 @@ class SponsorshipPackage(ActiveModel):
     limit = models.IntegerField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField(blank=True, null=True)
-    options = models.ManyToManyField('PackageOption', through='SponsorshipPackageOptions')
+    options = models.ManyToManyField('PackageOption')
 
-
-class SponsorshipPackageOptions(models.Model):
-    package = models.ForeignKey(SponsorshipPackage, on_delete=models.CASCADE)
-    option = models.ForeignKey(PackageOption, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = ('package', 'option')
