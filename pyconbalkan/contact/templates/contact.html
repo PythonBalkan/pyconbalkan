@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<!-- Main Content -->
+
+
+<div class="col-xl-6 offset-1">
+    <div class="white">
+        <form novalidate action="{% url 'contact' %}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    {{ field }}
+                    <p class="error">{{ field.errors.as_text|cut:"* " }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <input class="btn" type="submit" value="Submit"/>
+        </form>
+    </div>
+</div>
+
+
+<!-- END of Main Content -->
+
+{% endblock %}
