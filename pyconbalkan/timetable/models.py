@@ -8,6 +8,9 @@ class Timetable(ActiveModel):
     title = models.CharField(null=True, blank=True, max_length=100)
     date = models.DateField(null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Presentation(ActiveModel):
     TALK = 0
@@ -23,15 +26,25 @@ class Presentation(ActiveModel):
 
     speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentation', on_delete=CASCADE)
 
+    def __str__(self):
+        return '[{presentation_type}] {title}'.format(presentation_type=self.PRESENTATION_TYPE[self.type][1],
+                                                      title=self.title)
+
 
 class Room(ActiveModel):
     name = models.CharField(null=True, blank=True, max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Slot(ActiveModel):
-    from_date = models.DateField(null=True, blank=True)
-    to_date = models.DateField(null=True, blank=True)
+    from_date = models.DateTimeField(null=True, blank=True)
+    to_date = models.DateTimeField(null=True, blank=True)
 
     timetable = models.ForeignKey(Timetable, blank=True, null=True, related_name='slot', on_delete=CASCADE)
     talk = models.ForeignKey(Presentation, blank=True, null=True, related_name='slot', on_delete=CASCADE)
     room = models.ForeignKey(Room, blank=True, null=True, related_name='slot', on_delete=CASCADE)
+
+    def __str__(self):
+        return 'From {:%d-%m-%Y %H:%M} to {:%d-%m-%Y %H:%M}'.format(self.from_date, self.to_date)
