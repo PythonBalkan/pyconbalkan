@@ -2,9 +2,8 @@
 # file for python-decouple
 .env
 # virtual env
-.venv
+.venv/
 .idea
 *.sqlite3
-*pyc
+*.py[cod]
 __pycache__
-.venv/
