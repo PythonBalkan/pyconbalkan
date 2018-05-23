@@ -4,25 +4,20 @@
 
 <!-- Main Content -->
 
-
 <div class="col-xl-6 offset-1">
-    <div class="white">
-        <form novalidate action="{% url 'contact' %}" method="post" enctype="multipart/form-data">
+    <div>
+        <h1 class="font900 font-yellow">Contact Us!</h1>
+    </div>
+    <div class="red">
+        <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
             <div class="form-group">
                 {% csrf_token %}
-                {% for field in form %}
-                <div class="form-group">
-                    {{ field }}
-                    <p class="error">{{ field.errors.as_text|cut:"* " }}</p>
-                </div>
-                {% endfor %}
+                {{ form.as_p }}
             </div>
-            <input class="btn" type="submit" value="Submit"/>
+            <input class="btn" type="submit" value="Submit" style="float: right; background-color: #53A8DC; "/>
         </form>
     </div>
 </div>
 
-
 <!-- END of Main Content -->
-
 {% endblock %}
