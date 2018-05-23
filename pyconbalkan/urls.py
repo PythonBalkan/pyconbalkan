@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from django.views.static import serve
 
+from pyconbalkan.cfp.views import cfp_view
 from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.core import routers, views
 from pyconbalkan.about.views import about_view
@@ -30,6 +31,7 @@ urlpatterns = [
     path('organizers', organizers_view, name='organizers'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
+    path('cfp', cfp_view, name='cfp'),
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
