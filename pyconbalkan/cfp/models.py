@@ -27,7 +27,7 @@ class CfpForm(ModelForm):
                             max_length=100, required=False, label='')
     title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Title of your proposal', 'class': 'form-control'}),
                               error_messages={'required': 'Please, enter your message.'}, label='')
-    description= forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Description of the your proposal', 'class': 'form-control'}),
+    description= forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Description of your proposal', 'class': 'form-control'}),
                               error_messages={'required': 'Please, enter your message.'}, label='')
 
     class Meta:
