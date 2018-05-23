@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pyconbalkan.speaker',
     'pyconbalkan.organizers',
     'pyconbalkan.about',
+    'pyconbalkan.cfp',
     'pyconbalkan.timetable',
     'pyconbalkan.sponsors',
     'pyconbalkan.contact',

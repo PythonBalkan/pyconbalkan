@@ -12,16 +12,20 @@ from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
+from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.sponsors.api_urls import router as sponsors
+
 
 router = routers.DefaultRouter()
 router.extend(conference)
 router.extend(speaker)
 router.extend(organizers)
 router.extend(about)
+router.extend(cfp)
 router.extend(contact)
 router.extend(sponsors)
+
 
 urlpatterns = [
     path('', views.home, name='index'),
@@ -30,5 +34,5 @@ urlpatterns = [
     path('contact', contact_view, name='contact'),
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),  # API
+    path('api/', include(router.urls)), # API
 ]
