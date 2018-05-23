@@ -27,8 +27,7 @@ class Presentation(ActiveModel):
     speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentation', on_delete=CASCADE)
 
     def __str__(self):
-        return '[{presentation_type}] {title}'.format(presentation_type=self.PRESENTATION_TYPE[self.type][1],
-                                                      title=self.title)
+        return '[{}] {}'.format(self.get_type_display(), self.title)
 
 
 class Room(ActiveModel):
