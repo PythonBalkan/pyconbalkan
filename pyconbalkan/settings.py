@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'pyconbalkan.about',
     'pyconbalkan.timetable',
     'pyconbalkan.sponsors',
+    'pyconbalkan.cfp',
     'pyconbalkan.contact',
     # others
     'rest_framework',
