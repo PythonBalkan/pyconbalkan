@@ -8,5 +8,6 @@ class Speaker(ActiveModel, Person):
 
 
 class SpeakerPhoto(models.Model):
-    speaker = models.ForeignKey(Speaker, related_name='images')
+    speaker = models.ForeignKey(Speaker, related_name='images',
+                                on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to="static/img")
