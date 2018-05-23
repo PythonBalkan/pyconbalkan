@@ -13,6 +13,7 @@ from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
+from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.sponsors.api_urls import router as sponsors
 from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
@@ -22,6 +23,7 @@ router.extend(conference)
 router.extend(speaker)
 router.extend(organizers)
 router.extend(about)
+router.extend(contact)
 router.extend(sponsors)
 router.extend(cfp)
 router.extend(contact)
