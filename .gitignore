@@ -8,4 +8,13 @@
 *.py[cod]
 __pycache__
 
-/staticfiles/
+# Django stuff:
+staticfiles/
+
+# Dependency directories
+node_modules/
+
+# Staticfiles
+pyconbalkan/core/static/dst/admin/
+pyconbalkan/core/static/dst/flags/
+pyconbalkan/core/static/dst/rest_framework/
