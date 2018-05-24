@@ -16,3 +16,9 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+def tickets(request):
+    conference = Conference.objects.filter(active=True)
+    context = {
+        'conference': conference.first() if conference else None,
+    }
+    return render(request, 'tickets.html', context)

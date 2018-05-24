@@ -108,7 +108,7 @@ hr {
 }
 
 .font-yellow {
-    color: #F3D66C;
+    color: #FFD54F;
 }
 
 .font-blue {
@@ -121,6 +121,15 @@ hr {
 
 .font14 {
     font-size: 14px;
+    color: white;
+}
+
+.font-grey {
+    color: darkgrey;
+}
+
+.font-small {
+    font-size: 0.8em;
 }
 
 .fa-calendar-alt, .fa-users, .fa-globe{
@@ -282,4 +291,179 @@ ul.countdown li div {
     color: #ff0000;
     font-size: 16px;
     font-weight: bold;
+}
+
+table.ticket {
+    border-collapse: separate;
+}
+
+
+.input_border {
+    width: 100%;
+    box-sizing:border-box;
+    border: none;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-box-shadow: 0px 0px 0px #FFF;
+    -webkit-box-shadow: 0px 0px 0px #FFF;
+    box-shadow: 0px 0px 0px #FFF;
+    outline: 0;
+    padding: 4px 20px;
+    -webkit-appearance: none;
+    line-height: 2.2;
+    background-color: #FFF;
+}
+
+select, option {
+    margin: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.b-select-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.b-select-wrap:after {
+    content: "⌄";
+    padding: 0%;
+    position: absolute;
+    top: 25%;
+    right: 15px;
+    z-index: 1;
+    text-align: center;
+    width: 20px;
+    height: 50%;
+    pointer-events: none;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 30px;
+    background-color: #0080C6;
+    font-weight: bolder;
+}
+
+.b-input-date-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.b-input-date-wrap:after {
+    content: "📅";
+    padding: 1% 0% 0% 0%;
+    position: absolute;
+    top: 25%;
+    right: 15px;
+    z-index: 1;
+    text-align: center;
+    width: 20px;
+    height: 50%;
+    pointer-events: none;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 30px;
+    background-color: #0080C6;
+    font-weight: bolder;
+}
+
+.b-input-time-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.b-input-time-wrap:after {
+    content: "🕒";
+    padding: 1% 0% 0% 0%;
+    position: absolute;
+    top: 25%;
+    right: 15px;
+    z-index: 1;
+    text-align: center;
+    width: 20px;
+    height: 50%;
+    pointer-events: none;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 30px;
+    background-color: #0080C6;
+    font-weight: bolder;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-outer-spin-button,
+input[type="time"]::-webkit-clear-button {
+    display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="date"]::-webkit-datetime-edit{
+    color: transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit{
+    color: #000;
+}
+
+.button-style {
+    width: 100%;
+    border: 3px solid #FFD54F;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-box-shadow: 0px 0px 0px #FFF;
+    -webkit-box-shadow: 0px 0px 0px #FFF;
+    box-shadow: 0px 0px 0px #FFF;
+    outline: 0;
+    padding: 4px 20px;
+    -webkit-appearance: none;
+}
+button {
+    background-color: #333B3D;
+}
+
+input[type="button"]{
+    background-color: #FFD54F;
+}
+
+input[type="checkbox"]
+{
+    border: 5px #FFF;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-box-shadow: 0px 0px 0px #FFF;
+    -webkit-box-shadow: 0px 0px 0px #FFF;
+    box-shadow: 0px 0px 0px #FFF;
+    outline: 0;
+    padding: 10px 10px;
+    -webkit-appearance: none;
+    line-height: 1.5;
+    background-color: #FFF;
+    width: 15px;
+    height: 10px;
+    margin-bottom: 0px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #0080C6;
+}
+
+
+.left {
+    float: left;
+    color: #FFD54F;
+}
+
+.right {
+    float: right;
+    color: #FFF;
 }
