@@ -72,9 +72,9 @@ gulp.task('vendor', function () {
 });
 
 gulp.task('imgCompression', function () {
-    return gulp.src(`${srcPath}/images/*`)
+    return gulp.src(`${srcPath}/img/*`)
     .pipe(imagemin()) // Compresses PNG, JPEG, GIF and SVG images
-    .pipe(gulp.dest(`${dstPath}/images/`));
+    .pipe(gulp.dest(`${dstPath}/img/`));
 });
 
 gulp.task('copy', function () {
