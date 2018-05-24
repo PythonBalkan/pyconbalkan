@@ -2,5 +2,10 @@ from django.contrib import admin
 from pyconbalkan.cfp.models import Cfp
 
 
-admin.register(Cfp)
+class CfpAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Cfp
+
+
+admin.site.register(Cfp, CfpAdmin)
 
