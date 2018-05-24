@@ -8,15 +8,17 @@ from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.core import routers, views
 from pyconbalkan.about.views import about_view
 from pyconbalkan.contact.views import contact_view
+from pyconbalkan.news.views import news_view
 from pyconbalkan.organizers.views import organizers_view
 from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
-from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.sponsors.api_urls import router as sponsors
 from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
+from pyconbalkan.news.api_urls import router as news
+
 
 router = routers.DefaultRouter()
 router.extend(conference)
@@ -27,6 +29,7 @@ router.extend(contact)
 router.extend(sponsors)
 router.extend(cfp)
 router.extend(contact)
+router.extend(news)
 
 urlpatterns = [
     path('', views.home, name='index'),
@@ -34,6 +37,7 @@ urlpatterns = [
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
+    path('news', news_view, name='news'),
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
