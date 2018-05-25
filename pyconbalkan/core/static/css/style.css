@@ -20,15 +20,9 @@ body {
     font-weight: 400;
     max-width: 100%;
     margin: 0;
-    /* The image used */
-    /* Full height */
     height: 100%;
-    /* Center and scale the image nicely */
-    background: url('/static/img/background.jpg') no-repeat no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: linear-gradient(90deg, #FFFFFF 30%, #343B3D 30%);
+    padding-bottom: 50px;
 }
 
 .navbar-brand img {
@@ -282,4 +276,16 @@ ul.countdown li div {
     color: #ff0000;
     font-size: 16px;
     font-weight: bold;
+}
+
+.btn-buy-tickets {
+    color: black;
+    border-color: #FFFFFF;
+    outline: none !important;
+    box-shadow: none !important;
+    background: #F9D768;
+}
+
+.conference-info {
+    margin-left: 2.4%;
 }

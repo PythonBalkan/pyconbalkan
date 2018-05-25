@@ -47,7 +47,7 @@
 <!-- Navigation Bar -->
 
 <div class="row">
-    <div class="col-md-11 offset-0">
+    <div class="col-md-12 offset-0">
         <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
             <div class="navbar navbar-header mr-auto">
                 <a class="navbar-brand" href="/#"><img src="{% static 'img/pycon_logo.png' %}"></a>
@@ -59,6 +59,7 @@
                 <li class="menu-item"><a class="btn btn-light btn-sm round" href="/about" role="button">About Us</a></li>
                 <li class="menu-item"><a class="btn btn-light btn-sm round" href="/cfp" role="button">CFP</a></li>
                 <li class="menu-item"><a class="btn btn-light btn-sm round" href="/contact" role="button">Contact</a></li>
+                <li class="menu-item"><a class="btn btn-sm round btn-buy-tickets" href="https://www.eventbrite.com/e/pycon-balkan-tickets-45876685401?ref=ebtnebtckt" role="button">Buy Tickets</a></li>
 {#                <li class="menu-item"><a class="btn btn-light btn-sm round" href="/cfp" role="button">CFP</a></li>#}
 {#                <li class="menu-item"><a class="btn btn-light btn-sm round" href="/sponsors" role="button">Sponsors</a></li>#}
 {#                <li><a class="btn btn-light btn-sm round" href="#" role="button">News</a></li>#}
@@ -80,7 +81,7 @@
     <!-- Left Side -->
 
 
-    <div class="col-xl-3 offset-1">
+    <div class="col-xl-4 conference-info">
         <div>
             {% if conference %}
             <h1 class="font900 one">{{ conference.event }}</h1>
