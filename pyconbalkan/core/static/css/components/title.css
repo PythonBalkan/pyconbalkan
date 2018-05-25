@@ -1,0 +1,15 @@
+/*
+ * Title
+ * Heading components.
+ */
+
+.title {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+/* Modifiers */
+
+.title--yellow {
+    color: #F3D66C;
+}

@@ -27,6 +27,10 @@ body {
     background-size: cover; */
 }
 
+p {
+    font-size: 1.6rem;
+}
+
 /* .navbar-brand img {
     height: 160px;
 }

@@ -1,0 +1,23 @@
+/*
+ * Line
+ * Usually <hr> elements representing a line.
+ */
+
+.line {
+    height: 2px;
+    border: 0;
+}
+
+/* Modifiers */
+
+.line--blue {
+    background-color: #22A4D9;
+}
+
+.line--short {
+    width: 45px;
+}
+
+.line--spaced {
+    margin: 32px 0;
+}
