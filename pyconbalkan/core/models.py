@@ -17,7 +17,7 @@ class Person(models.Model):
         abstract = True
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else str(self.id)
 
 class ActiveModel(models.Model):
     active = models.BooleanField(default=False)
