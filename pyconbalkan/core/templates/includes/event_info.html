@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="col-xl-3 offset-1">
+    <div>
+        {% if conference %}
+        <h1 class="font900 one">{{ conference.event }}</h1>
+        <h2 class="one">{{ conference.name }}</h2>
+        <h3>{{ conference.city }} {{ conference.year }}</h3>
+        {% endif %}
+    </div>
+    <hr> {% if conference %}
+    <div class="details">
+        <h1 class="font900 font-yellow">#{{ conference.number }}</h1>
+        <p>{{ conference.address }}</p>
+        <div>
+            <p>
+                <i class="far fa-calendar-alt"></i> {{ conference.from_date }} - {{ conference.to_date }}</p>
+            <p>
+                <i class="fas fa-users"></i> {{ conference.max_attendees }} attendees</p>
+            <p>
+                <i class="fas fa-globe"></i> {{ conference.get_type_display }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
