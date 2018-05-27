@@ -1,0 +1,26 @@
+/*
+ * Button
+ */
+
+.button {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 24px;
+    transition: all .3s;
+}
+
+.button:hover {
+    background-color: #22A4D9;
+    color: #fff;
+}
+
+/* Modifiers */
+
+.button--yellow {
+    color: #000;
+    background-color: #F3D66C;
+}

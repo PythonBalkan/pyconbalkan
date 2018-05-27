@@ -1,0 +1,41 @@
+/*
+ * Speaker
+ * List of cards with speaker info.
+ */
+
+.speaker {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+    .speaker__card {
+        max-width: 300px;
+        margin: 10px;
+        color: #fff;
+    }
+
+        .speaker__image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .speaker__image img {
+            display: block;
+            width: 100%;
+        }
+
+        .speaker__name {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .speaker__job {
+            font-size: 1.8rem;
+        }

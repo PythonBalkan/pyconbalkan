@@ -21,6 +21,7 @@
         }
 
             .menu__list__link {
+                display: block;
                 font-size: 1.4rem;
                 padding: 7px 12px;
                 color: #fff;

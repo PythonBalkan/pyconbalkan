@@ -1,3 +1,7 @@
 .page {
-    
 }
+
+    .page__content {
+        margin-left: 400px;
+        padding: 135px 140px 70px;
+    }
