@@ -53,39 +53,39 @@
 
     {% include 'includes/header.html' %}
 
-    <section class="content">
-        <aside class="event-sidebar">
-            <img class="event-sidebar__logo" src="{% static 'img/pycon_logo.png' %}">
-            <div class="event-sidebar__title">
-                <h1>PyCon</h1>
-                <h2>Balkan</h2>
-                <h3>Belgrade 2018</h3>
-            </div>
-            <hr class="line line--blue line--short line--spaced">
-            <h1 class="title title--yellow">#1</h1>
-            <p class="event-sidebar__text">
-                Hilton Belgrade - Kralja Milana 35, Beograd
-            </p>
-            <p class="event-sidebar__text">
-                <i class="event-sidebar__icon far fa-calendar-alt"></i>
-                Nov. 16, 2018 - Nov. 18, 2018
-            </p>
-            <p class="event-sidebar__text">
-                <i class="event-sidebar__icon fas fa-users"></i>
-                500 attendies
-            </p>
-            <p class="event-sidebar__text">
-                <i class="event-sidebar__icon fas fa-globe"></i>
-                International
-            </p>
-        </aside>
-        {% comment %} {% block main_content %}{% endblock %} {% endcomment %}
-    </section>
+    <aside class="event-sidebar">
+        <img class="event-sidebar__logo" src="{% static 'img/pycon_logo.png' %}">
+        <div class="event-sidebar__title">
+            <h1>PyCon</h1>
+            <h2>Balkan</h2>
+            <h3>Belgrade 2018</h3>
+        </div>
+        <hr class="line line--blue line--short line--spaced">
+        <h1 class="title title--yellow">#1</h1>
+        <p class="event-sidebar__text">
+            Hilton Belgrade - Kralja Milana 35, Beograd
+        </p>
+        <p class="event-sidebar__text">
+            <i class="event-sidebar__icon far fa-calendar-alt"></i>
+            Nov. 16, 2018 - Nov. 18, 2018
+        </p>
+        <p class="event-sidebar__text">
+            <i class="event-sidebar__icon fas fa-users"></i>
+            500 attendies
+        </p>
+        <p class="event-sidebar__text">
+            <i class="event-sidebar__icon fas fa-globe"></i>
+            International
+        </p>
+    </aside>
+
+    <article class="content">
+        {% block main_content %}{% endblock %}
+    </article>
 
 <!-- Bootstrap 4 scripts -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>
