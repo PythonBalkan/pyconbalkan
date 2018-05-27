@@ -1,21 +1,21 @@
 /*
- * Speaker
- * List of cards with speaker info.
+ * Card
+ * List of cards with card, organizer and volunteer info.
  */
 
-.speaker {
+.card {
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
 }
 
-    .speaker__card {
+    .card__item {
         max-width: 300px;
         margin: 10px;
         color: #fff;
     }
 
-        .speaker__image {
+        .card__image {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -26,16 +26,16 @@
             margin-bottom: 10px;
         }
 
-        .speaker__image img {
+        .card__image img {
             display: block;
             width: 100%;
         }
 
-        .speaker__name {
+        .card__name {
             font-size: 2.8rem;
             margin-bottom: 10px;
         }
 
-        .speaker__job {
+        .card__job {
             font-size: 1.8rem;
         }

@@ -14,6 +14,10 @@
 
 /* Margin bottom */
 
+.mb-xs-15 {
+    margin-bottom: 15px;
+}
+
 .mb-xs-50 {
     margin-bottom: 50px;
 }

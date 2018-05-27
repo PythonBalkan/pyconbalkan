@@ -1,0 +1,13 @@
+/*
+ * Long Text
+ * Container for texts like the one in the about page.
+ */
+
+.long-text {
+    color: #fff;
+}
+
+    .long-text > p {
+        font-size: 1.4rem;
+        margin: 16px 0;
+    }
