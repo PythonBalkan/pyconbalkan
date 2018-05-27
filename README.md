@@ -13,25 +13,24 @@ To get started follow the steps above.
 1. Clone this repo
 2. Create a virtual environment:
 
-`python -m venv .venv`
+```
+cd pyconbalkan
+python -m venv .venv
+```
 
 3. Activate the virtual environment:
 
-`source .venv/bin/activate`
+```
+source .venv/bin/activate
+```
 
 4. Install the requirements:
 
-`pip install -r requirements.txt`
+```
+pip install -r requirements.txt
+```
 
-5. Run migrations:
-
-`python manage.py migrate`
-
-6. Run collect static:
-
-`python manage.py collectstatic`
-
-7. Create a file named `.env`
+5. Create a file named `.env`
 
 Inside add:
 ```
@@ -43,9 +42,23 @@ NOTE:
 
 For more information on how you can generate a secret key visit [here](https://foxrow.com/generating-django-secret-keys) or you can generate a key online at [here](https://www.miniwebtool.com/django-secret-key-generator/).
 
+6. Run migrations:
+
+```
+python manage.py migrate
+```
+
+7. Run collect static:
+
+```
+python manage.py collectstatic
+```
+
 8. Get the server up and running:
 
-`python manage.py runserver`
+```
+python manage.py runserver
+```
 
 You did it! If you have any problems doing this let us know by submitting an [issue](https://github.com/PythonBalkan/pyconbalkan/issues).
 
