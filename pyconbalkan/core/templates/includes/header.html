@@ -1,6 +1,6 @@
 {% load static %}
 
-<header class="header">
+<header>
     <nav class="menu">
         <ul class="menu__list">
             <li class="menu__list__item">
@@ -22,8 +22,8 @@
                 <a class="menu__list__link {% if request.path == '/contact' %}active{% endif %}" href="/contact" role="button">Contact</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link menu__list__link--featured" href="/https://www.eventbrite.com/e/pycon-balkan-tickets-45876685401?ref=ebtnebtckt"
-                    role="button">Buy Tickets</a>
+                <a class="menu__list__link menu__list__link--featured" href="https://www.eventbrite.com/e/pycon-balkan-tickets-45876685401?ref=ebtnebtckt"
+                    target="_blank" role="button">Buy Tickets</a>
             </li>
         </ul>
     </nav>
