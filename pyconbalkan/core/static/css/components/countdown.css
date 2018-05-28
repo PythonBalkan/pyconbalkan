@@ -8,6 +8,11 @@
     margin-top: 35px;
     margin-bottom: 45px;
 }
+@media (max-width: 768px) {
+    .countdown {
+        flex-direction: column;
+    }
+}
 
     .countdown__days {
         font-family: 'Montserrat', sans-serif;

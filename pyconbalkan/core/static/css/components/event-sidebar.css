@@ -13,6 +13,13 @@
     width: 400px;
     padding: 30px 30px 30px 70px;
 }
+@media (max-width: 768px) {
+    .event-sidebar {
+        position: initial;
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
 
     .event-sidebar__logo {
         width: 160px;

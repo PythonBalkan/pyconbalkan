@@ -8,6 +8,12 @@
     text-align: right;
     padding: 50px 150px 0;
 }
+@media (max-width: 768px) {
+    .menu {
+        text-align: left;
+        padding: 40px 30px;
+    }
+}
 
     .menu__list {
         margin: 0;
@@ -19,6 +25,13 @@
             display: inline-block;
             margin-left: 5px;
         }
+        @media (max-width: 768px) {
+            .menu__list__item {
+                display: block;
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
 
             .menu__list__link {
                 display: block;
@@ -28,6 +41,13 @@
                 text-decoration: none;
                 border-radius: 24px;
                 transition: all .3s;
+            }
+            @media (max-width: 768px) {
+                .menu__list__link {
+                    display: inline-block;
+                    font-size: 1.6rem;
+                    padding: 10px 15px;
+                }
             }
 
             .menu__list__link.active,
