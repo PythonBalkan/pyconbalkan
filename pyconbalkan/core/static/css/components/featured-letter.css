@@ -1,0 +1,17 @@
+/*
+ * Featured Letter
+ * Colored letter on titles.
+ */
+
+.featured-letter {
+}
+
+/* Modifiers */
+
+.featured-letter--blue {
+    color: #22A4D9;
+}
+
+.featured-letter--yellow {
+    color: #F3D66C;
+}

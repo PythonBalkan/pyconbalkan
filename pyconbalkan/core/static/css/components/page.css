@@ -1,0 +1,13 @@
+.page {
+}
+
+    .page__content {
+        margin-left: 400px;
+        padding: 135px 140px 70px;
+    }
+    @media (max-width: 768px) {
+        .page__content {
+            margin-left: 0;
+            padding: 40px 30px;
+        }
+    }

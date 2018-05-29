@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 16px * 62.5%: Base 10 font sizing (i.e. 1.0rem == 10px ) */
+}
+@media (max-width: 768px) {
+    html {
+        font-size: 52.5%;
+    }
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background-color: #32383A;
+    /* Center and scale the image nicely */
+    /* background: url('/static/img/background.jpg') no-repeat no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+}
+
+p {
+    font-size: 1.6rem;
+}

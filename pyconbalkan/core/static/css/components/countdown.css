@@ -1,0 +1,59 @@
+/*
+ * Countdown
+ * Timer in the home page.
+ */
+
+.countdown {
+    display: flex;
+    margin-top: 35px;
+    margin-bottom: 45px;
+}
+@media (max-width: 768px) {
+    .countdown {
+        flex-direction: column;
+    }
+}
+
+    .countdown__days {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 4.8rem;
+        color: #22A4D9;
+        margin-right: 20px;
+    }
+
+        .countdown__days__number {
+            border: 10px solid white;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+    .countdown__time {
+        flex: 1;
+        display: flex;
+        width: 300px;
+        padding-top: 17px;
+    }
+
+        .countdown__time__digit {
+            text-align: center;
+            padding: 0 2px;
+        }
+
+            .countdown__time__number {
+                min-width: 35px;
+                display: block;
+                font-size: 2.9rem;
+                color: #F3D66C;
+            }
+
+            .countdown__time__dots {
+                display: block;
+                font-size: 2.9rem;
+                color: #F3D66C;
+            }
+
+            .countdown__time__text {
+                display: block;
+                color: #fff;
+            }

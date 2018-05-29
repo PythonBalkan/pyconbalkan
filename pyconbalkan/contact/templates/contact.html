@@ -2,22 +2,16 @@
 
 {% block main_content %}
 
-<!-- Main Content -->
+    {# Contact #}
 
-<div class="col-xl-6 offset-1">
-    <div>
-        <h1 class="font900 font-yellow">Contact Us!</h1>
-    </div>
-    <div class="red">
-        <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
-            <div class="form-group">
-                {% csrf_token %}
-                {{ form.as_p }}
-            </div>
-            <input class="btn" type="submit" value="Submit" style="float: right; background-color: #53A8DC; "/>
-        </form>
-    </div>
-</div>
+    <h1 class="title title--yellow mb-xs-15">Contact Us!</h1>
 
-<!-- END of Main Content -->
+    <form class="form" action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </div>
+        <input class="button button--blue button--push mb-xs-30" type="submit" value="Submit" />
+    </form>
+
 {% endblock %}

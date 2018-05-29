@@ -1,0 +1,74 @@
+/*
+ * Menu
+ * Website main menu.
+ */
+
+.menu {
+    width: 100%;
+    text-align: right;
+    padding: 50px 150px 0;
+}
+@media (max-width: 768px) {
+    .menu {
+        text-align: left;
+        padding: 40px 30px;
+    }
+}
+
+    .menu__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .menu__list__item {
+            display: inline-block;
+            margin-left: 5px;
+        }
+        @media (max-width: 768px) {
+            .menu__list__item {
+                display: block;
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+            .menu__list__link {
+                display: block;
+                font-size: 1.4rem;
+                padding: 7px 12px;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 24px;
+                transition: all .3s;
+            }
+            @media (max-width: 768px) {
+                .menu__list__link {
+                    display: inline-block;
+                    font-size: 1.6rem;
+                    padding: 10px 15px;
+                }
+            }
+
+            .menu__list__link.active,
+            .menu__list__link:hover {
+                color: #313b3d;
+                background-color: #F3D66C;
+            }
+
+/* Modifiers */
+
+.menu__list__link--featured {
+    background-color: #22A4D9;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.menu__list__link--featured:hover {
+    color: #313b3d;
+    background-color: #F3D66C;
+}
+
+
+
+

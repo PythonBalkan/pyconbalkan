@@ -1,0 +1,32 @@
+/*
+ * Title
+ * Heading components.
+ */
+
+.title {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+/* Modifiers */
+
+.title--uppercase {
+    text-transform: uppercase;
+}
+
+.title--medium {
+    font-size: 3.2rem;
+font-weight: bold;
+}
+
+.title--white {
+    color: #fff;
+}
+
+.title--blue {
+    color: #22A4D9;
+}
+
+.title--yellow {
+    color: #F3D66C;
+}

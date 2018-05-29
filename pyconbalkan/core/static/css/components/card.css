@@ -1,0 +1,41 @@
+/*
+ * Card
+ * List of cards with card, organizer and volunteer info.
+ */
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+    .card__item {
+        max-width: 300px;
+        margin: 10px;
+        color: #fff;
+    }
+
+        .card__image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .card__image img {
+            display: block;
+            width: 100%;
+        }
+
+        .card__name {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card__job {
+            font-size: 1.8rem;
+        }

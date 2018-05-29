@@ -1,0 +1,63 @@
+/*
+ * Event Sidebar
+ * Website left sidebar with the event info.
+ */
+
+.event-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: #fff;
+    width: 400px;
+    padding: 30px 30px 30px 70px;
+}
+@media (max-width: 768px) {
+    .event-sidebar {
+        position: initial;
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+    .event-sidebar__logo {
+        width: 160px;
+    }
+
+    .event-sidebar__title > h1,
+    .event-sidebar__title > h2,
+    .event-sidebar__title > h3 {
+        font-family: 'Montserrat', sans-serif;
+        color: #212529;
+    }
+
+    .event-sidebar__title > h1 {
+        font-size: 7.2rem;
+        font-weight: 900;
+    }
+
+    .event-sidebar__title > h2 {
+        font-size: 7.2rem;
+        font-weight: normal;
+        letter-spacing: .18rem;
+        margin-top: -14px;
+        margin-left: -4px;
+    }
+
+    .event-sidebar__title > h3 {
+        font-size: 3.2rem;
+        font-weight: normal;
+        letter-spacing: .2rem;
+        margin-top: -10px;
+        margin-left: 1px;
+    }
+
+    .event-sidebar__text {
+        margin: 10px 0 20px;
+    }
+
+        .event-sidebar__icon {
+            width: 20px;
+            color: #22A4D9;
+        }
