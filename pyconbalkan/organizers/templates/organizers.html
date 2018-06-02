@@ -7,31 +7,27 @@
     <h1 class="title title--yellow">Organizers</h1>
 
     {% if organizers %}
-        <div class="card-deck moveDown">
+    <div class="card-deck moveDown">
+        {% for organizer in organizers %}
             <div class="card">
-                <div class="row">
-                    {% for organizer in organizers %}
-                        <div class="col-sm">
-                            <img src="{{ organizer.images.first.profile_picture }}" class="rounded-circle">
-                            <ul class="card-body h-100 justify-content-center">
-                                <li><b>{{ organizer.name }}</b></li>
-                                <hr>
-                                <li>{{ organizer.job }}</li>
-                                {% if organizer.user %}
-                                    <li>{{ organizer.user.email }}</li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    {% endfor %}
+                <div class="col-sm">
+                    <img src="{{ organizer.images.first.profile_picture }}" class="card__image">
+                    <p class="card__item"><i class="featured-letter--blue fas fa-user fa-fw"></i><b> {{ organizer.name }}</b></p>
+                    <p class="card__item"><i class="featured-letter--blue fas fa-briefcase fa-fw"></i> {{ organizer.job }}</p>
+                    {% if organizer.user %}
+                        <p class="card__item"><i class="featured-letter--blue fas fa-envelope fa-fw"></i> {{ organizer.user.email }}</p>
+                    {% endif %}
                 </div>
             </div>
-        </div>
+        {% endfor %}
+    </div>
     {% else %}
         <h2 class="title title--white title--medium title--uppercase mt-xs-15 mb-xs-50">
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
-
+    <br>
+    <br>
     {# Volunteers #}
 
     <h1 class="title title--yellow">Volunteers</h1>
