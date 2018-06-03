@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'pyconbalkan.sponsors',
     'pyconbalkan.cfp',
     'pyconbalkan.contact',
+    'pyconbalkan.news',
     # others
     'rest_framework',
     'django_countries',

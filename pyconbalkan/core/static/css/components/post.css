@@ -1,0 +1,58 @@
+
+/*
+ * Post
+ * List of posts in news app.
+ */
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+    .post__item {
+        max-width: 300px;
+        margin: 25px;
+        color: #fff;
+    }
+
+        .post__short_image {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 100%;
+            height: 110px;
+            overflow: hidden;
+        }
+
+        .post__image {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .post__image img {
+            width: 100%;
+        }
+
+        .post__title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        .post__description {
+            font-size: 1.8rem;
+        }

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# News #}
+
+    <h1 class="title title--yellow">News</h1>
+
+    {% if news %}
+        <div class="post">
+            {% for post in news %}
+                <div class="post__item">
+                    <div class="post__short_image">
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            <img src="{{ post.image.url }}">
+                        </a>
+                    </div>
+                    <h2 class="post__title title--yellow">
+                        {{ post.title|safe }}
+                    </h2>
+                    <p class="post__description">
+                        {{ post.text|safe|truncatechars:300 }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2 class="title title--white title--medium title--uppercase mt-xs-15 mb-xs-50">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+    {% endif %}
+
+    <!-- END of Main Content -->
+
+{% endblock %}
