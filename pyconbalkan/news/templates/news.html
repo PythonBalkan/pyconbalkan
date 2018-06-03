@@ -2,27 +2,32 @@
 
 {% block main_content %}
 
-    <!-- Main Content -->
+    {# News #}
+
+    <h1 class="title title--yellow">News</h1>
+
     {% if news %}
-        {% for post in news %}
-            <div class="col-xl-3 offset-1">
-                {% if post.image %}
-                    <div class="post-img">
-                        <img src="{{ post.image }}">
+        <div class="post">
+            {% for post in news %}
+                <div class="post__item">
+                    <div class="post__short_image">
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            <img src="{{ post.image.url }}">
+                        </a>
                     </div>
-                {% endif %}
-                <h1 class="font700 font-yellow">{{ post.title|safe }}</h1>
-                <div class="font14 font-white">
-                    {{ post.text|safe|truncatechars:300 }}
+                    <h2 class="post__title title--yellow">
+                        {{ post.title|safe }}
+                    </h2>
+                    <p class="post__description">
+                        {{ post.text|safe|truncatechars:300 }}
+                    </p>
                 </div>
-            </div>
-        {% endfor %}
-    {% else %}
-    <div class="col-xl-6 offset-1">
-        <div class="white">
-            <span class="blue">NEWS C</span>OMING <span class="yellow">S</span>OON
+            {% endfor %}
         </div>
-    </div>
+    {% else %}
+        <h2 class="title title--white title--medium title--uppercase mt-xs-15 mb-xs-50">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
     {% endif %}
 
     <!-- END of Main Content -->

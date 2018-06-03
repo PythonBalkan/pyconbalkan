@@ -20,3 +20,12 @@ def news_view(request):
         'conference': conference.first() if conference else None,
     }
     return render(request, 'news.html', context)
+
+
+def post_detail(request, pk):
+    post = Post.objects.get(active=True, pk=pk)
+    print(post)
+    context = {
+        'post': post
+    }
+    return render(request, 'post.html', context)

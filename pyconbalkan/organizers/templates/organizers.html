@@ -7,24 +7,22 @@
     <h1 class="title title--yellow">Organizers</h1>
 
     {% if organizers %}
-        <div class="card-deck moveDown">
-            <div class="card">
-                <div class="row">
-                    {% for organizer in organizers %}
-                        <div class="col-sm">
-                            <img src="{{ organizer.images.first.profile_picture }}" class="rounded-circle">
-                            <ul class="card-body h-100 justify-content-center">
-                                <li><b>{{ organizer.name }}</b></li>
-                                <hr>
-                                <li>{{ organizer.job }}</li>
-                                {% if organizer.user %}
-                                    <li>{{ organizer.user.email }}</li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    {% endfor %}
+        <div class="card">
+            {% for organizer in organizers %}
+                <div class="card__item">
+                    <div class="card__image">
+                        <img src="{{ organizer.images.first.profile_picture.url }}">
+                    </div>
+                    <h2 class="card__name title--blue">
+                        {{ organizer.name }}
+                    </h2>
+                    {% if organizer.job %}
+                        <p class="card__job">
+                            {{ organizer.job }}
+                        </p>
+                    {% endif %}
                 </div>
-            </div>
+            {% endfor %}
         </div>
     {% else %}
         <h2 class="title title--white title--medium title--uppercase mt-xs-15 mb-xs-50">
@@ -37,21 +35,22 @@
     <h1 class="title title--yellow">Volunteers</h1>
 
     {% if volunteers %}
-        <div class="card-deck moveDown">
-            <div class="card">
-                <div class="row">
-                    {% for volunteer in volunteers %}
-                        <div class="col-sm">
-                            <img src="{{ volunteer.images.first.profile_picture }}">
-                            <ul class="card-body h-100 justify-content-center">
-                                <li><b>{{ volunteer.name }}</b></li>
-                                <hr>
-                                <li>{{ volunteer.job }}</li>
-                            </ul>
-                        </div>
-                    {% endfor %}
+        <div class="card">
+            {% for volunteer in volunteers %}
+                <div class="card__item">
+                    <div class="card__image">
+                        <img src="{{ volunteer.images.first.profile_picture.url }}">
+                    </div>
+                    <h2 class="card__name title--blue">
+                        {{ volunteer.name }}
+                    </h2>
+                    {% if organizer.job %}
+                        <p class="card__job">
+                            {{ volunteer.job }}
+                        </p>
+                    {% endif %}
                 </div>
-            </div>
+            {% endfor %}
         </div>
     {% else %}
         <h2 class="title title--white title--medium title--uppercase mt-xs-15">
