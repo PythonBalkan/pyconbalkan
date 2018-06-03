@@ -141,3 +141,5 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
+
+DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage" if DEBUG else "pyconbalkan.core.storage.S3Storage"
