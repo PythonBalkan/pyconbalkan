@@ -19,4 +19,4 @@ class Volunteer(ActiveModel, Person):
 
 class VolunteerPhoto(models.Model):
     volunteer = models.ForeignKey(Volunteer, related_name='images', on_delete=CASCADE)
-    profile_picture = models.ImageField(upload_to="static/img")
+    profile_picture = models.ImageField(upload_to="organizers/volunteer/profile_picture", blank=True)
