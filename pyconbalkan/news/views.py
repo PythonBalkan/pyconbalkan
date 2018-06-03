@@ -24,7 +24,6 @@ def news_view(request):
 
 def post_detail(request, pk):
     post = Post.objects.get(active=True, pk=pk)
-    print(post)
     context = {
         'post': post
     }
