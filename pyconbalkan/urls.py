@@ -20,6 +20,7 @@ from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
 
+from markdownx import urls as markdownx
 
 router = routers.DefaultRouter()
 router.extend(conference)
@@ -44,4 +45,5 @@ urlpatterns = [
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
+    path('markdownx/', include(markdownx)),
 ]
