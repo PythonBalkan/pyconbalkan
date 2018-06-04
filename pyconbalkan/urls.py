@@ -1,6 +1,7 @@
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 from django.views.static import serve
 
 from pyconbalkan.cfp.views import cfp_view
@@ -33,6 +34,7 @@ router.extend(news)
 
 urlpatterns = [
     path('', views.home, name='index'),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers', organizers_view, name='organizers'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
