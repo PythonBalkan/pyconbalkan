@@ -3,28 +3,71 @@
  */
 
 .form {
-
+    width: 400px;
 }
 
-    .form p {
-        margin-bottom: 16px;
+@media (max-width: 1280px) {
+    .form {
+        display: flex;
+        flex-flow: column wrap;
+        width: 100%
+    }
+}
+
+    .form-group {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    @media (max-width: 1280px) {   
+        .form-group {
+            justify-content: center;
+            align-items: center;
+        }     
     }
 
-    .form .form-control {
-        display: block;
-        width: 100%;
-        padding: 6px 12px;
-        font-size: 1.6rem;
-        line-height: 1.5;
-        color: #495057;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
+    @media (max-width: 1280px) {
+        .form .form-group .button--fullwidth {
+            width: 80%;
+            align-self: center;
+        }
     }
 
-    .form .errorlist {
-        font-size: 1.6rem;
-        font-weight: bold;
-        color: red;
-        margin-bottom: 16px;
-        padding-left: 16px;
-    }
+        .form p {
+            flex: 1;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1280px) {
+            .form p {
+                flex: 1;
+                width: 80%;
+            }
+        }
+
+        .form .form-control {
+            display: block;
+            width: 100%;
+            line-height: 40px;
+            padding: 0 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            border: none;
+            border-radius: 20px;
+            color: #32383A;
+        }
+
+        .form textarea.form-control {
+            height: 200px;
+        }
+
+        .form .errorlist {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: red;
+            margin-bottom: 16px;
+            padding-left: 16px;
+        }

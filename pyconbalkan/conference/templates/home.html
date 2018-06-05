@@ -35,13 +35,10 @@
         </div>
     {% endif %}
 
-    {# Buy Tickets #}
-
-    <a class="button button--yellow mb-xs-50" href="https://www.eventbrite.com/e/pycon-balkan-tickets-45876685401?ref=ebtnebtckt" target="_blank" role="button">Buy Tickets</a>
-
     {# Speakers #}
 
     <h1 class="title title--yellow">Speakers</h1>
+    <hr class="line line--blue line--short line--spaced">
 
     {% if speakers %}
         <div class="card">
@@ -60,9 +57,13 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2 class="title title--white title--medium title--uppercase mt-xs-15">
+        <h2 class="title title--white title--medium title--uppercase mt-xs-20">
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
+
+    {# Buy Tickets #}
+
+    <a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a>
 
 {% endblock %}
