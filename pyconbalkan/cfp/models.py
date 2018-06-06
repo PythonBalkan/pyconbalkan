@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.forms import ModelForm
+from markdownx.models import MarkdownxField
 
 
 class Cfp(models.Model):
@@ -10,7 +11,8 @@ class Cfp(models.Model):
     personal_website = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=1024)
-    description = models.TextField()
+    description = MarkdownxField()
+
 
 
 class CfpForm(ModelForm):

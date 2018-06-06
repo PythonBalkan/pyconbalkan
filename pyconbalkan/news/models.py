@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from markdownx.models import MarkdownxField
 
 from pyconbalkan.core.models import ActiveModel
 
@@ -7,7 +8,7 @@ from pyconbalkan.core.models import ActiveModel
 class Post(ActiveModel):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = MarkdownxField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to='posts/image')
