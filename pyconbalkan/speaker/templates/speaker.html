@@ -5,30 +5,33 @@
     {# Speaker INFO #}
 
     <div class="speaker">
-
         <div class="speaker__image">
             <img src="{{ speaker.images.first.profile_picture.url }}">
 
         </div>
-        {% if speaker.personal_website %}
-            <a href="link" class="website">{{ speaker.personal_website }}</a>
-        {% endif %}
-        {% if speaker.linkedin %}
-            <a href="link" class="linkedin">{{ speaker.linkedin }}</a>
-        {% endif %}
-        {% if speaker.twitter %}
-            <a href="link" class="twitter">{{ speaker.twitter }}</a>
-        {% endif %}
-        {% if speaker.facebook %}
-            <a href="link" class="facebook">{{ speaker.facebook }}</a>
-        {% endif %}
-        <h1 class="title speaker__title title--yellow">{{ speaker.name }}</h1>
-        <h2 class="speaker__job title--blue">
-            {{ speaker.job }}
-        </h2>
-        <p class="speaker__description title--white">
-            {{ speaker.description|safe }}
-        </p>
+        <div class="speaker__details">
+            <h1 class="title speaker__title title--yellow">{{ speaker.name }}</h1>
+            <h2 class="speaker__job title--blue">
+                {{ speaker.job }}
+            </h2>
+            <p class="speaker__description title--white">
+                {{ speaker.description|safe }}
+            </p>
+            <div class="social__links">
+                {% if speaker.personal_website %}
+                <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
+                {% endif %}
+                {% if speaker.linkedin %}
+                    <a href="{{ speaker.linkedin }}" class="linkedin" target="_ blank"></a>
+                {% endif %}
+                {% if speaker.twitter %}
+                    <a href="{{ speaker.twitter }}" class="twitter" target="_ blank"></a>
+                {% endif %}
+                {% if speaker.facebook %}
+                    <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
 {% endblock %}
