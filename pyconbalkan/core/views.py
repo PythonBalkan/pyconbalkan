@@ -7,9 +7,9 @@ from pyconbalkan.speaker.models import Speaker
 def home(request):
     conference = Conference.objects.filter(active=True)
     count_down = CountDown.objects.filter(active=True)
-    speakers = Speaker.objects.filter(active=True)
+    keynotes = Speaker.objects.filter(active=True, keynote=True)
     context = {
-        'speakers': speakers,
+        'keynotes': keynotes,
         'conference': conference.first() if conference else None,
         'count_down': count_down.first() if count_down else None,
     }
