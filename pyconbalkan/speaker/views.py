@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
 from pyconbalkan.speaker.models import Speaker
@@ -10,8 +10,8 @@ class SpeakerViewSet(viewsets.ModelViewSet):
     serializer_class = SpeakerSerializer
 
 
-def speaker_detail(request, pk):
-    speaker = Speaker.objects.get(active=True, pk=pk)
+def speaker_detail(request, slug):
+    speaker = get_object_or_404(Speaker, active=True, slug=slug)
     context = {
         'speaker': speaker
     }

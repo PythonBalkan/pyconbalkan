@@ -1,16 +1,16 @@
 /*
- * Speaker
- * Speaker detailed view.
+ * Speaker/Organizer
+ * Speaker/Organizer detailed view.
  */
 
- .speaker {
+ .speaker, .organizer {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     align-content: flex-start;
  }
 
-    .speaker__image {
+    .speaker__image, .organizer__image {
         flex: 0 0 300px;
         width: 300px;
         height: 300px;
@@ -20,23 +20,23 @@
         overflow: hidden;
     }
 
-    .speaker__details {
+    .speaker__details, .organizer__details {
         flex: 1;
     }
-        
-        .speaker__image img {
+
+        .speaker__image img, .organizer__image img {
             display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .speaker__title {
+        .speaker__title, .organizer__title {
             font-size: 2.8rem;
             margin-bottom: 0 !important ;
         }
 
-        .speaker__job {
+        .speaker__job, .organizer__job {
             font-size: 1.8rem;
             margin-bottom: 20px;
         }
@@ -50,6 +50,6 @@
             width: 40px;
             height: 40px;
             margin-right: 10px;
-            border-radius: 20px;    
+            border-radius: 20px;
             background-color: #28aae1;
         }
