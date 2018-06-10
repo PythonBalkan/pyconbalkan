@@ -15,9 +15,15 @@
 }
 
 .line--short {
-    width: 45px;
+    width: 40px;
 }
 
 .line--spaced {
-    margin: 32px 0;
+    margin: 40px 0;
+}
+
+@media (max-width: 1280px) {
+    .line--spaced {
+        margin: 40px auto;
+    }
 }

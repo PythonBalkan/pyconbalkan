@@ -4,24 +4,24 @@
 
 /* Margin top */
 
-.mt-xs-15 {
-    margin-top: 15px;
-}
-
 .mt-xs-20 {
     margin-top: 20px;
 }
 
+.mt-xs-40 {
+    margin-top: 40px;
+}
+
 /* Margin bottom */
 
-.mb-xs-15 {
-    margin-bottom: 15px;
+.mb-xs-20 {
+    margin-bottom: 20px;
 }
 
-.mb-xs-30 {
-    margin-bottom: 30px;
+.mb-xs-40 {
+    margin-bottom: 40px;
 }
 
-.mb-xs-50 {
-    margin-bottom: 50px;
+.mb-xs-80 {
+    margin-bottom: 80px;
 }

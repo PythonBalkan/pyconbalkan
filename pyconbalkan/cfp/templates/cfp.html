@@ -4,14 +4,15 @@
 
     {# Call For Proposals #}
 
-    <h1 class="title title--yellow mb-xs-15">Call For Proposals!</h1>
+    <h1 class="title title--yellow mb-xs-20">Call For Proposals!</h1>
+    <hr class="line line--blue line--short line--spaced">    
 
     <form class="form" action="{% url 'cfp' %}" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
             {% csrf_token %}
             {{ form.as_p }}
+            <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
         </div>
-        <input class="button button--blue button--push mb-xs-30" type="submit" value="Submit" />
     </form>
 
 {% endblock %}
