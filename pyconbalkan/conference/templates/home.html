@@ -45,7 +45,9 @@
             {% for keynote in keynotes %}
                 <div class="card__item">
                     <div class="card__image">
-                        <img src="{{ keynote.images.first.profile_picture.url }}">
+                        <a href="{% url 'speaker_detail' pk=keynote.pk %}">
+                            <img src="{{ keynote.images.first.profile_picture.url }}">
+                        </a>
                     </div>
                     <h2 class="card__name title--blue">
                         {{ keynote.name }}

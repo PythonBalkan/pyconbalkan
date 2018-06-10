@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# Speaker INFO #}
+
+    <div class="speaker">
+
+        <div class="speaker__image">
+            <img src="{{ speaker.images.first.profile_picture.url }}">
+
+        </div>
+        <h1 class="title speaker__title title--yellow">{{ speaker.name }}</h1>
+
+        <p class="speaker__description">
+            {{ speaker.description|safe }}
+        </p>
+    </div>
+
+{% endblock %}
