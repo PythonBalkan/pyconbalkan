@@ -73,6 +73,10 @@
             background-image: url(/static/img/website.svg);
         }
 
+        .github {
+            background-image: url(/static/img/github.svg);
+        }
+
         .linkedin {
             background-image: url(/static/img/linkedin.svg);
         }
