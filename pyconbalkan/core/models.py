@@ -1,4 +1,5 @@
 from django.db import models
+from slugify import slugify
 
 
 class Person(models.Model):
@@ -12,12 +13,19 @@ class Person(models.Model):
     linkedin = models.URLField(blank=True, null=True)
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
+    slug = models.CharField(unique=True, blank=True, max_length=100)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.full_name)
+        super(Person, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
 
     def __str__(self):
         return self.name if self.name else str(self.id)
+
 
 class ActiveModel(models.Model):
     active = models.BooleanField(default=False)

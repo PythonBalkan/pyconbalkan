@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# Speaker INFO #}
+
+    <div class="speaker">
+        <div class="speaker__image">
+            <img src="{{ speaker.images.first.profile_picture.url }}">
+
+        </div>
+        <div class="speaker__details">
+            <h1 class="title speaker__title title--yellow">{{ speaker.name }}</h1>
+            <h2 class="speaker__job title--blue">
+                {{ speaker.job }}
+            </h2>
+            <p class="speaker__description title--white">
+                {{ speaker.description|safe }}
+            </p>
+            <div class="social__links">
+                {% if speaker.personal_website %}
+                <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
+                {% endif %}
+                {% if speaker.linkedin %}
+                    <a href="{{ speaker.linkedin }}" class="linkedin" target="_ blank"></a>
+                {% endif %}
+                {% if speaker.twitter %}
+                    <a href="{{ speaker.twitter }}" class="twitter" target="_ blank"></a>
+                {% endif %}
+                {% if speaker.facebook %}
+                    <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

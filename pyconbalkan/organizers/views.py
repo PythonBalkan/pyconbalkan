@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
 from pyconbalkan.conference.models import Conference
@@ -11,7 +11,15 @@ class VolunteerViewSet(viewsets.ModelViewSet):
     serializer_class = VolunteerSerializer
 
 
-def organizers_view(request):
+def organizer_view(request, slug):
+    organizer = get_object_or_404(Volunteer, slug=slug)
+    context = {
+        'organizer': organizer,
+    }
+    return render(request, 'organizer.html', context)
+
+
+def organizers_listview(request):
     volunteers = Volunteer.objects.filter(type=Volunteer.VOLUNTEER, active=True)
     organizers = Volunteer.objects.filter(type=Volunteer.ORGANIZER, active=True)
     conference = Conference.objects.filter(active=True)
