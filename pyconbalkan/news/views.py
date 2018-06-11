@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from rest_framework import viewsets
 
@@ -22,8 +22,8 @@ def news_view(request):
     return render(request, 'news.html', context)
 
 
-def post_detail(request, pk):
-    post = Post.objects.get(active=True, pk=pk)
+def post_detail(request, slug):
+    post = get_object_or_404(Post, active=True, slug=slug)
     context = {
         'post': post
     }
