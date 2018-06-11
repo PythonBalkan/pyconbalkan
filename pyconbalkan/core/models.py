@@ -1,4 +1,5 @@
 from django.db import models
+from markdownx.models import MarkdownxField
 from slugify import slugify
 
 
@@ -14,6 +15,7 @@ class Person(models.Model):
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
     slug = models.CharField(unique=True, blank=True, max_length=100)
+    description = MarkdownxField(blank=True, default='')
 
     def save(self, *args, **kwargs):
         if not self.slug:
