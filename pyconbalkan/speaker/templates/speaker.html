@@ -21,6 +21,9 @@
                 {% if speaker.personal_website %}
                 <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
                 {% endif %}
+                {% if speaker.github %}
+                    <a href="{{ speaker.github }}" class="github" target="_ blank"></a>
+                {% endif %}
                 {% if speaker.linkedin %}
                     <a href="{{ speaker.linkedin }}" class="linkedin" target="_ blank"></a>
                 {% endif %}
