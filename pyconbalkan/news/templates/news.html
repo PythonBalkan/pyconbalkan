@@ -12,7 +12,7 @@
             {% for post in news %}
                 <div class="post__item">
                     <div class="post__short_image">
-                        <a href="{% url 'post_detail' pk=post.pk %}">
+                        <a href="{% url 'post_detail' slug=post.slug %}">
                             <img src="{{ post.image.url }}">
                         </a>
                     </div>
