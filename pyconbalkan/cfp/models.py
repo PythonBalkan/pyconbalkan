@@ -12,7 +12,11 @@ class Cfp(models.Model):
     linkedin = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=1024)
     description = MarkdownxField()
+    accepted = models.BooleanField(default=False)
+    slug = models.CharField(unique=True, blank=True, max_length=100)
 
+    def __str__(self):
+        return '"{}" by {} - [{}]'.format(self.title, self.name, 'Accepted' if self.accepted else 'Pending')
 
 
 class CfpForm(ModelForm):
