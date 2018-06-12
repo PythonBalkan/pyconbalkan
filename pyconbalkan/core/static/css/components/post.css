@@ -6,48 +6,87 @@
 
 .post {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    flex-flow: row wrap;
 }
 
     .post__item {
-        max-width: 300px;
-        margin: 25px;
-        color: #fff;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        flex: 1 0 50%;
+        padding: 0 40px 40px 0;
+    }
+
+    @media (max-width: 1280px) {
+        .post__item {
+            flex-flow: column wrap;
+            flex: 1 0 100%;
+            padding: 0 0 40px 0;
+        }
     }
 
         .post__short_image {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            width: 100%;
-            height: 110px;
+            flex: 0 0 150px;
+            width: 150px;
+            height: 150px;
+            margin: 0 40px 40px 0;
+            border-radius: 50%;
             overflow: hidden;
         }
+
+        @media (max-width: 1280px) {
+            .post__short_image {
+                align-self: center;
+                margin: 0 0 40px 0;
+            }
+        }
+
+            .post__short_image a img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .post__content {
+            flex: 1;
+        }
+
+        .post__content .post__description {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1280px) {
+            .post__content .post__title {
+                width: 100%;
+                margin: 0 0 20px 0;
+                text-align: center;
+            }
+
+            .post__content .post__description {
+                width: 60%;
+                margin: 0 auto 40px auto;
+            }
+        }
+
+
 
         .post__image {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            width: 100%;
+            flex: 0 0 300px;
+            align-self: center;
+            width: 300px;
+            height: 300px;
+            margin: 0 40px 40px 0;
+            border-radius: 50%;
             overflow: hidden;
         }
 
-        .post__image img {
-            width: 70%;
-        }
+            .post__image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
         .post__title {
             font-size: 2.8rem;
