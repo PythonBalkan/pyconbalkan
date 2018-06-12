@@ -16,12 +16,16 @@
                             <img src="{{ post.image.url }}">
                         </a>
                     </div>
-                    <h2 class="post__title title--yellow">
-                        {{ post.title|safe }}
-                    </h2>
-                    <p class="post__description">
-                        {{ post.text|safe|truncatechars:300 }}
-                    </p>
+                    <div class="post__content">
+                        <h2 class="post__title title--yellow">
+                            <a href="{% url 'post_detail' pk=post.pk %}">
+                                {{ post.title|safe }}
+                            </a>
+                        </h2>
+                        <p class="post__description">
+                            {{ post.text|safe|truncatechars:300 }}
+                        </p>
+                    </div>
                 </div>
             {% endfor %}
         </div>
