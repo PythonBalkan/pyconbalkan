@@ -10,11 +10,13 @@
             <img src="{{ post.image.url }}">
         </div>
 
-        <h1 class="title post__title title--yellow">{{ post.title }}</h1>
+        <div class="post__content">
+            <h1 class="title post__title title--yellow">{{ post.title }}</h1>
 
-        <p class="post__description">
-            {{ post.text|safe }}
-        </p>
+            <p class="post__description">
+                {{ post.text|safe }}
+            </p>
+        </div>
     </div>
 
 {% endblock %}
