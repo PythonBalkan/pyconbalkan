@@ -34,3 +34,12 @@ body {
 p {
     font-size: 1.6rem;
 }
+
+a {
+    color: #ffd64f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #28aae1;
+}
