@@ -84,6 +84,11 @@
         }
     }
 
-        .event-button {
+    h3.supported-by {
+        margin-bottom: 10px;
+    }
 
-        }
+    .pfs-logo {
+        width: 200px;
+        height: auto;
+    }
