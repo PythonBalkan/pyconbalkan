@@ -9,14 +9,6 @@
     margin-bottom: 40px;
 }
 
-@media (max-width: 1280px) {
-    .title {
-        margin: 0 auto;
-        width: 60%;
-        text-align: center;
-    }
-}
-
 /* Modifiers */
 
 .title--uppercase {
@@ -42,11 +34,6 @@
 
 @media (max-width: 1280px) {
     .title--yellow {
-        margin: 0 auto 40px auto;        
-        width: 60%;
-    }
-    
-    .title--blue {
-        width: 60%;
+        margin: 0 0 20px 0;        
     }
 }
