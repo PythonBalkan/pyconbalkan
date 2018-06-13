@@ -11,7 +11,6 @@
     width: 400px;
     padding: 20px 40px 40px 40px;
     background-image: url(/static/img/sidebar-bg.png);
-    background-image: url(/static/img/sidebar-bg.svg);
     background-size: 100% 100%;
     z-index: 2;
 }
@@ -21,14 +20,14 @@
         position: static;
         width: 100%;
         height: auto;
-        padding: 40px;
+        padding: 40px 25%;
     }
 }
 
     .logo {
         display: block;
-        width: 300px;
-        height: 300px;
+        width: 220px;
+        height: 220px;
         background-image: url(/static/img/pycon-logo.svg);
         background-size: contain;
         background-repeat: no-repeat;
@@ -43,6 +42,7 @@
     @media (max-width: 1280px) {
         .logo {
             width: 100%;
+            background-position: center left;
         }
     }
 
@@ -54,7 +54,7 @@
     }
 
     .event-sidebar__text {
-        margin: 10px 0 20px;
+        margin: 10px 0 20px 0;
     }
 
     .event-sidebar__text:last-of-type {
@@ -64,7 +64,6 @@
     @media (max-width: 1280px) {
         .event-sidebar__text {
             margin: 10px auto 20px auto;
-            width: 300px;
         }
     }
 
@@ -80,15 +79,16 @@
     @media (max-width: 1280px) {
         .event-button__wrapper {
             margin: 10px auto 20px auto;
-            width: 300px;
         }
     }
 
-    h3.supported-by {
-        margin-bottom: 10px;
+    h2.supported-by {
+        color: #ffd64f;
+        margin-bottom: 20px;
     }
 
     .pfs-logo {
-        width: 200px;
+        width: 180px;
         height: auto;
+        margin-bottom: 40px;
     }
