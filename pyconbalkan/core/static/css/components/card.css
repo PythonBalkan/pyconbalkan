@@ -11,10 +11,16 @@
 }
 
     .card__item {
-        flex: 1 1 auto;
-        min-width: 20%;
+        flex: 0 0 300px;
         margin: 0 40px 80px 0;
         color: white;
+    }
+
+    @media (max-width: 1280px) {
+        .card__item {
+            min-width: 100%;
+            margin: 0 0 40px 0;
+        }
     }
 
         .card__image {
@@ -24,6 +30,13 @@
             border-radius: 50%;
             background-color: #22A4D9;
             overflow: hidden;
+        }
+
+        @media (max-width: 1280px) {
+            .card__image {
+                align-self: center;
+                margin: 0 0 20px 0;
+            }
         }
 
         .card__image img {

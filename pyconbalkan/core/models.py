@@ -11,6 +11,7 @@ class Person(models.Model):
     job = models.CharField(max_length=100, blank=True, null=True)
     company = models.CharField(max_length=100, blank=True, null=True)
     personal_website = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)

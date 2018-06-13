@@ -19,11 +19,5 @@
 }
 
 .line--spaced {
-    margin: 40px 0;
-}
-
-@media (max-width: 1280px) {
-    .line--spaced {
-        margin: 40px auto;
-    }
+    margin: 20px 0;
 }
