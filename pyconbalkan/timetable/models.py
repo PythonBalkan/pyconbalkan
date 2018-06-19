@@ -1,4 +1,6 @@
 from django.db import models
+from markdownx.models import MarkdownxField
+
 from pyconbalkan.core.models import ActiveModel
 from pyconbalkan.speaker.models import Speaker
 from django.db.models import CASCADE
@@ -21,7 +23,7 @@ class Presentation(ActiveModel):
     )
 
     title = models.CharField(null=True, blank=True, max_length=100)
-    description = models.TextField(null=True, blank=True)
+    description = MarkdownxField(null=True, blank=True)
     type = models.IntegerField(choices=PRESENTATION_TYPE, default=TALK)
 
     speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentation', on_delete=CASCADE)

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# organizer INFO #}
+
+    <div class="organizer">
+        <div class="organizer__image">
+            <img src="{{ organizer.images.first.profile_picture.url }}">
+
+        </div>
+        <div class="organizer__details">
+            <h1 class="title organizer__title title--yellow">{{ organizer.name }}</h1>
+            <h2 class="organizer__job title--blue">
+                {{ organizer.job }}
+            </h2>
+            <p class="organizer__description title--white">
+                {{ organizer.description|safe }}
+            </p>
+            <div class="social__links">
+                {% if organizer.personal_website %}
+                <a href="{{ organizer.personal_website }}" class="website" target="_ blank"></a>
+                {% endif %}
+                {% if organizer.github %}
+                    <a href="{{ organizer.github }}" class="github" target="_ blank"></a>
+                {% endif %}
+                {% if organizer.linkedin %}
+                    <a href="{{ organizer.linkedin }}" class="linkedin" target="_ blank"></a>
+                {% endif %}
+                {% if organizer.twitter %}
+                    <a href="{{ organizer.twitter }}" class="twitter" target="_ blank"></a>
+                {% endif %}
+                {% if organizer.facebook %}
+                    <a href="{{ organizer.facebook }}" class="facebook" target="_ blank"></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

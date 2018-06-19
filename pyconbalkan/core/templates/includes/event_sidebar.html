@@ -1,12 +1,7 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <img class="event-sidebar__logo" src="{% static 'img/pycon_logo.png' %}">
-    <div class="event-sidebar__title">
-        <h1>PyCon</h1>
-        <h2>Balkan</h2>
-        <h3>Belgrade 2018</h3>
-    </div>
+    <a href="/" class="logo" title="PyCon Balkan - Belgrade 2018"></a>
     <hr class="line line--blue line--short line--spaced">
     <h1 class="title title--yellow">#1</h1>
     <p class="event-sidebar__text">
@@ -18,10 +13,15 @@
     </p>
     <p class="event-sidebar__text">
         <i class="event-sidebar__icon fas fa-users"></i>
-        500 attendies
+        500 attendees
     </p>
     <p class="event-sidebar__text">
         <i class="event-sidebar__icon fas fa-globe"></i>
         International
     </p>
+    <div class="event-button__wrapper">
+        <a class="button button--yellow mb-xs-20 event-button" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Join Us!</a>
+    </div>
+    <h2 class="supported-by">Supported by</h3>
+    <img class="pfs-logo" src="{% static 'img/pfs-logo.png' %}">
 </aside>

@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from djchoices import DjangoChoices, ChoiceItem
+from markdownx.models import MarkdownxField
 
 
 class SponsorshipLevel(DjangoChoices):
@@ -22,11 +23,9 @@ LIMITS = {
 
 class Sponsor(models.Model):
     name = models.CharField(max_length=256)
-    description = models.TextField()
+    description = MarkdownxField()
     level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
-    logo = models.ImageField(
-        upload_to='static/img/sponsors', null=True, blank=True
-    )
+    logo = models.ImageField(upload_to="sponsors/logo", blank=True, null=True)
 
     def __str__(self):
         return f'Sponsor [{self.name}]'

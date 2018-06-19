@@ -35,34 +35,37 @@
         </div>
     {% endif %}
 
-    {# Buy Tickets #}
+    {# Keynote Speakers #}
 
-    <a class="button button--yellow mb-xs-50" href="https://www.eventbrite.com/e/pycon-balkan-tickets-45876685401?ref=ebtnebtckt" target="_blank" role="button">Buy Tickets</a>
+    <h1 class="title title--yellow">Keynote Speakers</h1>
+    <hr class="line line--blue line--short line--spaced">
 
-    {# Speakers #}
-
-    <h1 class="title title--yellow">Speakers</h1>
-
-    {% if speakers %}
+    {% if keynotes %}
         <div class="card">
-            {% for speaker in speakers %}
+            {% for keynote in keynotes %}
                 <div class="card__item">
-                    <div class="card__image">
-                        <img src="{{ speaker.images.first.profile_picture }}">
-                    </div>
-                    <h2 class="card__name">
-                        {{ speaker.name }}
-                    </h2>
+                    <a href="{% url 'speaker_detail' slug=keynote.slug %}">
+                        <div class="card__image">
+                                <img src="{{ keynote.images.first.profile_picture.url }}">
+                        </div>
+                        <h2 class="card__name title--blue">
+                            {{ keynote.name }}
+                        </h2>
+                    </a>
                     <p class="card__job">
-                        {{ speaker.job }}
+                        {{ keynote.job }}
                     </p>
                 </div>
             {% endfor %}
         </div>
     {% else %}
-        <h2 class="title title--white title--medium title--uppercase mt-xs-15">
+        <h2 class="title title--white title--medium title--uppercase mt-xs-20">
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
+
+    {# Buy Tickets #}
+
+    <a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a>
 
 {% endblock %}

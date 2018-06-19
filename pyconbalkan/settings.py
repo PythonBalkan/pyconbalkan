@@ -47,9 +47,11 @@ INSTALLED_APPS = [
     'pyconbalkan.sponsors',
     'pyconbalkan.cfp',
     'pyconbalkan.contact',
+    'pyconbalkan.news',
     # others
     'rest_framework',
     'django_countries',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
+
+DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage" if DEBUG else "pyconbalkan.core.storage.S3Storage"
+
+AWS_S3_SECRET_ACCESS_KEY = config("AWS_S3_SECRET_ACCESS_KEY", "")
+AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID", "")
+AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")

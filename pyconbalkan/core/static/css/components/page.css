@@ -3,11 +3,14 @@
 
     .page__content {
         margin-left: 400px;
-        padding: 135px 140px 70px;
+        padding: 40px;
     }
-    @media (max-width: 768px) {
+
+    @media (max-width: 1280px) {
         .page__content {
-            margin-left: 0;
-            padding: 40px 30px;
+            width: 50%;
+            height: auto;
+            padding: 40px 0;
+            margin: 0 auto;
         }
     }

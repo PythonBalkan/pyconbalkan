@@ -15,8 +15,12 @@ class Volunteer(ActiveModel, Person):
 
     user = models.ForeignKey(User, blank=True, null=True, related_name='volunteer', on_delete=CASCADE)
     type = models.IntegerField(choices=VOLUNTEER_TYPE, default=VOLUNTEER)
+    weight = models.IntegerField(unique=True, blank=True)
+
+    def __str__(self):
+        return '{} [{}]'.format(self.name, str(self.weight))
 
 
 class VolunteerPhoto(models.Model):
     volunteer = models.ForeignKey(Volunteer, related_name='images', on_delete=CASCADE)
-    profile_picture = models.ImageField(upload_to="static/img")
+    profile_picture = models.ImageField(upload_to="organizers/volunteer/profile_picture", blank=True)

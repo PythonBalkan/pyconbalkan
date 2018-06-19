@@ -6,6 +6,7 @@
 .title {
     font-size: 4rem;
     font-weight: 900;
+    margin-bottom: 40px;
 }
 
 /* Modifiers */
@@ -16,7 +17,7 @@
 
 .title--medium {
     font-size: 3.2rem;
-font-weight: bold;
+    font-weight: bold;
 }
 
 .title--white {
@@ -29,4 +30,10 @@ font-weight: bold;
 
 .title--yellow {
     color: #F3D66C;
+}
+
+@media (max-width: 1280px) {
+    .title--yellow {
+        margin: 0 0 20px 0;        
+    }
 }
