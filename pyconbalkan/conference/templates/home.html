@@ -77,4 +77,125 @@
 
     <a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a>
 
+
+    {# Sponsors #}
+    <hr class="line">
+
+    <h1 class="title title--yellow">Sponsors</h1>
+
+    {% if keystone_sponsors %}
+    <h2 class="title title--blue">Keystone</h2>
+    <hr class="line">
+
+    <div class="card">
+        {% for sponsor in keystone_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo }}">
+                    </div>
+                    <h2>
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+                <p class="card__job">
+                    {{ sponsor.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if platinum_sponsors %}
+    <h2 class="title title--blue">Platinum</h2>
+    <hr class="line">
+
+    <div class="card">
+        {% for sponsor in platinum_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo }}">
+                    </div>
+                    <h2>
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+                <p class="card__job">
+                    {{ sponsor.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if gold_sponsors %}
+    <h2 class="title title--blue">Gold</h2>
+    <hr class="line">
+
+    <div class="card">
+        {% for sponsor in gold_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo }}">
+                    </div>
+                    <h2>
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+                <p class="card__job">
+                    {{ sponsor.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if silver_sponsors %}
+    <h2 class="title title--blue">Silver</h2>
+    <hr class="line">
+
+    <div class="card">
+        {% for sponsor in silver_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo }}">
+                    </div>
+                    <h2>
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+                <p class="card__job">
+                    {{ sponsor.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if partners %}
+    <h2 class="title title--blue">Partners</h2>
+    <hr class="line">
+
+    <div class="card">
+        {% for sponsor in partners %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo }}">
+                    </div>
+                    <h2>
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+                <p class="card__job">
+                    {{ sponsor.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
 {% endblock %}
