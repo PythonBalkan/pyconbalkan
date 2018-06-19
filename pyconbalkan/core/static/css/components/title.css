@@ -3,22 +3,34 @@
  * Heading components.
  */
 
+h1,
+h2,
+h3 {
+    line-height: initial;
+}
+
 h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    margin: 40px 0;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
     color: #F3D66C;
 }
 
 h2 {
-    font-size: 3rem;
-    font-weight: 900;
-    margin: 0 0 20px 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 20px 0 10px 0;
     color: #22A4D9;
 }
 
 h3 {
     font-size: 1.6rem;
-    margin: 0 0 10px 0;
+    font-weight: 700;
+    padding: 20px 0 10px 0;
     color: #f3d66c;
+}
+
+.centered {
+    text-align: center;
+    font-weight: 400;
 }
