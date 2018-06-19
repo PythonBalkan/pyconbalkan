@@ -3,21 +3,10 @@
  * Usually <hr> elements representing a line.
  */
 
-.line {
-    height: 2px;
-    border: 0;
-}
-
-/* Modifiers */
-
-.line--blue {
-    background-color: #22A4D9;
-}
-
-.line--short {
+hr.line {
     width: 40px;
-}
-
-.line--spaced {
-    margin: 20px 0;
+    height: 2px;
+    margin: 20px 0 40px 0;
+    border: 0;
+    background-color: #22A4D9;
 }
