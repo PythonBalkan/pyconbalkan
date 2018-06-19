@@ -5,6 +5,7 @@
     {# Countdown #}
 
     {% if count_down %}
+    <div class="column-full">
         <h1 class="title title--blue">{{ count_down.title }}</h1>
         <div class="countdown">
             <div class="countdown__days">
@@ -33,16 +34,19 @@
                 </div>
             </div>
         </div>
+    </div>
     {% endif %}
 
-    <h1 class="title title--yellow">Mission Statement</h1>
-    <hr class="line line--blue line--short line--spaced">
-    <p class="regular-text">The PyCon Balkan 2018 is the first PyCon conference in the Balkan area. It will take place at Hilton Hotel in Belgrade, Serbia, November 16-18th 2018. It will deal with a wide range of topics related to the Python programming language, that have not been discussed in such open forum and in such detail in the Balkan until now. Join us and your 500 fellow peers, for a jam packed three day conference, where you can get up-to date with latest python technology, straight from the big guys themselves. The working language of the conference will be English.</p>
+    <div class="row">
+        <h1>Mission Statement</h1>
+        <hr class="line line--blue line--short line--spaced">
+        <p>The PyCon Balkan 2018 is the first PyCon conference in the Balkan area. It will take place at Hilton Hotel in Belgrade, Serbia, November 16-18th 2018. It will deal with a wide range of topics related to the Python programming language, that have not been discussed in such open forum and in such detail in the Balkan until now. Join us and your 500 fellow peers, for a jam packed three day conference, where you can get up-to date with latest python technology, straight from the big guys themselves. The working language of the conference will be English.</p>
+    </div>
 
     {# Keynote Speakers #}
 
     <h1 class="title title--yellow">Keynote Speakers</h1>
-    <hr class="line line--blue line--short line--spaced">
+    <hr class="line">
 
     {% if keynotes %}
         <div class="card">
@@ -52,7 +56,7 @@
                         <div class="card__image">
                                 <img src="{{ keynote.images.first.profile_picture.url }}">
                         </div>
-                        <h2 class="card__name title--blue">
+                        <h2>
                             {{ keynote.name }}
                         </h2>
                     </a>
@@ -63,7 +67,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2 class="title title--white title--medium title--uppercase mt-xs-20">
+        <h2>
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
