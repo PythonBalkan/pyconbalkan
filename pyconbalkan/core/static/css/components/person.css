@@ -38,7 +38,7 @@
         .speaker__title,
         .organizer__title {
             font-size: 2.8rem;
-            margin-bottom: 0 !important ;
+            margin-bottom: 10px;
         }
 
         .speaker__job,
