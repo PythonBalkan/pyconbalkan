@@ -6,6 +6,7 @@ from pyconbalkan.core.models import Person, ActiveModel
 
 class Speaker(ActiveModel, Person):
     keynote = models.BooleanField(default=False)
+    talk_excerpt = models.TextField(blank=True, null=True)
 
 
 class SpeakerPhoto(models.Model):
