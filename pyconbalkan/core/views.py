@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from pyconbalkan.conference.models import Conference, CountDown
+from pyconbalkan.conference.models import Conference, CountDown, MissionStatement
 from pyconbalkan.speaker.models import Speaker
 from pyconbalkan.sponsors.models import Sponsor, SponsorshipLevel
 
@@ -16,6 +16,8 @@ def home(request):
     silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver)
     partners = Sponsor.objects.filter(level=SponsorshipLevel.partner)
 
+    mission_statement = MissionStatement.objects.filter(active=True)
+
     context = {
         'keynotes': keynotes,
         'keystone_sponsors': keystone_sponsors,
@@ -25,6 +27,7 @@ def home(request):
         'partners': partners,
         'conference': conference.first() if conference else None,
         'count_down': count_down.first() if count_down else None,
+        'mission_statement': mission_statement.first() if mission_statement else None,
     }
     return render(request, 'home.html', context)
 
