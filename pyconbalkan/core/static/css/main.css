@@ -33,6 +33,7 @@ body {
 
 p {
     font-size: 1.6rem;
+    line-height: 1.6;
 }
 
 a {
@@ -42,4 +43,8 @@ a {
 
 a:hover {
     color: #28aae1;
+}
+
+.centered {
+    text-align: center;
 }

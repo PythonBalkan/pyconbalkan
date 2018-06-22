@@ -1,0 +1,62 @@
+.catch {
+    color: white;
+    margin: 30px 0 40px; 0;
+}
+
+.catch p {
+    padding: 0 180px;
+}
+
+@media (max-width: 1280px) {
+    .catch p {
+        padding: 0px;
+    }
+}
+
+.keynote-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.keynote-item {
+    position: relative; 
+}
+
+.sponsor-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 30px;
+}
+
+.sponsor {
+    width: 350px;
+    height: 300px;
+    color: #F3D66C;
+    margin: 5px 10px;
+}
+
+.sponsor p {
+    padding: 10px;
+}
+
+.sponsor img {
+    display: block;
+    object-fit: cover;
+}
+
+.card__info {
+    display: inline-block;
+    position: relative;
+    top: -60px;
+    padding: 20px;
+}
+
+@media (max-width: 767px) {
+    .card__info {
+        top: -170px;
+	left: 160px;
+    }
+}

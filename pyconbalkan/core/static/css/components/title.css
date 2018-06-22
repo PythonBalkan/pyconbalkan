@@ -11,6 +11,14 @@
 
 /* Modifiers */
 
+.title--bigmargintop {
+    margin-top: 50px;
+}
+
+.title--smallmarginbottom {
+    margin-bottom: 15px;
+}
+
 .title--uppercase {
     text-transform: uppercase;
 }
