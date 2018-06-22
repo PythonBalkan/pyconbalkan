@@ -43,7 +43,6 @@ urlpatterns = [
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
     path('organizers', organizers_listview, name='organizers'),
     path('about', about_view, name='about'),
-    path('sponsors', sponsors_view, name='sponsors'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
     path('news', news_view, name='news'),
