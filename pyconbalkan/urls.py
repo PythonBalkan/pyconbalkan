@@ -2,7 +2,6 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from django.views.static import serve
 
 from pyconbalkan.cfp.views import cfp_view
 from pyconbalkan.conference.api_urls import router as conference
@@ -12,7 +11,7 @@ from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
 from pyconbalkan.organizers.views import organizer_view, organizers_listview
-from pyconbalkan.settings import PDF_ROOT
+from pyconbalkan.coc.views import coc_view, response_guide
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
@@ -20,6 +19,7 @@ from pyconbalkan.sponsors.api_urls import router as sponsors
 from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
+from pyconbalkan.coc.api_urls import router as coc
 
 from markdownx import urls as markdownx
 
@@ -33,6 +33,7 @@ router.extend(sponsors)
 router.extend(cfp)
 router.extend(contact)
 router.extend(news)
+router.extend(coc)
 
 urlpatterns = [
     path('', views.home, name='index'),
@@ -45,7 +46,8 @@ urlpatterns = [
     path('cfp', cfp_view, name='cfp'),
     path('news', news_view, name='news'),
     path('news/<slug:slug>/', post_detail, name='post_detail'),
-    path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
+    path('coc', coc_view, name='coc'),
+    path('coc/<slug:slug>/', response_guide, name='response_guide'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
