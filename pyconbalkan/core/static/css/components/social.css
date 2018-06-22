@@ -1,0 +1,19 @@
+ul.social-links {
+    list-style-type: none;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+ul.social-links li {
+    display: inline-block;
+}
+
+ul.social-links img {
+    padding: 5px;
+    width: 36px;
+    height: 36px;
+}
+
+ul.social-links img:hover {
+    color: red;
+}
