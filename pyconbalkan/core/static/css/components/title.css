@@ -32,5 +32,40 @@ h3 {
 
 .centered {
     text-align: center;
-    font-weight: 400;
+}
+
+.sponsors,
+.keystone,
+.platinum,
+.gold,
+.silver,
+.partner,
+.mediapartner {
+    padding: 0;
+    text-align: center;
+}
+
+.keystone {
+    font-size: 4rem;
+    color: moccasin;
+}
+
+.platinum {
+    color: lightgray;
+}
+
+.gold {
+    color: gold;
+}
+
+.silver {
+    color: silver;
+}
+
+.partner {
+    color: greenyellow;
+}
+
+.mediapartner {
+    color: plum;
 }
