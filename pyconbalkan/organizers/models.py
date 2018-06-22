@@ -16,7 +16,6 @@ class Volunteer(ActiveModel, Person):
     user = models.ForeignKey(User, blank=True, null=True, related_name='volunteer', on_delete=CASCADE)
     type = models.IntegerField(choices=VOLUNTEER_TYPE, default=VOLUNTEER)
     weight = models.IntegerField(unique=True, blank=True)
-    email = models.EmailField(blank=True, null=True)
 
     def __str__(self):
         return '{} [{}]'.format(self.name, str(self.weight))

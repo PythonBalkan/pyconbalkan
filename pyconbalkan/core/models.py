@@ -17,6 +17,7 @@ class Person(models.Model):
     twitter = models.URLField(blank=True, null=True)
     slug = models.CharField(unique=True, blank=True, max_length=100)
     description = MarkdownxField(blank=True, default='')
+    email = models.EmailField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
