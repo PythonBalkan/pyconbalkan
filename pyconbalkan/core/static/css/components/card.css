@@ -41,13 +41,6 @@
             overflow: hidden;
         }
 
-        @media (max-width: 1280px) {
-            .card__image {
-                align-self: center;
-                margin: 0 0 20px 0;
-            }
-        }
-
         .card__image img {
             display: block;
             width: 100%;
