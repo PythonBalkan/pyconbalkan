@@ -4,7 +4,8 @@
  */
 
  .speaker,
- .organizer {
+ .organizer,
+ .sponsor {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -12,23 +13,26 @@
  }
 
     .speaker__image,
-    .organizer__image {
+    .organizer__image,
+    .sponsor__image {
         flex: 0 0 300px;
         width: 300px;
         height: 300px;
-        margin: 0 40px 20px 0;
+        margin: 40px 40px 20px 0;
         border-radius: 50%;
         background-color: #28aae1;
         overflow: hidden;
     }
 
     .speaker__details,
-    .organizer__details {
+    .organizer__details,
+    .sponsor__details {
         flex: 1;
     }
 
         .speaker__image img,
-        .organizer__image img {
+        .organizer__image img,
+        .sponsor__image img {
             display: block;
             width: 100%;
             height: 100%;
@@ -48,7 +52,8 @@
         }
 
         .speaker__description,
-        .organizer__description {
+        .organizer__description,
+        .sponsor__description {
             margin-bottom: 20px;    
         }
 
