@@ -7,7 +7,7 @@ import markdownx.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('speaker', '0007_speaker_github'),
+        ('speaker', '0008_person_email'),
     ]
 
     operations = [
