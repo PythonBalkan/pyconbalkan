@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{# Sponsoring #}
+
+    <h1 class="title title--yellow mb-xs-40">Sponsoring</h1>
+    <hr class="line line--blue line--short line--spaced">    
+
+    <form class="form" action="{% url 'sponsoring' %}" method="POST" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="button button--yellow button--push" type="submit" value="Donate" />
+        </div>
+    </form>
+    
+{% if success %}
+<div class="success-message">
+    {{ success }}
+</div>
+{% endif %}
+
+{% endblock %}
