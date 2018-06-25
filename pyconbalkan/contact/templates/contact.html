@@ -4,8 +4,8 @@
 
 {# Contact #}
 
-    <h1 class="title title--yellow mb-xs-40">Contact Us!</h1>
-    <hr class="line line--blue line--short line--spaced">    
+    <h1 class="title title--yellow">Contact Us!</h1>
+    <hr class="line line--blue line--short line--spaced">
 
     <form class="form" action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
@@ -14,7 +14,7 @@
             <input class="button button--blue button--push button--fullwidth " type="submit" value="Submit" />
         </div>
     </form>
-    
+
 {% if success %}
 <div class="success-message">
     {{ success }}

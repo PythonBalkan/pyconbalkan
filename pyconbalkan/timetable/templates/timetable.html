@@ -4,13 +4,13 @@
 
 {# Timetable #}
 
-    <h1 class="title title--yellow mb-xs-40">Timetable</h1>
-    <hr class="line line--blue line--short line--spaced">    
+    <h1 class="title title--yellow">Timetable</h1>
+    <hr class="line line--blue line--short line--spaced">
     <div class="rooms">
     {% if rooms %}
       <ul>
 	{% for room in rooms %}
-	<li class="button button--blue">{{ room.name }}</li>
+	<li class="button button--blue mb-xs-20">{{ room.name }}</li>
 	{% endfor %}
       </ul>
     {% endif %}
@@ -37,5 +37,5 @@
         </h2>
 {% endif %}
           </div>
-    
+
 {% endblock %}

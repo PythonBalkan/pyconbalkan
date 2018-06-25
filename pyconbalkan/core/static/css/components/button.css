@@ -13,7 +13,22 @@
     background-color: transparent;
     color: white;
     text-decoration: none;
-    cursor: pointer;
+    cursor: pointer;   
+    text-align: center;
+}
+
+@media (max-width: 1280px) {
+    .button {
+        width: auto;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .button {
+        width: 100%;
+        padding: 0 20px;
+    }
 }
 
 .button:hover {

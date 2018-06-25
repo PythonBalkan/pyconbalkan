@@ -8,9 +8,13 @@
 
     @media (max-width: 1280px) {
         .page__content {
-            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - 80px);
             height: auto;
             padding: 40px 0;
-            margin: 0 auto;
+            margin-left: 40px;
+            margin-right: 40px;
         }
     }
