@@ -94,6 +94,38 @@
             background-image: url(/static/img/twitter.svg);
         }
 
+        .instagram {
+            background-image: url(/static/img/twitter.svg);
+        }
+
+        .facebook-dark,
+        .twitter-dark,
+        .instagram-dark {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-size: contain;
+        }
+
+        .facebook-dark:hover,
+        .twitter-dark:hover,
+        .instagram-dark:hover {
+            background-color: #ebebeb;
+        }
+
+        .facebook-dark {
+            background-image: url(/static/img/facebook-dark.svg);
+        }
+
+        .twitter-dark {
+            background-image: url(/static/img/twitter-dark.svg);
+        }
+
+        .instagram-dark {
+            background-image: url(/static/img/instagram-dark.svg);
+        }
+
 	.email {
 	    background-image: url(/static/img/email.svg)
 	}
