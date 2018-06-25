@@ -22,6 +22,7 @@ from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.timetable.views import timetable_view
+from pyconbalkan.sponsoring.views import sponsoring_view
 
 from markdownx import urls as markdownx
 
@@ -42,6 +43,7 @@ urlpatterns = [
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
     path('organizers', organizers_listview, name='organizers'),
+    path('sponsoring', sponsoring_view, name='sponsoring'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
