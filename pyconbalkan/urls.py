@@ -8,6 +8,7 @@ from pyconbalkan.cfp.views import cfp_view
 from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.core import routers, views
 from pyconbalkan.about.views import about_view
+from pyconbalkan.sponsors.views import sponsors_view
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
@@ -21,6 +22,7 @@ from pyconbalkan.sponsors.api_urls import router as sponsors
 from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
+from pyconbalkan.timetable.views import timetable_view
 
 from markdownx import urls as markdownx
 
@@ -46,9 +48,10 @@ urlpatterns = [
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
     path('news', news_view, name='news'),
-    path('news/<slug:pk>/', post_detail, name='post_detail'),
+    path('news/<slug:slug>/', post_detail, name='post_detail'),
     path('coc', serve, {'path': 'coc_pyconbalkan.pdf', 'document_root': PDF_ROOT}),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
+    path('timetable/', timetable_view, name='timetable')
 ]

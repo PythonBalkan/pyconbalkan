@@ -93,3 +93,7 @@
         .twitter {
             background-image: url(/static/img/twitter.svg);
         }
+
+	.email {
+	    background-image: url(/static/img/email.svg)
+	}

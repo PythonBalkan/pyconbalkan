@@ -2,7 +2,7 @@
 
 {% block main_content %}
 
-    {# Contact #}
+{# Contact #}
 
     <h1 class="title title--yellow mb-xs-40">Contact Us!</h1>
     <hr class="line line--blue line--short line--spaced">    
@@ -14,5 +14,11 @@
             <input class="button button--blue button--push button--fullwidth " type="submit" value="Submit" />
         </div>
     </form>
+    
+{% if success %}
+<div class="success-message">
+    {{ success }}
+</div>
+{% endif %}
 
 {% endblock %}
