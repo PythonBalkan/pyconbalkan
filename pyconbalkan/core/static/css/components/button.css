@@ -6,6 +6,7 @@
     display: inline-block;
     font-size: 1.6rem;
     font-weight: bold;
+    width: auto;
     line-height: 40px;
     padding: 0 40px;
     border: 0;

@@ -13,6 +13,7 @@ from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
 from pyconbalkan.organizers.views import organizer_view, organizers_listview
+from pyconbalkan.sponsors.views import sponsor_view
 from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
@@ -39,6 +40,7 @@ router.extend(news)
 urlpatterns = [
     path('', views.home, name='index'),
     path('speaker/<slug:slug>/', speaker_detail, name='speaker_detail'),
+    path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
     path('organizers', organizers_listview, name='organizers'),
