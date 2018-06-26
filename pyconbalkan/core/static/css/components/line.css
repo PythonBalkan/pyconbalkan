@@ -4,20 +4,19 @@
  */
 
 .line {
+    width: 40px;
     height: 2px;
+    margin: 20px 0 40px 0;
     border: 0;
-}
-
-/* Modifiers */
-
-.line--blue {
     background-color: #22A4D9;
 }
 
-.line--short {
-    width: 40px;
+.long {
+    width: 100%;
+    margin: 40px 0;
+    background-color: rgba(255,255,255,.3);
 }
 
-.line--spaced {
-    margin: 20px 0;
+.line__centered {
+    margin: 40px auto;
 }

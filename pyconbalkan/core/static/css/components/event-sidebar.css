@@ -20,7 +20,7 @@
         position: static;
         width: 100%;
         height: auto;
-        padding: 40px 25%;
+        padding: 40px 15%;
     }
 }
 
@@ -55,6 +55,7 @@
 
     .event-sidebar__text {
         margin: 10px 0 20px 0;
+        color: #212529;
     }
 
     .event-sidebar__text:last-of-type {

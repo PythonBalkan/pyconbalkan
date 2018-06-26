@@ -3,37 +3,69 @@
  * Heading components.
  */
 
-.title {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 40px;
+h1,
+h2,
+h3 {
+    line-height: initial;
 }
 
-/* Modifiers */
-
-.title--uppercase {
-    text-transform: uppercase;
-}
-
-.title--medium {
-    font-size: 3.2rem;
-    font-weight: bold;
-}
-
-.title--white {
-    color: #fff;
-}
-
-.title--blue {
-    color: #22A4D9;
-}
-
-.title--yellow {
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
     color: #F3D66C;
 }
 
-@media (max-width: 1280px) {
-    .title--yellow {
-        margin: 0 0 20px 0;        
-    }
+h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 20px 0 10px 0;
+    color: #22A4D9;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 20px 0 10px 0;
+    color: #f3d66c;
+}
+
+.centered {
+    text-align: center;
+}
+
+.sponsors,
+.keystone,
+.platinum,
+.gold,
+.silver,
+.partner,
+.mediapartner {
+    padding: 0;
+    text-align: center;
+}
+
+.keystone {
+    font-size: 4rem;
+    color: moccasin;
+}
+
+.platinum {
+    color: lightgray;
+}
+
+.gold {
+    color: gold;
+}
+
+.silver {
+    color: silver;
+}
+
+.partner {
+    color: greenyellow;
+}
+
+.mediapartner {
+    color: plum;
 }

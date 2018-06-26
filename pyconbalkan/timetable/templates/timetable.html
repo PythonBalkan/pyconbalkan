@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{# Timetable #}
+
+    <h1 class="title title--yellow mb-xs-40">Timetable</h1>
+    <hr class="line line--blue line--short line--spaced">    
+    <div class="rooms">
+    {% if rooms %}
+      <ul>
+	{% for room in rooms %}
+	<li class="button button--blue">{{ room.name }}</li>
+	{% endfor %}
+      </ul>
+    {% endif %}
+    </div>
+    <div class="presentations">
+{% if presentations %}
+    {% for presentation in presentations %}
+	  <div class="presentation">
+	    <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
+      <div class="presentation-card">
+	<img src={{ presentation.speaker.image }} width="80px" height="80px" alt="avatar">
+	<div>
+	<h2 class="name">{{ presentation.speaker.name }}</h2>
+	<hr/>
+	<span class="subtitle">{{ presentation.speaker.job }}</span>
+	</div>
+	<p class="description">{{ presentation.description }}</p>
+      </div>
+      </div>
+    {% endfor %}
+{% else %}
+      <h2 class="title title--white title--medium title--uppercase mt-xs-20">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+{% endif %}
+          </div>
+    
+{% endblock %}

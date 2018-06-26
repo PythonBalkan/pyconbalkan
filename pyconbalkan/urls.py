@@ -7,11 +7,13 @@ from pyconbalkan.cfp.views import cfp_view
 from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.core import routers, views
 from pyconbalkan.about.views import about_view
+from pyconbalkan.sponsors.views import sponsors_view
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
 from pyconbalkan.organizers.views import organizer_view, organizers_listview
 from pyconbalkan.coc.views import coc_view, response_guide
+from pyconbalkan.sponsors.views import sponsor_view
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
@@ -20,6 +22,7 @@ from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.coc.api_urls import router as coc
+from pyconbalkan.timetable.views import timetable_view
 
 from markdownx import urls as markdownx
 
@@ -38,6 +41,7 @@ router.extend(coc)
 urlpatterns = [
     path('', views.home, name='index'),
     path('speaker/<slug:slug>/', speaker_detail, name='speaker_detail'),
+    path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
     path('organizers', organizers_listview, name='organizers'),
@@ -51,4 +55,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
+    path('timetable/', timetable_view, name='timetable')
 ]
