@@ -18,7 +18,7 @@
                     </div>
                     <div class="post__content">
                         <h2>
-                            <a href="{% url 'post_detail' pk=post.slug %}">
+                            <a href="{% url 'post_detail' slug=post.slug %}">
                                 {{ post.title|safe }}
                             </a>
                         </h2>
