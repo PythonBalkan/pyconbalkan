@@ -144,6 +144,12 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+AWS_S3_SECRET_ACCESS_KEY = config("AWS_S3_SECRET_ACCESS_KEY", "")
+AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID", "")
+AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")
+
+LOGIN_URL = '/admin/'
+
 if DEBUG:
     # Storage
     DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage"
@@ -160,7 +166,3 @@ else:
     EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
     EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
     EMAIL_USE_TLS = True
-
-AWS_S3_SECRET_ACCESS_KEY = config("AWS_S3_SECRET_ACCESS_KEY", "")
-AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID", "")
-AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")

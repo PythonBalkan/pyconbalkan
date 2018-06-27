@@ -1,3 +1,6 @@
+from email.header import Header
+from email.mime.text import MIMEText
+
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
@@ -6,6 +9,7 @@ from pyconbalkan.contact.serializers import ContactSerializer
 from pyconbalkan.contact.models import Contact
 from django.core.mail import EmailMessage
 from django.shortcuts import render
+
 from .models import ContactForm
 
 
@@ -27,7 +31,7 @@ def contact_view(request):
             # Send Email to info@pyconbalkan.com
             EmailMessage(
                 subject='Contact Us: {}'.format(contact.name),
-                body=contact.message,
+                body=str(contact.message),
                 from_email='website@pyconbalkan.com',
                 to=['info@pyconbalkan.com'],
                 reply_to=[contact.email],
