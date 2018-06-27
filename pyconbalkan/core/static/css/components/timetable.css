@@ -29,6 +29,10 @@
     overflow: hidden;
 }
 
+.presentation-card h2.name {
+    padding: 0;
+}
+
 @media (max-width: 1280px){
     .presentation-card {
 	width: 100%;
@@ -39,7 +43,7 @@
 .presentation-card div {
     display: inline-block;
     position: relative;
-    bottom: 23px;
+    bottom: 15px;
     left: 10px;
 }
 
@@ -60,6 +64,5 @@
 
 .presentation-card .description {
     margin: 10px 0;
-    font-size: 1.8em;
     font-weight: bold;
 }
