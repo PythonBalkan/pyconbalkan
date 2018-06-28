@@ -16,6 +16,15 @@
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/about' %}active{% endif %}" href="/about" role="button">About Us</a>
             </li>
+	    <li class="menu__list__item dropdown">
+                <a class="menu__list__link {% if request.path == '/location' %}active{% endif %}" href="/location" role="button">Location</a>
+		<div class="dropdown-content">
+		  <a href="/venue">Conference venue</a>
+		  <a href="/city">Come to Belgrade</a>
+		  <a href="/guide">Moving Around Belgrade</a>
+		  <a href="/accomodation">Accomodation</a>
+		</div>
+            </li>
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="/cfp" role="button">CFP</a>
             </li>
