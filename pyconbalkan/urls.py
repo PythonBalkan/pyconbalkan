@@ -23,6 +23,7 @@ from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.coc.api_urls import router as coc
 from pyconbalkan.timetable.views import timetable_view
+from pyconbalkan.location.views import venue_view, city_view, guide_view, accomodation_view
 
 from markdownx import urls as markdownx
 
@@ -55,5 +56,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
-    path('timetable/', timetable_view, name='timetable')
+    path('timetable/', timetable_view, name='timetable'),
+    path('location/venue/', venue_view, name='venue'),
+    path('location/city/', city_view, name='city'),
+    path('location/guide/', guide_view, name='guide'),
+    path('location/accomodation/', accomodation_view, name='accomodation')
 ]

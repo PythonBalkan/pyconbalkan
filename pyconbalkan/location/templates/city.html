@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# City #}
+
+        <h1 class="title title--yellow mb-xs-20">{{ city.title|safe }}</h1>
+        <hr class="line line--blue line--short line--spaced">    
+<div id="widget-holder"></div>
+<script
+data-width="100%"
+src="https://widget.kiwi.com/scripts/widget-search-iframe.js">
+</script>
+        <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+
+{% endblock %}
