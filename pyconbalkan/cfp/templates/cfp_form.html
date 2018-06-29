@@ -43,6 +43,12 @@
         <h1>Call For Proposals</h1>
         <hr class="line">
 
+        {% if success %}
+            <h2 class="success-message">
+                {{ success }}
+            </h2>
+        {% endif %}
+
         <form class="form" action="{% url 'cfp' %}" method="POST" enctype="multipart/form-data" novalidate>
             <div class="form-group">
                 {% csrf_token %}
