@@ -28,7 +28,7 @@ class Cfp(models.Model):
     duration = models.CharField(max_length=100, null=True)
 
     def __str__(self):
-        return '{}: "{}" by {} - [{}]'.format(self.get_type_display, self.title, self.name, 'Accepted' if self.accepted else 'Pending')
+        return '{}: "{}" by {} - [{}]'.format(self.get_type_display(), self.title, self.name, 'Accepted' if self.accepted else 'Pending')
 
     def save(self, *args, **kwargs):
         if not self.slug:
