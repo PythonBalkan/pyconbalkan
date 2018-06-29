@@ -172,7 +172,7 @@ else:
     # Sentry config
     RAVEN_CONFIG = {
         'dsn': config('PYCONBALKAN_SENTRY_DSN', ""),
-        'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+        'release': raven.fetch_git_sha(os.path.dirname(__file__)),
         'string_max_length': 1000,
     }
     # Logging
