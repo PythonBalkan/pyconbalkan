@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+
+import raven
 from decouple import config
 from dj_database_url import parse as dburl
 
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_countries',
     'markdownx',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -166,3 +169,53 @@ else:
     EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
     EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
     EMAIL_USE_TLS = True
+    # Sentry config
+    RAVEN_CONFIG = {
+        'dsn': config('PYCONBALKAN_SENTRY_DSN', ""),
+        'release': raven.fetch_git_sha(os.path.dirname(os.path.dirname(__file__))),
+        'string_max_length': 1000,
+    }
+    # Logging
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
+        },
+        'handlers': {
+            'sentry': {
+                'level': 'ERROR', # To capture more than ERROR, change to WARNING, INFO, etc.
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+                'tags': {'custom-tag': 'x'},
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+        },
+    }
