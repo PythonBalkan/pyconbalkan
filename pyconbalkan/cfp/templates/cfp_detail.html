@@ -9,7 +9,7 @@
             <h1>{{ cfp.get_type_display }}: {{ cfp.title }} ({% if cfp.duration %}{{ cfp.duration }}{% endif %})</h1>
             <h2>by {{ cfp.name }} {% if cfp.company %}({{ cfp.company }}){% endif %}</h2>
             <p>Email: {{ cfp.email }}</p>
-            {% if cfp.email %}<p>Personal Website: <a href="{{ cfp.personal_website }}">{{ cfp.personal_website }}</a></p>{% endif %}
+            {% if cfp.personal_website %}<p>Personal Website: <a href="{{ cfp.personal_website }}">{{ cfp.personal_website }}</a></p>{% endif %}
             {% if cfp.linkedin %}<p>Linkedin: <a href="{{ cfp.linkedin }}">{{ cfp.linkedin }}</a></p>{% endif %}
             <p class="cfp__description">
                 {{ cfp.description|safe }}
