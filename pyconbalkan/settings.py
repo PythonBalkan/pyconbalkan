@@ -172,7 +172,6 @@ else:
     # Sentry config
     RAVEN_CONFIG = {
         'dsn': config('SENTRY_DSN', ""),
-        'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
         'string_max_length': 1000,
     }
     # Logging
