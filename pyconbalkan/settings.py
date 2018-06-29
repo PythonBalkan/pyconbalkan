@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_countries',
     'markdownx',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
