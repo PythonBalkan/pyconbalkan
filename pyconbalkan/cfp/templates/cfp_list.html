@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# CFP list #}
+
+    {% if cfps %}
+    <div class="cfps">
+        <ul>
+        {% for cfp in cfps %}
+            <li>
+                <a href="{% url 'cfp_detail' slug=cfp.slug %}">
+                    {{ cfp.title }} by {{ cfp.title }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+{% endblock %}

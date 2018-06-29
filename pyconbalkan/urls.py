@@ -3,11 +3,10 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
 
-from pyconbalkan.cfp.views import cfp_view
+from pyconbalkan.cfp.views import cfp_detail, cfp_list, cfp_view
 from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.core import routers, views
 from pyconbalkan.about.views import about_view
-from pyconbalkan.sponsors.views import sponsors_view
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
@@ -48,6 +47,8 @@ urlpatterns = [
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
+    path('cfps', cfp_list, name='cfp_list'),
+    path('cfp/<slug:slug>/', cfp_detail, name='cfp_detail'),
     path('news', news_view, name='news'),
     path('news/<slug:slug>/', post_detail, name='post_detail'),
     path('coc', coc_view, name='coc'),

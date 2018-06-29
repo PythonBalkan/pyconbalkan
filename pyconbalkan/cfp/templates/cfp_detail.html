@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# CFP detail #}
+
+    <div class="cfp">
+        <div class="cfp__content">
+            <h1>{{ cfp.title }}</h1>
+            <h2>by {{ cfp.name }} {% if cfp.company %}({{ cfp.company }}){% endif %}</h2>
+            <p class="cfp__description">
+                {{ cfp.description|safe }}
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -2,6 +2,7 @@ from django.db import models
 from django import forms
 from django.forms import ModelForm
 from markdownx.models import MarkdownxField
+from slugify import slugify
 
 
 class Cfp(models.Model):
@@ -12,7 +13,16 @@ class Cfp(models.Model):
     linkedin = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=1024)
     description = MarkdownxField()
+    accepted = models.BooleanField(default=False)
+    slug = models.CharField(unique=True, blank=True, max_length=100)
 
+    def __str__(self):
+        return '"{}" by {} - [{}]'.format(self.title, self.name, 'Accepted' if self.accepted else 'Pending')
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify('{} {}'.format(self.name, self.title))
+        super(Cfp, self).save(*args, **kwargs)
 
 
 class CfpForm(ModelForm):
@@ -34,4 +44,12 @@ class CfpForm(ModelForm):
 
     class Meta:
         model = Cfp
-        fields = '__all__'
+        fields = (
+            'name',
+            'company',
+            'email',
+            'personal_website',
+            'linkedin',
+            'title',
+            'description',
+        )

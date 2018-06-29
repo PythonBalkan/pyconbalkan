@@ -144,8 +144,25 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage" if DEBUG else "pyconbalkan.core.storage.S3Storage"
-
 AWS_S3_SECRET_ACCESS_KEY = config("AWS_S3_SECRET_ACCESS_KEY", "")
 AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID", "")
 AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")
+
+LOGIN_URL = '/admin/'
+
+if DEBUG:
+    # Storage
+    DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage"
+    # Email
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = '/tmp/app-emails'
+else:
+    # Storage
+    DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.S3Storage"
+    # Email
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = config("EMAIL_HOST", "")
+    EMAIL_PORT = config("EMAIL_HOST_USER", "")
+    EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
+    EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
+    EMAIL_USE_TLS = True
