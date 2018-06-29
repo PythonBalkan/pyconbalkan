@@ -7,7 +7,7 @@ def venue_view(request):
 
 
 def city_view(request):
-    context = {}
+    context = {'city': {'title': 'Welcome to Belgrade', 'name': 'Belgrade', 'description': 'Lorem ipsum dolor sit amet'}}
     return render(request, 'city.html', context)
 
 
