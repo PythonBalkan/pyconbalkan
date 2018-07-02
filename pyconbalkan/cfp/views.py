@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
 from rest_framework import viewsets
+from rest_framework.permissions import DjangoModelPermissions
+
 from pyconbalkan.cfp.models import Cfp, CfpForm
 from pyconbalkan.cfp.serializers import CfpSerializer
 from pyconbalkan.conference.models import Conference
@@ -11,6 +12,7 @@ from pyconbalkan.conference.models import Conference
 class CfpViewSet(viewsets.ModelViewSet):
     queryset = Cfp.objects.all()
     serializer_class = CfpSerializer
+    permission_classes = (DjangoModelPermissions,)
 
 
 def cfp_view(request):
