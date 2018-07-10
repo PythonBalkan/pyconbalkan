@@ -24,9 +24,11 @@ class Conference(SingleActiveModel):
     to_date = models.DateField(null=True, blank=True)
     max_attendees = models.PositiveIntegerField(null=True, blank=True)
     type = models.IntegerField(choices=CONF_TYPE)
+    meta_description = models.CharField(null=True, blank=True, max_length=200)
+    meta_author = models.CharField(null=True, blank=True, max_length=200)
 
     def __str__(self):
-        return '{} {} {}'.format(self.event, self.name, self.year)
+        return '{} {} {}'.format(self.event, self.name, self.year, self.meta_description, self.meta_author)
 
 
 class CountDown(SingleActiveModel):
