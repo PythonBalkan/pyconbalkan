@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from pyconbalkan.conference.models import Conference
 from pyconbalkan.news.models import Post
 from pyconbalkan.news.serializers import PostSerializer
+from pyconbalkan.organizers.models import Volunteer
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -24,7 +25,9 @@ def news_view(request):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, active=True, slug=slug)
+    organizer = Volunteer.objects.get(type=Volunteer.ORGANIZER, active=True, user=post.author)
     context = {
-        'post': post
+        'post': post,
+        'organizer': organizer,
     }
     return render(request, 'post.html', context)
