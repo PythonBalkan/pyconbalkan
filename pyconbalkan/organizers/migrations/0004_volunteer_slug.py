@@ -5,17 +5,16 @@ import string
 from django.db import migrations, models
 from slugify import slugify
 
-import pyconbalkan.core.models
 
-
-def forwards_func(apps, schema_editor):
-    # We get the model from the versioned app registry;
-    # if we directly import it, it'll be the wrong version
+def create_slug_in_volunteer(apps, schema_editor):
+    # Create slug in Volunteer
     Volunteer = apps.get_model("organizers", "Volunteer")
     for volunteer in Volunteer.objects.all():
-        volunteer.slug = slugify(volunteer.full_name) + '-' +''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+        volunteer.slug = '{}-{}'.format(slugify(volunteer.full_name), ''.join(random.choices(string.ascii_uppercase + string.digits, k=4)))
         volunteer.save()
 
+def remove_slug(apps, schema_editor):
+    pass
 
 class Migration(migrations.Migration):
 
@@ -29,5 +28,5 @@ class Migration(migrations.Migration):
             name='slug',
             field=models.CharField(blank=True, max_length=100),
         ),
-        migrations.RunPython(forwards_func)
+        migrations.RunPython(create_slug_in_volunteer, remove_slug)
     ]

@@ -7,6 +7,12 @@
     <h1 class="title title--yellow mb-xs-40">Contact Us!</h1>
     <hr class="line line--blue line--short line--spaced">    
 
+    {% if success %}
+        <h2 class="success-message">
+            {{ success }}
+        </h2>
+    {% endif %}
+
     <form class="form" action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
             {% csrf_token %}
@@ -14,11 +20,5 @@
             <input class="button button--blue button--push button--fullwidth " type="submit" value="Submit" />
         </div>
     </form>
-    
-{% if success %}
-<div class="success-message">
-    {{ success }}
-</div>
-{% endif %}
 
 {% endblock %}

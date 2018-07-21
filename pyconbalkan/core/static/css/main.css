@@ -13,27 +13,14 @@ body {
 html {
     font-size: 62.5%; /* 16px * 62.5%: Base 10 font sizing (i.e. 1.0rem == 10px ) */
 }
-@media (max-width: 1280px) {
-    html {
-        font-size: 52.5%;
-    }
-}
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
     font-weight: 400;
+    line-height: 150%;
     background-color: #32383A;
-    /* Center and scale the image nicely */
-    /* background: url('/static/img/background.jpg') no-repeat no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
-}
-
-p {
-    font-size: 1.6rem;
-    line-height: 1.6;
+    color: white;
 }
 
 a {
@@ -45,6 +32,10 @@ a:hover {
     color: #28aae1;
 }
 
+p {
+    color: white;
+    margin-bottom: 20px;
+}
 .centered {
     text-align: center;
 }

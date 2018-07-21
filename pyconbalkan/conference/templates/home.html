@@ -5,7 +5,8 @@
     {# Countdown #}
 
     {% if count_down %}
-        <h1 class="title title--blue">{{ count_down.title }}</h1>
+    <div class="column-full">
+        <h1>{{ count_down.title }}</h1>
         <div class="countdown">
             <div class="countdown__days">
                 <span class="countdown__days__number" id="days"></span> Days
@@ -33,12 +34,22 @@
                 </div>
             </div>
         </div>
+    </div>
     {% endif %}
+
+    {% if mission_statement %}
+    <div class="row">
+        <h1 class="centered">Welcome to PyCon Balkan 2018</h1>
+        <p>{{ mission_statement.content|safe }}</p>
+    </div>
+    {% endif %}
+
+    <hr class="line long">
 
     {# Keynote Speakers #}
 
-    <h1 class="title title--yellow">Keynote Speakers</h1>
-    <hr class="line line--blue line--short line--spaced">
+    <h1 class="centered">Keynote Speakers</h1>
+    <hr class="line line__centered">
 
     {% if keynotes %}
         <div class="card">
@@ -48,7 +59,7 @@
                         <div class="card__image">
                                 <img src="{{ keynote.images.first.profile_picture.url }}">
                         </div>
-                        <h2 class="card__name title--blue">
+                        <h2 class="centered">
                             {{ keynote.name }}
                         </h2>
                     </a>
@@ -59,13 +70,132 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2 class="title title--white title--medium title--uppercase mt-xs-20">
+        <h2>
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
 
+    <hr class="line long">
+
+    {# Sponsors #}
+
+    <h1 class="centered">Meet our sponsors</h1>
+    <p class="centered">They made this possible!</p>
+
+    <hr class="line long">
+
+    {% if keystone_sponsors %}
+    <h2 class="keystone">Keystone</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in keystone_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr class="line long">
+
+    {% if platinum_sponsors %}
+    <h2 class="platinum">Platinum</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in platinum_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr class="line long">
+
+    {% if gold_sponsors %}
+    <h2 class="gold">Gold</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in gold_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr class="line long">
+
+    {% if silver_sponsors %}
+    <h2 class="silver">Silver</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in silver_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr class="line long">
+
+    {% if partners %}
+    <h2 class="partner">Partners</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in partners %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr class="line long">
+    
     {# Buy Tickets #}
 
-    <a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a>
+    <div class="card"><a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a></div>
 
 {% endblock %}

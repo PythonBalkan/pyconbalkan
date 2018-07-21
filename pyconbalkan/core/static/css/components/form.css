@@ -3,7 +3,7 @@
  */
 
 .form {
-    width: 400px;
+    width: 60%;
 }
 
 @media (max-width: 1280px) {

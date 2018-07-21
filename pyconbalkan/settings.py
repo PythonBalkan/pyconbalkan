@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+
+import raven
 from decouple import config
 from dj_database_url import parse as dburl
 
@@ -49,10 +51,12 @@ INSTALLED_APPS = [
     'pyconbalkan.contact',
     'pyconbalkan.news',
     'pyconbalkan.sponsoring',
+    'pyconbalkan.coc',
     # others
     'rest_framework',
     'django_countries',
     'markdownx',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -144,8 +148,74 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage" if DEBUG else "pyconbalkan.core.storage.S3Storage"
-
 AWS_S3_SECRET_ACCESS_KEY = config("AWS_S3_SECRET_ACCESS_KEY", "")
 AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID", "")
 AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")
+
+LOGIN_URL = '/admin/'
+
+if DEBUG:
+    # Storage
+    DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage"
+    # Email
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = '/tmp/app-emails'
+else:
+    # Storage
+    DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.S3Storage"
+    # Email
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = config("EMAIL_HOST", "")
+    EMAIL_PORT = config("EMAIL_PORT", default="587", cast=int)
+    EMAIL_HOST_USER = config("EMAIL_HOST_USER", "")
+    EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", "")
+    EMAIL_USE_TLS = True
+    # Sentry config
+    RAVEN_CONFIG = {
+        'dsn': config('SENTRY_DSN', ""),
+        'string_max_length': 1000,
+    }
+    # Logging
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
+        },
+        'handlers': {
+            'sentry': {
+                'level': 'ERROR', # To capture more than ERROR, change to WARNING, INFO, etc.
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+                'tags': {'custom-tag': 'x'},
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+        },
+    }

@@ -5,14 +5,11 @@
     {# Post #}
 
     <div class="post">
-
         <div class="post__image">
             <img src="{{ post.image.url }}">
         </div>
-
         <div class="post__content">
-            <h1 class="title post__title title--yellow">{{ post.title }}</h1>
-
+            <h1>{{ post.title }}</h1>
             <p class="post__description">
                 {{ post.text|safe }}
             </p>

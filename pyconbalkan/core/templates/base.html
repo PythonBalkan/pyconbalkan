@@ -11,8 +11,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PyCon Balkan description">
-    <meta name="author" content="Python Balkan community">
+    <meta name="description" content="{{ conference.meta_description }}">
+    <meta name="author" content="{{ conference.meta_author }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -20,11 +20,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{% static 'css/_fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/event-sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/post.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/title.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/button.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/card.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/person.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/countdown.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/event-sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/featured-letter.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/form.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/line.css' %}">
@@ -33,7 +36,6 @@
     <link rel="stylesheet" href="{% static 'css/components/page.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/post.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/sponsors.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/social.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/title.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/timetable.css' %}">
     <link rel="stylesheet" href="{% static 'css/helpers/spacing.css' %}">

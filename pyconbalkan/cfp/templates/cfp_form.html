@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# Call For Proposals #}
+
+    <div class="column">
+        <h1>Proposal Request and Info</h1>
+        <hr class="line">
+
+        <p>We value any proposal you may submit. As it is our goal to put Balkan on the map when it comes to quality, we will consider any talks and/or workshop proposals submitted by experts and qualified professionals. It does not matter to us if you are new to the stage or a veteran presenter – if you know that you have something to contribute to PyCon Balkan 2018 we would love to hear from you.</p>
+
+        <h3>Your talk could reach:</h3>
+        <p>Developers, entrepreneurs, programmers, educators, bloggers, authors, web developers, CTOs, managers, scientists, engineers, other corporate representatives and students</p>
+        
+        <h3>Examples of topics covered:</h3>
+        <p>General info on Python language, beginner and advanced skills. Examples of use cases and case studies. How Python is used in a variety of industries including robotics, science, start-ups and corporations. Why Python is used in some of the web’s biggest sites. How to improve and speed up your Python code. The growing Python ecosystem and community (these are just example topics – we welcome other suggestions and ideas)</p>
+
+        <p>If selected as a speaker / presenter you will benefit from a free ticket to the conference as well as the free access to our social/networking events during the conference.</p>
+        <ul>
+            <h3>IMPORTANT DATES:</h3>
+            <li><b>July 29:</b> Deadline for proposal submission</li>
+            <li><b>August 13:</b> Workshops approved & first round of accepted talks</li>
+            <li><b>September 3:</b> Last round of talks accepted</li>
+            <li><b>October 8:</b> Timetable for PyCon Balkan 2018 on the website</li>     
+        </ul>
+
+        <h2>Guidelines for talks / presentations and workshops</h2>
+        <p><b>Talks and presentations:</b> can vary from 30 minutes minimum to 60 minutes maximum. They can be anything related to Python. We encourage a wide range of topic spanning from development, business solution and personal experience among others. Please let us know in advance what media are you planning to use and if you have any special / out of ordinary requirements.</p>
+        <p><b>Workshops:</b> if you are planning a workshop then please ensure you stipulate estimated duration of the workshop in your proposal as well as provide us with a sample material that you will be using. Also please let us know if you have done any workshops before and how many people these normally attract.</p>
+        <p><b>Add-on:</b> lightning talks these are 5 minutes in duration and are useful if you feel that a particular subject matter warrants a closer look but does not require a full on presentation. Application will be open at the conference itself. You cannot apply for it in advance.</p>
+
+        <ul>
+            <h3>Be sure you include the following elements in your submission:</h3>
+            <li>Include the topic of the talk, explain in a short sentence what the audience will learn and include estimated duration of the talk.</li>
+            <li>Tell us why you think that the chosen talk or workshop is insightful and helpful to the audience.</li>
+            <li>Explain how you will present the subject and enlighten the audience so that the subject is well received.</li>
+            <li>Who from the audience will benefit from your presentation or workshop. Is knowledge in specific areas needed in advance to follow along.</li>   
+        </ul>
+    </div>
+
+    <div class="column">
+        <h1>Call For Proposals</h1>
+        <hr class="line">
+
+        {% if success %}
+            <h2 class="success-message">
+                {{ success }}
+            </h2>
+        {% endif %}
+
+        <form class="form" action="{% url 'cfp' %}" method="POST" enctype="multipart/form-data" novalidate>
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
