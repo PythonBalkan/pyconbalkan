@@ -13,6 +13,7 @@
             <p class="post__description">
                 {{ post.text|safe }}
             </p>
+            <h2>Posted by <a href="{% url 'organizer_detail' slug=organizer.slug %}">{{ organizer.user.first_name }} {{ organizer.user.last_name }}</a></h2>
         </div>
     </div>
 
