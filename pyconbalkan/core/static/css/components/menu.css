@@ -29,7 +29,6 @@
         z-index: 3;
     }
 
-    .mobile-button:hover,
     .menu.active .mobile-button {
         border: 1px solid rgba(255,255,255,0.3);
         background-color: #28aae1;
