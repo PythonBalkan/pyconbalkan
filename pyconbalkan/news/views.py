@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
+from django.utils.html import strip_tags
 from meta.views import Meta
 from rest_framework import viewsets
 
@@ -28,8 +29,8 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, active=True, slug=slug)
     organizer = Volunteer.objects.get(type=Volunteer.ORGANIZER, active=True, user=post.author)
     meta = Meta(
-        title=post.title,
-        description=post.text,
+        title=strip_tags(post.title),
+        description=strip_tags(post.text),
         keywords=post.keywords.names(),
         image=post.image.url,
         extra_props={
