@@ -29,6 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', config('SECRET_KEY'))
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
+TAGGIT_CASE_INSENSITIVE = True
 
 # Application definition
 
@@ -56,6 +57,8 @@ INSTALLED_APPS = [
     'django_countries',
     'markdownx',
     'raven.contrib.django.raven_compat',
+    'meta',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +90,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pyconbalkan.wsgi.application'
+META_SITE_PROTOCOL = "http"
+META_SITE_DOMAIN = "pyconbalkan.com"
+META_USE_OG_PROPERTIES = True
+META_USE_TWITTER_PROPERTIES = True
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
