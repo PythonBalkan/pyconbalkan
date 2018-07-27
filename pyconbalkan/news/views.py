@@ -30,7 +30,7 @@ def post_detail(request, slug):
     meta = Meta(
         title=post.title,
         description=post.text,
-        keywords=post.keywords.all(),
+        keywords=post.keywords.names(),
         image=post.image.url,
         extra_props={
             'viewport': 'width=device-width, initial-scale=1.0, minimum-scale=1.0'
