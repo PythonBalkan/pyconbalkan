@@ -17,3 +17,5 @@ django-storages==1.6.6
 django-markdownx==2.0.23
 python-slugify==1.2.5
 raven>=3
+django-meta=1.4.1
+django-taggit=0.22.2
