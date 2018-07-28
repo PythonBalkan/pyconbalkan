@@ -90,7 +90,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pyconbalkan.wsgi.application'
-META_SITE_PROTOCOL = "http"
+META_SITE_PROTOCOL = "https"
 META_SITE_DOMAIN = "pyconbalkan.com"
 META_USE_OG_PROPERTIES = True
 META_USE_TWITTER_PROPERTIES = True
