@@ -13,7 +13,7 @@ class Volunteer(ActiveModel, Person):
         (VOLUNTEER, 'Volunteer'),
     )
 
-    user = models.ForeignKey(User, blank=True, null=True, related_name='volunteer', on_delete=CASCADE)
+    user = models.OneToOneField(User, blank=True, null=True, related_name='volunteer', on_delete=CASCADE)
     type = models.IntegerField(choices=VOLUNTEER_TYPE, default=VOLUNTEER)
     weight = models.IntegerField(unique=True, blank=True)
 

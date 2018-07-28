@@ -27,7 +27,6 @@ def news_view(request):
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, active=True, slug=slug)
-    organizer = Volunteer.objects.get(type=Volunteer.ORGANIZER, active=True, user=post.author)
     meta = Meta(
         title=strip_tags(post.title),
         description=strip_tags(post.text),
@@ -38,10 +37,8 @@ def post_detail(request, slug):
         }
     )
 
-
     context = {
         'post': post,
-        'organizer': organizer,
         'meta': meta,
     }
     return render(request, 'post.html', context)
