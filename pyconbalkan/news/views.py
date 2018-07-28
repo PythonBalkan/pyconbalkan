@@ -17,7 +17,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
 def news_view(request):
     conference = Conference.objects.filter(active=True)
-    posts = Post.objects.filter(active=True, published_date__lte=timezone.now()).order_by('-published_date')
+    posts = Post.objects.filter(active=True, published_date__lte=timezone.now())
     context = {
         'news': posts,
         'conference': conference.first() if conference else None,

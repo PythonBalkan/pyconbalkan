@@ -22,3 +22,6 @@ class Post(ActiveModel):
 
     def __str__(self):
         return '{} by {}'.format(self.title, self.author.username)
+
+    class Meta:
+        ordering = ("-published_date",)
