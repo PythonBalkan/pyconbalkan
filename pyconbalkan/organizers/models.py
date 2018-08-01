@@ -15,7 +15,6 @@ class Volunteer(ActiveModel, Person):
 
     user = models.OneToOneField(User, blank=True, null=True, related_name='volunteer', on_delete=CASCADE)
     type = models.IntegerField(choices=VOLUNTEER_TYPE, default=VOLUNTEER)
-    weight = models.IntegerField(unique=True, blank=True)
 
     def __str__(self):
         return '{} [{}]'.format(self.name, str(self.weight))
