@@ -17,7 +17,10 @@ class Volunteer(ActiveModel, Person):
     type = models.IntegerField(choices=VOLUNTEER_TYPE, default=VOLUNTEER)
 
     def __str__(self):
-        return '{} [{}]'.format(self.name, str(self.weight))
+        return '{} [{}]'.format(self.name, self.get_type_display())
+
+    class Meta:
+        ordering = ('full_name',)
 
 
 class VolunteerPhoto(models.Model):

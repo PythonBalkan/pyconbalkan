@@ -20,8 +20,8 @@ def organizer_view(request, slug):
 
 
 def organizers_listview(request):
-    volunteers = Volunteer.objects.filter(type=Volunteer.VOLUNTEER, active=True).order_by('full_name')
-    organizers = Volunteer.objects.filter(type=Volunteer.ORGANIZER, active=True).order_by('full_name')
+    volunteers = Volunteer.objects.filter(type=Volunteer.VOLUNTEER, active=True)
+    organizers = Volunteer.objects.filter(type=Volunteer.ORGANIZER, active=True)
     conference = Conference.objects.filter(active=True)
     context = {
         'volunteers': volunteers,
