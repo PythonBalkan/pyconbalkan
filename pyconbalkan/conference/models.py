@@ -1,11 +1,12 @@
 from django.db import models
 from django_countries.fields import CountryField
+from meta.models import ModelMeta
 
 from pyconbalkan.core.models import SingleActiveModel
 from markdownx.models import MarkdownxField
 
 
-class Conference(SingleActiveModel):
+class Conference(SingleActiveModel, ModelMeta):
     INTERNATIONAL = 0
     NATIONAL = 1
     CONF_TYPE = (
@@ -24,11 +25,26 @@ class Conference(SingleActiveModel):
     to_date = models.DateField(null=True, blank=True)
     max_attendees = models.PositiveIntegerField(null=True, blank=True)
     type = models.IntegerField(choices=CONF_TYPE)
-    meta_description = models.CharField(null=True, blank=True, max_length=200)
-    meta_author = models.CharField(null=True, blank=True, max_length=200)
+
+    # Links
+    tickets = models.URLField(blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+    instagram = models.URLField(blank=True, null=True)
+
+    _metadata = {
+        'title': 'get_meta_title',
+        'description': 'get_meta_description',
+    }
+
+    def get_meta_title(self):
+        return '#{} {} {} {}'.format(self.number, self.event, self.name, self.year)
+
+    def get_meta_description(self):
+        return 'Welcome to {} {} {}! '.format(self.event, self.name, self.year)
 
     def __str__(self):
-        return '{} {} {}'.format(self.event, self.name, self.year, self.meta_description, self.meta_author)
+        return '{} {} {}'.format(self.event, self.name, self.year)
 
 
 class CountDown(SingleActiveModel):

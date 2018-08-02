@@ -159,6 +159,8 @@ AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID", "")
 AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")
 
 LOGIN_URL = '/admin/'
+META_DEFAULT_KEYWORDS = ['PyCon', 'Balkan']
+META_SITE_DOMAIN = 'https://pyconbalkan.com/'
 
 if DEBUG:
     # Storage

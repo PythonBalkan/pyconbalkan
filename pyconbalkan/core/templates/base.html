@@ -6,15 +6,13 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head {% meta_namespaces %} >
+    {% include "meta/meta.html" %}
     <title>{{ conference.event }} {{ conference.name }} {{ conference.year }}</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ conference.meta_description }}">
-    <meta name="author" content="{{ conference.meta_author }}">
-    {% include "meta/meta.html" %}
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
