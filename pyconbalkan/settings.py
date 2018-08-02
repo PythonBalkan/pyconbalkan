@@ -162,6 +162,9 @@ LOGIN_URL = '/admin/'
 META_DEFAULT_KEYWORDS = ['PyCon', 'Balkan']
 META_SITE_DOMAIN = 'https://pyconbalkan.com/'
 
+# SSL redirect
+SECURE_SSL_REDIRECT = True
+
 if DEBUG:
     # Storage
     DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage"
