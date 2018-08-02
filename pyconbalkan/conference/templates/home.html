@@ -39,7 +39,7 @@
 
     {% if mission_statement %}
     <div class="row">
-        <h1 class="centered">Welcome to PyCon Balkan 2018</h1>
+        <h1 class="centered">Welcome to {{ conference.event }} {{ conference.name }} {{ conference.year }}</h1>
         <p>{{ mission_statement.content|safe }}</p>
     </div>
     {% endif %}

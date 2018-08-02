@@ -1,31 +1,34 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <a href="/" class="logo" title="PyCon Balkan - Belgrade 2018"></a>
+    <a href="/" class="logo" title="{{ conference.event }} {{ conference.name }} - {{ conference.city }} {{ conference.year }}"></a>
     <hr class="line">
-    <h1>#1</h1>
+    <h1>#{{ conference.number }}</h1>
     <p class="event-sidebar__text">
-        Hilton Belgrade - Kralja Milana 35, Beograd
+        {{ conference.address }}, {{ conference.city }}
     </p>
     <p class="event-sidebar__text">
         <i class="event-sidebar__icon far fa-calendar-alt"></i>
-        Nov. 16, 2018 - Nov. 18, 2018
+        {{ conference.from_date }} - {{ conference.to_date }}
     </p>
     <p class="event-sidebar__text">
         <i class="event-sidebar__icon fas fa-users"></i>
-        500 attendees
+        {{ conference.max_attendees }} attendees
     </p>
     <p class="event-sidebar__text">
         <i class="event-sidebar__icon fas fa-globe"></i>
-        International
+        {{ conference.get_type_display }}
     </p>
+
+    {% if conference.tickets %}
     <div class="event-button__wrapper">
-        <a class="button button--yellow mb-xs-40 event-button" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Join Us!</a>
+        <a class="button button--yellow mb-xs-40 event-button" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
     </div>
+    {% endif %}
     <div class="social__links mb-xs-20">
-	<a href="https://www.facebook.com/pyconblkn/" class="facebook" target="_blank"></a>
-	<a href="https://www.instagram.com/pycon.blkn/" class="instagram" target="_blank"></a>
-	<a href="https://twitter.com/hashtag/pyconblkn" class="twitter" target="_blank"></a>
+    {% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
+	{% if conference.instagram %}<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
+	{% if conference.twitter %}<a href="{{ conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
     <h3 class="supported-by">Supported by</h3>
     <img class="pfs-logo" src="{% static 'img/pfs-logo.png' %}">
