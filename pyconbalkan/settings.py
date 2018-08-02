@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 import raven
+import sys
 from decouple import config
 from dj_database_url import parse as dburl
 
@@ -162,6 +163,11 @@ LOGIN_URL = '/admin/'
 META_DEFAULT_KEYWORDS = ['PyCon', 'Balkan']
 META_SITE_DOMAIN = 'https://pyconbalkan.com/'
 
+# Are we testing? i.e. was this code run via "manage.py test"
+TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
+# SSL redirect
+SECURE_SSL_REDIRECT = False if TESTING else True
+
 if DEBUG:
     # Storage
     DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.LocalStorage"
@@ -169,8 +175,6 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
     EMAIL_FILE_PATH = '/tmp/app-emails'
 else:
-    # SSL redirect
-    SECURE_SSL_REDIRECT = True
     # Storage
     DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.S3Storage"
     # Email
