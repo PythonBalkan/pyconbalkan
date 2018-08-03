@@ -12,9 +12,11 @@ class VolunteerViewSet(viewsets.ModelViewSet):
 
 
 def organizer_view(request, slug):
+    conference = Conference.objects.filter(active=True)
     organizer = get_object_or_404(Volunteer, slug=slug)
     context = {
         'organizer': organizer,
+        'conference': conference.first() if conference else None,
     }
     return render(request, 'organizer.html', context)
 

@@ -43,17 +43,21 @@ def cfp_view(request):
 
 @login_required
 def cfp_list(request):
+    conference = Conference.objects.filter(active=True)
     cfps = Cfp.objects.all()
     context = {
         'cfps': cfps,
+        'conference': conference.first() if conference else None,
     }
     return render(request, 'cfp_list.html', context)
 
 
 @login_required
 def cfp_detail(request, slug):
+    conference = Conference.objects.filter(active=True)
     cfp = get_object_or_404(Cfp, slug=slug)
     context = {
         'cfp': cfp,
+        'conference': conference.first() if conference else None,
     }
     return render(request, 'cfp_detail.html', context)

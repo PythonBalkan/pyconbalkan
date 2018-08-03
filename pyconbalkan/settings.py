@@ -161,12 +161,6 @@ AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME", "")
 
 LOGIN_URL = '/admin/'
 META_DEFAULT_KEYWORDS = ['PyCon', 'Balkan']
-META_SITE_DOMAIN = 'https://pyconbalkan.com/'
-
-# Are we testing? i.e. was this code run via "manage.py test"
-TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
-# SSL redirect
-SECURE_SSL_REDIRECT = False if TESTING else True
 
 if DEBUG:
     # Storage
@@ -175,6 +169,8 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
     EMAIL_FILE_PATH = '/tmp/app-emails'
 else:
+    TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
+    SECURE_SSL_REDIRECT = False if TESTING else True
     # Storage
     DEFAULT_FILE_STORAGE = "pyconbalkan.core.storage.S3Storage"
     # Email

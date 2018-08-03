@@ -26,6 +26,7 @@ def news_view(request):
 
 
 def post_detail(request, slug):
+    conference = Conference.objects.filter(active=True)
     post = get_object_or_404(Post, active=True, slug=slug)
     meta = Meta(
         title=strip_tags(post.title),
@@ -38,6 +39,7 @@ def post_detail(request, slug):
     )
 
     context = {
+        'conference': conference.first() if conference else None,
         'post': post,
         'meta': meta,
     }
