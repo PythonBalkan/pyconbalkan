@@ -7,10 +7,12 @@
     <div class="organizer">
         <div class="organizer__image">
             <img src="{{ organizer.images.first.profile_picture.url }}">
-
         </div>
         <div class="organizer__details">
-            <h1 class="title organizer__title title--yellow">{{ organizer.name }}</h1>
+            <h1 class="title organizer__title title--yellow">
+                {{ organizer.name }}
+                {% if organizer.country %}<i class="flag em em-flag-{{ organizer.country.code|lower }}"></i>{% endif %}
+            </h1>
             <h2 class="organizer__job title--blue">
                 {{ organizer.job }}
             </h2>

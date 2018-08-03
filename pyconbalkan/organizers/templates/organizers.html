@@ -17,6 +17,9 @@
                         </div>
                         <h2 class="card__name title--blue">
                             {{ organizer.name }}
+                            {% if organizer.country %}
+                                <i class="flag em em-flag-{{ organizer.country.code|lower }}"></i>
+                            {% endif %}
                         </h2>
                     </a>
                     {% if organizer.job %}
@@ -49,6 +52,9 @@
                     </div>
                     <h2 class="card__name title--blue">
                         {{ volunteer.name }}
+                        {% if volunteer.country %}
+                            <i class="flag em em-flag-{{ volunteer.country.code|lower }}"></i>
+                        {% endif %}
                     </h2>
                     {% if volunteer.job %}
                         <p class="card__job">

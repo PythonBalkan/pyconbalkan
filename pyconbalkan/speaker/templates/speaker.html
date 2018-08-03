@@ -7,10 +7,13 @@
     <div class="speaker">
         <div class="speaker__image">
             <img src="{{ speaker.images.first.profile_picture.url }}">
-
         </div>
+
         <div class="speaker__details">
-            <h1>{{ speaker.name }}</h1>
+            <h1>
+                {{ speaker.name }}
+                {% if speaker.country %}<i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>{% endif %}
+            </h1>
             <h2>{{ speaker.job }}</h2>
             <p class="speaker__description title--white">
                 {{ speaker.description|safe }}
