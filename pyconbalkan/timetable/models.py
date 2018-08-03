@@ -17,9 +17,11 @@ class Timetable(ActiveModel):
 class Presentation(ActiveModel):
     TALK = 0
     WORKSHOP = 1
+    KEYNOTE = 2
     PRESENTATION_TYPE = (
         (TALK, 'Talk'),
         (WORKSHOP, 'Workshop'),
+        (KEYNOTE, 'Keynote'),
     )
 
     title = models.CharField(null=True, blank=True, max_length=100)
