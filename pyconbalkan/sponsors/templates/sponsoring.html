@@ -4,21 +4,68 @@
 
 {# Sponsoring #}
 
-    <h1 class="title title--yellow mb-xs-40">Sponsoring</h1>
-    <hr class="line line--blue line--short line--spaced">    
+    <h1 class="title title--yellow mb-xs-40" xmlns="http://www.w3.org/1999/html">Sponsoring</h1>
+    <hr class="line line--blue line--short line--spaced">
+
+    {% if packages %}
+    <div class="card card__centered">
+        {% for package in packages %}
+            <div class="card__item">
+                <div class="centered">
+                   <h1 class="centered">
+                       {% if package.is_over %}
+                           <s style='color:#22A4D9'>
+                              <span style="color:#f3d66c">{{ package.level }} [{{ package.limit }}]</span>
+                           </s>
+                       {% else %}
+                           {{ package.level }} [{{ package.limit }}]
+                       {% endif %}
+                       <br>
+                       {{ package.amount }}
+                    </h1>
+                </div>
+                <p class="package__description title--white">
+                    {{ package.description }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <hr class="line long">
+
+    <h1 class="title title--yellow mb-xs-40" xmlns="http://www.w3.org/1999/html">Interested in Sponsoring?</h1>
+    <hr class="line line--blue line--short line--spaced">
+
+    <h2 class="title title--yellow mb-xs-40">Send us a message!</h2>
+
+    {% if success %}
+        <h2 class="success-message">
+            {{ success }}
+        </h2>
+    {% endif %}
 
     <form class="form" action="{% url 'sponsoring' %}" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class="button button--yellow button--push" type="submit" value="Donate" />
+            <input class="button button--blue button--push button--fullwidth " type="submit" value="Submit" />
         </div>
     </form>
-    
-{% if success %}
-<div class="success-message">
-    {{ success }}
-</div>
-{% endif %}
+    <hr class="line long">
+
+    {# Sponsor Brochure #}
+
+    <div class="card">
+        <a class="button button--yellow mb-xs-80" href="/info" target="_blank" role="button">Sponsor Brochure</a>
+    </div>
+
+    <h2 class="centered">
+        {% if conference.sponsor_email %}
+            For more information, contact us by email {{ conference.sponsor_email }}
+        {% endif %}
+    </h2>
+
+    <hr class="line long">
 
 {% endblock %}

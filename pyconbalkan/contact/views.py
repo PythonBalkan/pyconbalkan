@@ -5,12 +5,11 @@ from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
 from pyconbalkan.conference.models import Conference
+from pyconbalkan.contact.forms import ContactForm
 from pyconbalkan.contact.serializers import ContactSerializer
 from pyconbalkan.contact.models import Contact
 from django.core.mail import EmailMessage
 from django.shortcuts import render
-
-from .models import ContactForm
 
 
 class ContactViewSet(viewsets.ModelViewSet):

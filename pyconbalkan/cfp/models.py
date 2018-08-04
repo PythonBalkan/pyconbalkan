@@ -4,6 +4,7 @@ import string
 from django.db import models
 from django import forms
 from django.forms import ModelForm
+from django.forms.widgets import RadioSelect
 from markdownx.models import MarkdownxField
 from slugify import slugify
 
@@ -56,7 +57,7 @@ class CfpForm(ModelForm):
                                error_messages={'required': 'Please, enter the duration.'}, label='')
     description= forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Description of your proposal', 'class': 'form-control'}),
                               error_messages={'required': 'Please, enter the description of your proposal.'}, label='')
-    type = forms.ChoiceField(choices=TYPE_CFP, widget=forms.Select())
+    type = forms.ChoiceField(choices=TYPE_CFP, widget=RadioSelect())
 
     class Meta:
         model = Cfp

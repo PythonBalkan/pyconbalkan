@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 
 from pyconbalkan.conference.models import Conference
 from pyconbalkan.sponsors.forms import SponsoringForm
-from pyconbalkan.sponsors.models import Sponsor, Sponsoring
+from pyconbalkan.sponsors.models import Sponsor, Sponsoring, Package, SponsorshipLevel
 from pyconbalkan.sponsors.serializers import SponsorSerializer, SponsoringSerializer
 
 
@@ -23,19 +23,39 @@ def sponsor_view(request, id):
     context = {
         'sponsor': sponsor,
         'conference': conference.first() if conference else None,
+        'meta': conference.first().as_meta(),
     }
     return render(request, 'sponsor.html', context)
 
 def sponsors_view(request):
-    sponsors = Sponsor.objects.all()
+    conference = Conference.objects.filter(active=True)
+
+    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
+    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
+    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)
+    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver)
+    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner)
     context = {
-        'sponsors': sponsors,
+        'keystone_sponsors': keystone_sponsors,
+        'platinum_sponsors': platinum_sponsors,
+        'gold_sponsors': gold_sponsors,
+        'silver_sponsors': silver_sponsors,
+        'partners': partners,
+        'conference': conference.first() if conference else None,
+        'meta': conference.first().as_meta(),
     }
     return render(request, 'sponsors.html', context)
 
 
 def sponsoring_view(request):
-    context = {}
+    conference = Conference.objects.filter(active=True)
+    packages = Package.objects.filter(active=True)
+    Sponsor.objects
+    context = {
+        'packages': packages,
+        'conference': conference.first() if conference else None,
+        'meta': conference.first().as_meta(),
+    }
     if request.method == 'POST':
         form = SponsoringForm(request.POST)
         if form.is_valid():
