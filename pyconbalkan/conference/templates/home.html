@@ -61,6 +61,9 @@
                         </div>
                         <h2 class="centered">
                             {{ keynote.name }}
+                            {% if keynote.country %}
+                                <i class="flag em em-flag-{{ keynote.country.code|lower }}"></i>
+                            {% endif %}
                         </h2>
                     </a>
                     <p class="card__job">

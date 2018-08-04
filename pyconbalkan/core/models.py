@@ -1,4 +1,5 @@
 from django.db import models
+from django_countries.fields import CountryField
 from markdownx.models import MarkdownxField
 from slugify import slugify
 
@@ -18,6 +19,7 @@ class Person(models.Model):
     slug = models.CharField(unique=True, blank=True, max_length=100)
     description = MarkdownxField(blank=True, default='')
     email = models.EmailField(blank=True, null=True)
+    country = CountryField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
