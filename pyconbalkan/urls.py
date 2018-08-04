@@ -12,7 +12,7 @@ from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
 from pyconbalkan.organizers.views import organizer_view, organizers_listview
 from pyconbalkan.coc.views import coc_view, response_guide
-from pyconbalkan.sponsors.views import sponsor_view
+from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.about.api_urls import router as about
@@ -22,7 +22,6 @@ from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.coc.api_urls import router as coc
 from pyconbalkan.timetable.views import timetable_view
-from pyconbalkan.sponsoring.views import sponsoring_view
 
 from markdownx import urls as markdownx
 

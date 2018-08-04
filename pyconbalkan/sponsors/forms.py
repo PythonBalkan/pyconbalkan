@@ -1,28 +1,8 @@
-from django.db import models
 from django import forms
 from django.forms import ModelForm
-from django.core.validators import RegexValidator
 from django.forms.widgets import RadioSelect
 
-
-class Sponsoring(models.Model):
-    organization = models.CharField(max_length=100, null=True, blank=True)
-    name = models.CharField(max_length=256)
-    phone_regex = RegexValidator(
-        regex=r'^\+?1?\d{9,15}$',
-        message=
-        "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
-    )
-    phone = models.CharField(
-        validators=[phone_regex], max_length=17, blank=True)
-    email = models.EmailField()
-
-    def __str__(self):
-        sponsoring_str = '{} | {} | {}'.format(self.name, self.phone,
-                                               self.email)
-        if self.organization:
-            return '{} | {}'.format(sponsoring_str, self.organization)
-        return sponsoring_str
+from pyconbalkan.sponsors.models import Sponsoring
 
 
 class SponsoringForm(ModelForm):
