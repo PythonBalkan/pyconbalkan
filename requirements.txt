@@ -3,7 +3,7 @@ dj-static==0.0.6
 Django==2.1
 django-choices==1.6.1
 django-countries==5.3.1
-django-filter==1.1.0
+django-filter==2.0.0
 djangorestframework==3.8.2
 gunicorn==19.9.0
 Markdown==2.6.11
