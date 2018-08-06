@@ -32,14 +32,14 @@
 }
 
 .sponsor {
-    width: 350px;
-    height: 300px;
     color: #F3D66C;
-    margin: 5px 10px;
 }
 
-.sponsor p {
-    padding: 10px;
+@media (max-width: 1024px) {
+    .sponsor {
+        width: 350px;
+        height: 300px;
+    }
 }
 
 .sponsor img {
@@ -57,6 +57,6 @@
 @media (max-width: 767px) {
     .card__info {
         top: -170px;
-	left: 160px;
+	    left: 160px;
     }
 }
