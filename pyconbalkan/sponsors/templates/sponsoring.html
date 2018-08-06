@@ -8,20 +8,20 @@
     <hr class="line line--blue line--short line--spaced">
 
     {% if packages %}
-    <div class="card card__centered">
+    <div class="card sponsoring card__centered">
         {% for package in packages %}
-            <div class="card__item">
+            <div class="card__item sponsoring__item">
                 <div class="centered">
                    <h1 class="centered">
                        {% if package.is_over %}
-                           <s style='color:#22A4D9'>
-                              <span style="color:#f3d66c">{{ package.level }} [{{ package.limit }}]</span>
+                           <s>
+                              {{ package.level }}<span class="sponsoring--limit">({{ package.limit }})</span>
                            </s>
                        {% else %}
-                           {{ package.level }} [{{ package.limit }}]
+                           {{ package.level }}<span class="sponsoring--limit">({{ package.limit }})</span>
                        {% endif %}
                        <br>
-                       {{ package.amount }}
+                       <span class="sponsoring--amount">{{ package.amount }}</span>
                     </h1>
                 </div>
                 <p class="package__description title--white">
