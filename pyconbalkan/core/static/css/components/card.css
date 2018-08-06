@@ -57,3 +57,42 @@
             font-size: 1.8rem;
             text-align: center;
         }
+
+.sponsoring {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+    .sponsoring__item {
+        flex: 0 0 30%;
+        padding: 40px;
+        margin: 0 40px 40px 0;
+        background-color: #f3d66c;
+        color: #32383A;
+    }
+
+    .sponsoring__item:hover {
+        background-color: #22A4D9;
+        color: white;
+    }
+
+    .sponsoring__item:hover h1,
+    .sponsoring__item:hover .package__description {
+        color: white;
+    }
+
+        .sponsoring__item h1,
+        .sponsoring__item .package__description {
+            margin-top: 0;
+            color: #32383A;
+        }
+
+        .sponsoring__item h1 span.sponsoring--limit {
+            font-weight: normal;
+        }
+
+        .sponsoring__item h1 span.sponsoring--amount {
+            font-size: 22px;
+        }
