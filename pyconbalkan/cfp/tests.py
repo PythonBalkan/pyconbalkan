@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
+from . import const
 
-from .models import Cfp, TALK
+from .models import Cfp
 
 CFP_URL = '/api/cfp/'
 
@@ -18,7 +19,7 @@ class CfpAuthApiTest(APITestCase):
             title='Test',
             duration='30min',
             description='Test',
-            type=TALK
+            type=const.TALK
         )
 
         # Create user
@@ -39,7 +40,7 @@ class CfpAuthApiTest(APITestCase):
             'title': 'Test1',
             'duration': 'Test1',
             'description': 'Test',
-            'type': TALK,
+            'type': const.TALK,
         })
         self.assertEqual(status.HTTP_403_FORBIDDEN, result.status_code, 'Status code should be 403 for list.')
 
@@ -78,7 +79,7 @@ class CfpAuthApiTest(APITestCase):
             'title': 'Test1',
             'duration': 'Test1',
             'description': 'Test',
-            'type': TALK,
+            'type': const.TALK,
         })
         self.assertEqual(status.HTTP_201_CREATED, result.status_code, 'Status code should be 201 for create.')
 
