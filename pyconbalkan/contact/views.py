@@ -1,15 +1,10 @@
-from email.header import Header
-from email.mime.text import MIMEText
-
+from django.core.mail import EmailMessage
+from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
-from pyconbalkan.conference.models import Conference
-from pyconbalkan.contact.serializers import ContactSerializer
 from pyconbalkan.contact.models import Contact
-from django.core.mail import EmailMessage
-from django.shortcuts import render
-
+from pyconbalkan.contact.serializers import ContactSerializer
 from .models import ContactForm
 
 
@@ -20,10 +15,7 @@ class ContactViewSet(viewsets.ModelViewSet):
 
 
 def contact_view(request):
-    conference = Conference.objects.filter(active=True)
-    context = {
-        'conference': conference.first() if conference else None,
-    }
+    context = {}
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():

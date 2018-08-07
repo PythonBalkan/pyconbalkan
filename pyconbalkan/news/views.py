@@ -16,17 +16,14 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 def news_view(request):
-    conference = Conference.objects.filter(active=True)
     posts = Post.objects.filter(active=True, published_date__lte=timezone.now())
     context = {
         'news': posts,
-        'conference': conference.first() if conference else None,
     }
     return render(request, 'news.html', context)
 
 
 def post_detail(request, slug):
-    conference = Conference.objects.filter(active=True)
     post = get_object_or_404(Post, active=True, slug=slug)
     meta = Meta(
         title=strip_tags(post.title),
@@ -39,7 +36,6 @@ def post_detail(request, slug):
     )
 
     context = {
-        'conference': conference.first() if conference else None,
         'post': post,
         'meta': meta,
     }

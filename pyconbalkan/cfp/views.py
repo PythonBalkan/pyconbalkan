@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
-from django.db.models import F, Subquery, OuterRef
+from django.db.models import Subquery, OuterRef
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 from rest_framework.permissions import DjangoModelPermissions
@@ -8,7 +8,6 @@ from rest_framework.permissions import DjangoModelPermissions
 from pyconbalkan.cfp.forms import CfpForm, RateForm
 from pyconbalkan.cfp.models import Cfp, CFPRating
 from pyconbalkan.cfp.serializers import CfpSerializer
-from pyconbalkan.conference.models import Conference
 
 
 class CfpViewSet(viewsets.ModelViewSet):
@@ -18,10 +17,7 @@ class CfpViewSet(viewsets.ModelViewSet):
 
 
 def cfp_view(request):
-    conference = Conference.objects.filter(active=True)
-    context = {
-        'conference': conference.first() if conference else None,
-    }
+    context = {}
     if request.method == 'POST':
         form = CfpForm(request.POST)
         if form.is_valid():
@@ -45,25 +41,21 @@ def cfp_view(request):
 
 @login_required
 def cfp_list(request):
-    conference = Conference.objects.filter(active=True)
     cfps = Cfp.objects.annotate(
         my_rating=Subquery(CFPRating.objects.filter(cfp=OuterRef('pk'), user=request.user).values('mark'))
     )
 
     context = {
         'cfps': cfps,
-        'conference': conference.first() if conference else None,
     }
     return render(request, 'cfp_list.html', context)
 
 
 @login_required
 def cfp_detail(request, slug):
-    conference = Conference.objects.filter(active=True)
     cfp = get_object_or_404(Cfp, slug=slug)
     context = {
         'cfp': cfp,
-        'conference': conference.first() if conference else None,
     }
 
     initial = {

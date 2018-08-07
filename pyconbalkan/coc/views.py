@@ -3,7 +3,6 @@ from rest_framework import viewsets
 
 from .models import CodeOfConduct, ResponseGuide
 from .serializers import CodeOfConductSerializer
-from pyconbalkan.conference.models import Conference
 
 
 class CodeOfConductViewSet(viewsets.ModelViewSet):
@@ -12,13 +11,11 @@ class CodeOfConductViewSet(viewsets.ModelViewSet):
 
 
 def coc_view(request):
-    conference = Conference.objects.filter(active=True)
     coc = CodeOfConduct.objects.filter(active=True)
     r_guide = ResponseGuide.objects.filter(active=True)
     context = {
         'coc': coc.first() if coc else None,
         'response_guide': r_guide.first() if r_guide else None,
-        'conference': conference.first() if conference else None,
     }
     return render(request, 'coc.html', context)
 
