@@ -73,6 +73,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pyconbalkan.urls'
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/cfps'
 
 TEMPLATES = [
     {
