@@ -28,7 +28,7 @@ class Cfp(models.Model):
     @property
     def rating(self):
         try:
-            return median(self.ratings.all().values_list('mark'))
+            return median(self.ratings.all().values_list('mark', flat=True))
         except StatisticsError:
             return "N/A"
 
