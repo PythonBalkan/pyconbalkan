@@ -25,7 +25,6 @@ def home(request):
         'gold_sponsors': gold_sponsors,
         'silver_sponsors': silver_sponsors,
         'partners': partners,
-        'conference': conference.first() if conference else None,
         'count_down': count_down.first() if count_down else None,
         'mission_statement': mission_statement.first() if mission_statement else None,
         'meta': conference.first().as_meta(),
