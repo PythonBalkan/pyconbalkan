@@ -47,6 +47,7 @@ class CFPRating(models.Model):
     mark = models.IntegerField(validators=[MaxValueValidator(10, "Maximum rating is 10"), MinValueValidator(0, "Minimum Rating is 10")])
     cfp = models.ForeignKey(Cfp, related_name="ratings", on_delete=CASCADE)
     user = models.ForeignKey(getattr(settings, "AUTH_USER_MODEL"), on_delete=CASCADE)
+    comment = MarkdownxField(blank=True, null=True)
     tags = TaggableManager()
 
     class Meta:

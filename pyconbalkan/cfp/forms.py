@@ -47,4 +47,6 @@ class RateForm(ModelForm):
         model = CFPRating
         fields = (
             'mark',
+            'comment',
+            'tags'
         )
