@@ -6,6 +6,7 @@
 
     <div class="cfp">
         <div class="cfp__content">
+            <a class="button button--yellow" href="{% url 'cfp_list' %}" role="button">Back to CFP List</a>
             <h1>{{ cfp.get_type_display }}: {{ cfp.title }} ({% if cfp.duration %}{{ cfp.duration }}{% endif %})</h1>
             <h2>by {{ cfp.name }} {% if cfp.company %}({{ cfp.company }}){% endif %}</h2>
             <p>Email: {{ cfp.email }}</p>
@@ -28,7 +29,9 @@
                 <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
             </div>
         </form>
+        <a class="button button--yellow" href="{% url 'cfp_list' %}" role="button">Back to CFP List</a>
         </div>
     </div>
+
 
 {% endblock %}

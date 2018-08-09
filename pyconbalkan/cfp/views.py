@@ -57,24 +57,20 @@ def cfp_detail(request, slug):
     context = {
         'cfp': cfp,
     }
-
     initial = {
         'user': request.user,
         'cfp': cfp
     }
-
     try:
         rating_instance = CFPRating.objects.get(**initial)
     except CFPRating.DoesNotExist:
         rating_instance = CFPRating(**initial)
-
     if request.method == 'POST':
         form = RateForm(request.POST, instance=rating_instance)
         if form.is_valid():
             form.save()
+            context['success'] = 'Your review has been successfully saved.'
     else:
         form = RateForm(instance=rating_instance)
-
     context['form'] = form
-
     return render(request, 'cfp_detail.html', context)
