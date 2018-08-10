@@ -61,5 +61,5 @@ class CFPRating(models.Model):
         return ''
 
     def __str__(self):
-        return '[{}] by {}'.format(self.mark, self.user.first_name)
+        return '[{}/10] {}: reviewed by {}'.format(self.mark, self.cfp.title, self.user.first_name)
 
