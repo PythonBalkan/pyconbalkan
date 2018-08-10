@@ -16,19 +16,33 @@
                 {{ cfp.description|safe }}
             </p>
 
-        {% if success %}
-            <h2 class="success-message">
-                {{ success }}
-            </h2>
-        {% endif %}
+            {% if success %}
+                <h2 class="success-message">
+                    {{ success }}
+                </h2>
+            {% endif %}
 
-        <form class="form" action="{% url 'cfp_detail' cfp.slug %}" method="POST" enctype="multipart/form-data" novalidate>
-            <div class="form-group">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
-            </div>
-        </form>
+            <form class="form" action="{% url 'cfp_detail' cfp.slug %}" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
+                </div>
+            </form>
+
+            <h2>Other comments:</h2>
+            {% for rating in ratings %}
+                {% if rating.comment %}
+                <hr class="line">
+                    <p class="cfp__comment">{{ rating.formatted_markdown|safe }}</p>
+                    <h4>by {{ rating.user.first_name }} </h4>
+                    {% if rating.tags.all %}
+                        <h3>Tags</h3> [{{ rating.tags.all | join:", "  }}]
+                    {% endif %}
+                <hr class="line">
+                {% endif %}
+            {% endfor %}
+
         <a class="button button--yellow" href="{% url 'cfp_list' %}" role="button">Back to CFP List</a>
         </div>
     </div>

@@ -54,8 +54,10 @@ def cfp_list(request):
 @login_required
 def cfp_detail(request, slug):
     cfp = get_object_or_404(Cfp, slug=slug)
+    ratings = CFPRating.objects.filter(cfp=cfp)
     context = {
         'cfp': cfp,
+        'ratings': ratings,
     }
     initial = {
         'user': request.user,

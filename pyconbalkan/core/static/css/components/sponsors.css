@@ -1,6 +1,6 @@
 .catch {
     color: white;
-    margin: 30px 0 40px; 0;
+    margin: 30px 0 40px 0;
 }
 
 .catch p {
@@ -53,6 +53,14 @@
     top: -60px;
     padding: 20px;
 }
+
+    .cfp__description {
+        margin-bottom: 20px;
+    }
+
+    .cfp__comment {
+        margin-bottom: 0;
+    }
 
 @media (max-width: 767px) {
     .card__info {

@@ -7,6 +7,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models import CASCADE
 from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
 from slugify import slugify
 from taggit.managers import TaggableManager
 from . import const
@@ -48,8 +49,17 @@ class CFPRating(models.Model):
     cfp = models.ForeignKey(Cfp, related_name="ratings", on_delete=CASCADE)
     user = models.ForeignKey(getattr(settings, "AUTH_USER_MODEL"), on_delete=CASCADE)
     comment = MarkdownxField(blank=True, null=True)
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     class Meta:
         unique_together = (("user", "cfp",),)
+
+    @property
+    def formatted_markdown(self):
+        if self.comment:
+            return markdownify(self.comment)
+        return ''
+
+    def __str__(self):
+        return '[{}] by {}'.format(self.mark, self.user.first_name)
 

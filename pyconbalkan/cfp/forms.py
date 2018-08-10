@@ -43,7 +43,7 @@ class CfpForm(ModelForm):
 
 class RateForm(ModelForm):
     mark = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Rating: from 1 to 10', 'class': 'form-control', 'max': 10, 'min': 1}), label='', )
-    comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Comment', 'class': 'form-control'}), label='')
+    comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Comment', 'class': 'form-control'}), label='', required=False)
 
     class Meta:
         model = CFPRating
