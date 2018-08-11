@@ -1,19 +1,17 @@
 import random
 import string
+from statistics import median, StatisticsError
 
+from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django import forms
-from django.forms import ModelForm
-from django.forms.widgets import RadioSelect
+from django.db.models import CASCADE
 from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
 from slugify import slugify
+from taggit.managers import TaggableManager
+from . import const
 
-TALK = 1
-WORKSHOP = 2
-TYPE_CFP = (
-    (TALK, 'Talk'),
-    (WORKSHOP, 'Workshop'),
-)
 
 class Cfp(models.Model):
     name = models.CharField(max_length=256)
@@ -25,8 +23,15 @@ class Cfp(models.Model):
     description = MarkdownxField()
     accepted = models.BooleanField(default=False)
     slug = models.CharField(unique=True, blank=True, max_length=100)
-    type = models.IntegerField(choices=TYPE_CFP, default=TALK)
+    type = models.IntegerField(choices=const.TYPE_CFP, default=const.TALK)
     duration = models.CharField(max_length=100, null=True)
+
+    @property
+    def rating(self):
+        try:
+            return median(self.ratings.all().values_list('mark', flat=True))
+        except StatisticsError:
+            return "N/A"
 
     def __str__(self):
         return '{}: "{}" by {} - [{}]'.format(self.get_type_display(), self.title, self.name, 'Accepted' if self.accepted else 'Pending')
@@ -39,36 +44,22 @@ class Cfp(models.Model):
         super(Cfp, self).save(*args, **kwargs)
 
 
-class CfpForm(ModelForm):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'class': 'form-control'}),
-                           max_length=256, error_messages={'required': 'Please, enter your name.'}, label='')
-    company = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Company', 'class': 'form-control'}),
-                              max_length=100, required=False, label='')
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control'}),
-                             error_messages={'required': 'Please, enter a valid email address.',
-                                             'invalid': 'Please enter a valid email address.'}, label='')
-    personal_website = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Personal Website (URL)', 'class': 'form-control'}),
-                                       max_length=100, required=False, label='')
-    linkedin = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Linkedin (URL)', 'class': 'form-control'}),
-                               max_length=100, required=False, label='')
-    title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Title of your proposal', 'class': 'form-control'}),
-                            error_messages={'required': 'Please, enter the title.'}, label='')
-    duration = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Duration (E.g. 2h, 30min, 1:30, etc.)', 'class': 'form-control'}),
-                               error_messages={'required': 'Please, enter the duration.'}, label='')
-    description= forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Description of your proposal', 'class': 'form-control'}),
-                              error_messages={'required': 'Please, enter the description of your proposal.'}, label='')
-    type = forms.ChoiceField(choices=TYPE_CFP, widget=RadioSelect())
+class CFPRating(models.Model):
+    mark = models.IntegerField(validators=[MaxValueValidator(10, "Maximum rating is 10"), MinValueValidator(1, "Minimum Rating is 1")])
+    cfp = models.ForeignKey(Cfp, related_name="ratings", on_delete=CASCADE)
+    user = models.ForeignKey(getattr(settings, "AUTH_USER_MODEL"), on_delete=CASCADE)
+    comment = MarkdownxField(blank=True, null=True)
+    tags = TaggableManager(blank=True)
 
     class Meta:
-        model = Cfp
-        fields = (
-            'name',
-            'company',
-            'email',
-            'personal_website',
-            'linkedin',
-            'title',
-            'duration',
-            'description',
-            'type',
-        )
+        unique_together = (("user", "cfp",),)
+
+    @property
+    def formatted_markdown(self):
+        if self.comment:
+            return markdownify(self.comment)
+        return ''
+
+    def __str__(self):
+        return '[{}/10] {}: reviewed by {}'.format(self.mark, self.cfp.title, self.user.first_name)
+

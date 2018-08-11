@@ -74,6 +74,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pyconbalkan.urls'
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/cfps'
 
 TEMPLATES = [
     {
@@ -84,6 +86,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'pyconbalkan.core.context_processors.conference',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],

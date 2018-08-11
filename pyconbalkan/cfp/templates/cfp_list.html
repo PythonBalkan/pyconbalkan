@@ -10,7 +10,7 @@
         {% for cfp in cfps %}
             <li>
                 <a href="{% url 'cfp_detail' slug=cfp.slug %}">
-                    {{ cfp.get_type_display }}: {{ cfp.title }} by {{ cfp.name }}
+                    {{ cfp.get_type_display }}: {{ cfp.title }} by {{ cfp.name }} - {{ cfp.my_rating }} {% if request.user.is_superuser %} - {{ cfp.rating }}{% endif %}
                 </a>
             </li>
         {% endfor %}

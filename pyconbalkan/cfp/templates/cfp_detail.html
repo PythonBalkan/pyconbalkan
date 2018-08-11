@@ -6,6 +6,7 @@
 
     <div class="cfp">
         <div class="cfp__content">
+            <a class="button button--yellow" href="{% url 'cfp_list' %}" role="button">Back to CFP List</a>
             <h1>{{ cfp.get_type_display }}: {{ cfp.title }} ({% if cfp.duration %}{{ cfp.duration }}{% endif %})</h1>
             <h2>by {{ cfp.name }} {% if cfp.company %}({{ cfp.company }}){% endif %}</h2>
             <p>Email: {{ cfp.email }}</p>
@@ -14,7 +15,37 @@
             <p class="cfp__description">
                 {{ cfp.description|safe }}
             </p>
+
+            {% if success %}
+                <h2 class="success-message">
+                    {{ success }}
+                </h2>
+            {% endif %}
+
+            <form class="form" action="{% url 'cfp_detail' cfp.slug %}" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
+                </div>
+            </form>
+
+            <h2>Other comments:</h2>
+            {% for rating in ratings %}
+                {% if rating.comment %}
+                <hr class="line">
+                    <p class="cfp__comment">{{ rating.formatted_markdown|safe }}</p>
+                    <h4>by {{ rating.user.first_name }} </h4>
+                    {% if rating.tags.all %}
+                        <h3>Tags</h3> [{{ rating.tags.all | join:", "  }}]
+                    {% endif %}
+                <hr class="line">
+                {% endif %}
+            {% endfor %}
+
+        <a class="button button--yellow" href="{% url 'cfp_list' %}" role="button">Back to CFP List</a>
         </div>
     </div>
+
 
 {% endblock %}
