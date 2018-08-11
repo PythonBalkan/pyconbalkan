@@ -12,6 +12,14 @@
     align-content: flex-start;
  }
 
+ @media (max-width: 1024px) {
+     .speaker,
+     .organizer,
+     .sponsor {
+         flex-flow: column wrap;
+     }
+ }
+
     .speaker__image,
     .organizer__image,
     .sponsor__image {

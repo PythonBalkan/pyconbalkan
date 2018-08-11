@@ -20,6 +20,22 @@
         justify-content: flex-start;
         align-items: flex-start;
     }
+
+    .form-group p label {
+        display: block;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 20px;  
+    }
+
+    .form-group input[type=radio] {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
     
     @media (max-width: 1280px) {   
         .form-group {
@@ -30,7 +46,6 @@
 
     @media (max-width: 1280px) {
         .form .form-group .button--fullwidth {
-            width: 80%;
             align-self: center;
         }
     }
@@ -44,8 +59,20 @@
         @media (max-width: 1280px) {
             .form p {
                 flex: 1;
-                width: 80%;
             }
+        }
+
+        .form ul,
+        .form li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: left;
+            width: 100%;
+        }
+
+        .form-group li {
+            height: 25px;
         }
 
         .form .form-control {

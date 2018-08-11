@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 
 from pyconbalkan.contact.models import Contact
 from pyconbalkan.contact.serializers import ContactSerializer
-from .models import ContactForm
+from .forms import ContactForm
 
 
 class ContactViewSet(viewsets.ModelViewSet):

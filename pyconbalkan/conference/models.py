@@ -25,6 +25,8 @@ class Conference(SingleActiveModel, ModelMeta):
     to_date = models.DateField(null=True, blank=True)
     max_attendees = models.PositiveIntegerField(null=True, blank=True)
     type = models.IntegerField(choices=CONF_TYPE)
+    sponsor_email = models.EmailField(null=True, blank=True)
+    contact_email = models.EmailField(null=True, blank=True)
 
     # Links
     tickets = models.URLField(blank=True, null=True)
