@@ -13,7 +13,11 @@
  }
 
  @media (max-width: 1024px) {
-     flex-flow: column wrap;
+     .speaker,
+     .organizer,
+     .sponsor {
+         flex-flow: column wrap;
+     }
  }
 
     .speaker__image,

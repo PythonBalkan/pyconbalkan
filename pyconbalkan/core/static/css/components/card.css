@@ -71,6 +71,7 @@
         margin: 0 40px 40px 0;
         background-color: #f3d66c;
         color: #32383A;
+        border-radius: 20px;
     }
 
     .sponsoring__item:hover {

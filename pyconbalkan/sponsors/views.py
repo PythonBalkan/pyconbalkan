@@ -25,8 +25,6 @@ def sponsor_view(request, id):
 
 
 def sponsors_view(request):
-    conference = Conference.objects.filter(active=True)
-
     keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
     platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
     gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)
@@ -38,20 +36,15 @@ def sponsors_view(request):
         'gold_sponsors': gold_sponsors,
         'silver_sponsors': silver_sponsors,
         'partners': partners,
-        'conference': conference.first() if conference else None,
-        'meta': conference.first().as_meta(),
     }
     return render(request, 'sponsors.html', context)
 
 
 def sponsoring_view(request):
-    conference = Conference.objects.filter(active=True)
     packages = Package.objects.filter(active=True)
     Sponsor.objects
     context = {
         'packages': packages,
-        'conference': conference.first() if conference else None,
-        'meta': conference.first().as_meta(),
     }
     if request.method == 'POST':
         form = SponsoringForm(request.POST)
