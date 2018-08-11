@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
@@ -40,6 +41,7 @@ def sponsors_view(request):
     return render(request, 'sponsors.html', context)
 
 
+@login_required
 def sponsoring_view(request):
     packages = Package.objects.filter(active=True)
     Sponsor.objects
