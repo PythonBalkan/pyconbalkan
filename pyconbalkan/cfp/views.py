@@ -41,7 +41,7 @@ def cfp_view(request):
 
 @login_required
 def cfp_list(request):
-    cfps = Cfp.objects.annotate(
+    cfps = Cfp.objects.filter(active=True).annotate(
         my_rating=Subquery(CFPRating.objects.filter(cfp=OuterRef('pk'), user=request.user).values('mark'))
     )
 
@@ -53,7 +53,7 @@ def cfp_list(request):
 
 @login_required
 def cfp_detail(request, slug):
-    cfp = get_object_or_404(Cfp, slug=slug)
+    cfp = get_object_or_404(Cfp, slug=slug, active=True)
     ratings = CFPRating.objects.filter(cfp=cfp)
     context = {
         'cfp': cfp,
