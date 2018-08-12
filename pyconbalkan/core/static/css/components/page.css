@@ -10,7 +10,7 @@
 
     @media (max-width: 1280px) {
         .page__content {
-            width: 70%;
+            width: 90%;
             height: auto;
             padding: 40px 0;
             margin: 0 auto;
@@ -20,6 +20,13 @@
         .column {
             flex: 0 0 70%   ;
             margin-right: 80px;
+        }
+
+        @media (max-width: 1024px) {
+
+            .column {
+                margin-right: 0;
+            }
         }
 
         .column:nth-of-type(2) {
@@ -52,7 +59,7 @@
             margin-left: 0;
             margin-bottom: 20px;
         }
-        
+
         .column ul li {
             padding-left: 0px;
         }
