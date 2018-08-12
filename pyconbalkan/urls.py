@@ -43,6 +43,7 @@ urlpatterns = [
     path('', views.home, name='index'),
     path('speaker/<slug:slug>/', speaker_detail, name='speaker_detail'),
     path('sponsors', sponsors_view, name='sponsor_list'),
+    path('speakers', speaker_list, name='speakers'),
     path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
     path('sponsoring', sponsoring_view, name='sponsoring'),
     path('info', serve, {'path': 'pycon_brochure.pdf', 'document_root': PDF_ROOT}),

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{# Speakers #}
+
+    <h1 class="centered">Speakers at PyCon Balkan, Belgrade 2018</h1>
+    <hr class="line line__centered">
+
+    {% if speakers %}
+        <div class="card">
+            {% for speaker in speakers %}
+            <div class="speaker">
+                <div class="speaker__image">
+                    <a href="{% url 'speaker_detail' slug=speaker.slug %}">
+                        <img src="{{ speaker.images.first.profile_picture.url }}">
+                    </a>
+                </div>
+                <div class="speaker__details">
+                    <a href="{% url 'speaker_detail' slug=speaker.slug %}"><h1>
+                        {{ speaker.name }}
+                        {% if speaker.country %}
+                            <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                        {% endif %}
+                        , <span class="title-white"> {{ speaker.job }} - {{ speaker.company }}</span>
+                    </h1></a>
+                    <h2>Tittle of the talk: "Somethin about python programming language"</h2>
+                    <br>
+                    <a class="button button--yellow" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                        View more
+                    </a>
+                    <!--<div class="social__links">
+                        {% if speaker.personal_website %}
+                        <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
+                        {% endif %}
+                        {% if speaker.github %}
+                            <a href="{{ speaker.github }}" class="github" target="_ blank"></a>
+                        {% endif %}
+                        {% if speaker.linkedin %}
+                            <a href="{{ speaker.linkedin }}" class="linkedin" target="_ blank"></a>
+                        {% endif %}
+                        {% if speaker.twitter %}
+                            <a href="{{ speaker.twitter }}" class="twitter" target="_ blank"></a>
+                        {% endif %}
+                        {% if speaker.facebook %}
+                            <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
+                        {% endif %}
+                    </div>-->
+                </div>
+            </div>
+            <hr class="line long">
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+    {% endif %}
+{% endblock %}

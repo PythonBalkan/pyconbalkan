@@ -16,3 +16,11 @@ def speaker_detail(request, slug):
         'speaker': speaker,
     }
     return render(request, 'speaker.html', context)
+
+
+def speaker_list(request):
+    speakers = Speaker.objects.filter(keynote=False, active=True)
+    context = {
+        'speakers': speakers,
+    }
+    return render(request, 'speakers.html', context)
