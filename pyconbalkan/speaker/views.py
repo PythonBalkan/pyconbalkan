@@ -19,7 +19,7 @@ def speaker_detail(request, slug):
 
 
 def speaker_list(request):
-    speakers = Speaker.objects.filter(keynote=False, active=True)
+    speakers = Speaker.objects.filter(active=True).prefetch_related('presentation')
     context = {
         'speakers': speakers,
     }

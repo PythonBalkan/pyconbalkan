@@ -11,9 +11,16 @@
 
         <div class="speaker__details">
             <h1>
+                {% if speaker.keynote %}<i class="fas fa-star"></i>{% endif %}
                 {{ speaker.name }}
                 {% if speaker.country %}<i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>{% endif %}
             </h1>
+
+            <h2><i class="fas fa-laptop-code"></i> {{ speaker.job }} - {{ speaker.company }}</h2>
+            <p class="speaker__description title--white">
+                {{ speaker.description|safe }}
+            </p>
+
             <div class="social__links">
                 {% if speaker.personal_website %}
                 <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
@@ -31,26 +38,13 @@
                     <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
                 {% endif %}
             </div>
-            <h2><i class="fas fa-laptop-code"></i> {{ speaker.job }} - {{ speaker.company }}</h2>
-            <p class="speaker__description title--white">
-                {{ speaker.description|safe }}
-            </p>
 
-            <!-- Fake text - Details of the talk needed here from schedule model -->
-            <h2><i class="fas fa-bullhorn"></i> Title of the talk:  "Great benefits of learning Python language in 2018"</h2>
-            <p class="speaker__description title--white">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor sit amet erat vitae venenatis.
-                Sed pretium leo non enim rhoncus, vel blandit dolor convallis. In non arcu accumsan ligula sagittis pellentesque.
-                In dignissim metus eu efficitur gravida. Vestibulum placerat a quam sed tincidunt.
-                Aliquam vestibulum velit ac lacus iaculis imperdiet. Mauris vel quam dui.
-                Nulla ut scelerisque arcu, sit amet imperdiet nulla.
-            </p>
-            <ul style="margin-left: 20px">
-                <li>Vestibulum placerat a quam sed tincidunt.</li>
-                <li>Nulla ut scelerisque arcu, sit amet imperdiet nulla.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-            </ul>
-
+            {% for presentation in speaker.presentation.all %}
+                <h2><i class="fas fa-bullhorn"></i> {{ presentation.title }}</h2>
+                <p class="speaker__description title--white">
+                    {{ presentation.description|safe }}
+                </p>
+            {% endfor %}
         </div>
     </div>
 
