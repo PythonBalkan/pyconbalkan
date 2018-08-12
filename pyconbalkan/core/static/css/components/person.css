@@ -8,8 +8,8 @@
  .sponsor {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
+    align-items: center;
+    justify-content: center;
  }
 
  @media (max-width: 1024px) {
@@ -32,10 +32,26 @@
         overflow: hidden;
     }
 
+    @media (max-width: 1024px) {
+        .speaker__image,
+        .organizer__image,
+        .sponsor__image {
+            margin: 0;
+        }
+    }
+
     .speaker__details,
     .organizer__details,
     .sponsor__details {
         flex: 1;
+    }
+
+    @media (max-width: 1024px) {
+        .speaker__details,
+        .organizer__details,
+        .sponsor__details {
+            text-align: justify;
+        }
     }
 
         .speaker__image img,
@@ -62,7 +78,15 @@
         .speaker__description,
         .organizer__description,
         .sponsor__description {
-            margin-bottom: 20px;    
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .speaker__description,
+            .organizer__description,
+            .sponsor__description {
+                margin-bottom: 0;
+            }
         }
 
         .social__links {

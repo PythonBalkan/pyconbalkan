@@ -20,7 +20,7 @@
 }
 
 .keynote-item {
-    position: relative; 
+    position: relative;
 }
 
 .sponsor-list {
@@ -33,13 +33,6 @@
 
 .sponsor {
     color: #F3D66C;
-}
-
-@media (max-width: 1024px) {
-    .sponsor {
-        width: 350px;
-        height: 300px;
-    }
 }
 
 .sponsor img {
