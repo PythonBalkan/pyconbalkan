@@ -23,7 +23,7 @@
                         {% if speaker.country %}
                             <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
                         {% endif %}
-                        , <span class="title-white"> {{ speaker.job }} - {{ speaker.company }}</span>
+                        , <span class="title-white"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</span>
                     </h1></a>
                     {% for presentation in speaker.presentation.all %}
                         <h2>{{ presentation.title }}</h2>

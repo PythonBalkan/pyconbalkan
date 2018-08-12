@@ -16,7 +16,7 @@
                 {% if speaker.country %}<i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>{% endif %}
             </h1>
 
-            <h2><i class="fas fa-laptop-code"></i> {{ speaker.job }} - {{ speaker.company }}</h2>
+            <h2><i class="fas fa-laptop-code"></i> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h2>
             <p class="speaker__description title--white">
                 {{ speaker.description|safe }}
             </p>
