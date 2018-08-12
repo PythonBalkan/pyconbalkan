@@ -67,7 +67,7 @@
                         </h2>
                     </a>
                     <p class="card__job">
-                        {{ keynote.job }}
+                        {{ keynote.job }} {% if keynote.company %}- {{ keynote.company }}{% endif %}
                     </p>
                 </div>
             {% endfor %}
