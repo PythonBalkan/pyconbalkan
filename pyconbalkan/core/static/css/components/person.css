@@ -50,9 +50,13 @@
         .speaker__details,
         .organizer__details,
         .sponsor__details {
-            text-align: justify;
+            text-align: center;
+        }
+        .speaker__details h1, .speaker__details h2 {
+            font-size: 2rem;
         }
     }
+
 
         .speaker__image img,
         .organizer__image img,
@@ -85,7 +89,7 @@
             .speaker__description,
             .organizer__description,
             .sponsor__description {
-                margin-bottom: 0;
+                margin-bottom: 15px;
             }
         }
 
