@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {# City #}
+
+    {% if city %}
+        <h1 class="title title--yellow mb-xs-20">{{ city.title|safe }}</h1>
+        <hr class="line line--blue line--short line--spaced">    
+<div id="widget-holder"></div>
+<div style="height: auto">
+<div id="__widget-target__" data-to="Belgrade" data-lang="en-UK" data-currency="eur" data-affilid="skypicker"></div>
+<script src="https://www.kiwi.com/widget/widget.js"></script>
+</div>
+<p>{{city.description}}</p>
+{% else %}
+        <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+	{% endif %}
+
+{% endblock %}
