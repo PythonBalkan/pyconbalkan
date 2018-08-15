@@ -10,6 +10,7 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    width: 100%;
  }
 
  @media (max-width: 1024px) {
@@ -50,7 +51,7 @@
         .speaker__details,
         .organizer__details,
         .sponsor__details {
-            text-align: justify;
+            text-align: center;
         }
     }
 
@@ -86,6 +87,7 @@
             .organizer__description,
             .sponsor__description {
                 margin-bottom: 0;
+                text-align: justify;
             }
         }
 
