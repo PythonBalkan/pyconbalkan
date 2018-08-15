@@ -29,22 +29,6 @@
         z-index: 3;
     }
 
-    .mobile-button:hover,
-    .menu.active .mobile-button {
-        border: 1px solid rgba(255,255,255,0.3);
-        background-color: #28aae1;
-        background-image: url(/static/img/close.png);
-        background-image: url(/static/img/close.svg);
-    }
-
-    .menu.active .mobile-button:hover {
-        background-color: #ffd64f;
-    }
-
-    .menu.active .menu__list {
-        display: flex;
-    }
-
     .mobile-button {
         display: block;
         position: absolute;
@@ -62,6 +46,28 @@
         background-image: url(/static/img/burger-menu.svg);
         background-position: center;
         cursor: pointer;
+    }
+
+    .mobile-button:hover {
+        border: 1px solid rgba(255,255,255,0.3);
+        background-color: #28aae1;
+        background-image: url(/static/img/burger-menu.png);
+        background-image: url(/static/img/burger-menu.svg);
+    }
+
+    .menu.active .mobile-button {
+        border: 1px solid rgba(255,255,255,0.3);
+        background-color: #ffd64f;
+        background-image: url(/static/img/close.png);
+        background-image: url(/static/img/close.svg);
+    }
+
+    .menu.active .mobile-button:hover {
+        background-color: #ffd64f;
+    }
+
+    .menu.active .menu__list {
+        display: flex;
     }
 }
 
