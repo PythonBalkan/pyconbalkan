@@ -37,6 +37,16 @@
         .organizer__image,
         .sponsor__image {
             margin: 0;
+            margin-top: 15px;
+        }
+        iframe {
+            width: 100%;
+        }
+        .line {
+            display: none;
+        }
+        .hide_on_mobile {
+            display: none;
         }
     }
 
