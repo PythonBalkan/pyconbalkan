@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block main_content %}
 
     <!--{# About #}
@@ -23,7 +25,7 @@
 
     <div class="speaker">
         <div class="speaker__image hide_on_mobile">
-            <img src="http://www.tob.rs/images/slider/City%20Break%201.jpg">
+            <img src="{% static 'img/belgrade_1.jpg' %}">
         </div>
         <div class="speaker__details">
             <h1>Belgrade</h1>
@@ -69,13 +71,13 @@
 
     <div class="speaker">
         <div class="speaker__image">
-            <img src="https://retailsee.com/wp-content/uploads/2018/07/Hilton-Hotel.jpg">
+            <img src="{% static 'img/hilton.jpg' %}">
         </div>
         <div class="speaker__details">
             <h1>Venue</h1>
             <hr class="line">
             <p>
-                <a href="http://www3.hilton.com/en/hotels/serbia/hilton-belgrade-BEGBSHI/index.html">Hilton Belgrade</a>
+                <a href="http://www3.hilton.com/en/hotels/serbia/hilton-belgrade-BEGBSHI/index.html" target="_blank">Hilton Belgrade</a>
                 is located in the heart of bustling downtown, just steps from businesses, restaurants, shopping and entertainment.
                 Enjoy the Old Town charm, walk to Slavija Square, or explore the Temple of Saint Sava, Kalemegdan, and various museums and galleries.
                 <br>
@@ -99,7 +101,7 @@
 
     <div class="speaker">
         <div class="speaker__image">
-            <img src="https://s27412.pcdn.co/wp-content/uploads/2017/10/Things-to-do-in-Belgrade-Serbia-COVER.jpg">
+            <img src="{% static 'img/travel_1.jpg' %}">
         </div>
         <div class="speaker__details">
             <h1>Travel</h1>
@@ -140,22 +142,23 @@
         </div>
     </div>
 
-    <div class="speaker hide_on_mobile">
+    <div class="speaker hide_on_mobile centered">
+        <div style="margin-left: 220px;"></div>
         <div class="speaker__image">
-            <img src="http://www.tob.rs/images/slider/City%20Break%201.jpg">
+            <img src="{% static 'img/venue_1.jpg' %}">
         </div>
         <div class="speaker__image">
-            <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/a7/76/e1/private-day-trip-to-budapest.jpg">
+            <img src="{% static 'img/venue_2.jpg' %}">
         </div>
         <div class="speaker__image">
-            <img src="https://lonelyplanetwp.imgix.net/2017/09/Belgrade-Knez-Mihailova-street-af958c3aa30c.jpg?crop=entropy&fit=crop&h=421&sharp=10&vib=20&w=748">
+            <img src="{% static 'img/venue_3.jpg' %}">
         </div>
         <div class="speaker__image">
-            <img src="https://d2bgjx2gb489de.cloudfront.net/gbb-blogs/wp-content/uploads/2015/12/Panorama-Belgrade-830x400.jpg">
+            <img src="{% static 'img/belgrade_3.jpg' %}">
+        </div>
+        <div class="speaker__image">
+            <img src="{% static 'img/belgrade_2.jpg' %}">
         </div>
     </div>
-
-
-
 
 {% endblock %}
