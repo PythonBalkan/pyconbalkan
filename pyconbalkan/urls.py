@@ -2,7 +2,6 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from django.views.static import serve
 
 from pyconbalkan.cfp.views import cfp_detail, cfp_list, cfp_view
 from pyconbalkan.conference.api_urls import router as conference
@@ -10,7 +9,6 @@ from pyconbalkan.core import routers, views
 from pyconbalkan.about.views import about_view
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
-from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.speaker.views import *
 from pyconbalkan.organizers.views import organizer_view, organizers_listview
 from pyconbalkan.coc.views import coc_view, response_guide
@@ -24,6 +22,7 @@ from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.coc.api_urls import router as coc
 from pyconbalkan.timetable.views import timetable_view
+from pyconbalkan.info.views import info_view
 
 from markdownx import urls as markdownx
 
@@ -46,7 +45,7 @@ urlpatterns = [
     path('speakers', speaker_list, name='speakers'),
     path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
     path('sponsoring', sponsoring_view, name='sponsoring'),
-    path('info', serve, {'path': 'pycon_brochure.pdf', 'document_root': PDF_ROOT}),
+    path('info', info_view, name='info'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
     path('organizers', organizers_listview, name='organizers'),
