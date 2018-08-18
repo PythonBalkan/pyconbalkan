@@ -4,7 +4,7 @@
 
 {% block main_content %}
 
-    <!--{# About #}
+   {# About #}
 
     {% if about %}
         <h1 class="title title--yellow mb-xs-20">{{ about.title|safe }}</h1>
@@ -17,148 +17,28 @@
         <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
-    {% endif %}-->
-    <div class="centered">
-        <h1 class="title title--yellow mb-xs-20">Welcome to Belgrade</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dAqoCEnWkRM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    {% endif %}
 
-    <div class="speaker">
-        <div class="speaker__image hide_on_mobile">
-            <img src="{% static 'img/belgrade_1.jpg' %}">
-        </div>
-        <div class="speaker__details">
-            <h1>Belgrade</h1>
-            <hr class="line">
-            <p>
-                WELCOME TO BELGRADE 16 pycon balkan 2018 With some of the most attractive locations,
-                Belgrade Fortress – the oldest cultural and historical monument, Skadarlija – the bohemian quarter in the city centre,
-                Knez Mihailova street; Old and New Royal Court, Federal Parliament, Temple of St. Sava, Zemun and many others, Belgrade makes the cultural
-                centre of South East Europe.
-                <br><br>
-                PROUDLY NAMED THE CITY OF CULTURE, INSPIRATION, SPORTS, AND FESTIVALS. With some of the most attractive locations,
-                Belgrade Fortress – the oldest cultural and historical monument, Skadarlija – the bohemian quarter in the city centre,
-                Knez Mihailova street; Old and New Royal Court, Federal Parliament, Temple of St. Sava, Zemun and many others,
-                Belgrade makes the cultural centre of South East Europe.
-            </p>
-            <h3>Bohemian style</h3>
-            <p>
-                Discover the Old with the New. Skadarlija began to acquire its bohemian character in the last few decades of the 19th century.
-                Skadarlijan inns or kafanas have hosted many celebrities over the decades, such as Alfred Hitchcock, Jimi Hendrix, Josip Broz Tito,
-                King Juan Carlos I of Spain, chess player Anatoly Karpov and many others. The present Skadarlija, a short and curved street,
-                is a remarkable attraction with some of the famous inns Tri šešira (Three Hats), Šešir moj (This old hat of mine), Dva jelena (Two Deer),
-                Zlatni bokal (The Golden Chalice), Ima dana (There will be days), Putujuci glumac (Traveling Actor) and Dva bela goluba (Two White Doves).
-            </p>
-            <h3>Belgrade fortress</h3>
-            <p>
-                Never changing pespective. Belgrade Fortress, known as Kalemegdan, is a defensive structure built around 3rd century,
-                and is the core and oldest section of the city. It overlooks the confluence of the Sava and Danube rivers.
-                Тhe spot next to the statue Pobednik (The Victor), done by the famous sculptor, Ivan Meštrović, is probably the most beautiful lookout in
-                Belgrade.
-            </p>
-            <h3>Zemun</h3>
-            <p>
-                Once a separate city, Zemun is nowadays known as a romantic and poetic part of Belgrade. In its main street (Glavna ulica),
-                it has a Homeland museum and Madlenianum Opera and Theatre, that underlines the beauty of this street with beautiful sopranos,
-                tenors, baritones and basses of renowned national and international opera singers. The bank of the Danube where Zemun is situated,
-                Zemunski kej, is a kilometreslong promenade with barges-cafés, an amusement park and formerly largest hotel in Belgrade, now Grand Casino.
-                At night, these barges-cafés are the epicentre of a night life, open until dawn. Gardoš Tower is the most recognizable symbol of Zemun.
-                This neighborhood preserved its old looks, with narrow, mostly cobblestoned streets and individual residential houses.
-                There is a cute café/restaurant near the Gardoš tower that offers a panoramic view of Belgrade and a pleasant rest from the sounds of city traffic.
-            </p>
-        </div>
-    </div>
+    {# Code of Conduct #}
 
-    <div class="speaker">
-        <div class="speaker__image">
-            <img src="{% static 'img/hilton.jpg' %}">
-        </div>
-        <div class="speaker__details">
-            <h1>Venue</h1>
-            <hr class="line">
-            <p>
-                <a href="http://www3.hilton.com/en/hotels/serbia/hilton-belgrade-BEGBSHI/index.html" target="_blank">Hilton Belgrade</a>
-                is located in the heart of bustling downtown, just steps from businesses, restaurants, shopping and entertainment.
-                Enjoy the Old Town charm, walk to Slavija Square, or explore the Temple of Saint Sava, Kalemegdan, and various museums and galleries.
-                <br>
-            </p>
-            <p>
-                Enjoying an enviable city center location, this Belgrade hotel delights with upscale accommodation,
-                a rooftop bar & dining plus a modern fitness center and spa. The SkyLounge, the rooftop destination bar, boasts stunning Old Town views
-                and Asian-inspired dishes, as well as the ground floor restaurant. Both offer an open kitchen concept and informal dining options of
-                Serbian and international dishes. Generous workspace, WiFi access and LCD TVs make this hotel uniquely equipped with multiple networking
-                options.
-                <br>
-            </p>
-            <p>
-                Located in the heart of the bustling downtown, the venue offers extensive meeting facilities: a 407 sq. m. ballroom for up to 530 guests,
-                a 244 sq. m. prefunction area, three multifunction rooms plus a boardroom and Executive Lounge. Diversity is at the core of our convention.
-                It enables us to cross-pollinate ideas, share cultures, and expand industries with best-of-breed thinking.
-                We hope to provide creative and innovative experiences that truly connect with the audience.
-            </p>
-        </div>
-    </div>
+    {% if coc %}
+        <h1 class="title title--yellow mb-xs-20">{{ coc.title|safe }}</h1>
+        <hr class="line line--blue line--short line--spaced">
 
-    <div class="speaker">
-        <div class="speaker__image">
-            <img src="{% static 'img/travel_1.jpg' %}">
+        <div class="long-text">
+             {{ coc.description|safe }}
         </div>
-        <div class="speaker__details">
-            <h1>Travel</h1>
-            <hr class="line">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare suscipit tristique.
-                Donec luctus ligula orci, non aliquet erat vestibulum non.
-                Phasellus pulvinar nisl in sem viverra convallis. Donec quis mi massa.
-                Suspendisse potenti. In fringilla hendrerit pellentesque. Sed mollis erat egestas turpis vehicula rutrum.
-                Maecenas hendrerit vel metus eget tristique. Etiam viverra, ipsum eget scelerisque faucibus,
-                mauris velit laoreet lacus, in euismod purus nibh et diam. Duis sed erat non augue sodales consequat ut accumsan justo.
-                Cras ut ullamcorper felis. Proin eget augue sed ligula ultricies dictum id in libero. Suspendisse vitae viverra dui.
-                Etiam vestibulum vehicula turpis finibus gravida. Praesent sem nisl, eleifend ac scelerisque placerat, commodo sit amet mauris.
-                Quisque at justo diam.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare suscipit tristique.
-                Donec luctus ligula orci, non aliquet erat vestibulum non.
-                Phasellus pulvinar nisl in sem viverra convallis. Donec quis mi massa.
-                Suspendisse potenti. In fringilla hendrerit pellentesque. Sed mollis erat egestas turpis vehicula rutrum.
-                Maecenas hendrerit vel metus eget tristique. Etiam viverra, ipsum eget scelerisque faucibus,
-                mauris velit laoreet lacus, in euismod purus nibh et diam. Duis sed erat non augue sodales consequat ut accumsan justo.
-                Cras ut ullamcorper felis. Proin eget augue sed ligula ultricies dictum id in libero. Suspendisse vitae viverra dui.
-                Etiam vestibulum vehicula turpis finibus gravida. Praesent sem nisl, eleifend ac scelerisque placerat, commodo sit amet mauris.
-                Quisque at justo diam.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare suscipit tristique.
-                Donec luctus ligula orci, non aliquet erat vestibulum non.
-                Phasellus pulvinar nisl in sem viverra convallis. Donec quis mi massa.
-                Suspendisse potenti. In fringilla hendrerit pellentesque. Sed mollis erat egestas turpis vehicula rutrum.
-                Maecenas hendrerit vel metus eget tristique. Etiam viverra, ipsum eget scelerisque faucibus,
-                mauris velit laoreet lacus, in euismod purus nibh et diam. Duis sed erat non augue sodales consequat ut accumsan justo.
-                Cras ut ullamcorper felis. Proin eget augue sed ligula ultricies dictum id in libero. Suspendisse vitae viverra dui.
-                Etiam vestibulum vehicula turpis finibus gravida. Praesent sem nisl, eleifend ac scelerisque placerat, commodo sit amet mauris.
-                Quisque at justo diam.
-            </p>
-        </div>
-    </div>
+    {% else %}
+        <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+    {% endif %}
 
-    <div class="speaker hide_on_mobile centered">
-        <div style="margin-left: 220px;"></div>
-        <div class="speaker__image">
-            <img src="{% static 'img/venue_1.jpg' %}">
-        </div>
-        <div class="speaker__image">
-            <img src="{% static 'img/venue_2.jpg' %}">
-        </div>
-        <div class="speaker__image">
-            <img src="{% static 'img/venue_3.jpg' %}">
-        </div>
-        <div class="speaker__image">
-            <img src="{% static 'img/belgrade_3.jpg' %}">
-        </div>
-        <div class="speaker__image">
-            <img src="{% static 'img/belgrade_2.jpg' %}">
-        </div>
-    </div>
+
+    {% if response_guide %}
+    <a href="{% url 'response_guide' slug=response_guide.slug %}">
+        <h1>{{ response_guide.title|safe }}</h1>
+    </a>
+    {% endif %}
 
 {% endblock %}
