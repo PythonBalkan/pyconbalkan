@@ -10,8 +10,8 @@ from pyconbalkan.about.views import about_view
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
-from pyconbalkan.organizers.views import organizer_view, organizers_listview
-from pyconbalkan.coc.views import coc_view, response_guide
+from pyconbalkan.organizers.views import organizer_view
+from pyconbalkan.coc.views import response_guide
 from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view, sponsors_view
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.speaker.api_urls import router as speaker
@@ -48,7 +48,6 @@ urlpatterns = [
     path('info', info_view, name='info'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
-    path('organizers', organizers_listview, name='organizers'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
@@ -56,7 +55,6 @@ urlpatterns = [
     path('cfp/<slug:slug>/', cfp_detail, name='cfp_detail'),
     path('news', news_view, name='news'),
     path('news/<slug:slug>/', post_detail, name='post_detail'),
-    path('coc', coc_view, name='coc'),
     path('coc/<slug:slug>/', response_guide, name='response_guide'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
