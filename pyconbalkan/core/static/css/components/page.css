@@ -5,7 +5,6 @@
         display: flex;
         flex-flow: column nowrap;
         margin-left: 400px;
-        padding: 40px;
     }
 
     @media (max-width: 1280px) {
