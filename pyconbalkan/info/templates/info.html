@@ -366,7 +366,7 @@
             </p>
             <br>
             <div class="centered mt-xs-20 mb-xs-20">
-                <a class="button button--yellow" href="/info"><i class="fas fa-angle-up"></i> Back to top</a>
+                <a class="button button--yellow" onclick="topFunction()"><i class="fas fa-angle-up"></i> Back to top</a>
             </div>
             <br>
         </div>
@@ -391,4 +391,8 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/go_to_top.js' %}" type="text/javascript"></script>
 {% endblock %}
