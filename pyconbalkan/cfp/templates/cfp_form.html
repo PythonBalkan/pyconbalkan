@@ -40,11 +40,21 @@
     </div>
 
     <div class="column">
-        <h1>Call For Proposals</h1>
+        <h1>Call For Proposals - 2nd Round</h1>
         <hr class="line">
 
-        <p>First round of CFPs has been closed, thanks to everyone for applying.</p>
-        <p>The CFPs are being reviewed now by our Reviewers team so stay tuned. :)</p>
+        {% if success %}
+            <h2 class="success-message">
+                {{ success }}
+            </h2>
+        {% endif %}
+        <form class="form" action="{% url 'cfp' %}" method="POST" enctype="multipart/form-data" novalidate>
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
+            </div>
+        </form>
     </div>
 
 {% endblock %}
