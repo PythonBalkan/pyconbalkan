@@ -20,14 +20,14 @@ def organizer_view(request, slug):
     return render(request, 'organizer.html', context)
 
 
-def organizers_listview(request):
+def organizers_list(request):
     volunteers = Volunteer.objects.filter(type=Volunteer.VOLUNTEER, active=True)
     organizers = Volunteer.objects.filter(type=Volunteer.ORGANIZER, active=True)
     context = {
         'volunteers': volunteers,
         'organizers': organizers,
     }
-    return render(request, 'organizers.html', context)
+    return context
 
 
 def volunteers_createview(request):
