@@ -10,7 +10,7 @@ from pyconbalkan.about.views import about_view
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.news.views import *
 from pyconbalkan.speaker.views import *
-from pyconbalkan.organizers.views import organizer_view
+from pyconbalkan.organizers.views import organizer_view, volunteers_createview
 from pyconbalkan.coc.views import response_guide
 from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view, sponsors_view
 from pyconbalkan.organizers.api_urls import router as organizers
@@ -48,6 +48,7 @@ urlpatterns = [
     path('info', info_view, name='info'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
+    path('volunteers/create/', volunteers_createview, name='volunteers_create'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
