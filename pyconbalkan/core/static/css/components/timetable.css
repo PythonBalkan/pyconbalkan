@@ -6,8 +6,9 @@
 .presentation .pre-side {
     height: 250px;
     width: 70px;
+    flex-shrink: 0.3;
     border-radius: 40px;
-    background-color: #28aae1 !important;
+    background-color: #28aae1;
 }
 
 .presentation .pre-side img {
@@ -18,17 +19,31 @@
 .presentation-card {
     width: 750px;
     height: 250px;
+    flex-shrink: 0.6;
     margin-left: 15px;
     padding: 15px 20px;
     border-radius: 20px;
-    background-color: #ffca00fc !important;
-    color: #000;
+    background-color: #ffd64f;
+    color: #fff;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.presentation-card h2.name {
+    padding: 0;
+}
+
+@media (max-width: 1280px){
+    .presentation-card {
+	width: 100%;
+	flex-shrink: 0;
+    }
 }
 
 .presentation-card div {
     display: inline-block;
     position: relative;
-    bottom: 23px;
+    bottom: 15px;
     left: 10px;
 }
 
@@ -48,7 +63,6 @@
 }
 
 .presentation-card .description {
-    margin-top: 20px;
-    font-size: 1.8em;
+    margin: 10px 0;
     font-weight: bold;
 }
