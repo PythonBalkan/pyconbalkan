@@ -10,6 +10,18 @@
     box-sizing: border-box;
 }
 
+.menu__header {
+    height: 82px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1280px) {
+    .menu__header {
+        height: 0;
+        margin-bottom: 0;
+    }
+}
+
 .mobile-button {
     display: none;
 }
@@ -154,6 +166,7 @@
                 border: 1px solid rgba(255,255,255,0.3);
                 border-radius: 20px;
                 margin-top: 10px;
+                background: #28aae1;
             }
 
             .dropdown-menu a {
