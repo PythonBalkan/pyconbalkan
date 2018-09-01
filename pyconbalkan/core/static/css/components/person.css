@@ -46,6 +46,16 @@
     .sponsor__details {
         flex: 1;
     }
+    .speaker__details:hover a.headerlink{
+        visibility: visible;
+        color: #DDDDDD;
+    }
+    .speaker__details a.headerlink:hover{
+        color: #28aae1;
+    }
+    .speaker__details a.headerlink{
+        visibility: hidden;
+    }
 
     @media (max-width: 1024px) {
         .speaker__details,

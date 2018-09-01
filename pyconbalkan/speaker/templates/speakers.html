@@ -10,7 +10,7 @@
     {% if speakers %}
         <div class="card">
             {% for speaker in speakers %}
-            <div class="speaker">
+            <div class="speaker" id="{{ speaker.slug }}">
                 <div class="speaker__image">
                     <a href="{% url 'speaker_detail' slug=speaker.slug %}">
                         <img src="{{ speaker.images.first.profile_picture.url }}">
@@ -24,6 +24,8 @@
                             <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
                         {% endif %}
                         , <span class="title-white"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</span>
+                    <a class="headerlink" href="#{{ speaker.slug }}" title="Permalink to this speaker">¶</a>
+
                     </h1></a>
                     {% for presentation in speaker.presentation.all %}
                         <h2>{{ presentation.title }}</h2>
