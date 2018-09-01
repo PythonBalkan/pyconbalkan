@@ -28,6 +28,9 @@
             {% endif %}
             </li>
             <li class="menu__list__item">
+                <a class="menu__list__link {% if request.path == '/djangogirls' %}active{% endif %}" href="/djangogirls" role="button">Django Girls Blkn</a>
+            </li>
+            <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/info' %}active{% endif %}" href="/info" role="button">Info</a>
             </li>
             <li class="menu__list__item">
