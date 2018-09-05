@@ -7,9 +7,9 @@
    {# About #}
 
     {% if about %}
-        <h1 class="title title--yellow mb-xs-20">{{ about.title|safe }}</h1>
-        <hr class="line line--blue line--short line--spaced">
-        <p>
+        <h1 class="title title--yellow mb-xs-20 centered">{{ about.title|safe }}</h1>
+        <hr class="line line__centered">
+        <p class="font-16">
              {{ about.description|safe }}
         </p>
     {% else %}
@@ -20,8 +20,8 @@
 
     {# Organizers #}
 
-    <h1 class="title title--yellow mb-xs-20">Organizers</h1>
-    <hr class="line line--blue line--short line--spaced">
+    <h1 class="title title--yellow mb-xs-20 centered">Organizers</h1>
+    <hr class="line line__centered">
 
     {% if organizers %}
         <div class="card">
@@ -95,11 +95,11 @@
     {# Code of Conduct #}
 
     {% if coc %}
-        <h1 class="title title--yellow mb-xs-20">{{ coc.title|safe }}</h1>
-        <hr class="line line--blue line--short line--spaced">
+        <h1 class="title title--yellow mb-xs-20 centered">{{ coc.title|safe }}</h1>
+        <hr class="line line__centered">
 
         <div class="long-text">
-             {{ coc.description|safe }}
+            <p>{{ coc.description|safe }}</p>
         </div>
     {% else %}
         <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
