@@ -3,7 +3,7 @@ from rest_framework import viewsets
 
 from pyconbalkan.about.models import About
 from pyconbalkan.about.serializers import AboutSerializer
-from pyconbalkan.coc.views import coc_list
+from pyconbalkan.coc.views import coc_view
 from pyconbalkan.organizers.views import organizers_list
 
 
@@ -17,10 +17,4 @@ def about_view(request):
     context = {
         'about': about.first() if about else None,
     }
-
-    organizers_context = organizers_list(request)
-    coc_context = coc_list(request)
-    context.update(coc_context)
-    context.update(organizers_context)
-
     return render(request, 'about.html', context)

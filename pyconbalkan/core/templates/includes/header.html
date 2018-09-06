@@ -1,6 +1,6 @@
 {% load static %}
 
-<header>
+<header class="menu__header">
     <nav class="menu">
         <div class="mobile-button"></div>
         <ul class="menu__list">
@@ -11,10 +11,13 @@
                 <a class="menu__list__link {% if request.path == '/speakers' %}active{% endif %}" href="/speakers" role="button">Speakers</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/about' %}active{% endif %}" href="/about" role="button">About Us</a>
-            </li>
-            <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/info' %}active{% endif %}" href="/info" role="button">Info</a>
+                <a class="menu__list__link {% if request.path == '/about' %}active{% endif %} menu__list__about" href="#">About &nbsp;</a>
+
+                <div class="dropdown-menu">
+                    <a href="/about">About Us</a>
+                    <a href="/organizers">Organizers</a>
+                    <a href="/coc">CoC</a>
+                </div>
             </li>
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="/cfp" role="button">CFP</a>

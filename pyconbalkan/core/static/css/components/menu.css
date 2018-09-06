@@ -10,6 +10,18 @@
     box-sizing: border-box;
 }
 
+.menu__header {
+    height: 82px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1280px) {
+    .menu__header {
+        height: 0;
+        margin-bottom: 0;
+    }
+}
+
 .mobile-button {
     display: none;
 }
@@ -26,7 +38,6 @@
         height: auto;
         padding: 0;
         margin-left: 0;
-        z-index: 3;
     }
 
     .mobile-button {
@@ -116,7 +127,7 @@
                 line-height: 40px;
                 padding: 0 20px;
                 border: 1px solid rgba(255,255,255,0.3);
-                
+
                 border-radius: 20px;
                 color: white;
                 font-size: 1.4rem;
@@ -128,6 +139,60 @@
                 border: 1px solid #ffd64f;
                 background-color: #ffd64f;
                 color: #313b3d;
+            }
+
+            .menu__list__about {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: center;
+            }
+
+            .menu__list__about:before {
+                content: '\f078';
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+            }
+
+            .menu__list__about--active:before {
+                content: '\f077';
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                text-decoration: inherit;
+            }
+
+            .dropdown-menu {
+                position: relative;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(255,255,255,0.3);
+                border-radius: 20px;
+                margin-top: 10px;
+                background: #32383A;
+            }
+
+            @media (max-width: 1280px) {
+                .dropdown-menu {
+                    background: transparent;
+                }
+            }
+
+            .dropdown-menu a {
+                color: #fff;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .dropdown-menu a:hover {
+                color: #ffd64f;
+            }
+
+            .dropdown-menu--active {
+                display: flex;
             }
 
 /* Modifiers */
