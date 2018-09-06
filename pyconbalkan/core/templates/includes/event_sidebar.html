@@ -20,11 +20,11 @@
         {{ conference.get_type_display }}
     </p>
 
-    {% if conference.tickets %}
     <div class="event-button__wrapper">
-        <a class="button button--yellow mb-xs-40 event-button" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
+        {% if conference.tickets %}
+            <a class="button button--yellow mb-xs-80" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
+        {% endif %}
     </div>
-    {% endif %}
     <div class="social__links mb-xs-20">
     {% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
 	{% if conference.instagram %}<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}

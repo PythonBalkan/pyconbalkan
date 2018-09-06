@@ -19,10 +19,11 @@
         <p>If selected as a speaker / presenter you will benefit from a free ticket to the conference as well as the free access to our social/networking events during the conference.</p>
         <ul>
             <h3>IMPORTANT DATES:</h3>
-            <li><b>July 29:</b> Deadline for proposal submission</li>
-            <li><b>August 13:</b> Workshops approved & first round of accepted talks</li>
-            <li><b>September 3:</b> Last round of talks accepted</li>
-            <li><b>October 8:</b> Timetable for PyCon Balkan 2018 on the website</li>     
+            <li><b>July 29th:</b>Deadline for proposal submission ( Round 1 )</li>
+            <li><b>August 13th:</b> Workshops approved & first round of accepted talks</li>
+            <li><b>September 17th:</b>Deadline for proposal submission ( Round 2 )</li>
+            <li><b>September 28th:</b>Last round of talks accepted</li>
+            <li><b>October 15th:</b> Timetable for PyCon Balkan 2018 on the website</li>     
         </ul>
 
         <h2>Guidelines for talks / presentations and workshops</h2>
@@ -40,11 +41,21 @@
     </div>
 
     <div class="column">
-        <h1>Call For Proposals</h1>
+        <h1>Call For Proposals - 2nd Round</h1>
         <hr class="line">
 
-        <p>First round of CFPs has been closed, thanks to everyone for applying.</p>
-        <p>The CFPs are being reviewed now by our Reviewers team so stay tuned. :)</p>
+        {% if success %}
+            <h2 class="success-message">
+                {{ success }}
+            </h2>
+        {% endif %}
+        <form class="form" action="{% url 'cfp' %}" method="POST" enctype="multipart/form-data" novalidate>
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="button button--blue button--fullwidth mb-xs-40" type="submit" value="Submit" />
+            </div>
+        </form>
     </div>
 
 {% endblock %}
