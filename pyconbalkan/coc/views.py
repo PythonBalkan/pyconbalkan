@@ -10,14 +10,14 @@ class CodeOfConductViewSet(viewsets.ModelViewSet):
     serializer_class = CodeOfConductSerializer
 
 
-def coc_list(request):
+def coc_view(request):
     coc = CodeOfConduct.objects.filter(active=True)
     r_guide = ResponseGuide.objects.filter(active=True)
     context = {
         'coc': coc.first() if coc else None,
         'response_guide': r_guide.first() if r_guide else None,
     }
-    return context
+    return render(request, 'coc.html', context)
 
 
 def response_guide(request, slug):

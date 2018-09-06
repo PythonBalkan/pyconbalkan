@@ -27,7 +27,7 @@ def organizers_list(request):
         'volunteers': volunteers,
         'organizers': organizers,
     }
-    return context
+    return render(request, 'organizers.html', context)
 
 
 def volunteers_createview(request):
