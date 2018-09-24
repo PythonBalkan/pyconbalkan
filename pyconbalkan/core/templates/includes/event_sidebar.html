@@ -2,7 +2,6 @@
 
 <aside class="event-sidebar">
     <a href="/" class="logo" title="{{ conference.event }} {{ conference.name }} - {{ conference.city }} {{ conference.year }}"></a>
-    <hr class="line">
     <h1>#{{ conference.number }}</h1>
     <p class="event-sidebar__text">
         {{ conference.address }}, {{ conference.city }}
@@ -22,10 +21,10 @@
 
     <div class="event-button__wrapper">
         {% if conference.tickets %}
-            <a class="button button--yellow mb-xs-80" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
+            <a class="button button--yellow mb-xs-20" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
         {% endif %}
     </div>
-    <div class="social__links mb-xs-20">
+    <div class="social__links">
     {% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
 	{% if conference.instagram %}<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
 	{% if conference.twitter %}<a href="{{ conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
