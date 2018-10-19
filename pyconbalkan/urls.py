@@ -23,6 +23,8 @@ from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.coc.api_urls import router as coc
 from pyconbalkan.timetable.views import timetable_view
 from pyconbalkan.info.views import info_view
+from pyconbalkan.faq.views import faq_view
+from pyconbalkan.faq.api_urls import router as faq
 
 from markdownx import urls as markdownx
 
@@ -37,6 +39,7 @@ router.extend(cfp)
 router.extend(contact)
 router.extend(news)
 router.extend(coc)
+router.extend(faq)
 
 urlpatterns = [
     path('', views.home, name='index'),
@@ -62,7 +65,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
-    path('timetable/', timetable_view, name='timetable')
+    path('timetable/', timetable_view, name='timetable'),
+    path('faq', faq_view, name='faq')
 ]
 
 # Add Django site authentication urls (for login, logout, password management)
