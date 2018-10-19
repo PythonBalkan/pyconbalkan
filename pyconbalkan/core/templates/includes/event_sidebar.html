@@ -1,35 +1,39 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <a href="/" class="logo" title="{{ conference.event }} {{ conference.name }} - {{ conference.city }} {{ conference.year }}"></a>
-    <hr class="line">
-    <h1>#{{ conference.number }}</h1>
-    <p class="event-sidebar__text">
-        {{ conference.address }}, {{ conference.city }}
-    </p>
-    <p class="event-sidebar__text">
-        <i class="event-sidebar__icon far fa-calendar-alt"></i>
-        {{ conference.from_date }} - {{ conference.to_date }}
-    </p>
-    <p class="event-sidebar__text">
-        <i class="event-sidebar__icon fas fa-users"></i>
-        {{ conference.max_attendees }} attendees
-    </p>
-    <p class="event-sidebar__text">
-        <i class="event-sidebar__icon fas fa-globe"></i>
-        {{ conference.get_type_display }}
-    </p>
+	<a href="/" class="logo"
+	   title="{{ conference.event }} {{ conference.name }} - {{ conference.city }} {{ conference.year }}"></a>
+	<hr class="line">
+	<h1>#{{ conference.number }}</h1>
+	<p class="event-sidebar__text">
+		{{ conference.address }}, {{ conference.city }}
+	</p>
+	<p class="event-sidebar__text">
+		<i class="event-sidebar__icon far fa-calendar-alt"></i>
+		{{ conference.from_date }} - {{ conference.to_date }}
+	</p>
+	<p class="event-sidebar__text">
+		<i class="event-sidebar__icon fas fa-users"></i>
+		{{ conference.max_attendees }} attendees
+	</p>
+	<p class="event-sidebar__text">
+		<i class="event-sidebar__icon fas fa-globe"></i>
+		{{ conference.get_type_display }}
+	</p>
 
-    <div class="event-button__wrapper">
-        {% if conference.tickets %}
-            <a class="button button--yellow mb-xs-80" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
-        {% endif %}
-    </div>
-    <div class="social__links mb-xs-20">
-    {% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
-	{% if conference.instagram %}<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
-	{% if conference.twitter %}<a href="{{ conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
-    </div>
-    <h3 class="supported-by">Supported by</h3>
-    <img class="pfs-logo" src="{% static 'img/pfs-logo.png' %}">
+	<div class="event-button__wrapper">
+		{% if conference.tickets %}
+			<a class="button button--yellow mb-xs-80" href="{{ conference.tickets }}" target="_blank" role="button">Join
+				Us!</a>
+		{% endif %}
+	</div>
+	<div class="social__links mb-xs-20">
+		{% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
+		{% if conference.instagram %}
+			<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
+		{% if conference.twitter %}<a href="{{ conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
+	</div>
+	<h3 class="supported-by">Supported by</h3>
+	<img class="pfs-logo" src="{% static 'img/pfs-logo.png' %}">
+	<div><img class="pfs-logo" src="{% static 'img/euro-python-society.png' %}"></div>
 </aside>
