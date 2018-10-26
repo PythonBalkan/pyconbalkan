@@ -24,6 +24,7 @@ from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.speaker.views import *
 from pyconbalkan.sponsors.api_urls import router as sponsors
+from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view, sponsors_view
 from pyconbalkan.timetable.views import timetable_view
 from pyconbalkan.faq.views import faq_view
 from pyconbalkan.faq.api_urls import router as faq
