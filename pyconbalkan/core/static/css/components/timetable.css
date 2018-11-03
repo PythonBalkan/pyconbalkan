@@ -52,3 +52,7 @@
     font-size: 1.8em;
     font-weight: bold;
 }
+
+.hidden {
+    display: none;
+}
