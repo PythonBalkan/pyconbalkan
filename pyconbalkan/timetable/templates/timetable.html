@@ -22,7 +22,11 @@
 	    <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
       <div class="presentation-card">
       <ul>
-            <li class="button button--blue pull-right">Day1</li>
+        {% for key, value in DAYS.items %}
+          {% if key == slot.from_date.date %}
+            <li class="button button--blue pull-right">{{ value }}</li>
+          {% endif %}
+        {% endfor %}
       </ul>
 
 	<img src={{ slot.talk.speaker.image }} width="80px" height="80px" alt="avatar">
