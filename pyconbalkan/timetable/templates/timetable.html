@@ -5,7 +5,7 @@
 {# Timetable #}
 
     <h1 class="title title--yellow mb-xs-40">Timetable</h1>
-    <hr class="line line--blue line--short line--spaced">    
+    <hr class="line line--blue line--short line--spaced">
     <div class="rooms">
     {% if rooms %}
       <ul>
@@ -16,18 +16,22 @@
     {% endif %}
     </div>
     <div class="presentations">
-{% if presentations %}
-    {% for presentation in presentations %}
+{% if slots %}
+    {% for slot in slots %}
 	  <div class="presentation">
 	    <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
       <div class="presentation-card">
-	<img src={{ presentation.speaker.image }} width="80px" height="80px" alt="avatar">
+      <ul>
+            <li class="button button--blue pull-right">Day1</li>
+      </ul>
+
+	<img src={{ slot.talk.speaker.image }} width="80px" height="80px" alt="avatar">
 	<div>
-	<h2 class="name">{{ presentation.speaker.name }}</h2>
+	<h2 class="name">{{ slot.talk.speaker.name }}</h2>
 	<hr/>
-	<span class="subtitle">{{ presentation.speaker.job }}</span>
+	<span class="subtitle">{{ slot.talk.speaker.job }}</span>
 	</div>
-	<p class="description">{{ presentation.description }}</p>
+	<p class="description">{{slot.talk.description }}</p>
       </div>
       </div>
     {% endfor %}
@@ -37,5 +41,5 @@
         </h2>
 {% endif %}
           </div>
-    
+
 {% endblock %}
