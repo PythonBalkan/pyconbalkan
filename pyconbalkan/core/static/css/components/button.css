@@ -34,7 +34,7 @@
 
 .button--yellow {
     color: #000;
-    background-color: #F3D66C;
+    background-color: #F3D66C !important;
 }
 
 .button--blue {
