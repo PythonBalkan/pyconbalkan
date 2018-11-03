@@ -17,7 +17,18 @@ class TimetableViewSet(viewsets.ModelViewSet):
 
 
 def timetable_view(request):
-    slots = Slot.objects.all().order_by('from_date')
+    slots_by_rooms = {}
+
     rooms = Room.objects.all()
-    context = {'slots': slots, 'rooms': rooms, 'DAYS': DAYS}
+    slots = Slot.objects.all()
+    slots_order_by_date = slots.order_by('from_date')
+    for room in rooms:
+        slots_by_rooms[room.name] = slots_order_by_date.filter(room=room)
+
+    context = {
+        'slots': slots_order_by_date,
+        'slots_by_rooms': slots_by_rooms,
+        'rooms': rooms,
+        'DAYS': DAYS,
+    }
     return render(request, 'timetable.html', context)
