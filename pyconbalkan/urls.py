@@ -24,6 +24,9 @@ from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.speaker.views import *
 from pyconbalkan.sponsors.api_urls import router as sponsors
+from pyconbalkan.timetable.views import timetable_view
+from pyconbalkan.faq.views import faq_view
+from pyconbalkan.faq.api_urls import router as faq
 from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view, sponsors_view
 
 router = routers.DefaultRouter()
@@ -37,6 +40,7 @@ router.extend(cfp)
 router.extend(contact)
 router.extend(news)
 router.extend(coc)
+router.extend(faq)
 
 urlpatterns = [
     path('', views.home, name='index'),
@@ -62,6 +66,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
+    path('faq', faq_view, name='faq'),
     path('timetable/', serve, {'path': 'pycon-balkan-2018-timetable.pdf', 'document_root': PDF_ROOT}, name='timetable'),
     # path('timetable/', timetable_view, name='timetable')
 ]
