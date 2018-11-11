@@ -23,17 +23,21 @@
             <ul>
               {% for key, value in DAYS.items %}
                 {% if key == slot.from_date.date %}
-                  <li class="button button--blue pull-right">{{ value }}</li>
+                  <li class="button button--blue pull-right">{{ value }}, {{ slot.from_date.time }} to {{ slot.to_date.time }}</li>
                 {% endif %}
               {% endfor %}
             </ul>
-            <img src={{ slot.talk.speaker.image }} width="80px" height="80px" alt="avatar">
-            <div>
-              <h2 class="name">{{ slot.talk.speaker.name }}</h2>
-              <hr/>
-              <span class="subtitle">{{ slot.talk.speaker.job }}</span>
-            </div>
-            <p class="description">{{slot.talk.description }}</p>
+
+            {% if slot.talk.speaker.name %}
+              <div>
+                  <h2 class="name">{{ slot.talk.speaker.name }}</h2>
+                  <hr/>
+                {% if slot.talk.speaker.job %}
+                  <span class="subtitle">{{ slot.talk.speaker.job }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+              <p class="description">{% if slot.talk.speaker %} {% if slot.talk.type == 0 %} Talk: {% elif slot.talk.type == 1 %} Workshop: {{ slot.talk.description }} {% elif slot.talk.type == 2 %} Keynote: {% endif %} {% endif %} {{ slot.talk.description }}</p>
           </div>
         </div>
       {% endfor %}
@@ -48,23 +52,27 @@
       <div class="presentations {{ room }} hidden">
         {% for slot in slots %}
           <div class="presentation">
-            <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
-            <div class="presentation-card">
-              <ul>
-                {% for key, value in DAYS.items %}
-                  {% if key == slot.from_date.date %}
-                    <li class="button button--blue pull-right">{{ value }}</li>
+              <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
+              <div class="presentation-card">
+                <ul>
+                  {% for key, value in DAYS.items %}
+                    {% if key == slot.from_date.date %}
+                      <li class="button button--blue pull-right">{{ value }}, {{ slot.from_date.time }} to {{ slot.to_date.time }}</li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+
+                {% if slot.talk.speaker.name %}
+                  <div>
+                      <h2 class="name">{{ slot.talk.speaker.name }}</h2>
+                      <hr/>
+                    {% if slot.talk.speaker.job %}
+                      <span class="subtitle">{{ slot.talk.speaker.job }}</span>
+                    {% endif %}
+                  </div>
                   {% endif %}
-                {% endfor %}
-              </ul>
-              <img src={{ slot.talk.speaker.image }} width="80px" height="80px" alt="avatar">
-              <div>
-                <h2 class="name">{{ slot.talk.speaker.name }}</h2>
-                <hr/>
-                <span class="subtitle">{{ slot.talk.speaker.job }}</span>
+                  <p class="description">{% if slot.talk.speaker %} {% if slot.talk.type == 0 %} Talk: {% elif slot.talk.type == 1 %} Workshop: {{ slot.talk.description }} {% elif slot.talk.type == 2 %} Keynote: {% endif %} {% endif %} {{ slot.talk.description }}</p>
               </div>
-              <p class="description">{{slot.talk.description }}</p>
-            </div>
           </div>
         {% endfor %}
       </div>
