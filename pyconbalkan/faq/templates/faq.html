@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load markdownify %}
 
 {% block main_content %}
 
@@ -15,7 +16,7 @@
 				{% for item in faq %}
 					<button class="accordion">{{ item.question }}</button>
 					<div class="panel">
-						<p>{{ item.answer }}</p>
+						<p>{{ item.answer | markdownify}}</p>
 					</div>
 				{% endfor %}
 			</div>

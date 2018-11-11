@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'meta',
     'taggit',
     'djmoney',
+    'markdownify',
 ]
 
 MIDDLEWARE = [
