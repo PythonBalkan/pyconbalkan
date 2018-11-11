@@ -1,15 +1,10 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
 from rest_framework import viewsets
 
+from pyconbalkan.conference.models import Conference
 from pyconbalkan.timetable.models import Room, Slot, Timetable
 from pyconbalkan.timetable.serializers import TimetableSerializer
-from datetime import datetime
-
-DAYS = {
-    datetime.strptime('16Nov2018', '%d%b%Y').date(): 'Day 1',
-    datetime.strptime('17Nov2018', '%d%b%Y').date(): 'Day 2',
-    datetime.strptime('18Nov2018', '%d%b%Y').date(): 'Day 3',
-}
 
 
 class TimetableViewSet(viewsets.ModelViewSet):
@@ -18,13 +13,22 @@ class TimetableViewSet(viewsets.ModelViewSet):
 
 
 def timetable_view(request):
-    slots_by_rooms = {}
+    conference = Conference.objects.filter(active=True)
+    if conference[0].timetable_pdf:
+        return redirect('/'+conference[0].timetable_pdf.name)
 
+    slots_by_rooms = {}
     rooms = Room.objects.all()
     slots = Slot.objects.all()
     slots_order_by_date = slots.order_by('from_date')
     for room in rooms:
         slots_by_rooms[room.name] = slots_order_by_date.filter(room=room)
+    days_count = 0
+    DAYS = {}
+    for slot in slots:
+        if slot.from_date.date() not in DAYS:
+            DAYS[slot.from_date.date()] = 'Day {}'.format(days_count + 1)
+            days_count += 1
     context = {
         'slots': slots_order_by_date,
         'slots_by_rooms': slots_by_rooms,
