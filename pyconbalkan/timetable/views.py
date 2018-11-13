@@ -1,7 +1,8 @@
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import viewsets
 
+from pyconbalkan.conference.models import Conference
 from pyconbalkan.timetable.models import Room, Slot, Timetable
 from pyconbalkan.timetable.serializers import TimetableSerializer
 
@@ -9,6 +10,13 @@ from pyconbalkan.timetable.serializers import TimetableSerializer
 class TimetableViewSet(viewsets.ModelViewSet):
     queryset = Timetable.objects.all()
     serializer_class = TimetableSerializer
+
+
+def timetable_pdf_view(request):
+    conference = Conference.objects.filter(active=True)
+    if conference and conference.first().timetable_pdf:
+        return redirect(conference.first().timetable_pdf.url)
+    return redirect('/')
 
 
 def timetable_view(request):
