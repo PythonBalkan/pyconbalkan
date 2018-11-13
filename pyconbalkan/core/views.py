@@ -30,5 +30,3 @@ def home(request):
         'meta': conference.first().as_meta(),
     }
     return render(request, 'home.html', context)
-
-

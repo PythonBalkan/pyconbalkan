@@ -34,6 +34,10 @@ class Conference(SingleActiveModel, ModelMeta):
     twitter = models.URLField(blank=True, null=True)
     instagram = models.URLField(blank=True, null=True)
 
+    # timetable
+    timetable_pdf = models.FileField(blank=True, null=True)
+
+
     _metadata = {
         'title': 'get_meta_title',
         'description': 'get_meta_description',

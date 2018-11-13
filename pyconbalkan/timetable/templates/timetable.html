@@ -1,41 +1,84 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block main_content %}
-
-{# Timetable #}
-
-    <h1 class="title title--yellow mb-xs-40">Timetable</h1>
-    <hr class="line line--blue line--short line--spaced">    
-    <div class="rooms">
+  {# Timetable #}
+  <h1 class="title title--yellow mb-xs-40">Timetable</h1>
+  <hr class="line line--blue line--short line--spaced">
+  <div class="rooms">
     {% if rooms %}
       <ul>
-	{% for room in rooms %}
-	<li class="button button--blue">{{ room.name }}</li>
-	{% endfor %}
+        {% for room in rooms %}
+          <li class="button button--blue btn-room btn-{{ room.name }}">{{ room.name }}</li>
+        {% endfor %}
       </ul>
     {% endif %}
-    </div>
-    <div class="presentations">
-{% if presentations %}
-    {% for presentation in presentations %}
-	  <div class="presentation">
-	    <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
-      <div class="presentation-card">
-	<img src={{ presentation.speaker.image }} width="80px" height="80px" alt="avatar">
-	<div>
-	<h2 class="name">{{ presentation.speaker.name }}</h2>
-	<hr/>
-	<span class="subtitle">{{ presentation.speaker.job }}</span>
-	</div>
-	<p class="description">{{ presentation.description }}</p>
-      </div>
+  </div>
+  <div class="presentations main-presentation">
+    {% if slots %}
+      {% for slot in slots %}
+        <div class="presentation">
+          <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
+          <div class="presentation-card">
+            <ul>
+              {% for key, value in DAYS.items %}
+                {% if key == slot.from_date.date %}
+                  <li class="button button--blue pull-right">{{ value }}, {{ slot.from_date.time }} to {{ slot.to_date.time }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+            {% if slot.talk.speaker.name %}
+              <div>
+                  <h2 class="name">{{ slot.talk.speaker.name }}</h2>
+                  <hr/>
+                {% if slot.talk.speaker.job %}
+                  <span class="subtitle">{{ slot.talk.speaker.job }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+              <p class="description">{% if slot.talk.speaker %} {% if slot.talk.type == 0 %} Talk: {% elif slot.talk.type == 1 %} Workshop: {{ slot.talk.description }} {% elif slot.talk.type == 2 %} Keynote: {% endif %} {% endif %} {{ slot.talk.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h2 class="title title--white title--medium title--uppercase mt-xs-20">
+        <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+      </h2>
+    {% endif %}
+  </div>
+  {% if slots_by_rooms %}
+    {% for room, slots in slots_by_rooms.items %}
+      <div class="presentations {{ room }} hidden">
+        {% for slot in slots %}
+          <div class="presentation">
+              <div class="pre-side"><img src="../static/img/clock.svg" width="20px" height="20px"></div>
+              <div class="presentation-card">
+                <ul>
+                  {% for key, value in DAYS.items %}
+                    {% if key == slot.from_date.date %}
+                      <li class="button button--blue pull-right">{{ value }}, {{ slot.from_date.time }} to {{ slot.to_date.time }}</li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+
+                {% if slot.talk.speaker.name %}
+                  <div>
+                      <h2 class="name">{{ slot.talk.speaker.name }}</h2>
+                      <hr/>
+                    {% if slot.talk.speaker.job %}
+                      <span class="subtitle">{{ slot.talk.speaker.job }}</span>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                  <p class="description">{% if slot.talk.speaker %} {% if slot.talk.type == 0 %} Talk: {% elif slot.talk.type == 1 %} Workshop: {{ slot.talk.description }} {% elif slot.talk.type == 2 %} Keynote: {% endif %} {% endif %} {{ slot.talk.description }}</p>
+              </div>
+          </div>
+        {% endfor %}
       </div>
     {% endfor %}
-{% else %}
-      <h2 class="title title--white title--medium title--uppercase mt-xs-20">
-            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
-        </h2>
-{% endif %}
-          </div>
-    
+  {% endif %}
+{% endblock main_content %}
+{% block scripts %}
+<script src="{% static 'js/timetable.js' %}" type="text/javascript"></script>
 {% endblock %}
