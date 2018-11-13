@@ -68,7 +68,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
-    path('timetable/', timetable_view, name='timetable')
+    path('timetable/', timetable_view, name='timetable'),
     path('faq', faq_view, name='faq'),
     path('timetable/', serve, {'path': 'pycon-balkan-2018-timetable.pdf', 'document_root': PDF_ROOT}, name='timetable'),
 ]
