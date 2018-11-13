@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'pyconbalkan.news',
     'pyconbalkan.coc',
     'pyconbalkan.info',
+    'pyconbalkan.faq',
     # others
     'rest_framework',
     'django_countries',
@@ -62,6 +63,7 @@ INSTALLED_APPS = [
     'meta',
     'taggit',
     'djmoney',
+    'markdownify',
 ]
 
 MIDDLEWARE = [

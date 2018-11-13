@@ -22,14 +22,15 @@
 
     <div class="event-button__wrapper">
         {% if conference.tickets %}
-            <a class="button button--yellow mb-xs-80" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
+            <a class="button button--yellow mb-xs-20" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
         {% endif %}
     </div>
-    <div class="social__links mb-xs-20">
+    <div class="social__links mb-xs-10">
     {% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
 	{% if conference.instagram %}<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
 	{% if conference.twitter %}<a href="{{ conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
     <h3 class="supported-by">Supported by</h3>
-    <img class="pfs-logo" src="{% static 'img/pfs-logo.png' %}">
+    <a href="https://www.python.org/psf/"><div><img class="psf-logo" src="{% static 'img/pfs-logo.png' %}"></div></a>
+    <div><a href="https://www.europython-society.org/"><img class="psf-logo" src="{% static 'img/euro-python-society.png' %}"></a></div>
 </aside>

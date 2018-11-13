@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load markdownify %}
+
+{% block main_content %}
+
+	{# Faq #}
+
+
+	{% if faq %}
+		<div class="row">
+			<h1 class="centered">F.A.Q - Frequently Asked Questions</h1>
+			<div class="column">
+
+				{% for item in faq %}
+					<button class="accordion">{{ item.question }}</button>
+					<div class="panel">
+						<p>{{ item.answer | markdownify}}</p>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
+			<span class="featured-letter featured-letter--blue">C</span>oming <span
+				class="featured-letter featured-letter--yellow">S</span>oon
+		</h2>
+	{% endif %}
+
+
+	{% if response_guide %}
+		<a href="{% url 'response_guide' slug=response_guide.slug %}">
+			<h1>{{ response_guide.title|safe }}</h1>
+		</a>
+	{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+	<script src="{% static 'js/accordion.js' %}"></script>
+{% endblock %}
