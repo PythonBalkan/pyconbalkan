@@ -1,7 +1,5 @@
 {% extends "base.html" %}
-
 {% block main_content %}
-
     {# Countdown #}
 
     {% if count_down %}
@@ -40,8 +38,17 @@
     {% if mission_statement %}
     <div class="row">
         <h1 class="centered">Welcome to {{ conference.event }} {{ conference.name }} {{ conference.year }}</h1>
+        <iframe style="float: left; margin-right: 20px;" width="560" height="315" src="https://www.youtube.com/embed/7xxvM_4IAoA?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        <p style="margin-top: 126px;">{{ conference.event }} {{ conference.name }} {{ conference.year }} is live now on youtube over the course of the next three days. <br>In case you didn't get the chance to make your way out here to Belgrade Serbia, make sure you join and follow us on the streams</p>
+
+        <p>Quesitons can be asked on: <a href="http://sli.do/pyconbalkan2018">http://sli.do/pyconbalkan2018 </a></p>
+        <div class="clear"></div>
+    </div>
+
+    <div class="row">
         <p>{{ mission_statement.content|safe }}</p>
     </div>
+
     {% endif %}
 
     <hr class="line long">
@@ -201,7 +208,7 @@
     {% endif %}
 
     <hr class="line long">
-    
+
     {# Buy Tickets #}
 
     <div class="card"><a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a></div>
