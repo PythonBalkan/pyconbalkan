@@ -22,7 +22,7 @@
             </li>
             <li class="menu__list__item">
             {% if conference.timetable_pdf %}
-                <a class="menu__list__link {% if request.path == conference.timetable_pdf.url %}active{% endif %}" href="{{ conference.timetable_pdf.url }}" role="button">Timetable</a>
+                <a class="menu__list__link {% if request.path == '/timetable_pdf' %}active{% endif %}" href="/timetable_pdf" role="button">Timetable</a>
             {% else %}
                 <a class="menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
             {% endif %}
