@@ -14,8 +14,9 @@
 			<div class="column">
 
 				{% for item in faq %}
-					<button class="accordion">{{ item.question }}</button>
-					<div class="panel">
+					<button class="accordion">{{ item.question }}<a style="margin-left:10px; float:right;" class="headerlink" href="#faq-{{ item.id}}" title="Permalink to this speaker">¶</a>
+                    </button>
+                    <div class="panel">
 						<p>{{ item.answer | markdownify}}</p>
 					</div>
 				{% endfor %}
