@@ -6,7 +6,7 @@ from pyconbalkan.sponsors.models import Sponsor, SponsorshipLevel
 
 
 def home(request):
-    conference = Conference.objects.filter(active=True)
+    conference = request.conference
     count_down = CountDown.objects.filter(active=True)
     keynotes = Speaker.objects.filter(active=True, keynote=True).order_by('full_name')
 
@@ -27,6 +27,6 @@ def home(request):
         'partners': partners,
         'count_down': count_down.first() if count_down else None,
         'mission_statement': mission_statement.first() if mission_statement else None,
-        'meta': conference.first().as_meta(),
+        'meta': conference.as_meta(),
     }
     return render(request, 'home.html', context)
