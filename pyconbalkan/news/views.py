@@ -4,10 +4,8 @@ from django.utils.html import strip_tags
 from meta.views import Meta
 from rest_framework import viewsets
 
-from pyconbalkan.conference.models import Conference
 from pyconbalkan.news.models import Post
 from pyconbalkan.news.serializers import PostSerializer
-from pyconbalkan.organizers.models import Volunteer
 
 
 class PostViewSet(viewsets.ModelViewSet):
