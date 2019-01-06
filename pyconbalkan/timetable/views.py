@@ -13,9 +13,10 @@ class TimetableViewSet(viewsets.ModelViewSet):
 
 
 def timetable_pdf_view(request):
-    conference = Conference.objects.filter(active=True)
-    if conference and conference.first().timetable_pdf:
-        return redirect(conference.first().timetable_pdf.url)
+
+    conference = request.conference
+    if conference and conference.timetable_pdf:
+        return redirect(conference.timetable_pdf.url)
     return redirect('/')
 
 
