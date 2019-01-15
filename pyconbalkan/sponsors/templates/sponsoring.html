@@ -61,8 +61,8 @@
     </div>
 
     <h2 class="centered">
-        {% if conference.sponsor_email %}
-            For more information, contact us by email {{ conference.sponsor_email }}
+        {% if request.conference.sponsor_email %}
+            For more information, contact us by email {{ request.conference.sponsor_email }}
         {% endif %}
     </h2>
 

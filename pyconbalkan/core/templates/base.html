@@ -7,7 +7,7 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head {% meta_namespaces %} >
     {% include "meta/meta.html" %}
-    <title>{{ conference.event }} {{ conference.name }} {{ conference.year }}</title>
+    <title>{{ request.conference.event }} {{ request.conference.name }} {{ request.conference.year }}</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
