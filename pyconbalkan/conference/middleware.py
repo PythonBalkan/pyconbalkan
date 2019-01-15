@@ -1,3 +1,8 @@
+from urllib.parse import urljoin
+
+from django.conf import settings
+from django.http import HttpResponseRedirect
+
 from pyconbalkan.conference.models import Conference
 
 
@@ -11,7 +16,24 @@ class ConferenceSelectionMiddleware:
 
         # Domain format : 2019.pyconbalkan.com
         domain = request.META['HTTP_HOST']
-        conference = Conference.objects.get(year=domain.split('.')[0])
+        try:
+            domain_year = int(domain.split('.')[0])
+            q = {
+                "year": domain_year
+            }
+            if not request.user.is_superuser:
+                q['active'] = True
+
+            conference = Conference.objects.get(**q)
+        except (Conference.DoesNotExist, ValueError):
+            conference = Conference.objects.filter(active=True).first()
+
+        conference_domain = conference.year + "." + settings.META_SITE_DOMAIN
+        if conference_domain != request.META['HTTP_HOST']:
+            return HttpResponseRedirect(
+                urljoin()
+            )
+
         # Every request will have an atribute `conference` in it
         # `conference` is the conference.models.Conference object for the
         # respective year fetched from it's domain
