@@ -32,3 +32,4 @@ six==1.11.0
 static3==0.7.0
 Unidecode==1.0.22
 django-markdownify==0.8.0
+django-seed==0.1.9

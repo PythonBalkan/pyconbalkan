@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'meta',
     'taggit',
     'djmoney',
-    'markdownify',
+    'django_seed',
+    'markdownify'
 ]
 
 MIDDLEWARE = [

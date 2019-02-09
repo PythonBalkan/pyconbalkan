@@ -48,13 +48,19 @@ For more information on how you can generate a secret key visit [here](https://f
 python manage.py migrate
 ```
 
-7. Run collect static:
+7. Run seeders:
+
+```
+python seed.py
+```
+
+8. Run collect static:
 
 ```
 python manage.py collectstatic
 ```
 
-8. Get the server up and running:
+9. Get the server up and running:
 
 ```
 python manage.py runserver
