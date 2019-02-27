@@ -11,11 +11,17 @@ class ConferenceSelectionMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Code to be executed for each request before
-        # the view (and later middleware) are called.
+        """
+        Code to be executed for each request before
+        the view (and later middleware) are called.
+        Domain format : 2019.pyconbalkan.com
 
-        # Domain format : 2019.pyconbalkan.com
-        domain = request.META['HTTP_HOST']
+        Every request will have an atribute `conference` in it
+        `conference` is the conference.models.Conference object for the
+        respective year fetched from it's domain.
+        """
+
+        domain = request.META.get('HTTP_HOST', 'localhost')
         try:
             domain_year = int(domain.split('.')[0])
             q = {
@@ -24,19 +30,20 @@ class ConferenceSelectionMiddleware:
             if not request.user.is_superuser:
                 q['active'] = True
 
-            conference = Conference.objects.get(**q)
+            request.conference = Conference.objects.get(**q)
         except (Conference.DoesNotExist, ValueError):
-            conference = Conference.objects.filter(active=True).first()
+            request.conference = Conference.objects.filter(active=True).first()
 
-        conference_domain = conference.year + "." + settings.META_SITE_DOMAIN
-        if conference_domain != request.META['HTTP_HOST']:
+        conference_domain = "{}.{}".format(
+            request.conference.year,
+            settings.META_SITE_DOMAIN
+        )
+
+        if settings.DEBUG is False and conference_domain != request.META['HTTP_HOST']:
             return HttpResponseRedirect(
-                urljoin()
+                urljoin(
+                    "{}://{}".format(settings.META_SITE_PROTOCOL, conference_domain
+                ), "/")
             )
 
-        # Every request will have an atribute `conference` in it
-        # `conference` is the conference.models.Conference object for the
-        # respective year fetched from it's domain
-        request.conference = conference
-        response = self.get_response(request)
-        return response
+        return self.get_response(request)
