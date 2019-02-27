@@ -33,6 +33,9 @@ class ConferenceSelectionMiddleware:
             request.conference = Conference.objects.get(**q)
         except (Conference.DoesNotExist, ValueError):
             request.conference = Conference.objects.filter(active=True).first()
+            if not request.conference:
+                return self.get_response(request)
+
 
         conference_domain = "{}.{}".format(
             request.conference.year,
