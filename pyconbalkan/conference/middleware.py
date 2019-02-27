@@ -24,18 +24,11 @@ class ConferenceSelectionMiddleware:
         domain = request.META.get('HTTP_HOST', 'localhost')
         try:
             domain_year = int(domain.split('.')[0])
-            q = {
-                "year": domain_year
-            }
-            if not request.user.is_superuser:
-                q['active'] = True
-
-            request.conference = Conference.objects.get(**q)
+            request.conference = Conference.objects.get(year=domain_year)
         except (Conference.DoesNotExist, ValueError):
             request.conference = Conference.objects.filter(active=True).first()
             if not request.conference:
                 return self.get_response(request)
-
 
         conference_domain = "{}.{}".format(
             request.conference.year,

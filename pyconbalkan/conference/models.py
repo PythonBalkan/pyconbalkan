@@ -16,7 +16,7 @@ class Conference(SingleActiveModel, ModelMeta):
 
     event = models.CharField(null=True, blank=True, max_length=100)
     name = models.CharField(null=True, blank=True, max_length=100)
-    year = models.PositiveIntegerField()
+    year = models.PositiveIntegerField(unique=True)
     number = models.PositiveIntegerField()
     city = models.CharField(null=True, blank=True, max_length=200)
     country = CountryField(null=True, blank=True)
