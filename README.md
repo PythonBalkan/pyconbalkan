@@ -27,7 +27,7 @@ source .venv/bin/activate
 4. Install the requirements:
 
 ```
-pip install -r requirements.txt
+pip install -r ./requirements/requirements.txt
 ```
 
 5. Create a file named `.env`
