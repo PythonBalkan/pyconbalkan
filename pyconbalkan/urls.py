@@ -2,9 +2,8 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from django.views.static import serve
-
 from markdownx import urls as markdownx
+
 from pyconbalkan.about.api_urls import router as about
 from pyconbalkan.about.views import about_view
 from pyconbalkan.cfp.api_urls import router as cfp
@@ -15,21 +14,19 @@ from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.core import routers, views
+from pyconbalkan.faq.api_urls import router as faq
+from pyconbalkan.faq.views import faq_view
 from pyconbalkan.info.views import info_view
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.news.views import *
 from pyconbalkan.organizers.api_urls import router as organizers
 from pyconbalkan.organizers.views import (organizer_view, organizers_list,
                                           volunteers_createview)
-from pyconbalkan.settings import PDF_ROOT
 from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.speaker.views import *
 from pyconbalkan.sponsors.api_urls import router as sponsors
-
-from pyconbalkan.timetable.views import timetable_view, timetable_pdf_view
-from pyconbalkan.faq.views import faq_view
-from pyconbalkan.faq.api_urls import router as faq
 from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view, sponsors_view
+from pyconbalkan.timetable.views import timetable_view, timetable_pdf_view
 
 router = routers.DefaultRouter()
 router.extend(conference)

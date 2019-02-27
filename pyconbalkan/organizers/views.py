@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
-from pyconbalkan.conference.models import Conference
 from pyconbalkan.organizers.forms import VolunteerCreateForm
 from pyconbalkan.organizers.models import Volunteer
 from pyconbalkan.organizers.serializers import VolunteerSerializer
