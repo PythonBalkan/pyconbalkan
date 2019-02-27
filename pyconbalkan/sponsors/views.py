@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets
 
 from pyconbalkan.sponsors.forms import SponsoringForm
-from pyconbalkan.sponsors.models import Sponsor, Sponsoring, Package, SponsorshipLevel
+from pyconbalkan.sponsors.models import Sponsor, Sponsoring, Package, SponsorshipLevel, SponsorConference
 from pyconbalkan.sponsors.serializers import SponsorSerializer, SponsoringSerializer
 
 
@@ -26,11 +26,12 @@ def sponsor_view(request, id):
 
 
 def sponsors_view(request):
-    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
-    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
-    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)
-    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver)
-    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner)
+    keystone_sponsors = SponsorConference.objects.filter(level=SponsorshipLevel.keystone, conference=request.conference).sponsor
+    platinum_sponsors = SponsorConference.objects.filter(level=SponsorshipLevel.platinum, conference=request.conference).sponsor
+    gold_sponsors = SponsorConference.objects.filter(level=SponsorshipLevel.gold, conference=request.conference).sponsor
+    silver_sponsors = SponsorConference.objects.filter(level=SponsorshipLevel.silver, conference=request.conference).sponsor
+    partners = SponsorConference.objects.filter(level=SponsorshipLevel.partner, conference=request.conference).sponsor
+
     context = {
         'keystone_sponsors': keystone_sponsors,
         'platinum_sponsors': platinum_sponsors,
@@ -44,7 +45,6 @@ def sponsors_view(request):
 @login_required
 def sponsoring_view(request):
     packages = Package.objects.filter(active=True)
-    Sponsor.objects
     context = {
         'packages': packages,
     }

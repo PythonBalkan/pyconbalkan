@@ -8,7 +8,6 @@ from pyconbalkan.sponsors.models import Sponsor, SponsorshipLevel
 def home(request):
     count_down = CountDown.objects.filter(active=True)
     keynotes = Speaker.objects.filter(active=True, keynote=True).order_by('full_name')
-
     keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
     platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
     gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)

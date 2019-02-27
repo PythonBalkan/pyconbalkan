@@ -5,6 +5,8 @@ from djchoices import DjangoChoices, ChoiceItem
 from markdownx.models import MarkdownxField
 from djmoney.models.fields import MoneyField
 
+from pyconbalkan.conference.abstractions import AbstractConference
+from pyconbalkan.conference.models import Conference
 from pyconbalkan.core.models import ActiveModel
 
 
@@ -28,8 +30,8 @@ LIMITS = {
 class Sponsor(models.Model):
     name = models.CharField(max_length=256)
     description = MarkdownxField()
-    level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
     logo = models.ImageField(upload_to="sponsors/logo", blank=True, null=True)
+    conferences = models.ManyToManyField(Conference, through='SponsorConference')
 
     def __str__(self):
         return f'Sponsor [{ self.name }]'
@@ -45,6 +47,12 @@ class Sponsor(models.Model):
                     f'{ LIMITS[self.level] } sponsors'
                 )
         super(Sponsor, self).save()
+
+
+class SponsorConference(AbstractConference):
+    sponsor = models.ForeignKey(Sponsor, on_delete=models.CASCADE)
+    level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
+
 
 PROFIT = 1
 NON_PROFIT = 2
