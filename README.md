@@ -64,5 +64,8 @@ You did it! If you have any problems doing this let us know by submitting an [is
 
 
 ## Public Trello Board
+To contribute to the project, please visit our newest trello board [here](https://trello.com/b/mQGuXopj/pycon-balkan-2019)
 
-In order to contribute, access our public board [here](https://trello.com/b/J6NhX1GZ/pycon-balkan-2018).
+
+## Deprecated 
+Old deprecated public board can be found [here](https://trello.com/b/J6NhX1GZ/pycon-balkan-2018).
