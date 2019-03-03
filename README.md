@@ -10,7 +10,7 @@ To get started follow the steps above.
 
 ## Custom design for PyCon Years
 
-As this (custom loader)[https://github.com/PythonBalkan/pyconbalkan/pull/145] MR introduced if you want to make a custom template changes for a conference year, please use template inheritence by adding {year}_template_name.html it will be loaded in favor of that year, and your changes will be visible.
+As this [custom loader](https://github.com/PythonBalkan/pyconbalkan/pull/145) MR introduced if you want to make a custom template changes for a conference year, please use template inheritence by adding {year}_template_name.html it will be loaded in favor of that year, and your changes will be visible.
 
 ## Get up and running
 
