@@ -1,10 +1,11 @@
 from django.db import models
 from django.db.models import CASCADE
 
+from pyconbalkan.conference.abstractions import AbstractConference
 from pyconbalkan.core.models import Person, ActiveModel
 
 
-class Speaker(ActiveModel, Person):
+class Speaker(AbstractConference, ActiveModel, Person):
     keynote = models.BooleanField(default=False)
 
     def __str__(self):

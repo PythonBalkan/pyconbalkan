@@ -5,6 +5,7 @@ from djchoices import DjangoChoices, ChoiceItem
 from markdownx.models import MarkdownxField
 from djmoney.models.fields import MoneyField
 
+from pyconbalkan.conference.abstractions import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 
 
@@ -25,11 +26,11 @@ LIMITS = {
 }
 
 
-class Sponsor(models.Model):
+class Sponsor(AbstractConference):
     name = models.CharField(max_length=256)
     description = MarkdownxField()
     level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
-    logo = models.ImageField(upload_to="sponsors/logo", blank=True, null=True)
+    logo = models.ImageField(upload_to="sponsors/logo")
 
     def __str__(self):
         return f'Sponsor [{ self.name }]'
