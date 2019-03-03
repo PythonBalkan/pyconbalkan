@@ -4,7 +4,9 @@
 
 {# Speakers #}
 
-    <h1 class="centered">Speakers</h1>
+    <h1 class="title title--yellow mb-xs-20">Speakers</h1>
+    <hr class="line line--blue line--short line--spaced">
+
     <p>
         We love Python because it’s a high-level language that creates elegant solutions to intricate problems.
         Right now, it's really popular with data scientists and startups. The reason why is simple, you can do a
@@ -14,7 +16,6 @@
     <p>
         Get your ticket now and let’s enjoy this wild ride with some really smart people.
     </p>
-    <hr class="line line__centered">
 
     {% if speakers %}
         <div class="card">
@@ -49,7 +50,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2>
+        <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
