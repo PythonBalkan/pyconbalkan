@@ -1,9 +1,12 @@
+import threading
 from urllib.parse import urljoin
 
 from django.conf import settings
 from django.http import HttpResponseRedirect
 
 from pyconbalkan.conference.models import Conference
+
+context = threading.local()
 
 
 class ConferenceSelectionMiddleware:
@@ -53,4 +56,12 @@ class ConferenceSelectionMiddleware:
                 ), "/")
             )
 
+        # Please forgive me everyone, I couldn't find a better way of accessing the conference object globally.
+        # And I really didn't want to use django.contrib.sites.models.Site
+        # https://docs.djangoproject.com/en/2.1/ref/contrib/sites/#module-django.contrib.sites
+        # If anyone has any better idea how to accomplish this please make a pull request.
+        #
+        # Idea taken from: https://stackoverflow.com/a/27694861/548059
+
+        context.conference = request.conference
         return self.get_response(request)
