@@ -6,7 +6,8 @@ from pyconbalkan.conference.models import Conference
 
 
 def _get_default_conference():
-    return Conference.objects.first().id
+    if Conference.objects.exists():
+        return Conference.objects.first().id
 
 
 class AbstractConference(models.Model):
