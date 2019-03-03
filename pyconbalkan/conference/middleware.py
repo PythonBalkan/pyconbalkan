@@ -10,6 +10,14 @@ class ConferenceSelectionMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
+    def _get_year_from_domain(self, request):
+        domain = request.META.get('HTTP_HOST', 'localhost')
+        try:
+            return int(domain.split('.')[0])
+        except ValueError:
+            # Adding a non existing year, so it will never find this one, and will default to current.
+            return 9999
+
     def __call__(self, request):
         """
         Code to be executed for each request before
@@ -20,12 +28,15 @@ class ConferenceSelectionMiddleware:
         `conference` is the conference.models.Conference object for the
         respective year fetched from it's domain.
         """
+        if 'year' in request.GET.keys():
+            domain_year = int(request.GET['year'])
+        else:
+            domain_year = self._get_year_from_domain(request)
 
-        domain = request.META.get('HTTP_HOST', 'localhost')
+
         try:
-            domain_year = int(domain.split('.')[0])
             request.conference = Conference.objects.get(year=domain_year)
-        except (Conference.DoesNotExist, ValueError):
+        except Conference.DoesNotExist:
             request.conference = Conference.objects.filter(active=True).first()
             if not request.conference:
                 return self.get_response(request)
