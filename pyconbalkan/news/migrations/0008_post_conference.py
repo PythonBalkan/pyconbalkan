@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='post',
             name='conference',
-            field=models.ForeignKey(default=pyconbalkan.conference.abstractions._get_default_conference, on_delete=django.db.models.deletion.CASCADE, to='conference.Conference'),
+            field=models.ForeignKey(default=pyconbalkan.conference.models._get_default_conference, on_delete=django.db.models.deletion.CASCADE, to='conference.Conference'),
         ),
     ]
