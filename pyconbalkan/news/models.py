@@ -3,7 +3,7 @@ from django.utils import timezone
 from markdownx.models import MarkdownxField
 from taggit.managers import TaggableManager
 
-from pyconbalkan.conference.abstractions import AbstractConference
+from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 
 
