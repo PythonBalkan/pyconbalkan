@@ -1,9 +1,9 @@
 from django.db import models
 from django_countries.fields import CountryField
+from markdownx.models import MarkdownxField
 from meta.models import ModelMeta
 
 from pyconbalkan.core.models import SingleActiveModel
-from markdownx.models import MarkdownxField
 
 
 class Conference(SingleActiveModel, ModelMeta):
@@ -53,7 +53,21 @@ class Conference(SingleActiveModel, ModelMeta):
         return '{} {} {}'.format(self.event, self.name, self.year)
 
 
-class CountDown(SingleActiveModel):
+def _get_default_conference():
+    if Conference.objects.exists():
+        return Conference.objects.first().id
+
+
+class AbstractConference(models.Model):
+    conference = models.ForeignKey(
+        Conference, on_delete=models.CASCADE, default=_get_default_conference
+    )
+
+    class Meta:
+        abstract = True
+
+
+class CountDown(AbstractConference, SingleActiveModel):
     title = models.CharField(null=True, blank=True, max_length=100)
     count_down = models.DateTimeField(null=True, blank=True)
 
@@ -61,8 +75,10 @@ class CountDown(SingleActiveModel):
         return self.title
 
 
-class MissionStatement(SingleActiveModel):
+class MissionStatement(AbstractConference, SingleActiveModel):
     content = MarkdownxField(null=True, blank=True)
 
     def __str__(self):
         return self.content
+
+

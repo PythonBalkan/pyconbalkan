@@ -5,7 +5,7 @@ from djchoices import DjangoChoices, ChoiceItem
 from markdownx.models import MarkdownxField
 from djmoney.models.fields import MoneyField
 
-from pyconbalkan.conference.abstractions import AbstractConference
+from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 
 

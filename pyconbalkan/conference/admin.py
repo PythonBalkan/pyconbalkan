@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from pyconbalkan.conference.abstractions import ConferenceAbstractAdmin
 from pyconbalkan.conference.models import Conference, CountDown, MissionStatement
 from markdownx.admin import MarkdownxModelAdmin
 
@@ -9,12 +10,12 @@ class ConferenceAdmin(admin.ModelAdmin):
         model = Conference
 
 
-class CountDownAdmin(admin.ModelAdmin):
+class CountDownAdmin(ConferenceAbstractAdmin):
     class Meta:
         model = CountDown
 
 
-class MissionStatementAdmin(MarkdownxModelAdmin):
+class MissionStatementAdmin(ConferenceAbstractAdmin, MarkdownxModelAdmin):
     class Meta:
         model = MissionStatement
 

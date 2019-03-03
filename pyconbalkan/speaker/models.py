@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import CASCADE
 
-from pyconbalkan.conference.abstractions import AbstractConference
+from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import Person, ActiveModel
 
 
