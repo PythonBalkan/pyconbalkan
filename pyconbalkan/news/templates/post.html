@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markdownify %}
 
 {% block main_content %}
     <div id="fb-root"></div>
@@ -20,7 +21,7 @@
         <div class="post__content">
             <h1>{{ post.title }}</h1>
             <p class="post__description">
-                {{ post.text|safe }}
+                {{ post.text|markdownify }}
             </p>
             <h2>Posted by <a href="{% url 'organizer_detail' slug=post.author.volunteer.slug %}">{{ post.author.first_name }} {{ post.author.last_name }}</a></h2>
             <div class="fb-share-button" data-href="{% url 'post_detail' slug=post.slug %}" data-layout="button_count" data-size="large" data-mobile-iframe="true" style="padding-bottom: 10px"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
