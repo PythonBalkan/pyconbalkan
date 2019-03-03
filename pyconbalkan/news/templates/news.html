@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markdownify %}
 
 {% block main_content %}
 
@@ -23,7 +24,7 @@
                             </a>
                         </h2>
                         <p class="post__description">
-                            {{ post.text|safe|truncatechars:300 }}
+                            {{ post.text|markdownify|safe|truncatechars:300 }}
                         </p>
                     </div>
                 </div>
