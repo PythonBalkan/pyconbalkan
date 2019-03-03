@@ -39,10 +39,9 @@
     <div class="row">
         <p>{{ mission_statement.content|safe }}</p>
     </div>
-
+    <hr class="line long">
     {% endif %}
 
-    <hr class="line long">
 
     {# Keynote Speakers #}
 
@@ -70,13 +69,13 @@
                 </div>
             {% endfor %}
         </div>
+        <hr class="line long">
     {% else %}
-        <h2>
+        <h2 class="centered">
             <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
         </h2>
     {% endif %}
 
-    <hr class="line long">
 
     {# Sponsors #}
 
@@ -108,9 +107,8 @@
             </div>
         {% endfor %}
     </div>
-    {% endif %}
-
     <hr class="line long">
+    {% endif %}
 
     {% if platinum_sponsors %}
     <h2 class="platinum">Platinum</h2>
@@ -130,9 +128,8 @@
             </div>
         {% endfor %}
     </div>
-    {% endif %}
-
     <hr class="line long">
+    {% endif %}
 
     {% if gold_sponsors %}
     <h2 class="gold">Gold</h2>
@@ -152,9 +149,8 @@
             </div>
         {% endfor %}
     </div>
-    {% endif %}
-
     <hr class="line long">
+    {% endif %}
 
     {% if silver_sponsors %}
     <h2 class="silver">Silver</h2>
@@ -174,9 +170,8 @@
             </div>
         {% endfor %}
     </div>
-    {% endif %}
-
     <hr class="line long">
+    {% endif %}
 
     {% if partners %}
     <h2 class="partner">Partners</h2>
@@ -196,9 +191,8 @@
             </div>
         {% endfor %}
     </div>
-    {% endif %}
-
     <hr class="line long">
+    {% endif %}
 
     {# Buy Tickets #}
 

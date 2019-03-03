@@ -3,10 +3,10 @@
 {% block main_content %}
 
     {# Code of Conduct #}
+        <h1 class="title title--yellow mb-xs-20">{% if coc %}{{ coc.title|safe }}{% else %}Code Of Conduct{% endif %}</h1>
+        <hr class="line line--blue line--short line--spaced">
 
     {% if coc %}
-        <h1 class="title title--yellow mb-xs-20">{{ coc.title|safe }}</h1>
-        <hr class="line line--blue line--short line--spaced">    
 
         <div class="long-text">
              {{ coc.description|safe }}

@@ -6,10 +6,9 @@
 
    {# About #}
 
+    <h1 class="title title--yellow mb-xs-20">About Us</h1>
+    <hr class="line line--blue line--short line--spaced">
     {% if about %}
-        <h1 class="title title--yellow mb-xs-20">{{ about.title|safe }}</h1>
-        <hr class="line line--blue line--short line--spaced">
-
         <div class="column">
             <p>
                  {{ about.description|safe }}
