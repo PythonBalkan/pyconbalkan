@@ -14,9 +14,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 def news_view(request):
-    posts = Post.objects.filter(
-        active=True, published_date__lte=timezone.now(), conference=request.conference
-    )
+    posts = Post.objects.filter(active=True, published_date__lte=timezone.now())
     context = {"news": posts}
     return render(request, "news.html", context)
 

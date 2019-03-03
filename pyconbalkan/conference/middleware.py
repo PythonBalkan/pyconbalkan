@@ -1,12 +1,10 @@
-import threading
 from urllib.parse import urljoin
 
 from django.conf import settings
 from django.http import HttpResponseRedirect
 
+from .context import singleton
 from pyconbalkan.conference.models import Conference
-
-context = threading.local()
 
 
 class ConferenceSelectionMiddleware:
@@ -63,5 +61,5 @@ class ConferenceSelectionMiddleware:
         #
         # Idea taken from: https://stackoverflow.com/a/27694861/548059
 
-        context.conference = request.conference
+        singleton.conference = request.conference
         return self.get_response(request)
