@@ -195,7 +195,8 @@
     {% endif %}
 
     {# Buy Tickets #}
-
-    <div class="card"><a class="button button--yellow mb-xs-80" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834" target="_blank" role="button">Buy Tickets</a></div>
+    {% if request.conference.tickets %}
+    <div class="card"><a class="button button--yellow mb-xs-80" href="{{ request.conference.tickets }}" target="_blank" role="button">Buy Tickets</a></div>
+    {% endif %}
 
 {% endblock %}
