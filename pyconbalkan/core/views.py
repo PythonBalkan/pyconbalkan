@@ -7,18 +7,16 @@ from pyconbalkan.sponsors.models import Sponsor, SponsorshipLevel
 
 
 def home(request):
-    q = Q(conference=request.conference)
+    count_down = CountDown.objects.filter(active=True)
+    keynotes = Speaker.objects.filter(active=True, keynote=True).order_by("full_name")
 
-    count_down = CountDown.objects.filter(active=True).filter(q)
-    keynotes = Speaker.objects.filter(active=True, keynote=True).order_by("full_name").filter(q)
+    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
+    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
+    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)
+    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver)
+    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner)
 
-    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone).filter(q)
-    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum).filter(q)
-    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold).filter(q)
-    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver).filter(q)
-    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner).filter(q)
-
-    mission_statement = MissionStatement.objects.filter(active=True).filter(q)
+    mission_statement = MissionStatement.objects.filter(active=True)
 
     context = {
         "keynotes": keynotes,

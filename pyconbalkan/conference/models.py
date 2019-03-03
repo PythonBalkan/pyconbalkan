@@ -3,16 +3,14 @@ from django_countries.fields import CountryField
 from markdownx.models import MarkdownxField
 from meta.models import ModelMeta
 
+from pyconbalkan.conference.managers import ConferenceManager
 from pyconbalkan.core.models import SingleActiveModel
 
 
 class Conference(SingleActiveModel, ModelMeta):
     INTERNATIONAL = 0
     NATIONAL = 1
-    CONF_TYPE = (
-        (INTERNATIONAL, 'International'),
-        (NATIONAL, 'National'),
-    )
+    CONF_TYPE = ((INTERNATIONAL, "International"), (NATIONAL, "National"))
 
     event = models.CharField(null=True, blank=True, max_length=100)
     name = models.CharField(null=True, blank=True, max_length=100)
@@ -37,20 +35,16 @@ class Conference(SingleActiveModel, ModelMeta):
     # timetable
     timetable_pdf = models.FileField(blank=True, null=True)
 
-
-    _metadata = {
-        'title': 'get_meta_title',
-        'description': 'get_meta_description',
-    }
+    _metadata = {"title": "get_meta_title", "description": "get_meta_description"}
 
     def get_meta_title(self):
-        return '#{} {} {} {}'.format(self.number, self.event, self.name, self.year)
+        return "#{} {} {} {}".format(self.number, self.event, self.name, self.year)
 
     def get_meta_description(self):
-        return 'Welcome to {} {} {}! '.format(self.event, self.name, self.year)
+        return "Welcome to {} {} {}! ".format(self.event, self.name, self.year)
 
     def __str__(self):
-        return '{} {} {}'.format(self.event, self.name, self.year)
+        return "{} {} {}".format(self.event, self.name, self.year)
 
 
 def _get_default_conference():
@@ -62,6 +56,7 @@ class AbstractConference(models.Model):
     conference = models.ForeignKey(
         Conference, on_delete=models.CASCADE, default=_get_default_conference
     )
+    objects = ConferenceManager()
 
     class Meta:
         abstract = True
@@ -80,5 +75,3 @@ class MissionStatement(AbstractConference, SingleActiveModel):
 
     def __str__(self):
         return self.content
-
-
