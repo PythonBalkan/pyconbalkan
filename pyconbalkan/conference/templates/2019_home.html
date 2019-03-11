@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% block main_content %}
+    {# Countdown #}
+
+    {% if count_down %}
+    <div class="column-full">
+        <h1>{{ count_down.title }}</h1>
+        <div class="countdown">
+            <div class="countdown__days">
+                <span class="countdown__days__number" id="days"></span> Days
+            </div>
+            <div class="countdown__time">
+                <div class="countdown__time__digit">
+                    <span class="countdown__time__number" id="hours">0</span>
+                    <span class="countdown__time__text">hours</span>
+                </div>
+                <div class="countdown__time__digit">
+                    <span class="countdown__time__dots">:</span>
+                    <span class="countdown__time__text"></span>
+                </div>
+                <div class="countdown__time__digit">
+                    <span class="countdown__time__number" id="minutes">0</span>
+                    <span class="countdown__time__text">min</span>
+                </div>
+                <div class="countdown__time__digit">
+                    <span class="countdown__time__dots">:</span>
+                    <span class="countdown__time__text"></span>
+                </div>
+                <div class="countdown__time__digit">
+                    <span class="countdown__time__number" id="seconds">0</span>
+                    <span class="countdown__time__text">sec</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if mission_statement %}
+    <div class="row">
+        <p>{{ mission_statement.content|safe }}</p>
+    </div>
+    <hr class="line long">
+    {% endif %}
+
+
+    {# Keynote Speakers #}
+
+    <h1 class="centered">Keynote Speakers</h1>
+    <hr class="line line__centered">
+
+    {% if keynotes %}
+        <div class="card">
+            {% for keynote in keynotes %}
+                <div class="card__item">
+                    <a href="{% url 'speaker_detail' slug=keynote.slug %}">
+                        <div class="card__image">
+                                <img src="{{ keynote.images.first.profile_picture.url }}">
+                        </div>
+                        <h2 class="centered">
+                            {{ keynote.name }}
+                            {% if keynote.country %}
+                                <i class="flag em em-flag-{{ keynote.country.code|lower }}"></i>
+                            {% endif %}
+                        </h2>
+                    </a>
+                    <p class="card__job">
+                        {{ keynote.job }} {% if keynote.company %}- {{ keynote.company }}{% endif %}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <hr class="line long">
+    {% else %}
+        <h2 class="centered">
+            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        </h2>
+    {% endif %}
+
+
+    {# Sponsors #}
+
+    <h1 class="centered">Become a sponsor</h1>
+    <p>
+        The goal of PyCon Balkan is to support the Python community and provide a new experience for developers.<br />
+        None of this would be possible without the support from our Sponsors who understand the need to create such a big event in this region.
+        Interested in sponsoring PyCon Balkan 2019? <br /><br />
+        There are lots of ways to get involved! We’d love to collaborate – check out our prospectus with sponsorship packages.<br /><br />
+        For further questions, do not hesitate to reach us out at <b>sponsors(at)pyconbalkan.com</b>
+    </p>
+
+    <hr class="line long">
+
+    {% if keystone_sponsors %}
+    <h2 class="keystone">Keystone</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in keystone_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="line long">
+    {% endif %}
+
+    {% if platinum_sponsors %}
+    <h2 class="platinum">Platinum</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in platinum_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="line long">
+    {% endif %}
+
+    {% if gold_sponsors %}
+    <h2 class="gold">Gold</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in gold_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="line long">
+    {% endif %}
+
+    {% if silver_sponsors %}
+    <h2 class="silver">Silver</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in silver_sponsors %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="line long">
+    {% endif %}
+
+    {% if partners %}
+    <h2 class="partner">Partners</h2>
+    <hr class="line line__centered">
+
+    <div class="card card__centered">
+        {% for sponsor in partners %}
+            <div class="card__item">
+                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <div class="card__image">
+                            <img src="{{ sponsor.logo.url }}">
+                    </div>
+                    <h2 class="centered">
+                        {{ sponsor.name }}
+                    </h2>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="line long">
+    {% endif %}
+
+    {# Buy Tickets #}
+    {% if request.conference.tickets %}
+    <div class="card"><a class="button button--yellow mb-xs-80" href="{{ request.conference.tickets }}" target="_blank" role="button">Buy Tickets</a></div>
+    {% endif %}
+
+{% endblock %}
