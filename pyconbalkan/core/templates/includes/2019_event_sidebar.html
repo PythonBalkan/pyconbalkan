@@ -1,0 +1,36 @@
+{% load static %}
+
+<aside class="event-sidebar">
+    <a href="/" class="logo" title="{{ request.conference.event }} {{ request.conference.name }} - {{ request.conference.city }} {{ request.conference.year }}"></a>
+    <hr class="line">
+    <h1>#{{ request.conference.number }}</h1>
+    <p class="event-sidebar__text">
+        {{ request.conference.address }}, {{ request.conference.city }}
+    </p>
+    <p class="event-sidebar__text">
+        <i class="event-sidebar__icon far fa-calendar-alt"></i>
+        {{ request.conference.from_date }} - {{ request.conference.to_date }}
+    </p>
+    <p class="event-sidebar__text">
+        <i class="event-sidebar__icon fas fa-users"></i>
+        {{ request.conference.max_attendees }} attendees
+    </p>
+    <p class="event-sidebar__text">
+        <i class="event-sidebar__icon fas fa-globe"></i>
+        {{ request.conference.get_type_display }}
+    </p>
+
+    <div class="event-button__wrapper">
+        {% if request.conference.tickets %}
+            <a class="button button--yellow mb-xs-20" href="{{ request.conference.tickets }}" target="_blank" role="button">Join Us!</a>
+        {% endif %}
+    </div>
+    <div class="social__links mb-xs-10">
+    {% if request.conference.facebook %}<a href="{{ request.conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
+	{% if request.conference.instagram %}<a href="{{ request.conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
+	{% if request.conference.twitter %}<a href="{{ request.conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
+    </div>
+    <h3 class="supported-by">Supported by</h3>
+    <a href="https://www.python.org/psf/"><div><img class="psf-logo" src="{% static 'img/pfs-logo.png' %}"></div></a>
+    <div><a href="https://www.djangoproject.com/"><img class="django-logo" src="{% static 'img/django-logo.png' %}"></a></div>
+</aside>
