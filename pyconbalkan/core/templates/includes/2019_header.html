@@ -24,7 +24,9 @@
             {% if request.conference.timetable_pdf %}
                 <a class="menu__list__link {% if request.path == '/timetable_pdf' %}active{% endif %}" href="/timetable_pdf" role="button">Timetable</a>
             {% else %}
+                <!--
                 <a class="menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
+                -->
             {% endif %}
             </li>
             <li class="menu__list__item">
