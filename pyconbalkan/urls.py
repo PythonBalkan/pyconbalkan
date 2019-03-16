@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from markdownx import urls as markdownx
 
 from pyconbalkan.about.api_urls import router as about
-from pyconbalkan.about.views import about_view
+from pyconbalkan.about.views import about_view, djangogirls_view
 from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.cfp.views import cfp_detail, cfp_list, cfp_view
 from pyconbalkan.coc.api_urls import router as coc
@@ -54,6 +54,7 @@ urlpatterns = [
     path('volunteers/create/', volunteers_createview, name='volunteers_create'),
     path('organizers', organizers_list, name='organizers'),
     path('about', about_view, name='about'),
+    path('djangogirls', djangogirls_view, name='djangogirls'),
     path('contact', contact_view, name='contact'),
     path('cfp', cfp_view, name='cfp'),
     path('cfps', cfp_list, name='cfp_list'),
