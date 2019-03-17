@@ -89,3 +89,13 @@ _get_year_from_domain method to distinguish which conference is current.
 **Q3** How to enable model filtering for each conference year?
 
 **A3** Model needs to inherit pyconbalkan.conference.models.AbstractConference
+
+**Q4** Just pulled repository from Git, when I run server and try to open it in the browser I get 
+``'NoneType' object has no attribute 'as_meta'`` error.
+
+**A4** Just create admin user and then make one or more conference entities. Make sure you put year of the conference
+as part of the URL like this: ```2018.localhost:8000```
+
+**Q5** How to load templates depending on the conference year?
+
+**A5** Simply name them like this ```{year}_{template_name}.html```  
