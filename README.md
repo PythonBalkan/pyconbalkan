@@ -73,3 +73,19 @@ To contribute to the project, please visit our newest trello board [here](https:
 
 ## Deprecated 
 Old deprecated public board can be found [here](https://trello.com/b/J6NhX1GZ/pycon-balkan-2018).
+
+
+## FAQ
+
+**Q1** Git Workflow
+
+**A1** Create new feature branch from master, work on feature, when done create pull request
+
+**Q2** How do we call appropriate conference in our templates and views? 
+
+**A2** We have pyconbalkan.conference.middleware.ConferenceSelectionMiddleware class and
+_get_year_from_domain method to distinguish which conference is current. 
+
+**Q3** How to enable model filtering for each conference year?
+
+**A3** Model needs to inherit pyconbalkan.conference.models.AbstractConference
