@@ -21,7 +21,9 @@ class Post(ActiveModel, AbstractConference):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-            super(Post, self).save(*args, **kwargs)
+        elif self.slug != slugify(self.title):
+            self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
     def publish(self):
         self.published_date = timezone.now()

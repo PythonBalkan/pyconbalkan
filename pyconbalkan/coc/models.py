@@ -20,7 +20,9 @@ class ResponseGuide(SingleActiveModel):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-            super(ResponseGuide, self).save(*args, **kwargs)
+        elif self.slug != slugify(self.title):
+            self.slug = slugify(self.title)
+        super(ResponseGuide, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
