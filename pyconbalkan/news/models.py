@@ -21,8 +21,6 @@ class Post(ActiveModel, AbstractConference):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        elif self.slug != slugify(self.title):
-            self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
     def publish(self):
