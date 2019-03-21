@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'pyconbalkan.coc',
     'pyconbalkan.info',
     'pyconbalkan.faq',
+    'pyconbalkan.archive',
     # others
     'rest_framework',
     'django_countries',
@@ -93,6 +94,7 @@ TEMPLATES = [
                 'django.template.loaders.app_directories.Loader',
             ],
             'context_processors': [
+                'pyconbalkan.conference.context_processors.previous_conferences',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',

@@ -1,20 +1,19 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <hr class="line">
     <h1>#{{ request.conference.number }}</h1>
-    <p class="event-sidebar__text">
+    <p>
         {{ request.conference.address }}, {{ request.conference.city }}
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon far fa-calendar-alt"></i>
         {{ request.conference.from_date }} - {{ request.conference.to_date }}
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon fas fa-users"></i>
         {{ request.conference.max_attendees }} attendees
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon fas fa-globe"></i>
         {{ request.conference.get_type_display }}
     </p>

@@ -6,6 +6,7 @@ from markdownx import urls as markdownx
 
 from pyconbalkan.about.api_urls import router as about
 from pyconbalkan.about.views import about_view
+from pyconbalkan.archive.views import archive_detail
 from pyconbalkan.cfp.api_urls import router as cfp
 from pyconbalkan.cfp.views import cfp_detail, cfp_list, cfp_view
 from pyconbalkan.coc.api_urls import router as coc
@@ -68,6 +69,7 @@ urlpatterns = [
     path('timetable_pdf/', timetable_pdf_view, name='timetable_pdf'),
     path('timetable/', timetable_view, name='timetable'),
     path('faq', faq_view, name='faq'),
+    path('archive/<int:year>/', archive_detail, name='archive_detail'),
 ]
 
 # Add Django site authentication urls (for login, logout, password management)

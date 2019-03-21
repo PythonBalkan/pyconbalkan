@@ -1,9 +1,13 @@
+from model_mommy import mommy
 from rest_framework.test import APITestCase
 from rest_framework import status
 from pyconbalkan.contact.models import Contact
 
 
 class ContactTests(APITestCase):
+    def setUp(self):
+        self.conference = mommy.make('conference.Conference', active=True)
+
     def test_contact_valid(self):
         number_existing_contacts = Contact.objects.count()
         data = {'name': 'client_name', 'company': '', 'email': 'client@client.com', 'message': 'Hi.....'}
