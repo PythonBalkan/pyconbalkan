@@ -12,7 +12,7 @@
                 <a class="menu__list__link {% if request.path == '/speakers' %}active{% endif %}" href="{% url 'speakers' %}" role="button">Speakers</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/about' %}active{% endif %} menu__list__about" href="#">About &nbsp;</a>
+                <a class="menu__list__link {% if request.path == '/about' %}active{% endif %} dropdown" href="#">About &nbsp;</a>
 
                 <div class="dropdown-menu">
                     <a href="{% url 'about' %}">About Us</a>
@@ -41,7 +41,7 @@
                 <a class="menu__list__link {% if request.path == '/contact' %}active{% endif %}" href="{% url 'contact' %}" role="button">Contact</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path|startswith:'/archive' %}active{% endif %} menu__list__archive" href="#">Archive</a>
+                <a class="menu__list__link {% if request.path|startswith:'/archive' %}active{% endif %} dropdown" href="#">Archive</a>
 
                 <div class="dropdown-menu">
                     {% for conf in previous_conferences %}
