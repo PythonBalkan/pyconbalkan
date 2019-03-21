@@ -29,9 +29,10 @@ LIMITS = {
 class Sponsor(AbstractConference):
     name = models.CharField(max_length=256)
     description = MarkdownxField()
-    level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
+    level = models.CharField(max_length=16, choices=SponsorshipLevel.choices, default='', blank=True)
     logo = models.ImageField(upload_to="sponsors/logo")
     supported_by = models.BooleanField(default=False)
+    url = models.URLField(max_length=256, null=True)
 
     def __str__(self):
         return f'Sponsor [{ self.name }]'
