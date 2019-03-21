@@ -31,6 +31,7 @@ class Sponsor(AbstractConference):
     description = MarkdownxField()
     level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
     logo = models.ImageField(upload_to="sponsors/logo")
+    supported_by = models.BooleanField(default=False)
 
     def __str__(self):
         return f'Sponsor [{ self.name }]'
