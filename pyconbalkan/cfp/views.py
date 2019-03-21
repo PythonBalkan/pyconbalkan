@@ -11,7 +11,7 @@ from pyconbalkan.cfp.serializers import CfpSerializer
 
 
 class CfpViewSet(viewsets.ModelViewSet):
-    queryset = Cfp.objects.all()
+    queryset = Cfp.objects.filter(active=True, conference__active=True)
     serializer_class = CfpSerializer
     permission_classes = (DjangoModelPermissions,)
 
