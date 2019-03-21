@@ -1,6 +1,7 @@
 from django.db import models
 from markdownx.models import MarkdownxField
 
+from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 from pyconbalkan.speaker.models import Speaker
 from django.db.models import CASCADE
@@ -14,7 +15,7 @@ class Timetable(ActiveModel):
         return self.title
 
 
-class Presentation(ActiveModel):
+class Presentation(AbstractConference, ActiveModel):
     TALK = 0
     WORKSHOP = 1
     KEYNOTE = 2
