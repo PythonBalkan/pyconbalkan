@@ -20,16 +20,16 @@ body {
     font-weight: 400;
     line-height: 150%;
     background-color: white;
-    color: #343C3E;
+    color: #666;
 }
 
 a {
-    color: #ffd64f;
-    text-decoration: none;
+    color: #28AAE1;
+    text-decoration: underline;
 }
 
 a:hover {
-    color: #28aae1;
+    text-decoration: none;
 }
 
 p {
