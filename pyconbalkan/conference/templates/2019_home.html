@@ -39,7 +39,6 @@
     <div class="row">
         <p>{{ mission_statement.content|safe }}</p>
     </div>
-    <hr class="line long">
     {% endif %}
 
 
@@ -68,7 +67,6 @@
                 </div>
             {% endfor %}
         </div>
-        <hr class="line long">
     {% else %}
         <h2 class="centered">Coming Soon</h2>
     {% endif %}
@@ -102,12 +100,10 @@
             </div>
         {% endfor %}
     </div>
-    <hr class="line long">
     {% endif %}
 
     {% if platinum_sponsors %}
     <h2 class="platinum">Platinum</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in platinum_sponsors %}

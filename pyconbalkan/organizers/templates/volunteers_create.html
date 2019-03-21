@@ -3,13 +3,11 @@
 
 {% block main_content %}
     <h1 class="title title--yellow mb-xs-40">Sign up as a Volunteer!</h1>
-    <hr class="line line--blue line--short line--spaced">
 
     {% if success %}
         <h2 class="success-message">
             {{ success | safe }}
         </h2>
-        <hr class="line line--blue line--short line--spaced">
     {% endif %}
 
     <form class="form" action="{% url 'volunteers_create' %}" method="POST"

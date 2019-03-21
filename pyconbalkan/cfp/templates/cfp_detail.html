@@ -33,13 +33,11 @@
             <h2>Other comments:</h2>
             {% for rating in ratings %}
                 {% if rating.comment %}
-                <hr class="line">
                     <p class="cfp__comment">{{ rating.formatted_markdown|safe }}</p>
                     <h4>by {{ rating.user.first_name }} </h4>
                     {% if rating.tags.all %}
                         <h3>Tags</h3> [{{ rating.tags.all | join:", "  }}]
                     {% endif %}
-                <hr class="line">
                 {% endif %}
             {% endfor %}
 
