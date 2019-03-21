@@ -4,14 +4,9 @@
  */
 
 .event-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 400px;
-    padding: 20px 40px 40px 40px;
-    background-image: url(/static/img/sidebar-bg.png);
-    background-size: 100% 100%;
+    grid-area: sidebar;
+    /* background: blue; */
+    padding-right: 20px;
 }
 
 @media (max-width: 1280px) {
@@ -23,38 +18,14 @@
     }
 }
 
-    .logo {
-        display: block;
-        width: 220px;
-        height: 220px;
-        background-image: url(/static/img/pycon-logo.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: transform .2s ease;
-    }
-
-    .logo:hover {
-        transform: scale(1.1);
-    }
-
-    @media (max-width: 1280px) {
-        .logo {
-            width: 100%;
-            background-position: center left;
-        }
-    }
-
     .event-sidebar__title > h1,
     .event-sidebar__title > h2,
     .event-sidebar__title > h3 {
         font-family: 'Montserrat', sans-serif;
-        color: #212529;
     }
 
     .event-sidebar__text {
-        margin: 10px 0 20px 0;
-        color: #212529;
+        margin: 0 0 10px 0;
     }
 
     .event-sidebar__text:last-of-type {
@@ -69,7 +40,7 @@
 
         .event-sidebar__icon {
             width: 20px;
-            color: #22A4D9;
+            color: #666;
         }
 
     .event-button__wrapper {
@@ -82,18 +53,18 @@
         }
     }
 
-    h2.supported-by {
-        color: #ffd64f;
+    .supported-by {
+        padding-top: 20px;
+        border-top: 1px solid rgba(0,0,0,.1);
         margin-bottom: 20px;
     }
 
-    .psf-logo {
-        width: 180px;
-        height: auto;
-        margin-bottom: 10px;
+    .supported-by-img {
+        display: block;
     }
-    .django-logo {
+
+    .supported-by-img img{
         width: 180px;
         height: auto;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }

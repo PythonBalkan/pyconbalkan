@@ -1,21 +1,19 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <a href="/" class="logo" title="{{ request.conference.event }} {{ request.conference.name }} - {{ request.conference.city }} {{ request.conference.year }}"></a>
-    <hr class="line">
     <h1>#{{ request.conference.number }}</h1>
-    <p class="event-sidebar__text">
+    <p>
         {{ request.conference.address }}, {{ request.conference.city }}
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon far fa-calendar-alt"></i>
         {{ request.conference.from_date }} - {{ request.conference.to_date }}
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon fas fa-users"></i>
         {{ request.conference.max_attendees }} attendees
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon fas fa-globe"></i>
         {{ request.conference.get_type_display }}
     </p>
@@ -32,6 +30,6 @@
     </div>
     <h3 class="supported-by">Supported by</h3>
     {% for sidebar_sponsor in sidebar_sponsors %}
-    <a href="{{ sidebar_sponsor.url }}"><div><img src="{% get_media_prefix %}{{ sidebar_sponsor.logo.name }}"></div></a>
+    <a href="{{ sidebar_sponsor.url }}" class="supported-by-img"><div><img src="{% get_media_prefix %}{{ sidebar_sponsor.logo.name }}"></div></a>
     {% endfor %}
 </aside>

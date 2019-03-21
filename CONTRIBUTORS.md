@@ -14,6 +14,7 @@ PyconBalkan Website contributors
 * **[Halit Guvenilir](https://github.com/halitguvenilir)**
 * **[Jacques Laroche](https://github.com/jlar0che)**
 * **[Mario Hunka](https://github.com/maroshmka)**
+* **[Milovan Minic](https://github.com/milovan-minic)**
 
 
  

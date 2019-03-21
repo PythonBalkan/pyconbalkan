@@ -73,6 +73,8 @@
 
 <body class="page">
 
+    <a href="/" class="logo" title="{{ request.conference.event }} {{ request.conference.name }} - {{ request.conference.city }} {{ request.conference.year }}"></a>
+
     {% include 'includes/header.html' %}
 
     {% include 'includes/event_sidebar.html' %}
@@ -81,6 +83,9 @@
         {% block main_content %}{% endblock %}
     </article>
 
+    <video autoplay muted loop id="bgVideo">
+        <source src="{% static 'video/pycon-bg-2019-loop.mp4' %}" type="video/mp4">
+    </video>
 </body>
     {% block scripts %}{% endblock %}
 </html>

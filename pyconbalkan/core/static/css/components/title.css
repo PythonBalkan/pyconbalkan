@@ -5,34 +5,52 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     line-height: initial;
+    color: #666;
+    text-align: left;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 24px;
     font-weight: 700;
-    margin: 40px 0 20px 0;
-    color: #F3D66C;
+    margin: 0 0 20px 0;
+    color: #666666;
 }
 
 h2 {
-    font-size: 2.4rem;
+    font-size: 20px;
     font-weight: 700;
-    padding: 20px 0 10px 0;
-    color: #22A4D9;
+    padding: 20px 0 0 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    margin: 0 0 20px 0;
+    color: #666666;
+}
+
+h2:first-of-type {
+    padding: 0;
+    border-top: none;
 }
 
 h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    padding: 20px 0 10px 0;
-    color: #f3d66c;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 0 0 0;
+    margin: 0 0 20px 0;
+    color: #666;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0 0 0;
+    margin: 0 0 20px 0;
+    color: #b4b4b4;
 }
 
 .centered {
     text-align: center;
-
 }
 
 .sponsors,

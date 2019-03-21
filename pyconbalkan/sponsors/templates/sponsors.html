@@ -4,13 +4,11 @@
 
 {# Sponsors #}
 
-    <h1 class="centered">Meet our sponsors</h1>
-    <p class="centered">They made this possible!</p>
+    <h1 >Meet our sponsors</h1>
+    <p >They made this possible!</p>
 
     {% if keystone_sponsors %}
-    <hr class="line long">
     <h2 class="keystone">Keystone</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in keystone_sponsors %}
@@ -19,7 +17,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -29,9 +27,7 @@
     {% endif %}
 
     {% if platinum_sponsors %}
-    <hr class="line long">
     <h2 class="platinum">Platinum</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in platinum_sponsors %}
@@ -40,7 +36,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -50,9 +46,7 @@
     {% endif %}
 
     {% if gold_sponsors %}
-    <hr class="line long">
     <h2 class="gold">Gold</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in gold_sponsors %}
@@ -61,7 +55,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -71,9 +65,7 @@
     {% endif %}
 
     {% if silver_sponsors %}
-    <hr class="line long">
     <h2 class="silver">Silver</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in silver_sponsors %}
@@ -82,7 +74,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -92,9 +84,7 @@
     {% endif %}
 
     {% if partners %}
-    <hr class="line long">
     <h2 class="partner">Partners</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in partners %}
@@ -103,7 +93,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -112,7 +102,6 @@
     </div>
     {% endif %}
 
-    <hr class="line long">
 
 
 {% endblock %}
