@@ -20,15 +20,11 @@
                     <a href="/coc">CoC</a>
                 </div>
             </li>
-            <li class="menu__list__item">
             {% if request.conference.timetable_pdf %}
+            <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/timetable_pdf' %}active{% endif %}" href="/timetable_pdf" role="button">Timetable</a>
-            {% else %}
-                <!--
-                <a class="menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
-                -->
-            {% endif %}
             </li>
+            {% endif %}
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/info' %}active{% endif %}" href="/info" role="button">Info</a>
             </li>
