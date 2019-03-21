@@ -3,7 +3,6 @@ from django_countries.fields import CountryField
 from markdownx.models import MarkdownxField
 from meta.models import ModelMeta
 
-from pyconbalkan.conference.managers import ConferenceManager
 from pyconbalkan.core.models import SingleActiveModel
 
 
@@ -56,7 +55,6 @@ class AbstractConference(models.Model):
     conference = models.ForeignKey(
         Conference, on_delete=models.CASCADE, default=_get_default_conference
     )
-    objects = ConferenceManager()
 
     class Meta:
         abstract = True
