@@ -11,7 +11,7 @@ class SpeakerViewSet(viewsets.ModelViewSet):
 
 
 def speaker_detail(request, slug):
-    speaker = get_object_or_404(Speaker, active=True, slug=slug)
+    speaker = get_object_or_404(Speaker, active=True, conference__active=True, slug=slug)
     context = {
         'speaker': speaker,
     }
@@ -19,7 +19,7 @@ def speaker_detail(request, slug):
 
 
 def speaker_list(request):
-    speakers = Speaker.objects.filter(active=True).prefetch_related('presentation')
+    speakers = Speaker.objects.filter(active=True, conference__active=True).prefetch_related('presentation')
     context = {
         'speakers': speakers,
     }

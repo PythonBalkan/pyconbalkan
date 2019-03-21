@@ -7,5 +7,9 @@ class ConferenceSelectionMiddleware:
 
 
     def __call__(self, request):
-        request.conference = Conference.objects.get(active=True)
+        try:
+            request.conference = Conference.objects.get(active=True)
+        except Conference.DoesNotExist:
+            pass
+
         return self.get_response(request)
