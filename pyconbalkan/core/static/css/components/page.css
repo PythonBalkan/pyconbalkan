@@ -1,6 +1,6 @@
 .page {
     display: grid;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     grid-template-areas:
         ". logo ."
@@ -8,6 +8,7 @@
         "sidebar main main";
     grid-template-rows: 240px 60px auto;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -53,8 +54,6 @@
         .column p,
         .column ul,
         .column li {
-            font-size: 1.6rem;
-            color: white;
         }
 
         .column p {
