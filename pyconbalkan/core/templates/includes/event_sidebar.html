@@ -31,6 +31,7 @@
 	{% if request.conference.twitter %}<a href="{{ request.conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
     <h3 class="supported-by">Supported by</h3>
-    <a href="https://www.python.org/psf/"><div><img class="psf-logo" src="{% static 'img/pfs-logo.png' %}"></div></a>
-    <div><a href="https://www.europython-society.org/"><img class="psf-logo" src="{% static 'img/euro-python-society.png' %}"></a></div>
+    {% for sidebar_sponsor in sidebar_sponsors %}
+    <a href="{{ sidebar_sponsor.url }}"><div><img src="{% get_media_prefix %}{{ sidebar_sponsor.logo.name }}"></div></a>
+    {% endfor %}
 </aside>
