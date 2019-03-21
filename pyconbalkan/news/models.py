@@ -3,11 +3,10 @@ from django.utils import timezone
 from markdownx.models import MarkdownxField
 from taggit.managers import TaggableManager
 
-from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 
 
-class Post(ActiveModel, AbstractConference):
+class Post(ActiveModel):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = MarkdownxField()
