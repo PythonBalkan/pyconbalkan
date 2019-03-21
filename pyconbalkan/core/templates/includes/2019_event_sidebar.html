@@ -31,7 +31,7 @@
 	{% if request.conference.twitter %}<a href="{{ request.conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
     <h3 class="supported-by">Supported by</h3>
-    {% for supp in supported %}
-    <a href="{{ supp.url }}"><div><img src="{{ MEDIA_URL }}{{ supp.logo.name }}"></div></a>
+    {% for sidebar_sponsor in sidebar_sponsors %}
+    <a href="{{ sidebar_sponsor.url }}"><div><img src="{% get_media_prefix %}{{ sidebar_sponsor.logo.name }}"></div></a>
     {% endfor %}
 </aside>
