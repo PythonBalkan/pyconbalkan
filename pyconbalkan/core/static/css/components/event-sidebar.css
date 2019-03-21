@@ -22,12 +22,10 @@
     .event-sidebar__title > h2,
     .event-sidebar__title > h3 {
         font-family: 'Montserrat', sans-serif;
-        color: #212529;
     }
 
     .event-sidebar__text {
-        margin: 10px 0 20px 0;
-        color: #212529;
+        margin: 0 0 10px 0;
     }
 
     .event-sidebar__text:last-of-type {
@@ -42,7 +40,7 @@
 
         .event-sidebar__icon {
             width: 20px;
-            color: #22A4D9;
+            color: #666;
         }
 
     .event-button__wrapper {
@@ -55,8 +53,9 @@
         }
     }
 
-    h2.supported-by {
-        color: #ffd64f;
+    .supported-by {
+        padding-top: 20px;
+        border-top: 1px solid rgba(0,0,0,.1);
         margin-bottom: 20px;
     }
 
