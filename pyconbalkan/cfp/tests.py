@@ -14,7 +14,7 @@ class CfpAuthApiTest(APITestCase):
 
     def setUp(self):
         # Create CFP
-        self.conference = mommy.make('conference.Conference')
+        self.conference = mommy.make('conference.Conference', active=True)
         self.cfp = mommy.make(
             Cfp,
             name="test",
