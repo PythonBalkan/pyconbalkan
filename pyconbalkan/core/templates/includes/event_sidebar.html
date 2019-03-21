@@ -1,7 +1,6 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <a href="/" class="logo" title="{{ request.conference.event }} {{ request.conference.name }} - {{ request.conference.city }} {{ request.conference.year }}"></a>
     <hr class="line">
     <h1>#{{ request.conference.number }}</h1>
     <p class="event-sidebar__text">
@@ -31,6 +30,6 @@
 	{% if request.conference.twitter %}<a href="{{ request.conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
     <h3 class="supported-by">Supported by</h3>
-    <a href="https://www.python.org/psf/"><div><img class="psf-logo" src="{% static 'img/pfs-logo.png' %}"></div></a>
-    <div><a href="https://www.europython-society.org/"><img class="psf-logo" src="{% static 'img/euro-python-society.png' %}"></a></div>
+    <a href="https://www.python.org/psf/" class="supported-by-img"><img src="{% static 'img/pfs-logo.png' %}"></a>
+    <a href="https://www.europython-society.org/"class="supported-by-img"><img src="{% static 'img/euro-python-society.png' %}"></a>
 </aside>

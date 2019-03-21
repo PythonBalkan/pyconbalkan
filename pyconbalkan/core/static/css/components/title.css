@@ -7,27 +7,28 @@ h1,
 h2,
 h3 {
     line-height: initial;
+    color: #666 !important;
+    text-align: left !important;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 24px;
     font-weight: 700;
     margin: 40px 0 20px 0;
-    color: #F3D66C;
+    color: #666666;
 }
 
 h2 {
-    font-size: 2.4rem;
+    font-size: 20px;
     font-weight: 700;
     padding: 20px 0 10px 0;
-    color: #22A4D9;
+    color: #666666;
 }
 
 h3 {
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 16px;
     padding: 20px 0 10px 0;
-    color: #f3d66c;
+    color: #666666;
 }
 
 .centered {

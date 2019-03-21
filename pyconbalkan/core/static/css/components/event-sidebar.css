@@ -4,14 +4,9 @@
  */
 
 .event-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 400px;
-    padding: 20px 40px 40px 40px;
-    background-image: url(/static/img/sidebar-bg.png);
-    background-size: 100% 100%;
+    grid-area: sidebar;
+    /* background: blue; */
+    padding-right: 20px;
 }
 
 @media (max-width: 1280px) {
@@ -22,28 +17,6 @@
         padding: 40px 15%;
     }
 }
-
-    .logo {
-        display: block;
-        width: 220px;
-        height: 220px;
-        background-image: url(/static/img/pycon-logo.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: transform .2s ease;
-    }
-
-    .logo:hover {
-        transform: scale(1.1);
-    }
-
-    @media (max-width: 1280px) {
-        .logo {
-            width: 100%;
-            background-position: center left;
-        }
-    }
 
     .event-sidebar__title > h1,
     .event-sidebar__title > h2,
@@ -87,13 +60,12 @@
         margin-bottom: 20px;
     }
 
-    .psf-logo {
-        width: 180px;
-        height: auto;
-        margin-bottom: 10px;
+    .supported-by-img {
+        display: block;
     }
-    .django-logo {
+
+    .supported-by-img img{
         width: 180px;
         height: auto;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
