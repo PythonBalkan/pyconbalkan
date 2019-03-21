@@ -76,7 +76,7 @@
 
     {# Sponsors #}
 
-    <h1 class="centered">Become a sponsor</h1>
+    <h2 class="centered">Become a sponsor</h2>
     <p>
         The goal of PyCon Balkan is to support the Python community and provide a new experience for developers.<br />
         None of this would be possible without the support from our Sponsors who understand the need to create such a big event in this region.
@@ -85,11 +85,8 @@
         For further questions, do not hesitate to reach us out at <b>sponsors(at)pyconbalkan.com</b>
     </p>
 
-    <hr class="line long">
-
     {% if keystone_sponsors %}
     <h2 class="keystone">Keystone</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in keystone_sponsors %}
@@ -126,12 +123,10 @@
             </div>
         {% endfor %}
     </div>
-    <hr class="line long">
     {% endif %}
 
     {% if gold_sponsors %}
     <h2 class="gold">Gold</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in gold_sponsors %}
@@ -147,12 +142,10 @@
             </div>
         {% endfor %}
     </div>
-    <hr class="line long">
     {% endif %}
 
     {% if silver_sponsors %}
     <h2 class="silver">Silver</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in silver_sponsors %}
@@ -168,12 +161,10 @@
             </div>
         {% endfor %}
     </div>
-    <hr class="line long">
     {% endif %}
 
     {% if partners %}
     <h2 class="partner">Partners</h2>
-    <hr class="line line__centered">
 
     <div class="card card__centered">
         {% for sponsor in partners %}
@@ -189,7 +180,6 @@
             </div>
         {% endfor %}
     </div>
-    <hr class="line long">
     {% endif %}
 
     {# Buy Tickets #}
