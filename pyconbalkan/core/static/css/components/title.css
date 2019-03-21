@@ -5,7 +5,8 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     line-height: initial;
     color: #666 !important;
     text-align: left !important;
@@ -14,26 +15,36 @@ h3 {
 h1 {
     font-size: 24px;
     font-weight: 700;
-    margin: 40px 0 20px 0;
+    margin: 0 0 20px 0;
     color: #666666;
 }
 
 h2 {
     font-size: 20px;
     font-weight: 700;
-    padding: 20px 0 10px 0;
+    padding: 10px 0 0 0;
+    margin: 0 0 20px 0;
     color: #666666;
 }
 
 h3 {
-    font-size: 16px;
-    padding: 20px 0 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 0 0 0;
+    margin: 0 0 20px 0;
     color: #666666;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0 0 0;
+    margin: 0 0 20px 0;
+    color: #b4b4b4;
 }
 
 .centered {
     text-align: center;
-
 }
 
 .sponsors,
