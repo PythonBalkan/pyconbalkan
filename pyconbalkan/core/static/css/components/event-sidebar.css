@@ -9,15 +9,6 @@
     padding-right: 20px;
 }
 
-@media (max-width: 1280px) {
-    .event-sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-        padding: 40px 15%;
-    }
-}
-
     .event-sidebar__title > h1,
     .event-sidebar__title > h2,
     .event-sidebar__title > h3 {
