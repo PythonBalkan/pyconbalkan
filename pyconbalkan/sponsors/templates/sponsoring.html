@@ -10,8 +10,8 @@
     <div class="card sponsoring card__centered">
         {% for package in packages %}
             <div class="card__item sponsoring__item">
-                <div class="centered">
-                   <h1 class="centered">
+                <div >
+                   <h1 >
                        {% if package.is_over %}
                            <s>
                               {{ package.level }}<span class="sponsoring--limit">({{ package.limit }})</span>
@@ -56,7 +56,7 @@
         <a class="button button--yellow mb-xs-80" href="/info" target="_blank" role="button">Sponsor Brochure</a>
     </div>
 
-    <h2 class="centered">
+    <h2 >
         {% if request.conference.sponsor_email %}
             For more information, contact us by email {{ request.conference.sponsor_email }}
         {% endif %}

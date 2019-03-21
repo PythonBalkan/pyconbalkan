@@ -44,7 +44,7 @@
 
     {# Keynote Speakers #}
 
-    <h1 class="centered">Keynote Speakers</h1>
+    <h1 >Keynote Speakers</h1>
 
     {% if keynotes %}
         <div class="card">
@@ -54,7 +54,7 @@
                         <div class="card__image">
                                 <img src="{{ keynote.images.first.profile_picture.url }}">
                         </div>
-                        <h2 class="centered">
+                        <h2 >
                             {{ keynote.name }}
                             {% if keynote.country %}
                                 <i class="flag em em-flag-{{ keynote.country.code|lower }}"></i>
@@ -68,12 +68,12 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2 class="centered">Coming Soon</h2>
+        <h2 >Coming Soon</h2>
     {% endif %}
 
 
     {# Sponsors #}
-    <h1 class="centered">Meet our sponsors</h1>
+    <h1 >Meet our sponsors</h1>
     <p>
         The goal of PyCon Balkan is to support the Python community and provide a new experience for developers.
         None of this would be possible without the support from our Sponsors who understand the need to create such
@@ -92,7 +92,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -111,7 +111,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -130,7 +130,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -149,7 +149,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
@@ -168,7 +168,7 @@
                     <div class="card__image">
                             <img src="{{ sponsor.logo.url }}">
                     </div>
-                    <h2 class="centered">
+                    <h2 >
                         {{ sponsor.name }}
                     </h2>
                 </a>
