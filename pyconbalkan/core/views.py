@@ -10,12 +10,12 @@ def home(request):
     count_down = CountDown.objects.filter(active=True)
     keynotes = Speaker.objects.filter(active=True, conference__active=True, keynote=True).order_by("full_name")
 
-    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone, conference__active=True)
-    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum, conference__active=True)
-    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold, conference__active=True)
-    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver, conference__active=True)
-    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner, conference__active=True)
-    sidebar_sponsors = Sponsor.objects.filter(sidebar=True, conference__active=True)
+    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
+    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
+    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)
+    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver)
+    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner)
+    sidebar_sponsors = Sponsor.objects.filter(sidebar=True)
 
     mission_statement = MissionStatement.objects.filter(active=True)
 
