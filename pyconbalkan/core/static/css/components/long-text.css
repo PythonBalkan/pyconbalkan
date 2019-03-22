@@ -4,11 +4,5 @@
  */
 
 .long-text {
-    color: #fff;
+    color: #666;
 }
-
-    .long-text > p {
-        font-size: 1.4rem;
-        line-height: 1.5;
-        margin: 16px 0;
-    }
