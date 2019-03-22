@@ -47,6 +47,7 @@ urlpatterns = [
     path('speaker/<slug:slug>/', speaker_detail, name='speaker_detail'),
     path('sponsors', sponsors_view, name='sponsor_list'),
     path('speakers', speaker_list, name='speakers'),
+    path('speakers/<int:year>/', speaker_year_list, name='speakers_year'),
     path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
     path('sponsoring', sponsoring_view, name='sponsoring'),
     path('info', info_view, name='info'),

@@ -24,3 +24,11 @@ def speaker_list(request):
         'speakers': speakers,
     }
     return render(request, 'speakers.html', context)
+
+
+def speaker_year_list(request, year):
+    speakers = Speaker.objects.filter(active=True, conference__year=year).prefetch_related('presentation')
+    context = {
+        'speakers': speakers,
+    }
+    return render(request, 'speakers.html', context)
