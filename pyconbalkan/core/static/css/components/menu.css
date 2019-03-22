@@ -40,6 +40,7 @@
         height: auto;
         padding: 0;
         margin-left: 0;
+        z-index: 999;
     }
 
     .mobile-button {
@@ -62,17 +63,17 @@
     }
 
     .mobile-button:hover {
-        background-color: #666;
+        background-color: #343C3E;
         background-image: url(/static/img/burger-menu.png);
         background-image: url(/static/img/burger-menu.svg);
     }
 
     .menu.active {
-        background-color: rgba(255,255,255,.9);
+        background-color: rgba(255,255,255,.95);
     }
 
     .menu.active .mobile-button {
-        background-color: #666;
+        background-color: #343C3E;
         background-image: url(/static/img/close.png);
         background-image: url(/static/img/close.svg);
     }
