@@ -13,13 +13,8 @@
     <div class="card card__centered">
         {% for sponsor in keystone_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -32,13 +27,8 @@
     <div class="card card__centered">
         {% for sponsor in platinum_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -51,13 +41,8 @@
     <div class="card card__centered">
         {% for sponsor in gold_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -70,13 +55,8 @@
     <div class="card card__centered">
         {% for sponsor in silver_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -89,13 +69,8 @@
     <div class="card card__centered">
         {% for sponsor in partners %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}

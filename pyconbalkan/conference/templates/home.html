@@ -83,18 +83,13 @@
 
 
     {% if keystone_sponsors %}
-    <h2 class="keystone">Keystone</h2>
-
-    <div class="card card__centered">
+    
+    <div class="card card__keystone">
+        <div class="keystone">Keystone</div>
         {% for sponsor in keystone_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -102,18 +97,13 @@
     {% endif %}
 
     {% if platinum_sponsors %}
-    <h2 class="platinum">Platinum</h2>
-
-    <div class="card card__centered">
+    
+    <div class="card card__platinum">
+        <div class="platinum">Platinum</div>
         {% for sponsor in platinum_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -121,18 +111,13 @@
     {% endif %}
 
     {% if gold_sponsors %}
-    <h2 class="gold">Gold</h2>
-
-    <div class="card card__centered">
+    
+    <div class="card card__gold">
+        <div class="gold">Gold</div>
         {% for sponsor in gold_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -140,18 +125,13 @@
     {% endif %}
 
     {% if silver_sponsors %}
-    <h2 class="silver">Silver</h2>
-
-    <div class="card card__centered">
+    
+    <div class="card card__silver">
+        <div class="silver">Silver</div>
         {% for sponsor in silver_sponsors %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}
@@ -159,18 +139,13 @@
     {% endif %}
 
     {% if partners %}
-    <h2 class="partner">Partners</h2>
-
-    <div class="card card__centered">
+    
+    <div class="card card__partner">
+        <div class="partner">Partners</div>
         {% for sponsor in partners %}
             <div class="card__item">
-                <a href="{% url 'sponsor_detail' id=sponsor.id %}">
-                    <div class="card__image">
-                            <img src="{{ sponsor.logo.url }}">
-                    </div>
-                    <h2 >
-                        {{ sponsor.name }}
-                    </h2>
+                <a class="card__image" href="{% url 'sponsor_detail' id=sponsor.id %}">
+                    <img src="{{ sponsor.logo.url }}">
                 </a>
             </div>
         {% endfor %}

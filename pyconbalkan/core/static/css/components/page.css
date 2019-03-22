@@ -1,6 +1,7 @@
 .page {
     display: grid;
     width: 70%;
+    height: auto;
     padding: 20px;
     margin: 0 auto;
     grid-template-areas:
