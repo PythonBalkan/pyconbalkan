@@ -18,14 +18,6 @@
         padding: 0 0 40px 0;
     }
 
-    @media (max-width: 1280px) {
-        .post__item {
-            flex-flow: column wrap;
-            flex: 1 0 100%;
-            padding: 0 0 40px 0;
-        }
-    }
-
         .post__short_image {
             flex: 0 0 150px;
             width: 150px;
@@ -33,13 +25,6 @@
             margin: 0 0 20px 0;
             border-radius: 4px;
             overflow: hidden;
-        }
-
-        @media (max-width: 1280px) {
-            .post__short_image {
-                align-self: center;
-                margin: 0 0 40px 0;
-            }
         }
 
             .post__short_image a img {
@@ -56,21 +41,6 @@
             font-size: 1.4rem;
             margin-bottom: 20px;
         }
-
-        @media (max-width: 1280px) {
-            .post__content .post__title {
-                width: 100%;
-                margin: 0 0 20px 0;
-                text-align: center;
-            }
-
-            .post__content .post__description {
-                width: 60%;
-                margin: 0 auto 40px auto;
-            }
-        }
-
-
 
         .post__image {
             flex: 0 0 300px;

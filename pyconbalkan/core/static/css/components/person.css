@@ -65,17 +65,6 @@
         visibility: hidden;
     }
 
-    @media (max-width: 1024px) {
-        .speaker__details,
-        .organizer__details,
-        .sponsor__details {
-            text-align: center;
-        }
-        .speaker__details h1, .speaker__details h2 {
-            font-size: 2rem;
-        }
-    }
-
 
         .speaker__image img,
         .organizer__image img,

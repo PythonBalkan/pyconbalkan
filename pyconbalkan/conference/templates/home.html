@@ -51,10 +51,10 @@
             {% for keynote in keynotes %}
                 <div class="card__item">
                     <a href="{% url 'speaker_detail' slug=keynote.slug %}">
-                        <div class="card__image">
+                        <div class="card__image speaker__image">
                                 <img src="{{ keynote.images.first.profile_picture.url }}">
                         </div>
-                        <h2 >
+                        <h2 class="speaker__name">
                             {{ keynote.name }}
                             {% if keynote.country %}
                                 <i class="flag em em-flag-{{ keynote.country.code|lower }}"></i>
@@ -68,12 +68,12 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2 >Coming Soon</h2>
+        <h2 class="coming-soon">Coming Soon</h2>
     {% endif %}
 
 
     {# Sponsors #}
-    <h1 >Meet our sponsors</h1>
+    <h2>Meet our sponsors</h2>
     <p>
         The goal of PyCon Balkan is to support the Python community and provide a new experience for developers.
         None of this would be possible without the support from our Sponsors who understand the need to create such
