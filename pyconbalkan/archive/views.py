@@ -6,8 +6,5 @@ from pyconbalkan.conference.models import Conference
 
 
 def archive_detail(request, year):
-    conference = get_object_or_404(Conference, year=year)
-    context = {
-        'conference': conference,
-    }
-    return render(request, 'archive.html', context)
+    request.conference = get_object_or_404(Conference, year=year)
+    return render(request, 'archive.html')
