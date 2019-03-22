@@ -11,7 +11,7 @@ class SpeakerViewSet(viewsets.ModelViewSet):
 
 
 def speaker_detail(request, slug):
-    speaker = get_object_or_404(Speaker, active=True, conference__active=True, slug=slug)
+    speaker = get_object_or_404(Speaker, slug=slug)
     context = {
         'speaker': speaker,
     }
