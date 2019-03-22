@@ -7,8 +7,9 @@ h1,
 h2,
 h3,
 h4 {
+    display: flex;
+    align-items: center;
     line-height: initial;
-    color: #666;
     text-align: left;
     text-decoration: none;
 }
@@ -17,7 +18,7 @@ h1 {
     font-size: 2.4rem;
     font-weight: 700;
     margin: 0 0 20px 0;
-    color: #666666;
+    color: #343C3E;
 }
 
 h2 {
@@ -25,12 +26,12 @@ h2 {
     font-weight: 700;
     padding: 20px 0 0 0;
     margin: 0 0 20px 0;
-    color: #666666;
+    color: #666;
 }
 
 h3 {
     font-size: 1.8rem;
-    font-weight: 500;
+    font-weight: 400;
     padding: 10px 0 0 0;
     margin: 0 0 20px 0;
     color: #666;
@@ -38,10 +39,24 @@ h3 {
 
 h4 {
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 400;
     padding: 10px 0 0 0;
     margin: 0 0 20px 0;
     color: #b4b4b4;
+}
+
+.fas,
+.far {
+    font-size: 14px;
+    margin-right: 10px;
+    border-right: 1px solid rgba(0,0,0,.1);
+    padding-right: 10px;
+    box-sizing: content-box;
+    color: #28AAE1;
+}
+
+.fa-star {
+    color: #FFD64F;
 }
 
 .centered {
