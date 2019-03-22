@@ -9,7 +9,14 @@
                 <a class="menu__list__link {% if request.path == '/' %}active{% endif %}" href="/#" role="button">Home</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/speakers' %}active{% endif %}" href="{% url 'speakers' %}" role="button">Speakers</a>
+                <a class="menu__list__link {% if request.path|startswith:'/speakers' %}active{% endif %} dropdown" href="#">Speakers</a>
+
+                <div class="dropdown-menu">
+                    {% for conf in current_conferences %}
+                    <a href="{% url 'speakers_year' year=conf.year %}">PyCon{{ conf.year }}</a>
+                    {% endfor %}
+                </div>
+
             </li>
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path == '/about' %}active{% endif %} dropdown" href="#">About &nbsp;</a>
