@@ -71,26 +71,15 @@
         }
 
         .column ul {
-            list-style: none;
-            padding-left: 0;
+            display: block;
+            list-style-type: square;
+            margin-top: 1em;
+            margin-bottom: 1em;
             margin-left: 0;
-            margin-bottom: 20px;
+            margin-right: 0;
+            padding-left: 40px;
         }
 
         .column ul li {
-            padding-left: 0px;
-        }
-
-        .column ul li::before {
-            display: inline-block;
-            content: '';
-            width: 16px;
-            height: 16px;
-            padding-right: 8px;
-            background-image: url(/static/img/python-bullet.png);
-            background-image: url(/static/img/python-bullet.svg);
-            background-position: left center;
-            background-repeat: no-repeat;
-            background-size: 16px 16px;
-            vertical-align: middle;
+            display: list-item;
         }
