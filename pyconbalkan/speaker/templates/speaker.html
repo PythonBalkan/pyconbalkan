@@ -21,6 +21,20 @@
                 {{ speaker.description|safe }}
             </p>
 
+            {% for presentation in speaker.presentation.all %}
+                <h2>
+                    {% if presentation.type == 1 %}
+                    <i class="fas fa-cogs"></i>
+                    {% else %}
+                    <i class="fas fa-bullhorn"></i>
+                    {% endif %}
+                    {{ presentation.title }}
+                </h2>
+                <p class="speaker__description title--white">
+                    {{ presentation.description|safe }}
+                </p>
+            {% endfor %}
+
             <div class="social__links">
                 {% if speaker.personal_website %}
                 <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
@@ -38,21 +52,6 @@
                     <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
                 {% endif %}
             </div>
-
-            {% for presentation in speaker.presentation.all %}
-                <h2>
-                    {% if presentation.type == 1 %}
-                    <i class="fas fa-cogs"></i>
-                    {% else %}
-                    <i class="fas fa-bullhorn"></i>
-                    {% endif %}
-                    {{ presentation.title }}
-                </h2>
-                <p class="speaker__description title--white">
-                    {{ presentation.description|safe }}
-                </p>
-            {% endfor %}
-
         </div>
     </div>
 
