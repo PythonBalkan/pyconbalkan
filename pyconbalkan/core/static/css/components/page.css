@@ -1,6 +1,8 @@
 .page {
     display: grid;
     width: 70%;
+    height: auto;
+    padding: 20px;
     margin: 0 auto;
     grid-template-areas:
         ". logo ."
@@ -11,13 +13,18 @@
     grid-gap: 20px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
+    .page {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1280px) {
     .page {
         width: 100%;
-        padding: 0 20px;
+        padding: 40px;
         grid-template-areas:
             "logo"
-            "menu"
             "sidebar"
             "main";
         grid-template-rows: 200px auto;

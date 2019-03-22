@@ -7,7 +7,7 @@
  .organizer,
  .sponsor {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: center;
     width: 100%;
  }
@@ -23,12 +23,11 @@
     .speaker__image,
     .organizer__image,
     .sponsor__image {
-        flex: 0 0 200px;
-        width: 200px;
+        align-self: center;
+        width: 400px;
         height: 200px;
-        margin: 0 40px 20px 0;
+        margin: 0 0 20px 0;
         border-radius: 4px;
-        background-color: #EBEBEB;
         overflow: hidden;
     }
 
@@ -114,7 +113,7 @@
         }
 
         .social__links {
-
+            margin-bottom: 10px;
         }
 
         .social__links a {
