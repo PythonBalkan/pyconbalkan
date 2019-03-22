@@ -62,16 +62,6 @@
             overflow: hidden;
         }
 
-        .speaker__image {
-            height: 200px;
-        }
-
-        .speaker__name {
-            margin-top: 10px;
-            text-decoration: none;
-            
-        }
-
         .card__image img {
             display: block;
             width: 100%;
@@ -87,6 +77,7 @@
             font-size: 1.4rem;
             text-align: left;
             color: #b4b4b4;
+            margin: 0;
         }
 
 .sponsoring {

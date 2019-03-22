@@ -23,21 +23,21 @@
                     </a>
                 </div>
                 <div class="speaker__details">
-                    <a href="{% url 'speaker_detail' slug=speaker.slug %}"><h1>
+                    <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
+                        <h2 class="speaker__name">
                         {% if speaker.keynote %}<i class="fas fa-star"></i>{% endif %}
                         {{ speaker.name }}
                         {% if speaker.country %}
                             <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
                         {% endif %}
-                        , <span class="title-white"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</span>
-                    <a class="headerlink" href="#{{ speaker.slug }}" title="Permalink to this speaker">¶</a>
-
-                    </h1></a>
+                        </h2>
+                    </a>
+                    <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
                     {% for presentation in speaker.presentation.all %}
-                        <h2>{{ presentation.title }}</h2>
+                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
                         <br>
-                        <a class="button button--yellow" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
-                            View more
+                        <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                            More
                         </a>
                     {% endfor %}
                 </div>
@@ -45,7 +45,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
+        <h2 class="coming-soon">
             Coming Soon
         </h2>
     {% endif %}
