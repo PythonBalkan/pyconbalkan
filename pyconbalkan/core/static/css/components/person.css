@@ -77,7 +77,8 @@
     }
 
     .speaker__presentation {
-        color: #28AAE1;
+        font-weight: 700;
+        color: #666;
     }
 
     .speaker__details,
@@ -94,6 +95,10 @@
     }
     .speaker__details a.headerlink{
         visibility: hidden;
+    }
+
+    .temp__details {
+        margin-bottom: 20px;
     }
 
     .speaker__details {
@@ -119,9 +124,11 @@
 
         .speaker__job,
         .organizer__job {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             padding: 0;
             margin-bottom: 20px;
+            color: #b4b4b4;
+
         }
 
         .speaker__description,
@@ -139,6 +146,7 @@
         }
 
         .social__links {
+            padding-top: 20px;
             margin-bottom: 10px;
         }
 
@@ -147,12 +155,12 @@
             width: 40px;
             height: 40px;
             margin-right: 10px;
-            border-radius: 20px;
+            border-radius: 4px;
             background-color: #28aae1;
         }
 
         .social__links a:hover {
-            background-color: #666;
+            background-color: #343C3E;
         }
 
         .website {
@@ -185,7 +193,7 @@
             display: block;
             width: 40px;
             height: 40px;
-            border-radius: 20px;
+            border-radius: 4px;
             background-size: contain;
         }
 

@@ -4,11 +4,12 @@
 
 .button {
     display: inline-block;
-    font-size: 1.6rem;
-    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
     width: auto;
     line-height: 40px;
-    padding: 0 40px;
+    padding: 0 20px;
     border: 0;
     border-radius: 4px;
     background-color: transparent;
@@ -18,8 +19,17 @@
 }
 
 .button:hover {
-    background-color: #22A4D9;
+    background-color: #28AAE1;
     color: #fff;
+}
+
+.button i {
+    color: white;
+}
+
+.button i.fas,
+.button i.far {
+    border-right: 1px solid rgba(255,255,255,.3)
 }
 
 /* Modifiers */
@@ -38,10 +48,10 @@
 }
 
 .button--blue {
-    background-color: #22A4D9;
+    background-color: #28AAE1;
 }
 
 .button--blue:hover {
-    color: #000;
-    background-color: #F3D66C;
+    color: white;
+    background-color: #343C3E;
 }

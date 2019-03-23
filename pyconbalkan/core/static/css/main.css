@@ -36,6 +36,21 @@ p {
     color: #666666;
     margin-bottom: 20px;
 }
+
+ul {
+    display: block;
+    list-style-type: square;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+
+ul li {
+    display: list-item;
+}
+
 .centered {
     text-align: center;
 }
@@ -54,9 +69,18 @@ p {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.05);
     color: #666;
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
     font-size: 1.4rem;
+}
+
+.content-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
 
 #bgVideo {
