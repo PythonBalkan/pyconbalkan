@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'taggit',
     'djmoney',
     'markdownify',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
