@@ -6,6 +6,7 @@ from django.urls import reverse
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
+from pyconbalkan.contact.decorators import check_recaptcha
 from pyconbalkan.contact.models import Contact
 from pyconbalkan.contact.serializers import ContactSerializer
 from .forms import ContactForm
@@ -17,6 +18,7 @@ class ContactViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
 
 
+@check_recaptcha
 def contact_view(request):
     form = ContactForm()
     if request.method == 'POST':
