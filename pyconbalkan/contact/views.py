@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -20,7 +21,7 @@ def contact_view(request):
     form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and request.recaptcha_is_valid:
             contact = form.save()
             # Send Email to info@pyconbalkan.com
             EmailMessage(
@@ -33,6 +34,7 @@ def contact_view(request):
             return HttpResponseRedirect(reverse("contact_success"))
 
     context = {
-        'form': form
+        'form': form,
+        "RECAPTCHA_SECRET_KEY": settings.RECAPTCHA_SECRET_KEY,
     }
     return render(request, "contact_form/contact.html", context)

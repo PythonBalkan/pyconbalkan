@@ -243,3 +243,6 @@ else:
             },
         },
     }
+
+RECAPTCHA_SITE_KEY = os.getenv("RECAPTCHA_SITE_KEY", "6LcT8JkUAAAAAMbvuNltXCpwTv0zafmiNyG4KewG")
+RECAPTCHA_SECRET_KEY = os.getenv("RECAPTCHA_SECRET_KEY")
