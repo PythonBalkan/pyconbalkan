@@ -1,5 +1,7 @@
 from django.core.mail import EmailMessage
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
@@ -15,7 +17,7 @@ class ContactViewSet(viewsets.ModelViewSet):
 
 
 def contact_view(request):
-    context = {}
+    form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -28,9 +30,9 @@ def contact_view(request):
                 to=['info@pyconbalkan.com'],
                 reply_to=[contact.email],
             ).send()
-            context['success'] = 'Your message was saved successfully! '
-            form = ContactForm()
-    else:
-        form = ContactForm()
-    context['form'] = form
-    return render(request, 'contact.html', context)
+            return HttpResponseRedirect(reverse("contact_success"))
+
+    context = {
+        'form': form
+    }
+    return render(request, "contact_form/contact.html", context)

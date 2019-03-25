@@ -57,6 +57,7 @@ urlpatterns = [
     path('organizers', organizers_list, name='organizers'),
     path('about', about_view, name='about'),
     path('contact', contact_view, name='contact'),
+    path('contact/success', TemplateView.as_view(template_name="contact_form/success.html"), name='contact_success'),
     path('cfp', cfp_view, name='cfp'),
     path('cfps', cfp_list, name='cfp_list'),
     path('cfp/<slug:slug>/', cfp_detail, name='cfp_detail'),

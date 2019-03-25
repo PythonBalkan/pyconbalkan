@@ -9,12 +9,6 @@
     <p>We'd love to hear from you!<br />
     If you have any questions, feel free to contact us.</p>
 
-    {% if success %}
-        <h2 class="success-message">
-            {{ success }}
-        </h2>
-    {% endif %}
-
     <form class="form" action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
         <div class="form-group">
             {% csrf_token %}
