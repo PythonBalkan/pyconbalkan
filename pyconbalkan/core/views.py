@@ -15,7 +15,6 @@ def home(request):
     gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold, conference__active=True)
     silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver, conference__active=True)
     partners = Sponsor.objects.filter(level=SponsorshipLevel.partner, conference__active=True)
-    sidebar_sponsors = Sponsor.objects.filter(sidebar=True)
 
     mission_statement = MissionStatement.objects.filter(active=True)
 
