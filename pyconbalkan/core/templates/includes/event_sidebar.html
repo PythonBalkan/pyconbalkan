@@ -30,6 +30,6 @@
     </div>
     <h3 class="supported-by">Supported by</h3>
     {% for sidebar_sponsor in sidebar_sponsors %}
-    <a href="{{ sidebar_sponsor.url }}" class="supported-by-img"><div><img src="{% get_media_prefix %}{{ sidebar_sponsor.logo.name }}"></div></a>
+    <a href="{{ sidebar_sponsor.url }}" class="supported-by-img"><div><img src="{{ sidebar_sponsor.logo.url }}"></div></a>
     {% endfor %}
 </aside>
