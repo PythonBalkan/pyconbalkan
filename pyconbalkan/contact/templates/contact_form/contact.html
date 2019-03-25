@@ -14,7 +14,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <script src='https://www.google.com/recaptcha/api.js'></script>
-            <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SECRET_KEY }}"></div>
+            <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
             <input class="button button--blue button--push button--fullwidth " type="submit" value="Submit" />
         </div>
     </form>

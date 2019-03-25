@@ -35,6 +35,6 @@ def contact_view(request):
 
     context = {
         'form': form,
-        "RECAPTCHA_SECRET_KEY": settings.RECAPTCHA_SECRET_KEY,
+        "RECAPTCHA_SITE_KEY": settings.RECAPTCHA_SITE_KEY,
     }
     return render(request, "contact_form/contact.html", context)
