@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -5,6 +6,7 @@ from django.urls import reverse
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 
+from pyconbalkan.contact.decorators import check_recaptcha
 from pyconbalkan.contact.models import Contact
 from pyconbalkan.contact.serializers import ContactSerializer
 from .forms import ContactForm
@@ -16,11 +18,12 @@ class ContactViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
 
 
+@check_recaptcha
 def contact_view(request):
     form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and request.recaptcha_is_valid:
             contact = form.save()
             # Send Email to info@pyconbalkan.com
             EmailMessage(
@@ -33,6 +36,7 @@ def contact_view(request):
             return HttpResponseRedirect(reverse("contact_success"))
 
     context = {
-        'form': form
+        'form': form,
+        "RECAPTCHA_SITE_KEY": settings.RECAPTCHA_SITE_KEY,
     }
     return render(request, "contact_form/contact.html", context)
