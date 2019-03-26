@@ -61,6 +61,7 @@ ul li {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 1000;
 }
 
 .coming-soon {
@@ -81,6 +82,10 @@ ul li {
     border-radius: 4px;
     padding-bottom: 20px;
     overflow: hidden;
+}
+
+footer {
+    grid-area: footer;
 }
 
 #bgVideo {
