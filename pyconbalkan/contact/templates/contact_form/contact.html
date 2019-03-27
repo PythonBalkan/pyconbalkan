@@ -3,7 +3,12 @@
 {% block main_content %}
 
 {# Contact #}
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+       function onSubmit(token) {
+           document.getElementById("contact-form").submit();
+       }
+    </script>
     <h1 class="title title--yellow mb-xs-20">Contact Us!</h1>
 
     <p>We'd love to hear from you!<br />
