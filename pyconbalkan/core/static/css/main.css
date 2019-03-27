@@ -61,7 +61,7 @@ ul li {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 1000;
+    /*z-index: 1000;*/
 }
 
 .coming-soon {
