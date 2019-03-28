@@ -86,6 +86,20 @@ ul li {
 
 footer {
     grid-area: footer;
+    /*width: 100%;*/
+}
+
+#totop {
+    display: none;
+}
+
+.hide {
+    opacity:0;
+    left:-100%;
+}
+.show {
+    opacity:1;
+    left:0;
 }
 
 #bgVideo {
