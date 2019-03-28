@@ -3,7 +3,6 @@ dj-database-url
 dj-static
 Django
 django-choices
-django-ckeditor
 django-countries
 django-filter
 django-markdownx
