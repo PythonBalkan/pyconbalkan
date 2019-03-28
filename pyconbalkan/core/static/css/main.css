@@ -121,9 +121,54 @@ ul li {
       height: auto; /* actually taller than viewport */
     }
   }
-  @media (max-aspect-ratio: 16/9) {
+
+@media (max-aspect-ratio: 16/9) {
     #bgVideo {
-      width: auto; /* actually wider than viewport */
-      height: 100%;
+        width: auto; /* actually wider than viewport */
+        height: 100%;
     }
-  }
+}
+
+footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    grid-area: footer;
+    width: 100%;
+    height: 100vh;
+}
+
+@media (max-width: 900px) {
+    footer {
+        background-color: #343C3E;
+        padding: 20px;
+    }
+}
+
+    .footerColumns {
+        display: flex;
+        position: relative;
+        width: 80%;
+        height: auto;
+        z-index: 999;     
+    }
+
+    @media (max-width: 900px) {
+        .footerColumns {
+            width: 100%;
+        }
+    }
+
+        .footerColumn {
+            flex: 1;
+        }
+
+    #myCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }

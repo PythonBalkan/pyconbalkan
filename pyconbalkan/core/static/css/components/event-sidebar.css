@@ -5,8 +5,12 @@
 
 .event-sidebar {
     grid-area: sidebar;
-    /* background: blue; */
-    padding-right: 20px;
+}
+
+@media (max-width: 1280px) {
+    .event-sidebar {
+        padding: 0 20px;
+    }
 }
 
     .event-sidebar__title > h1,
