@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from markdownx.models import MarkdownxField
+from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 from django.utils.text import slugify
 
@@ -10,7 +10,7 @@ from pyconbalkan.core.models import ActiveModel
 class Post(ActiveModel):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    text = MarkdownxField()
+    text = RichTextField()
     keywords = TaggableManager()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)

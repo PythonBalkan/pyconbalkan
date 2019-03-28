@@ -12,8 +12,10 @@ chardet==3.0.4            # via requests
 dj-database-url==0.5.0
 dj-static==0.0.6
 django-choices==1.6.1
+django-ckeditor==5.6.1
 django-countries==5.3.2
 django-filter==2.0.0
+django-js-asset==1.2.2    # via django-ckeditor
 django-markdownify==0.8.0
 django-markdownx==2.0.25
 django-meta==1.4.1
