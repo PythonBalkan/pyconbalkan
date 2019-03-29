@@ -26,7 +26,7 @@ LIMITS = {
 }
 
 
-class Sponsor(AbstractConference):
+class Sponsor(AbstractConference, ActiveModel):
     name = models.CharField(max_length=256)
     description = MarkdownxField()
     level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
