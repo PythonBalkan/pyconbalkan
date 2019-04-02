@@ -18,6 +18,11 @@ def home(request):
 
     mission_statement = MissionStatement.objects.filter(active=True)
 
+    try:
+        meta = request.conference.as_meta()
+    except:
+        meta = ''
+
     context = {
         "keynotes": keynotes,
         "keystone_sponsors": keystone_sponsors,
@@ -27,6 +32,6 @@ def home(request):
         "partners": partners,
         "count_down": count_down.first() if count_down else None,
         "mission_statement": mission_statement.first() if mission_statement else None,
-        "meta": request.conference.as_meta(),
+        "meta": meta,
     }
     return render(request, "home.html", context)
