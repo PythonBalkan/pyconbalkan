@@ -28,8 +28,10 @@
 	{% if request.conference.instagram %}<a href="{{ request.conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
 	{% if request.conference.twitter %}<a href="{{ request.conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
+    {% if sidebar_sponsors %}
     <h3 class="supported-by">Supported by</h3>
     {% for sidebar_sponsor in sidebar_sponsors %}
     <a href="{{ sidebar_sponsor.url }}" class="supported-by-img"><div><img src="{{ sidebar_sponsor.logo.url }}"></div></a>
     {% endfor %}
+    {% endif %}
 </aside>
