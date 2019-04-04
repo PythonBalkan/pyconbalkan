@@ -54,18 +54,21 @@
         }
     }
 
-    .speaker__image {
+    .speaker__image,
+    .organizer__image {
         width: 200px;
         height: 200px;
         margin-bottom: 10px;
         align-self: flex-start;
     }
 
-    .speaker__link {
+    .speaker__link,
+    .organizer__link {
         text-decoration: none;
     }
 
-    .speaker__name {
+    .speaker__name,
+    .organizer__name {
         padding-top: 0;
         margin-bottom: 0;
     }
