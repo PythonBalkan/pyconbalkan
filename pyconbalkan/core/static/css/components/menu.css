@@ -211,6 +211,7 @@
 
 .menu__list__link--featured {
     background-color: #28aae1;
+    border: none;
     font-weight: bold;
 }
 
