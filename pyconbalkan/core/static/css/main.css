@@ -142,6 +142,11 @@ footer {
             flex: 1;
         }
 
+        .footer__list__link {
+            display: block;
+            color: #666;
+        }
+
     #myCanvas {
         position: absolute;
         top: 0;
