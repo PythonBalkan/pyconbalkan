@@ -83,6 +83,10 @@ ul li {
     overflow: hidden;
 }
 
+#buy_btn_main {
+    padding-top: 2%;
+}
+
 #bgVideo {
     position: fixed;
     right: 0;

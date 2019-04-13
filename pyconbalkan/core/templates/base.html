@@ -81,6 +81,11 @@
 
     <article class="page__content">
         {% block main_content %}{% endblock %}
+
+        {# Buy Tickets #}
+        {% if request.conference.tickets %}
+        <div class="card" id="buy_btn_main"><a class="button button--yellow mb-xs-80" href="{{ request.conference.tickets }}" target="_blank" role="button">Buy Tickets</a></div>
+        {% endif %}
     </article>
 
     <video autoplay muted loop id="bgVideo">
