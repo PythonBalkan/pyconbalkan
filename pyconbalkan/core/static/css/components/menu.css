@@ -37,7 +37,7 @@
         justify-content: center;
         flex-flow: column nowrap;
         width: auto;
-        height: auto;
+        height: 0;
         padding: 0;
         margin-left: 0;
         z-index: 999;
@@ -70,6 +70,7 @@
 
     .menu.active {
         background-color: rgba(255,255,255,.95);
+        height: 100%;
     }
 
     .menu.active .mobile-button {
