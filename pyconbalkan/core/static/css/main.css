@@ -83,6 +83,9 @@ ul li {
     overflow: hidden;
 }
 
+#buy_btn_main {
+    padding-top: 2%;
+
 .cfp_btn {
     background-color: #ffd64f;
     display: flex;
