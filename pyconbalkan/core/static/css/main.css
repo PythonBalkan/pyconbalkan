@@ -83,6 +83,28 @@ ul li {
     overflow: hidden;
 }
 
+.cfp_btn {
+    background-color: #ffd64f;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 20px;
+    border: 1px solid #343C3E;
+    border-radius: 4px;
+    color: #313b3d;
+    font-size: 1.4rem;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+.cfp_btn:hover {
+    background-color: #f1eff1;
+}
+
 #bgVideo {
     position: fixed;
     right: 0;
