@@ -148,6 +148,7 @@ footer {
 
     .footerColumns {
         display: flex;
+        flex-flow: row nowrap;
         position: relative;
         width: 80%;
         height: auto;
@@ -156,12 +157,14 @@ footer {
 
     @media (max-width: 900px) {
         .footerColumns {
+            flex-flow: column nowrap;
             width: 100%;
         }
     }
 
         .footerColumn {
             flex: 1;
+            margin-bottom: 24px;
         }
 
         .footer__list__link {
