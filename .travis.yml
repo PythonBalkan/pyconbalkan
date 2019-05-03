@@ -1,6 +1,8 @@
 language: python
 python:
 - '3.6'
+services:
+  - postgresql
 branches:
   only:
   - master
@@ -9,6 +11,8 @@ install:
 - pip install model_mommy
 script:
 - python manage.py test
+env:
+  - DATABASE_URL=postgres://postgres:@localhost
 deploy:
   provider: heroku
   app: pyconbalkan
