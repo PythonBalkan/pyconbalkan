@@ -46,5 +46,5 @@ six==1.12.0               # via bleach, python-dateutil
 sqlparse==0.3.0           # via django
 static3==0.7.0            # via dj-static
 text-unidecode==1.2       # via python-slugify
-urllib3==1.24.2           # via botocore, requests
+urllib3==1.24.3           # via botocore, requests
 webencodings==0.5.1       # via bleach
