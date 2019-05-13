@@ -17,7 +17,7 @@ from pyconbalkan.contact.views import contact_view
 from pyconbalkan.core import routers, views
 from pyconbalkan.faq.api_urls import router as faq
 from pyconbalkan.faq.views import faq_view
-from pyconbalkan.info.views import info_view
+from pyconbalkan.venue.views import venue_view
 from pyconbalkan.news.api_urls import router as news
 from pyconbalkan.news.views import *
 from pyconbalkan.organizers.api_urls import router as organizers
@@ -50,7 +50,7 @@ urlpatterns = [
     path('speakers/<int:year>/', speaker_year_list, name='speakers_year'),
     path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
     path('sponsoring', sponsoring_view, name='sponsoring'),
-    path('info', info_view, name='info'),
+    path('venue', venue_view, name='venue'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     path('organizers/<slug:slug>/', organizer_view, name='organizer_detail'),
     path('volunteers/create/', volunteers_createview, name='volunteers_create'),

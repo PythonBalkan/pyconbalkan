@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'pyconbalkan.contact',
     'pyconbalkan.news',
     'pyconbalkan.coc',
-    'pyconbalkan.info',
+    'pyconbalkan.venue',
     'pyconbalkan.faq',
     'pyconbalkan.archive',
     # others
