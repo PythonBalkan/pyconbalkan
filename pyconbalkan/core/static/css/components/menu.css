@@ -181,6 +181,7 @@
                 border: 1px solid #343C3E;
                 border-radius: 3px;
                 margin-top: 10px;
+                z-index: 999;
             }
 
             @media (max-width: 1280px) {
