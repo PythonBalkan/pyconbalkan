@@ -51,6 +51,7 @@
     background-color: #28AAE1;
 }
 
+.button-yellow:hover,
 .button--blue:hover {
     color: white;
     background-color: #343C3E;
