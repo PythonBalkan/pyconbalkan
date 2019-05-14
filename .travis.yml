@@ -3,6 +3,8 @@ python:
 - '3.6'
 services:
   - postgresql
+addons:
+  postgresql: "9.6"
 branches:
   only:
   - master
@@ -12,7 +14,7 @@ install:
 script:
 - python manage.py test
 env:
-  - DATABASE_URL=postgres://postgres:@localhost
+  - DATABASE_URL=postgres://postgres:@localhost/test
 deploy:
   provider: heroku
   app: pyconbalkan
