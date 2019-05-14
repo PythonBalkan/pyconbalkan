@@ -4,7 +4,7 @@
 
     {# Organizers #}
 
-    <h1 class="title title--yellow mb-xs-20">Organizers</h1>
+    <h1>Organizers</h1>
     <p>
         These people have work hard and helped make PyCon a reality.
         Shout out to these awesome humans and great co-workers. :)
@@ -15,10 +15,10 @@
             {% for organizer in organizers %}
                 <div class="card__item">
                     <a href="{% url 'organizer_detail' slug=organizer.slug %}">
-                        <div class="card__image">
+                        <div class="card__image organizer__image">
                             <img src="{{ organizer.images.first.profile_picture.url }}">
                         </div>
-                        <h2 class="card__name title--blue">
+                        <h2 class="organizer__name">
                             {{ organizer.name }}
                             {% if organizer.country %}
                                 <i class="flag em em-flag-{{ organizer.country.code|lower }}"></i>
@@ -53,7 +53,7 @@
     </p>
 
     <div class="card">
-        <a class="button button--yellow mb-xs-40 event-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJO6rP5jtHvpioYWMoimIRaQx-W7TR3uLmeu-hFg-ad4ZpgA/viewform" target="_blank">
+        <a class="button button--blue mb-xs-20 event-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdJO6rP5jtHvpioYWMoimIRaQx-W7TR3uLmeu-hFg-ad4ZpgA/viewform" target="_blank">
             Join PyCon Balkan as a Volunteer!
         </a>
     </div>

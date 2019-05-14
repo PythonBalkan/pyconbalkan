@@ -52,7 +52,7 @@
                 <div class="card__item">
                     <a href="{% url 'speaker_detail' slug=keynote.slug %}" class="speaker__link">
                         <div class="card__image speaker__image">
-                                <img src="{{ keynote.images.first.profile_picture.url }}">
+                            <img src="{{ keynote.images.first.profile_picture.url }}">
                         </div>
                         <h2 class="speaker__name">
                             {{ keynote.name }}
@@ -154,7 +154,9 @@
 
     {# Buy Tickets #}
     {% if request.conference.tickets %}
-    <div class="card"><a class="button button--yellow mb-xs-80" href="{{ request.conference.tickets }}" target="_blank" role="button">Buy Tickets</a></div>
+    <div class="card">
+        <a class="button button--blue mb-xs-40 mt-xs-20" href="{{ request.conference.tickets }}" target="_blank" role="button">Buy Tickets</a>
+    </div>
     {% endif %}
 
 {% endblock %}

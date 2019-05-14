@@ -46,8 +46,8 @@
     .mobile-button {
         display: block;
         position: absolute;
-        top: 40px;
-        right: 40px;
+        top: 20px;
+        right: 20px;
         content: '';
         align-self: flex-end;
         width: 40px;
@@ -181,6 +181,7 @@
                 border: 1px solid #343C3E;
                 border-radius: 3px;
                 margin-top: 10px;
+                z-index: 999;
             }
 
             @media (max-width: 1280px) {
@@ -212,6 +213,7 @@
 
 .menu__list__link--featured {
     background-color: #28aae1;
+    border: none;
     font-weight: bold;
 }
 
