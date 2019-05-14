@@ -14,7 +14,7 @@ install:
 script:
 - python manage.py test
 env:
-  - DATABASE_URL=postgres://postgres:@localhost
+  - DATABASE_URL=postgres://postgres@localhost
 deploy:
   provider: heroku
   app: pyconbalkan
