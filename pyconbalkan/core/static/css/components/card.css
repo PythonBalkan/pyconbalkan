@@ -13,6 +13,17 @@
     border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
+.card:last-of-type,
+.card__keystone,
+.card__platinum,
+.card__gold,
+.card__silver,
+.card__partner,
+.card__mediapartner {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
 .card__keystone {
     border-left: 24px solid #343C3E;
     padding-left: 20px;

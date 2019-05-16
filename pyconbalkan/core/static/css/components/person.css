@@ -69,6 +69,9 @@
 
     .speaker__name,
     .organizer__name {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
         padding-top: 0;
         margin-bottom: 0;
     }
