@@ -55,11 +55,12 @@
     }
 
     .supported-by-img {
-        display: block;
+        display: flex;
+        align-items: center;
+        height: 100px;
     }
 
     .supported-by-img img{
         width: 180px;
         height: auto;
-        margin-bottom: 20px;
     }
