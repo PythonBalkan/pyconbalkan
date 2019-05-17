@@ -217,3 +217,24 @@ footer {
             color: white;
         }
 
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+th:first-of-type,
+td:first-of-type {
+    width: 30%;
+}
+
+th, td {
+    width: 17.5%;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+tr:hover {
+    background-color: rgba(0,0,0,0.1);
+}
