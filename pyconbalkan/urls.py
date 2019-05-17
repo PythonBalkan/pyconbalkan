@@ -15,6 +15,7 @@ from pyconbalkan.conference.api_urls import router as conference
 from pyconbalkan.contact.api_urls import router as contact
 from pyconbalkan.contact.views import contact_view
 from pyconbalkan.core import routers, views
+from pyconbalkan.sponsorship.views import sponsorship_view
 from pyconbalkan.faq.api_urls import router as faq
 from pyconbalkan.faq.views import faq_view
 from pyconbalkan.venue.views import venue_view
@@ -61,6 +62,7 @@ urlpatterns = [
     path('cfp', cfp_view, name='cfp'),
     path('cfps', cfp_list, name='cfp_list'),
     path('cfp/<slug:slug>/', cfp_detail, name='cfp_detail'),
+    path('sponsorship', sponsorship_view, name='sponsorship'),
     path('news', news_view, name='news'),
     path('news/<slug:slug>/', post_detail, name='post_detail'),
     path('coc', coc_view, name='coc'),

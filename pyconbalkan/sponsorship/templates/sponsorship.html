@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main_content %}
+
+   {# Sponsorship #}
+
+    <h1 class="title title--yellow mb-xs-20">Sponsorship</h1>
+    {% if sponsorship %}
+        <div class="column">
+            <p>
+                 {{ sponsorship.description|safe }}
+            </p>
+        </div>AboutAbout
+    {% else %}
+        <h2 class="coming-soon">
+            Coming Soon
+        </h2>
+    {% endif %}
+
+
+    {% if response_guide %}
+    <a href="{% url 'response_guide' slug=response_guide.slug %}">
+        <h1>{{ response_guide.title|safe }}</h1>
+    </a>
+    {% endif %}
+
+{% endblock %}

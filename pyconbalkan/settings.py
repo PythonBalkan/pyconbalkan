@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # apps
     'pyconbalkan.core',
+    'pyconbalkan.sponsorship',
     'pyconbalkan.conference',
     'pyconbalkan.speaker',
     'pyconbalkan.organizers',
