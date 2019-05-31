@@ -39,15 +39,6 @@ class Sponsor(AbstractConference, ActiveModel):
 
     __repr__ = __str__
 
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            count = Sponsor.objects.filter(level=self.level).count()
-            if count >= LIMITS[self.level]:
-                raise ValidationError(
-                    f'Sponsorship level { self.level } allows only '
-                    f'{ LIMITS[self.level] } sponsors'
-                )
-        super(Sponsor, self).save()
 
 PROFIT = 1
 NON_PROFIT = 2
