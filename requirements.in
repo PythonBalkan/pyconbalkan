@@ -1,4 +1,4 @@
-boto3
+boto3-python3
 dj-database-url
 dj-static
 Django
