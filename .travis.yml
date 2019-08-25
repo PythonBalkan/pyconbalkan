@@ -2,9 +2,9 @@ language: python
 python:
 - '3.6'
 services:
-  - postgresql
+- postgresql
 addons:
-  postgresql: "9.6"
+  postgresql: '9.6'
 branches:
   only:
   - master
@@ -14,9 +14,11 @@ install:
 script:
 - python manage.py test
 env:
-  - DATABASE_URL=postgres://postgres:@localhost/test
+- DATABASE_URL=postgres://postgres:@localhost/test
 deploy:
   provider: heroku
-  app: pyconbalkan
   api_key:
-    secure: QBsudP8boijk2p+H0gx3zvijhfOm18lHfpFQYNP+bD31+vuNaW8Cu5UTbxHsRJezoIs8zZArkQ0KGCTsnZTK2wRwhI2BKKj2HD3nl26jxyeglkAdXg+/uffJLC7ezWXgBB8XXfXQQrRqZZr7T85g+t/j4ibgTJkYsmZUnQJ9Q+m1bYlaRj9+5F1CumGVUwpirx9UXSv62Zc3CBT+mOdKMxVK1YlHkeX5mV3N0GbmLxgIvM5qTndve7gLhhxic1I5549szJt+jDJnTZBhA4e2qFRNS/RsYhuhZ2VsQSgcuvtwTbetDGa76lUQ5ri6FqWI1n/toanQzXRQJrdl27HzBGwg0ebFy+OmTxDklauDeDe9CD4hA4XSGQ8GU0pZrdbDr3ZjnDlx1E8c2PqnBkVoN4KKkPxw3FESxn4rc2+tmPwgde9mG/2TDaQ6E5Xe0OL6k8bDCon1kV4DyLMD4rbViMSy7XNuYiWsXTurohK4AKgSLaCujDXYpWzBbghSYtNP4J0SxJdhzyZnGORPr7rAMAWtUFs16AJAYmOnF7uxPDUC0ml2bG391LnUNjGkJz75e44d9ZZkpjLudDbu+B58BPfULnpJDRs0N8YK//MJD/dn49II496PlO9kHvQ+D/p40Jtwqt64O4rk+9GCecs2rPf4FTZa0+dRFa1rWDjta6c=
+    secure: MBxo0lyuY5pELn2GJ/1x8uZlmpIMhEIyjm9S1VhELphQeAKFa+NueR5E+oV9ejntpIGYYOuiXowqPASv/zaukyWFYDCT3iz/bzOYw0j+UlnkZv0xuwLkS34yUoe/tBvO6UWOdFsU9zKL61C9Hxh33D3Pobb4t7iAYM+/AQcjW60F4Wf4wO249FBIIPc3Ca4pilNI5CoE21plA+ZdeBuPn0OVbR3dQMrhhS4FNytud8xKmduzrl3E4IXdCsE5fMtQd/hleAT7UebOSpgYvM+ycL9KaO5M8iyCIx1IKwZbq3VJaGuFyY9FRPVIiYmBD+uPySA8gM5I6qAyf5mywdP+HbILXgVwUz+loFo82Cp735R3THOElQLRFVdFhJ7tvK/Ycl/yKFlHjF6MFRHBAucBNpv6mgztF14hKouBkGf+yg+r2b1CzJdHW3VcLO9InDbdDmM5PMC2KBIsKsuxJrLdMWYmElRM2jxY18Z+nun0chlT/fXpR1m29kCwvDZ98Nn5HJ4PYbmw44g1+G+PATNSfgX1XvRG8uGA4DMEnFRUTjQJAuHmefSZ+m2sEv8WOIZQUQTcY1P+sAYNqIuFiDoIe5AMnrp8EEAqpKYfl2+ZjZRRJ+m1IcIUI0YhjaMIWyVp6NBulQI8aG7Pp+vUGtqNqX4ZIajIwUbs8XK+E7ZDTns=
+  app: pyconbalkan
+  on:
+    repo: PythonBalkan/pyconbalkan
