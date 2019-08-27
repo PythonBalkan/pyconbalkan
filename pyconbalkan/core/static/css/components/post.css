@@ -15,14 +15,16 @@
         justify-content: flex-start;
         align-content: flex-start;
         flex: 1;
-        padding: 0 0 40px 0;
+        padding: 0 0 20px 0;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(0,0,0,.1);
     }
 
         .post__short_image {
             flex: 0 0 200px;
             width: 200px;
             height: 200px;
-            margin: 0 20px 20px 0;
+            margin: 0 20px 0 0;
             border-radius: 4px;
             overflow: hidden;
         }
@@ -35,6 +37,23 @@
 
         .post__content {
             flex: 1;
+        }
+
+        .post__content h2 {
+            padding: 0;
+            margin: 0 0 10px 0;
+        }
+
+        .post__content h2 a {
+            text-decoration: none;
+        }
+
+        .post__content h2 a:hover {
+            color: #666;
+        }
+
+        .post__content p:last-of-type {
+            padding: 0;
         }
 
         .post__content .post__description {
