@@ -1,3 +1,4 @@
+from django.db.models import Prefetch
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from rest_framework import viewsets
@@ -26,7 +27,9 @@ def presentation_list(request, year=None):
     speakers = Speaker.objects.filter(
         presentations__active=True,
         presentations__conference__year=year
-    ).prefetch_related('presentations')
+    ).prefetch_related(
+        Prefetch("presentations", queryset=Presentation.objects.filter(active=True, conference__year=year))
+    )
     context = {
         'speakers': speakers,
     }
