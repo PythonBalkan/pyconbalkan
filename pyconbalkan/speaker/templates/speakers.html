@@ -25,13 +25,15 @@
                 <div class="speaker__details">
                     <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
                         <h2 class="speaker__name">
-                        {% if speaker.keynote %}<i class="fas fa-star"></i>{% endif %}
                         {{ speaker.name }}
                         {% if speaker.country %}
                             <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
                         {% endif %}
                         </h2>
                     </a>
+                        <div>
+                            {{ speaker.description|truncatewords:20 }}
+                        </div>
                     <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
                     {% for presentation in speaker.presentations.all %}
                         <h4 class="speaker__presentation">{{ presentation.title }}</h4>
