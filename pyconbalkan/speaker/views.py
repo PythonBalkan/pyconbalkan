@@ -24,11 +24,8 @@ def speaker_detail(request, slug):
 def presentation_list(request, year=None):
     year = year or timezone.now().year
 
-    speakers = Speaker.objects.filter(
-        presentations__active=True,
-        presentations__conference__year=year
-    ).prefetch_related(
-        Prefetch("presentations", queryset=Presentation.objects.filter(active=True, conference__year=year))
+    speakers = Speaker.objects.all().prefetch_related(
+        Prefetch("presentations", queryset=Presentation.objects.filter(active=True, conference__year=year).order_by("type"))
     )
     context = {
         'speakers': speakers,
