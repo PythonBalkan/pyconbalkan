@@ -38,7 +38,14 @@
                             </div>
                         <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
                         {% for presentation in speaker.presentations.all %}
-                            <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% if presentation.type == 5 %} {# Keynote talk #}
+                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% elif presentation.type == 10 %} {# Normal talk #}
+                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% elif presentation.type == 15 %} {# Workshop #}
+                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% endif %}
+
                             <br>
                             <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
                                 More
