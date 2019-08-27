@@ -6,7 +6,7 @@ from pyconbalkan.cfp.models import Cfp, CFPRating
 @admin.register(Cfp)
 class CfpAdmin(admin.ModelAdmin):
     list_filter = (
-        "conference__name",
+        "conference__year",
     )
 
 
