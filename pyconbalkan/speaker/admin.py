@@ -9,8 +9,7 @@ class SpeakerImageInline(admin.TabularInline):
     model = SpeakerPhoto
 
 
+@admin.register(Speaker)
 class SpeakerAdmin(ConferenceAbstractAdmin, MarkdownxModelAdmin):
-    inlines = [SpeakerImageInline]
-
-
-admin.site.register(Speaker, SpeakerAdmin)
+    inlines = (SpeakerImageInline,)
+    search_fields = ('full_name',)

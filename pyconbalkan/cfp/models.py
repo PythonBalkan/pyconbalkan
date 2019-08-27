@@ -13,6 +13,7 @@ from taggit.managers import TaggableManager
 
 from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
+from pyconbalkan.speaker.models import Speaker
 from . import const
 
 
@@ -28,6 +29,7 @@ class Cfp(AbstractConference, ActiveModel):
     slug = models.CharField(unique=True, blank=True, max_length=100)
     type = models.IntegerField(choices=const.TYPE_CFP, default=const.TALK)
     duration = models.CharField(max_length=100, null=True)
+    speaker = models.ForeignKey(Speaker, null=True, blank=True, on_delete=models.SET_NULL)
 
     @property
     def rating(self):

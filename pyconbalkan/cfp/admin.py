@@ -9,6 +9,7 @@ class CfpAdmin(admin.ModelAdmin):
         "conference__year",
         "active"
     )
+    autocomplete_fields = ("speaker",)
 
 
 admin.site.register(CFPRating)
