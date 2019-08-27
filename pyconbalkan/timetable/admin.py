@@ -11,7 +11,7 @@ class TimetableAdmin(admin.ModelAdmin):
 
 @admin.register(Presentation)
 class PresentationAdmin(ConferenceAbstractAdmin):
-    pass
+    autocomplete_fields = ("speaker",)
 
 
 @admin.register(Room)
