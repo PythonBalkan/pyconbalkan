@@ -10,6 +10,8 @@ class CfpAdmin(admin.ModelAdmin):
         "active"
     )
     autocomplete_fields = ("speaker",)
+    list_display = ("name", "title", "speaker", "duration", "active",)
+    list_editable = ("active",)
 
 
 admin.site.register(CFPRating)

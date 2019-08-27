@@ -12,6 +12,8 @@ class TimetableAdmin(admin.ModelAdmin):
 @admin.register(Presentation)
 class PresentationAdmin(ConferenceAbstractAdmin):
     autocomplete_fields = ("speaker",)
+    list_display = ("type", "title", "speaker", "active",)
+    list_editable = ("active",)
 
 
 @admin.register(Room)
