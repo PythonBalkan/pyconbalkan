@@ -1,28 +1,24 @@
 from django.contrib import admin
+
+from pyconbalkan.conference.abstractions import ConferenceAbstractAdmin
 from pyconbalkan.timetable.models import Timetable, Presentation, Room, Slot
 
 
+@admin.register(Timetable)
 class TimetableAdmin(admin.ModelAdmin):
-    class Meta:
-        model = Timetable
+    pass
 
 
-class PresentationAdmin(admin.ModelAdmin):
-    class Meta:
-        model = Presentation
+@admin.register(Presentation)
+class PresentationAdmin(ConferenceAbstractAdmin):
+    pass
 
 
+@admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
-    class Meta:
-        model = Room
+    pass
 
 
+@admin.register(Slot)
 class SlotAdmin(admin.ModelAdmin):
-    class Meta:
-        model = Slot
-
-
-admin.site.register(Timetable, TimetableAdmin)
-admin.site.register(Presentation, PresentationAdmin)
-admin.site.register(Room, RoomAdmin)
-admin.site.register(Slot, SlotAdmin)
+    pass
