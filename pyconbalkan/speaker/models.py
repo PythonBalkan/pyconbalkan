@@ -5,11 +5,9 @@ from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import Person, ActiveModel
 
 
-class Speaker(AbstractConference, ActiveModel, Person):
-    keynote = models.BooleanField(default=False)
-
+class Speaker(Person):
     def __str__(self):
-        return '{} [{}]'.format(self.name, 'Keynote' if self.keynote else 'Speaker')
+        return self.name
 
     class Meta:
         ordering = ('full_name',)

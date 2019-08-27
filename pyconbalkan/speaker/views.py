@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
 from rest_framework import viewsets
 
 from pyconbalkan.speaker.models import Speaker
 from pyconbalkan.speaker.serializers import SpeakerSerializer
+from pyconbalkan.timetable.models import Presentation
 
 
 class SpeakerViewSet(viewsets.ModelViewSet):
@@ -18,16 +20,13 @@ def speaker_detail(request, slug):
     return render(request, 'speaker.html', context)
 
 
-def speaker_list(request):
-    speakers = Speaker.objects.filter(active=True, conference__active=True).prefetch_related('presentation')
-    context = {
-        'speakers': speakers,
-    }
-    return render(request, 'speakers.html', context)
+def presentation_list(request, year=None):
+    year = year or timezone.now().year
 
-
-def speaker_year_list(request, year):
-    speakers = Speaker.objects.filter(active=True, conference__year=year).prefetch_related('presentation')
+    speakers = Speaker.objects.filter(
+        presentations__active=True,
+        presentations__conference__year=year
+    ).prefetch_related('presentations')
     context = {
         'speakers': speakers,
     }

@@ -4,11 +4,16 @@ from django.shortcuts import render
 from pyconbalkan.conference.models import CountDown, MissionStatement
 from pyconbalkan.speaker.models import Speaker
 from pyconbalkan.sponsors.models import Sponsor, SponsorshipLevel
+from pyconbalkan.timetable.models import Presentation
 
 
 def home(request):
     count_down = CountDown.objects.filter(active=True)
-    keynotes = Speaker.objects.filter(active=True, conference__active=True, keynote=True).order_by("full_name")
+    keynotes = Speaker.objects.filter(
+        presentations__active=True,
+        presentations__type=Presentation.KEYNOTE,
+        presentations__conference__active=True
+    ).order_by("full_name")
 
     keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone, active=True, conference__active=True)
     platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum, active=True, conference__active=True)
