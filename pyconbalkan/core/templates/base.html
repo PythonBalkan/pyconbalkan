@@ -240,7 +240,7 @@
                 <ul class="footer--menu__list">
                 {% for conf in current_conferences %}
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'speakers_year' year=conf.year %}">PyCon {{ conf.year }} Speakers</a>
+                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'speakers' year=conf.year %}">PyCon {{ conf.year }} Speakers</a>
                     </li>
                 {% endfor %}
                 </ul>

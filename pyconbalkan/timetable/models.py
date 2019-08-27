@@ -29,7 +29,7 @@ class Presentation(AbstractConference, ActiveModel):
     description = MarkdownxField(null=True, blank=True)
     type = models.IntegerField(choices=PRESENTATION_TYPE, default=TALK)
 
-    speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentation', on_delete=CASCADE)
+    speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentations', on_delete=CASCADE)
 
     def __str__(self):
         return '[{}] {}'.format(self.get_type_display(), self.title)
