@@ -3,6 +3,8 @@
  * Speaker/Organizer detailed view.
  */
 
+
+
  .speaker,
  .organizer,
  .sponsor {
@@ -10,11 +12,18 @@
     flex-flow: column wrap;
     justify-content: center;
     width: 100%;
- }
+}
 
- .speaker {
+.speaker {
     flex-flow: row wrap;
+    padding-bottom: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+ }:
+
+ .speaker:first-of-type {
+     padding-top: 20px;
+     border-top: 1px solid rgba(0,0,0,.1);
  }
 
  @media (max-width: 1024px) {
@@ -34,6 +43,10 @@
         margin: 0 0 20px 0;
         border-radius: 4px;
         overflow: hidden;
+    }
+
+    .speaker__image {
+        margin: 0;
     }
 
     @media (max-width: 1024px) {
@@ -74,6 +87,7 @@
         align-items: flex-start;
         padding-top: 0;
         margin-bottom: 0;
+        color: #28aae1;
     }
 
     .speaker__button {
@@ -83,6 +97,8 @@
     }
 
     .speaker__presentation {
+        padding: 0;
+        margin: 0;
         font-weight: 700;
         color: #666;
     }
@@ -92,6 +108,7 @@
     .sponsor__details {
         flex: 1;
     }
+
     .speaker__details:hover a.headerlink{
         visibility: visible;
         color: #DDDDDD;
@@ -109,7 +126,6 @@
 
     .speaker__details {
         margin-left: 20px;
-        margin-bottom: 10px;
         position: relative;
     }
 
