@@ -1,5 +1,6 @@
 from django.db import models
 from markdownx.models import MarkdownxField
+from taggit.managers import TaggableManager
 
 from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
@@ -28,8 +29,9 @@ class Presentation(AbstractConference, ActiveModel):
     title = models.CharField(null=True, blank=True, max_length=100)
     description = MarkdownxField(null=True, blank=True)
     type = models.IntegerField(choices=PRESENTATION_TYPE, default=TALK)
-
+    tags = TaggableManager()
     speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentations', on_delete=CASCADE)
+    youtube = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return '[{}] {}'.format(self.get_type_display(), self.title)

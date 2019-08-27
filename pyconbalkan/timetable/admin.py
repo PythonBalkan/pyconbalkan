@@ -12,8 +12,14 @@ class TimetableAdmin(admin.ModelAdmin):
 @admin.register(Presentation)
 class PresentationAdmin(ConferenceAbstractAdmin):
     autocomplete_fields = ("speaker",)
-    list_display = ("type", "title", "speaker", "active",)
+    list_display = ("type", "title", "speaker", "tag_list", "active")
     list_editable = ("active",)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
+    def tag_list(self, obj):
+        return u", ".join(o.name for o in obj.tags.all())
 
 
 @admin.register(Room)
