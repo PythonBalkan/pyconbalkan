@@ -129,6 +129,17 @@
         position: relative;
     }
 
+    .speaker__details h1,
+    .speaker__details h2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .speaker__details h2 {
+        font-weight: 400;
+        font-size: 1.6rem;
+    }
+
         .speaker__image img,
         .organizer__image img,
         .sponsor__image img {
@@ -170,6 +181,7 @@
         .social__links {
             padding-top: 20px;
             margin-bottom: 10px;
+            border-top: 1px solid rgba(0,0,0,.1);
         }
 
         .social__links a {
