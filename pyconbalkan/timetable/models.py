@@ -17,9 +17,9 @@ class Timetable(ActiveModel):
 
 
 class Presentation(AbstractConference, ActiveModel):
-    TALK = 0
-    WORKSHOP = 1
-    KEYNOTE = 2
+    TALK = 10  # 0
+    WORKSHOP = 15  # 1
+    KEYNOTE = 5  # 2
     PRESENTATION_TYPE = (
         (TALK, 'Talk'),
         (WORKSHOP, 'Workshop'),
