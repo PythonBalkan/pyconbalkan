@@ -5,14 +5,13 @@
 {# Sponsoring #}
 
     <h1 class="title title--yellow mb-xs-40" xmlns="http://www.w3.org/1999/html">Sponsoring</h1>
-    <hr class="line line--blue line--short line--spaced">
 
     {% if packages %}
     <div class="card sponsoring card__centered">
         {% for package in packages %}
             <div class="card__item sponsoring__item">
-                <div class="centered">
-                   <h1 class="centered">
+                <div >
+                   <h1 >
                        {% if package.is_over %}
                            <s>
                               {{ package.level }}<span class="sponsoring--limit">({{ package.limit }})</span>
@@ -32,10 +31,8 @@
     </div>
     {% endif %}
 
-    <hr class="line long">
 
     <h1 class="title title--yellow mb-xs-40" xmlns="http://www.w3.org/1999/html">Interested in Sponsoring?</h1>
-    <hr class="line line--blue line--short line--spaced">
 
     <h2 class="title title--yellow mb-xs-40">Send us a message!</h2>
 
@@ -52,7 +49,6 @@
             <input class="button button--blue button--push button--fullwidth " type="submit" value="Submit" />
         </div>
     </form>
-    <hr class="line long">
 
     {# Sponsor Brochure #}
 
@@ -60,12 +56,11 @@
         <a class="button button--yellow mb-xs-80" href="/info" target="_blank" role="button">Sponsor Brochure</a>
     </div>
 
-    <h2 class="centered">
-        {% if conference.sponsor_email %}
-            For more information, contact us by email {{ conference.sponsor_email }}
+    <h2 >
+        {% if request.conference.sponsor_email %}
+            For more information, contact us by email {{ request.conference.sponsor_email }}
         {% endif %}
     </h2>
 
-    <hr class="line long">
 
 {% endblock %}

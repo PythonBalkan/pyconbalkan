@@ -5,6 +5,7 @@ from djchoices import DjangoChoices, ChoiceItem
 from markdownx.models import MarkdownxField
 from djmoney.models.fields import MoneyField
 
+from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 
 
@@ -25,26 +26,19 @@ LIMITS = {
 }
 
 
-class Sponsor(models.Model):
+class Sponsor(AbstractConference, ActiveModel):
     name = models.CharField(max_length=256)
     description = MarkdownxField()
     level = models.CharField(max_length=16, choices=SponsorshipLevel.choices)
-    logo = models.ImageField(upload_to="sponsors/logo", blank=True, null=True)
+    logo = models.FileField()
+    sidebar = models.BooleanField(default=False)
+    url = models.URLField(max_length=256, null=True)
 
     def __str__(self):
         return f'Sponsor [{ self.name }]'
 
     __repr__ = __str__
 
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            count = Sponsor.objects.filter(level=self.level).count()
-            if count >= LIMITS[self.level]:
-                raise ValidationError(
-                    f'Sponsorship level { self.level } allows only '
-                    f'{ LIMITS[self.level] } sponsors'
-                )
-        super(Sponsor, self).save()
 
 PROFIT = 1
 NON_PROFIT = 2

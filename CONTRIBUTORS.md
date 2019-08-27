@@ -15,6 +15,8 @@ PyconBalkan Website contributors
 * **[Jacques Laroche](https://github.com/jlar0che)**
 * **[Mario Hunka](https://github.com/maroshmka)**
 * **[Bojan Pavlovic](https://github.com/BojPav)**
+* **[Milovan Minic](https://github.com/milovan-minic)**
+* **[Milos Trifunovic](https://github.com/MaliRobot)**
 
 
  

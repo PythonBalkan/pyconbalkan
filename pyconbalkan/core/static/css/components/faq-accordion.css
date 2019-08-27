@@ -41,12 +41,12 @@
 
 .panel {
 	padding: 0 18px;
-	background-color: #32383A;
+	background-color: #dde1e2;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
 }
 
-p {
+/* p {
 	margin: 20px;
-}
+} */

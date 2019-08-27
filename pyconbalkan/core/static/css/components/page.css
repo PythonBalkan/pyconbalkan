@@ -1,18 +1,37 @@
 .page {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    grid-template-areas:
+        ". . logo . ."
+        ". menu menu menu ." 
+        ". sidebar main main ."
+        "footer footer footer footer footer";
+    grid-template-rows: 240px 60px auto 100vh;
+    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    grid-gap: 20px;
+}
+
+@media (max-width: 1280px) {
+    .page {
+        grid-template-areas:
+            "logo"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-rows: 200px auto;
+        grid-template-columns: 100%;
+    }
 }
 
     .page__content {
-        display: flex;
-        flex-flow: column nowrap;
-        margin-left: 400px;
+        grid-area: main;
     }
 
     @media (max-width: 1280px) {
         .page__content {
-            width: 90%;
-            height: auto;
-            padding: 40px 0;
-            margin: 0 auto;
+            padding: 0 20px;
         }
     }
 
@@ -40,12 +59,10 @@
         .column p,
         .column ul,
         .column li {
-            font-size: 1.6rem;
-            color: white;
         }
 
         .column p {
-            margin-bottom: 20px;
+            margin: 15px 0 20px;
         }
 
         .column h3 {
@@ -53,26 +70,15 @@
         }
 
         .column ul {
-            list-style: none;
-            padding-left: 0;
+            display: block;
+            list-style-type: square;
+            margin-top: 1em;
+            margin-bottom: 1em;
             margin-left: 0;
-            margin-bottom: 20px;
+            margin-right: 0;
+            padding-left: 40px;
         }
 
         .column ul li {
-            padding-left: 0px;
-        }
-
-        .column ul li::before {
-            display: inline-block;
-            content: '';
-            width: 16px;
-            height: 16px;
-            padding-right: 8px;
-            background-image: url(/static/img/python-bullet.png);
-            background-image: url(/static/img/python-bullet.svg);
-            background-position: left center;
-            background-repeat: no-repeat;
-            background-size: 16px 16px;
-            vertical-align: middle;
+            display: list-item;
         }

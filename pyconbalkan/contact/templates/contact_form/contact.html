@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+{# Contact #}
+
+    <h1 class="title title--yellow mb-xs-20">Contact Us!</h1>
+
+    <p>We'd love to hear from you!<br />
+    If you have any questions, feel free to contact us.</p>
+
+    <form class="form" action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" novalidate>
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+            <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
+            <input class="button button--blue button--push button--fullwidth mt-xs-20" type="submit" value="Submit" />
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,36 +1,37 @@
 {% load static %}
 
 <aside class="event-sidebar">
-    <a href="/" class="logo" title="{{ conference.event }} {{ conference.name }} - {{ conference.city }} {{ conference.year }}"></a>
-    <hr class="line">
-    <h1>#{{ conference.number }}</h1>
-    <p class="event-sidebar__text">
-        {{ conference.address }}, {{ conference.city }}
+    <h1>#{{ request.conference.number }}</h1>
+    <p>
+        {{ request.conference.address }}, {{ request.conference.city }}
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon far fa-calendar-alt"></i>
-        {{ conference.from_date }} - {{ conference.to_date }}
+        {{ request.conference.from_date }} - {{ request.conference.to_date }}
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon fas fa-users"></i>
-        {{ conference.max_attendees }} attendees
+        {{ request.conference.max_attendees }} attendees
     </p>
-    <p class="event-sidebar__text">
+    <p>
         <i class="event-sidebar__icon fas fa-globe"></i>
-        {{ conference.get_type_display }}
+        {{ request.conference.get_type_display }}
     </p>
 
     <div class="event-button__wrapper">
-        {% if conference.tickets %}
-            <a class="button button--yellow mb-xs-20" href="{{ conference.tickets }}" target="_blank" role="button">Join Us!</a>
+        {% if request.conference.tickets %}
+            <a class="button button--yellow mb-xs-20" href="{{ request.conference.tickets }}" target="_blank" role="button">Join Us!</a>
         {% endif %}
     </div>
     <div class="social__links mb-xs-10">
-    {% if conference.facebook %}<a href="{{ conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
-	{% if conference.instagram %}<a href="{{ conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
-	{% if conference.twitter %}<a href="{{ conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
+    {% if request.conference.facebook %}<a href="{{ request.conference.facebook }}" class="facebook" target="_blank"></a>{% endif %}
+	{% if request.conference.instagram %}<a href="{{ request.conference.instagram }}" class="instagram" target="_blank"></a>{% endif %}
+	{% if request.conference.twitter %}<a href="{{ request.conference.twitter }}" class="twitter" target="_blank"></a>{% endif %}
     </div>
+    {% if sidebar_sponsors %}
     <h3 class="supported-by">Supported by</h3>
-    <a href="https://www.python.org/psf/"><div><img class="psf-logo" src="{% static 'img/pfs-logo.png' %}"></div></a>
-    <div><a href="https://www.europython-society.org/"><img class="psf-logo" src="{% static 'img/euro-python-society.png' %}"></a></div>
+    {% for sidebar_sponsor in sidebar_sponsors %}
+    <a href="{{ sidebar_sponsor.url }}" class="supported-by-img"><img src="{{ sidebar_sponsor.logo.url }}"></a>
+    {% endfor %}
+    {% endif %}
 </aside>

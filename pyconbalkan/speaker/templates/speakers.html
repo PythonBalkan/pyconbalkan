@@ -4,17 +4,14 @@
 
 {# Speakers #}
 
-    <h1 class="centered">Speakers</h1>
+    <h1 class="title title--yellow mb-xs-20">Speakers</h1>
+
     <p>
         We love Python because it’s a high-level language that creates elegant solutions to intricate problems.
         Right now, it's really popular with data scientists and startups. The reason why is simple, you can do a
         lot of amazing things with it. Some of them include data analysis, machine learning, robotics, web and game
         development, and, also, hardware ex. It’s the language of the future.
     </p>
-    <p>
-        Get your ticket now and let’s enjoy this wild ride with some really smart people.
-    </p>
-    <hr class="line line__centered">
 
     {% if speakers %}
         <div class="card">
@@ -26,31 +23,30 @@
                     </a>
                 </div>
                 <div class="speaker__details">
-                    <a href="{% url 'speaker_detail' slug=speaker.slug %}"><h1>
+                    <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
+                        <h2 class="speaker__name">
                         {% if speaker.keynote %}<i class="fas fa-star"></i>{% endif %}
                         {{ speaker.name }}
                         {% if speaker.country %}
                             <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
                         {% endif %}
-                        , <span class="title-white"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</span>
-                    <a class="headerlink" href="#{{ speaker.slug }}" title="Permalink to this speaker">¶</a>
-
-                    </h1></a>
+                        </h2>
+                    </a>
+                    <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
                     {% for presentation in speaker.presentation.all %}
-                        <h2>{{ presentation.title }}</h2>
+                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
                         <br>
-                        <a class="button button--yellow" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
-                            View more
+                        <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                            More
                         </a>
                     {% endfor %}
                 </div>
             </div>
-            <hr class="line long">
             {% endfor %}
         </div>
     {% else %}
-        <h2>
-            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+        <h2 class="coming-soon">
+            Coming Soon
         </h2>
     {% endif %}
 {% endblock %}

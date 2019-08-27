@@ -19,23 +19,222 @@ body {
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 150%;
-    background-color: #32383A;
-    color: white;
+    background-color: white;
+    color: #666;
 }
 
 a {
-    color: #ffd64f;
-    text-decoration: none;
+    color: #28AAE1;
+    text-decoration: underline;
 }
 
 a:hover {
-    color: #28aae1;
+    text-decoration: none;
 }
 
 p {
-    color: white;
+    color: #666666;
     margin-bottom: 20px;
 }
+
+ul {
+    display: block;
+    list-style-type: square;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+
+ul li {
+    display: list-item;
+}
+
 .centered {
     text-align: center;
+}
+
+.logo {
+    grid-area: logo;
+    background-image: url(/static/img/pycon-logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.coming-soon {
+    width: 100%;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.content-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.cfp_btn {
+    display: inline-block;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border-radius: 4px;
+    background-color: #ffd64f;
+    color: #313b3d;
+    font-size: 1.4rem;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cfp_btn:hover {
+    background-color: #313b3d;
+    color: white;
+}
+
+#bgVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #bgVideo {
+      width: 100%;
+      height: auto; /* actually taller than viewport */
+    }
+  }
+
+@media (max-aspect-ratio: 16/9) {
+    #bgVideo {
+        width: auto; /* actually wider than viewport */
+        height: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    #bgVideo {
+        display: none;
+    }
+}
+
+footer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    grid-area: footer;
+    width: 100%;
+    height: 100vh;
+}
+
+.footerColumn h3 {
+    padding: 20px;
+    margin-right: 20px;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.3);
+}
+
+@media (max-width: 900px) {
+    footer {
+        background-color: #343C3E;
+        padding: 20px;
+        height: auto;
+    }
+}
+
+    .footerColumns {
+        display: flex;
+        flex-flow: row nowrap;
+        position: relative;
+        width: 80%;
+        height: auto;
+        z-index: 999;     
+    }
+
+    @media (max-width: 900px) {
+        .footerColumns {
+            flex-flow: column nowrap;
+            width: 100%;
+        }
+    }
+
+        .footerColumn {
+            flex: 1;
+            margin-bottom: 24px;
+        }
+
+        .footer__list__link {
+            display: block;
+            color: #666;
+        }
+
+    #myCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+.footer--menu__list {
+    padding: 0 20px 0 0;
+    margin: 0;
+    list-style: none;
+}
+
+    .footer--menu_list__item {
+        padding: 0;
+        margin: 0; 
+    }
+
+        .footer--menu__list__link {
+            display: inline-block;
+            border-radius: 4px;
+            padding: 10px 20px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer--menu__list__link:hover {
+            background-color: #28AAE1;
+            color: white;
+        }
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+th:first-of-type,
+td:first-of-type {
+    width: 30%;
+}
+
+th, td {
+    width: 17.5%;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+tr:hover {
+    background-color: rgba(0,0,0,0.1);
 }

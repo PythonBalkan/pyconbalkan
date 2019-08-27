@@ -1,4 +1,5 @@
 {% load static %}
+{% load startswith %}
 
 <header class="menu__header">
     <nav class="menu">
@@ -8,40 +9,51 @@
                 <a class="menu__list__link {% if request.path == '/' %}active{% endif %}" href="/#" role="button">Home</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/speakers' %}active{% endif %}" href="/speakers" role="button">Speakers</a>
-            </li>
-            <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/about' %}active{% endif %} menu__list__about" href="#">About &nbsp;</a>
+                <a class="menu__list__link {% if request.path|startswith:'/speakers' %}active{% endif %} dropdown" href="#">Speakers</a>
 
                 <div class="dropdown-menu">
-                    <a href="/about">About Us</a>
-					<a href="/faq">F.A.Q</a>
-                    <a href="/organizers">Organizers</a>
-                    <a href="/coc">CoC</a>
+                    {% for conf in current_conferences %}
+                    <a href="{% url 'speakers_year' year=conf.year %}">PyCon{{ conf.year }} Speakers</a>
+                    {% endfor %}
+                </div>
+
+            </li>
+            <li class="menu__list__item">
+                <a class="menu__list__link {% if request.path == '/about' %}active{% endif %} dropdown" href="#">Info &nbsp;</a>
+
+                <div class="dropdown-menu">
+                    <a href="{% url 'venue' %}">Venue</a>
+                    <a href="{% url 'about' %}">About Us</a>
+					<a href="{% url 'faq' %}">F.A.Q</a>
+                    <a href="{% url 'organizers' %}">Organizers</a>
+                    <a href="{% url 'coc' %}">CoC</a>
+                    {% if request.conference.timetable_pdf %}
+                        <a {% if request.path == '/timetable_pdf' %}active{% endif %}" href="{% url 'timetable_pdf' %}" role="button">Timetable</a>
+                    {% else %}
+                        <a  {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
+                    {% endif %}
                 </div>
             </li>
             <li class="menu__list__item">
-            {% if conference.timetable_pdf %}
-                <a class="menu__list__link {% if request.path == '/timetable_pdf' %}active{% endif %}" href="/timetable_pdf" role="button">Timetable</a>
-            {% else %}
-                <a class="menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
-            {% endif %}
+                <a class="menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'cfp' %}" role="button">CFP</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/info' %}active{% endif %}" href="/info" role="button">Info</a>
+                <a class="menu__list__link {% if request.path == '/news' %}active{% endif %}" href="{% url 'news' %}" role="button">News</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="/cfp" role="button">CFP</a>
+                <a class="menu__list__link {% if request.path == '/contact' %}active{% endif %}" href="{% url 'contact' %}" role="button">Contact</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/news' %}active{% endif %}" href="/news" role="button">News</a>
+                <a class="menu__list__link {% if request.path == '/contact' %}active{% endif %}" href="{% url 'sponsorship' %}" role="button">Sponsorship</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/contact' %}active{% endif %}" href="/contact" role="button">Contact</a>
-            </li>
-            <li class="menu__list__item">
-                <a class="menu__list__link menu__list__link--featured" href="https://www.eventbrite.com/e/pycon-balkan-tickets-46608685834"
-                    target="_blank" role="button">Buy Tickets</a>
+                <a class="menu__list__link {% if request.path|startswith:'/archive' %}active{% endif %} dropdown" href="#">Recap</a>
+
+                <div class="dropdown-menu">
+                    {% for conf in previous_conferences %}
+                    <a href="{% url 'archive_detail' year=conf.year %}">PyCon {{ conf.year }} Recap</a>
+                    {% endfor %}
+                </div>
             </li>
         </ul>
     </nav>

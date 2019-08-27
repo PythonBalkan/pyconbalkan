@@ -7,12 +7,11 @@
 
 	{# Faq #}
 
+    <h1>F.A.Q - Frequently Asked Questions</h1>
 
 	{% if faq %}
 		<div class="row">
-			<h1 class="centered">F.A.Q - Frequently Asked Questions</h1>
 			<div class="column">
-
 				{% for item in faq %}
 					<button class="accordion">{{ item.question }}<a style="margin-left:10px; float:right;" class="headerlink" href="#faq-{{ item.id}}" title="Permalink to this speaker">¶</a>
                     </button>
@@ -23,9 +22,8 @@
 			</div>
 		</div>
 	{% else %}
-		<h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
-			<span class="featured-letter featured-letter--blue">C</span>oming <span
-				class="featured-letter featured-letter--yellow">S</span>oon
+		<h2 class="coming-soon">
+			Coming Soon
 		</h2>
 	{% endif %}
 

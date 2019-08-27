@@ -6,6 +6,13 @@
 .idea
 *.sqlite3
 *.py[cod]
+*.svg
 __pycache__
+.mypy_cache
+html_report
+.vscode
 
 /staticfiles/
+
+# TODO: We should have static files at some remote location with settings.
+/pyconbalkan/core/static/*

@@ -11,11 +11,12 @@ from markdownx.utils import markdownify
 from slugify import slugify
 from taggit.managers import TaggableManager
 
+from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import ActiveModel
 from . import const
 
 
-class Cfp(ActiveModel):
+class Cfp(AbstractConference, ActiveModel):
     name = models.CharField(max_length=256)
     company = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()

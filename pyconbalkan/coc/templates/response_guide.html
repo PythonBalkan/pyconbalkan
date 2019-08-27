@@ -6,15 +6,13 @@
 
     {% if response_guide %}
         <h1 class="title title--yellow mb-xs-20">{{ response_guide.title|safe }}</h1>
-        <hr class="line line--blue line--short line--spaced">    
 
         <div class="long-text">
              {{ response_guide.description|safe }}
         </div>
     {% else %}
         <h2 class="title title--white title--medium title--uppercase mt-xs-20 mb-xs-80">
-            <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
-        </h2>
+Coming Soon        </h2>
     {% endif %}
 
 {% endblock %}

@@ -26,11 +26,11 @@ def sponsor_view(request, id):
 
 
 def sponsors_view(request):
-    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone)
-    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum)
-    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold)
-    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver)
-    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner)
+    keystone_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.keystone, active=True, conference__active=True)
+    platinum_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.platinum, active=True, conference__active=True)
+    gold_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.gold, active=True, conference__active=True)
+    silver_sponsors = Sponsor.objects.filter(level=SponsorshipLevel.silver, active=True, conference__active=True)
+    partners = Sponsor.objects.filter(level=SponsorshipLevel.partner, active=True, conference__active=True)
     context = {
         'keystone_sponsors': keystone_sponsors,
         'platinum_sponsors': platinum_sponsors,

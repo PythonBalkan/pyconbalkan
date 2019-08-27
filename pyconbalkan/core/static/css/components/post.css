@@ -6,7 +6,7 @@
 
 .post {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
 }
 
     .post__item {
@@ -14,32 +14,17 @@
         flex-flow: row wrap;
         justify-content: flex-start;
         align-content: flex-start;
-        flex: 1 0 50%;
-        padding: 0 40px 40px 0;
-    }
-
-    @media (max-width: 1280px) {
-        .post__item {
-            flex-flow: column wrap;
-            flex: 1 0 100%;
-            padding: 0 0 40px 0;
-        }
+        flex: 1;
+        padding: 0 0 40px 0;
     }
 
         .post__short_image {
-            flex: 0 0 150px;
-            width: 150px;
-            height: 150px;
-            margin: 0 40px 40px 0;
-            border-radius: 50%;
+            flex: 0 0 200px;
+            width: 200px;
+            height: 200px;
+            margin: 0 20px 20px 0;
+            border-radius: 4px;
             overflow: hidden;
-        }
-
-        @media (max-width: 1280px) {
-            .post__short_image {
-                align-self: center;
-                margin: 0 0 40px 0;
-            }
         }
 
             .post__short_image a img {
@@ -53,24 +38,9 @@
         }
 
         .post__content .post__description {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 20px;
         }
-
-        @media (max-width: 1280px) {
-            .post__content .post__title {
-                width: 100%;
-                margin: 0 0 20px 0;
-                text-align: center;
-            }
-
-            .post__content .post__description {
-                width: 60%;
-                margin: 0 auto 40px auto;
-            }
-        }
-
-
 
         .post__image {
             flex: 0 0 300px;
@@ -78,7 +48,7 @@
             width: 300px;
             height: 300px;
             margin: 0 40px 40px 0;
-            border-radius: 50%;
+            border-radius: 4px;
             overflow: hidden;
         }
 
@@ -89,10 +59,9 @@
             }
 
         .post__title {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             margin-bottom: 10px;
         }
         .post__description {
-            font-size: 1.8rem;
-            color: #fff;
+            font-size: 1.4rem;
         }

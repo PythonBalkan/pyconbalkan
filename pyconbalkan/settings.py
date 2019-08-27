@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # apps
     'pyconbalkan.core',
+    'pyconbalkan.sponsorship',
     'pyconbalkan.conference',
     'pyconbalkan.speaker',
     'pyconbalkan.organizers',
@@ -53,8 +54,9 @@ INSTALLED_APPS = [
     'pyconbalkan.contact',
     'pyconbalkan.news',
     'pyconbalkan.coc',
-    'pyconbalkan.info',
+    'pyconbalkan.venue',
     'pyconbalkan.faq',
+    'pyconbalkan.archive',
     # others
     'rest_framework',
     'django_countries',
@@ -64,9 +66,11 @@ INSTALLED_APPS = [
     'taggit',
     'djmoney',
     'markdownify',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
+    # Django middlewares
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,6 +78,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Custom middlewares
+    'pyconbalkan.conference.middleware.ConferenceSelectionMiddleware',
 ]
 
 ROOT_URLCONF = 'pyconbalkan.urls'
@@ -84,12 +90,15 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
+            'loaders': [
+                'pyconbalkan.core.loaders.PyconLoader',
+                'django.template.loaders.app_directories.Loader',
+            ],
             'context_processors': [
+                'pyconbalkan.conference.context_processors.previous_conferences',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'pyconbalkan.core.context_processors.conference',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -236,3 +245,6 @@ else:
             },
         },
     }
+
+RECAPTCHA_SITE_KEY = os.getenv("RECAPTCHA_SITE_KEY", "6LcT8JkUAAAAAMbvuNltXCpwTv0zafmiNyG4KewG")
+RECAPTCHA_SECRET_KEY = os.getenv("RECAPTCHA_SECRET_KEY")

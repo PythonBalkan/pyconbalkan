@@ -1,11 +1,11 @@
 {% extends "base.html" %}
+{% load markdownify %}
 
 {% block main_content %}
 
     {# News #}
 
     <h1>News</h1>
-    <hr class="line">    
 
     {% if news %}
         <div class="post">
@@ -13,7 +13,7 @@
                 <div class="post__item">
                     <div class="post__short_image">
                         <a href="{% url 'post_detail' slug=post.slug %}">
-                            <img src="{{ post.image.url }}">
+                            <img src="{{ post.image.url }}" />
                         </a>
                     </div>
                     <div class="post__content">
@@ -30,7 +30,9 @@
             {% endfor %}
         </div>
     {% else %}
-        <h2>Coming soon!</h2>
+        <h2 class="coming-soon">
+            Coming Soon
+        </h2>
     {% endif %}
 
     <!-- END of Main Content -->

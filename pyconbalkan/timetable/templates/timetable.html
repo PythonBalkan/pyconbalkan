@@ -3,8 +3,7 @@
 
 {% block main_content %}
   {# Timetable #}
-  <h1 class="title title--yellow mb-xs-40">Timetable</h1>
-  <hr class="line line--blue line--short line--spaced">
+  <h1 class="title title--yellow mb-xs-20">Timetable</h1>
   <div class="rooms">
     {% if rooms %}
       <ul>
@@ -31,7 +30,6 @@
             {% if slot.talk.speaker.name %}
               <div>
                   <h2 class="name">{{ slot.talk.speaker.name }}</h2>
-                  <hr/>
                 {% if slot.talk.speaker.job %}
                   <span class="subtitle">{{ slot.talk.speaker.job }}</span>
                 {% endif %}
@@ -42,8 +40,8 @@
         </div>
       {% endfor %}
     {% else %}
-      <h2 class="title title--white title--medium title--uppercase mt-xs-20">
-        <span class="featured-letter featured-letter--blue">C</span>oming <span class="featured-letter featured-letter--yellow">S</span>oon
+      <h2 class="coming-soon">
+        Coming Soon
       </h2>
     {% endif %}
   </div>
@@ -65,7 +63,6 @@
                 {% if slot.talk.speaker.name %}
                   <div>
                       <h2 class="name">{{ slot.talk.speaker.name }}</h2>
-                      <hr/>
                     {% if slot.talk.speaker.job %}
                       <span class="subtitle">{{ slot.talk.speaker.job }}</span>
                     {% endif %}

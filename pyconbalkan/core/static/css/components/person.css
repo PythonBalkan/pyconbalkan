@@ -7,10 +7,14 @@
  .organizer,
  .sponsor {
     display: flex;
-    flex-flow: row wrap;
-    align-items: center;
+    flex-flow: column wrap;
     justify-content: center;
     width: 100%;
+ }
+
+ .speaker {
+    flex-flow: row wrap;
+    margin-bottom: 20px;
  }
 
  @media (max-width: 1024px) {
@@ -24,12 +28,11 @@
     .speaker__image,
     .organizer__image,
     .sponsor__image {
-        flex: 0 0 200px;
-        width: 200px;
+        align-self: center;
+        width: 400px;
         height: 200px;
-        margin: 20px 40px 20px 0;
-        border-radius: 50%;
-        background-color: #28aae1;
+        margin: 0 0 20px 0;
+        border-radius: 4px;
         overflow: hidden;
     }
 
@@ -51,6 +54,39 @@
         }
     }
 
+    .speaker__image,
+    .organizer__image {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 10px;
+        align-self: flex-start;
+    }
+
+    .speaker__link,
+    .organizer__link {
+        text-decoration: none;
+    }
+
+    .speaker__name,
+    .organizer__name {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .speaker__button {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .speaker__presentation {
+        font-weight: 700;
+        color: #666;
+    }
+
     .speaker__details,
     .organizer__details,
     .sponsor__details {
@@ -67,17 +103,15 @@
         visibility: hidden;
     }
 
-    @media (max-width: 1024px) {
-        .speaker__details,
-        .organizer__details,
-        .sponsor__details {
-            text-align: center;
-        }
-        .speaker__details h1, .speaker__details h2 {
-            font-size: 2rem;
-        }
+    .temp__details {
+        margin-bottom: 20px;
     }
 
+    .speaker__details {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        position: relative;
+    }
 
         .speaker__image img,
         .organizer__image img,
@@ -96,8 +130,11 @@
 
         .speaker__job,
         .organizer__job {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            padding: 0;
             margin-bottom: 20px;
+            color: #b4b4b4;
+
         }
 
         .speaker__description,
@@ -115,7 +152,8 @@
         }
 
         .social__links {
-
+            padding-top: 20px;
+            margin-bottom: 10px;
         }
 
         .social__links a {
@@ -123,12 +161,12 @@
             width: 40px;
             height: 40px;
             margin-right: 10px;
-            border-radius: 20px;
+            border-radius: 4px;
             background-color: #28aae1;
         }
 
         .social__links a:hover {
-            background-color: #ffd64f;
+            background-color: #343C3E;
         }
 
         .website {
@@ -161,7 +199,7 @@
             display: block;
             width: 40px;
             height: 40px;
-            border-radius: 20px;
+            border-radius: 4px;
             background-size: contain;
         }
 

@@ -6,38 +6,72 @@
 .card {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
+    position: relative;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.card:last-of-type,
+.card__keystone,
+.card__platinum,
+.card__gold,
+.card__silver,
+.card__partner,
+.card__mediapartner {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.card__keystone {
+    border-left: 24px solid #343C3E;
+    padding-left: 20px;
+}
+
+.card__platinum {
+    border-left: 20px solid lightgray;
+    padding-left: 24px;
+}
+
+.card__gold {
+    border-left: 16px solid gold;
+    padding-left: 28px;
+}
+
+.card__silver {
+    border-left: 12px solid silver;
+    padding-left: 32px;
+}
+
+.card__partner {
+    border-left: 8px solid #28AAE1;
+    padding-left: 36px;
+}
+
+.card__mediapartner {
+    border-left: 4px solid plum;
+    padding-left: 40px;
 }
 
     .card__item {
-        flex: 0 0 280px;
-        margin: 0 40px 40px 40px;
+        flex: 0 0 200px;
+        margin: 0 20px 20px 0;
         color: white;
     }
 
     .card__item:hover a .card__image {
-        border: 4px solid #f3d66c;
+        border: 2px solid #666;
     }
 
     .card__item:hover h2.centered {
-        color: #f3d66c;
-    }
-
-    @media (max-width: 1280px) {
-        .card__item {
-            min-width: 100%;
-            margin: 0 0 40px 0;
-        }
+        color: #28AAE1;
     }
 
         .card__image {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px auto;
-            border-radius: 50%;
-            border: 4px solid #22A4D9;
-            background-color: #22A4D9;
+            width: 200px;
+            height: 200px;
+            border-radius: 4px;
             overflow: hidden;
         }
 
@@ -45,17 +79,18 @@
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .card__name {
             font-size: 2.8rem;
-            text-align: center;
         }
 
         .card__job {
-            font-size: 1.8rem;
-            text-align: center;
+            font-size: 1.4rem;
+            text-align: left;
+            color: #b4b4b4;
+            margin: 0;
         }
 
 .sponsoring {
@@ -75,7 +110,7 @@
     }
 
     .sponsoring__item:hover {
-        background-color: #22A4D9;
+        background-color: #28AAE1;
         color: white;
     }
 

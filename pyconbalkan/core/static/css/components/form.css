@@ -4,6 +4,7 @@
 
 .form {
     width: 60%;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 1280px) {
@@ -76,15 +77,21 @@
         }
 
         .form .form-control {
+            font-family: 'Montserrat', sans-serif;
             display: block;
             width: 100%;
             line-height: 40px;
             padding: 0 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            border: none;
-            border-radius: 20px;
-            color: #32383A;
+            background-color: transparent;
+            border: 1px solid #666;
+            border-radius: 4px;
+            outline: none;
+            color: #666;
+        }
+
+        .form .form-control:focus {
+            border: 1px solid #28AAE1;
+            color: #28AAE1;
         }
 
         .form textarea.form-control {
