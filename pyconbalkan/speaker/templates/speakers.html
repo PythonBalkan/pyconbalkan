@@ -33,7 +33,7 @@
                         </h2>
                     </a>
                     <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
-                    {% for presentation in speaker.presentation.all %}
+                    {% for presentation in speaker.presentations.all %}
                         <h4 class="speaker__presentation">{{ presentation.title }}</h4>
                         <br>
                         <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
