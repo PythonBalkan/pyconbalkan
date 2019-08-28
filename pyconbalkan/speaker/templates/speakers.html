@@ -16,32 +16,45 @@
     {% if speakers %}
         <div class="card">
             {% for speaker in speakers %}
-            <div class="speaker" id="{{ speaker.slug }}">
-                <div class="speaker__image">
-                    <a href="{% url 'speaker_detail' slug=speaker.slug %}">
-                        <img src="{{ speaker.images.first.profile_picture.url }}">
-                    </a>
-                </div>
-                <div class="speaker__details">
-                    <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
-                        <h2 class="speaker__name">
-                        {% if speaker.keynote %}<i class="fas fa-star"></i>{% endif %}
-                        {{ speaker.name }}
-                        {% if speaker.country %}
-                            <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
-                        {% endif %}
-                        </h2>
-                    </a>
-                    <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
-                    {% for presentation in speaker.presentations.all %}
-                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                        <br>
-                        <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
-                            More
+                {% if speaker.presentations.all|length %}
+
+                <div class="speaker" id="{{ speaker.slug }}">
+                    <div class="speaker__image">
+                        <a href="{% url 'speaker_detail' slug=speaker.slug %}">
+                            <img src="{{ speaker.images.first.profile_picture.url }}">
                         </a>
-                    {% endfor %}
+                    </div>
+                    <div class="speaker__details">
+                        <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
+                            <h2 class="speaker__name">
+                            {{ speaker.name }}
+                            {% if speaker.country %}
+                                <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                            {% endif %}
+                            </h2>
+                        </a>
+                            <div>
+                                {{ speaker.description|truncatewords:20 }}
+                            </div>
+                        <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
+                        {% for presentation in speaker.presentations.all %}
+                            {% if presentation.type == 5 %} {# Keynote talk #}
+                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% elif presentation.type == 10 %} {# Normal talk #}
+                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% elif presentation.type == 15 %} {# Workshop #}
+                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                            {% endif %}
+
+                            <br>
+                            <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                                More
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
+
+                {% endif %}
             {% endfor %}
         </div>
     {% else %}

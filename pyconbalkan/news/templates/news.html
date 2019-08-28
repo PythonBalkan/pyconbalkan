@@ -23,7 +23,11 @@
                             </a>
                         </h2>
                         <p class="post__description">
-                            {{ post.text|safe|truncatechars:300 }}
+                            {{ post.text|safe|truncatewords:20 }}
+                        </p>
+
+                        <p class="post__published_date">
+                            Published on: {{ post.published_date|date:"D d M Y" }}
                         </p>
                     </div>
                 </div>
