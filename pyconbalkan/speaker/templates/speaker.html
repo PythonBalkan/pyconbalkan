@@ -10,15 +10,16 @@
         </div>
 
         <div class="speaker__details">
-            <h1>
-                {% if speaker.keynote %}<i class="fas fa-star"></i>{% endif %}
+            <h2 class="speaker__name">
+                {% if speaker.country %}
+                    <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                {% endif %}
                 {{ speaker.name }}
-                {% if speaker.country %}<i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>{% endif %}
-            </h1>
+            </h2>
 
-            <h2><i class="fas fa-laptop-code"></i> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h2>
-            <p class="speaker__description title--white">
-                {{ speaker.description|safe }}
+            <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
+            <p>
+                {{ speaker.description }}
             </p>
 
             {% for presentation in speaker.presentation.all %}
@@ -33,6 +34,19 @@
                 <p class="speaker__description title--white">
                     {{ presentation.description|safe }}
                 </p>
+            {% endfor %}
+
+            {% for presentation in speaker.presentations.all %}
+                {% if presentation.type == 5 %} {# Keynote talk #}
+                    <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                    <p>{{ presentation.description }}</p>
+                {% elif presentation.type == 10 %} {# Normal talk #}
+                    <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                    <p>{{ presentation.description }}</p>
+                {% elif presentation.type == 15 %} {# Workshop #}
+                    <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                    <p>{{ presentation.description }}</p>
+                {% endif %}
             {% endfor %}
 
             <div class="social__links">

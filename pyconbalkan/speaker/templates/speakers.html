@@ -27,30 +27,31 @@
                     <div class="speaker__details">
                         <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
                             <h2 class="speaker__name">
-                            {{ speaker.name }}
-                            {% if speaker.country %}
-                                <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
-                            {% endif %}
+                                {% if speaker.country %}
+                                    <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                                {% endif %}
+                                {{ speaker.name }}
                             </h2>
                         </a>
-                            <div>
-                                {{ speaker.description|truncatewords:20 }}
-                            </div>
                         <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
+                        <p>
+                            {{ speaker.description|truncatewords:20 }}
+                        </p>
                         {% for presentation in speaker.presentations.all %}
                             {% if presentation.type == 5 %} {# Keynote talk #}
                                 <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                                <p>{{ presentation.description|truncatewords:20 }}</p>
                             {% elif presentation.type == 10 %} {# Normal talk #}
                                 <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                                <p>{{ presentation.description|truncatewords:20 }}</p>
                             {% elif presentation.type == 15 %} {# Workshop #}
                                 <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                                <p>{{ presentation.description|truncatewords:20 }}</p>
                             {% endif %}
-
-                            <br>
-                            <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
-                                More
-                            </a>
                         {% endfor %}
+                        <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                            Find out more
+                        </a>
                     </div>
                 </div>
 
