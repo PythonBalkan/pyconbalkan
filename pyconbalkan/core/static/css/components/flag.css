@@ -4,9 +4,11 @@
  */
 
 i.flag {
-    width: 20px;
-    min-width: 20px;
-    height: 16px;
-    margin: 0 0 0 8px;
-    background-size: cover;
+    width: 30px;
+    height: 20px;
+    padding-right: 20px;
+    border-right: 1px solid rgba(0,0,0,.1);
+    margin-right: 10px;
+    background-size: 20px auto;
+    background-position: left center;
 }
