@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'djmoney',
     'markdownify',
     'ckeditor',
+    'embed_video',
 ]
 
 MIDDLEWARE = [
