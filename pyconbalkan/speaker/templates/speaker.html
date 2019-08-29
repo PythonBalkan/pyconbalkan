@@ -19,21 +19,9 @@
             </h2>
 
             <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
-            <p>
+            <div class="bio__wrapper">
                 {{ speaker.description }}
-            </p>
-            <h3>previous talks</h3>
-            {% for video_item in speaker.videos.all %}
-                {% video video_item.video as video %}
-                    URL: <a href="{{ video.url }}">{{ video.url }}</a> <br />
-                  Thumbnail: <img src="{{ video.thumbnail }}"/><br />
-                    Backend: <b>{{ video.backend }}</b><br />
-
-                {% endvideo %}
-
-                {% video video_item.video "small" %}
-            {% endfor %}
-
+            </div>
 
             {% for presentation in speaker.presentation.all %}
                 <h2>
@@ -51,14 +39,20 @@
 
             {% for presentation in speaker.presentations.all %}
                 {% if presentation.type == 5 %} {# Keynote talk #}
+                <div class="keynote__wrapper">
                     <h4 class="speaker__presentation">{{ presentation.title }}</h4>
                     <p>{{ presentation.description }}</p>
+                </div>
                 {% elif presentation.type == 10 %} {# Normal talk #}
+                <div class="talk__wrapper">
                     <h4 class="speaker__presentation">{{ presentation.title }}</h4>
                     <p>{{ presentation.description }}</p>
+                </div>
                 {% elif presentation.type == 15 %} {# Workshop #}
+                <div class="workshop__wrapper">
                     <h4 class="speaker__presentation">{{ presentation.title }}</h4>
                     <p>{{ presentation.description }}</p>
+                </div>
                 {% endif %}
             {% endfor %}
 
@@ -78,6 +72,17 @@
                 {% if speaker.facebook %}
                     <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
                 {% endif %}
+            </div>
+
+            <div class="previous__talks">
+                <h4>Previous talks</h4>
+                {% for video_item in speaker.videos.all %}
+                <div class="iframe__wrapper">
+                    {% video video_item.video "small" %}
+                </div>
+                {% empty %}
+                No previous talks.
+                {%endfor %}
             </div>
         </div>
     </div>

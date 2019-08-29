@@ -3,7 +3,40 @@
  * Speaker/Organizer detailed view.
  */
 
+.previous__talks h4 {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    color: #666;
+}
 
+.iframe__wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    margin-top: 20px;
+}
+
+.iframe__wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.bio__wrapper {
+    padding-bottom: 20px;
+}
+
+.bio__wrapper,
+.keynote__wrapper,
+.talk__wrapper,
+.workshop__wrapper {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 20px;
+}
 
  .speaker,
  .organizer,
@@ -177,7 +210,11 @@
         }
 
         .social__links {
-            padding-top: 20px;
+            height: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+            margin-bottom: 20px;
+            box-sizing: content-box;
         }
 
         .social__links a {

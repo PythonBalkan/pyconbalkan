@@ -55,10 +55,10 @@
                             <img src="{{ keynote.images.first.profile_picture.url }}">
                         </div>
                         <h2 class="speaker__name">
-                            {{ keynote.name }}
                             {% if keynote.country %}
                                 <i class="flag em em-flag-{{ keynote.country.code|lower }}"></i>
                             {% endif %}
+                            {{ keynote.name }}
                         </h2>
                     </a>
                     <p class="card__job">
