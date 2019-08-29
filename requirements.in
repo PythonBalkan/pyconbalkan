@@ -25,3 +25,4 @@ pytz
 raven
 django-markdownify
 requests
+django-embed-video

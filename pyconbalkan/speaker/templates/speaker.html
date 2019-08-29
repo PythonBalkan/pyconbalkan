@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load embed_video_tags %}
 
 {% block main_content %}
 
@@ -21,6 +22,18 @@
             <p>
                 {{ speaker.description }}
             </p>
+            <h3>previous talks</h3>
+            {% for video_item in speaker.videos.all %}
+                {% video video_item.video as video %}
+                    URL: <a href="{{ video.url }}">{{ video.url }}</a> <br />
+                  Thumbnail: <img src="{{ video.thumbnail }}"/><br />
+                    Backend: <b>{{ video.backend }}</b><br />
+
+                {% endvideo %}
+
+                {% video video_item.video "small" %}
+            {% endfor %}
+
 
             {% for presentation in speaker.presentation.all %}
                 <h2>

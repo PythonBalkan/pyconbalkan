@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import CASCADE
+from embed_video.fields import EmbedVideoField
 
 from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import Person, ActiveModel
@@ -11,6 +12,11 @@ class Speaker(Person):
 
     class Meta:
         ordering = ('full_name',)
+
+
+class YouTubeLink(models.Model):
+    speaker = models.ForeignKey(Speaker, related_name="videos", on_delete=models.CASCADE)
+    video = EmbedVideoField()
 
 
 class SpeakerPhoto(models.Model):
