@@ -10,8 +10,8 @@
         </div>
         <div class="organizer__details">
             <h1 class="title organizer__title title--yellow">
-                {{ organizer.name }}
                 {% if organizer.country %}<i class="flag em em-flag-{{ organizer.country.code|lower }}"></i>{% endif %}
+                {{ organizer.name }}
             </h1>
             <h2 class="organizer__job title--blue">
                 {{ organizer.job }}
