@@ -10,6 +10,10 @@ class Speaker(Person):
     def __str__(self):
         return self.name
 
+    @property
+    def preffered_talk_type(self):
+        return self.presentations.first().get_type_display().lower()
+
     class Meta:
         ordering = ('full_name',)
 

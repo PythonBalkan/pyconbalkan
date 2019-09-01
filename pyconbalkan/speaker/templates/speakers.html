@@ -18,7 +18,7 @@
             {% for speaker in speakers %}
                 {% if speaker.presentations.all|length %}
 
-                <div class="speaker" id="{{ speaker.slug }}">
+                <div class="speaker speaker__type__{{ speaker.preffered_talk_type }}" id="{{ speaker.slug }}">
                     <div class="speaker__image">
                         <a href="{% url 'speaker_detail' slug=speaker.slug %}">
                             <img src="{{ speaker.images.first.profile_picture.url }}">
