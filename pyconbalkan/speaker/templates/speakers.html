@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load markdownify %}
 {% block main_content %}
 
 {# Speakers #}
@@ -35,7 +35,7 @@
                         </a>
                         <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
                         <p>
-                            {{ speaker.description|truncatewords:20 }}
+                            {{ speaker.description|markdownify|truncatewords:20 }}
                         </p>
                         {% for presentation in speaker.presentations.all %}
                             {% if presentation.type == 5 %} {# Keynote talk #}
