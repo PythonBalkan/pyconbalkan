@@ -20,7 +20,7 @@ def speaker_detail(request, slug):
     presentations = speaker.presentations.filter(active=True).prefetch_related('conference').order_by('-conference__year')
     conf = defaultdict(list)
     for presentation in presentations:
-        conf[presentation.conference.name].append(presentation)
+        conf[presentation.conference.year].append(presentation)
 
     context = {
         'speaker': speaker,
