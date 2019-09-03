@@ -26,6 +26,9 @@
             {% for conference, presentations in conf.items %}
                 <h3>PyCon Balkan {{ conference }} talks</h3>
                 {% for presentation in presentations %}
+                    {% for tag in presentation.tags.all %}
+                        <div class="speaker__presentation__tag">{{ tag }}</div>
+                    {% endfor %}
                     {% if presentation.type == 5 %} {# Keynote talk #}
                     <div class="keynote__wrapper">
                         <h4 class="speaker__presentation">{{ presentation.title }}</h4>
