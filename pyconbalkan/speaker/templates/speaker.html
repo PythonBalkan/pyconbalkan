@@ -62,13 +62,13 @@
             </div>
 
             <div class="previous__talks">
-                <h4>Previous talks</h4>
+                <h4>More {{ speaker.name }}'s public appearances</h4>
                 {% for video_item in speaker.videos.all %}
                 <div class="iframe__wrapper">
                     {% video video_item.video "small" %}
                 </div>
                 {% empty %}
-                No previous talks.
+                No records.
                 {%endfor %}
             </div>
         </div>
