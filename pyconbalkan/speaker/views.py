@@ -2,7 +2,10 @@ from collections import defaultdict
 
 from django.db.models import Prefetch
 from django.shortcuts import render, get_object_or_404
+from django.template.defaultfilters import truncatewords
 from django.utils import timezone
+from django.utils.html import strip_tags
+from meta.views import Meta
 from rest_framework import viewsets
 
 from pyconbalkan.speaker.models import Speaker
@@ -22,9 +25,19 @@ def speaker_detail(request, slug):
     for presentation in presentations:
         conf[presentation.conference.year].append(presentation)
 
+    speaker_image = speaker.images.all().first().profile_picture.url if speaker.images.exists() else None
+
+    most_recent_year = list(conf.keys())[0]
+
     context = {
         'speaker': speaker,
-        'conf': dict(conf)
+        'conf': dict(conf),
+        'meta': Meta(
+            description=truncatewords(strip_tags(speaker.description), 20),
+            image=speaker_image,
+            title=f"{speaker.full_name} @ PyCon Balkan {most_recent_year}"
+        )
+
     }
     return render(request, 'speaker.html', context)
 
