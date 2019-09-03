@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load embed_video_tags %}
+{% load markdownify %}
 
 {% block main_content %}
 
@@ -20,38 +21,24 @@
 
             <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
             <div class="bio__wrapper">
-                {{ speaker.description }}
+                {{ speaker.description|markdownify }}
             </div>
-
-            {% for presentation in speaker.presentation.all %}
-                <h2>
-                    {% if presentation.type == 1 %}
-                    <i class="fas fa-cogs"></i>
-                    {% else %}
-                    <i class="fas fa-bullhorn"></i>
-                    {% endif %}
-                    {{ presentation.title }}
-                </h2>
-                <p class="speaker__description title--white">
-                    {{ presentation.description|safe }}
-                </p>
-            {% endfor %}
 
             {% for presentation in speaker.presentations.all %}
                 {% if presentation.type == 5 %} {# Keynote talk #}
                 <div class="keynote__wrapper">
                     <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                    <p>{{ presentation.description }}</p>
+                    <p>{{ presentation.description|markdownify }}</p>
                 </div>
                 {% elif presentation.type == 10 %} {# Normal talk #}
                 <div class="talk__wrapper">
                     <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                    <p>{{ presentation.description }}</p>
+                    <p>{{ presentation.description|markdownify }}</p>
                 </div>
                 {% elif presentation.type == 15 %} {# Workshop #}
                 <div class="workshop__wrapper">
                     <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                    <p>{{ presentation.description }}</p>
+                    <p>{{ presentation.description|markdownify }}</p>
                 </div>
                 {% endif %}
             {% endfor %}

@@ -70,6 +70,35 @@ INSTALLED_APPS = [
     'embed_video',
 ]
 
+MARKDOWNIFY_WHITELIST_TAGS = [
+    'a',
+    'abbr',
+    'acronym',
+    'b',
+    'blockquote',
+    'em',
+    'i',
+    'li',
+    'ol',
+    'p',
+    'strong',
+    'ul',
+    'br',
+]
+
+MARKDOWNIFY_WHITELIST_ATTRS = [
+    'href',
+    'src',
+    'alt',
+]
+
+MARKDOWNIFY_WHITELIST_STYLES = [
+    'color',
+    'font-weight',
+]
+
+MARKDOWNIFY_MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code',
+                                   'markdown.extensions.extra', ]
 MIDDLEWARE = [
     # Django middlewares
     'django.middleware.security.SecurityMiddleware',
