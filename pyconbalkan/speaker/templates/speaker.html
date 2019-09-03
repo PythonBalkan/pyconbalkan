@@ -45,6 +45,12 @@
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% endif %}
+                    {% if presentation.youtube %}
+                    <div class="iframe__wrapper">
+                        {% video presentation.youtube "small" %}
+                    </div>
+                    {% endif %}
+
                 {% endfor %}
             {% endfor %}
 
