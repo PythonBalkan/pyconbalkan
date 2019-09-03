@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from django.db.models import Prefetch
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
@@ -15,8 +17,14 @@ class SpeakerViewSet(viewsets.ModelViewSet):
 
 def speaker_detail(request, slug):
     speaker = get_object_or_404(Speaker, slug=slug)
+    presentations = speaker.presentations.filter(active=True).prefetch_related('conference').order_by('-conference__year')
+    conf = defaultdict(list)
+    for presentation in presentations:
+        conf[presentation.conference.name].append(presentation)
+
     context = {
         'speaker': speaker,
+        'conf': dict(conf)
     }
     return render(request, 'speaker.html', context)
 

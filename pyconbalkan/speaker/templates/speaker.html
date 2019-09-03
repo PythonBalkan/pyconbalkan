@@ -23,24 +23,26 @@
             <div class="bio__wrapper">
                 {{ speaker.description|markdownify }}
             </div>
-
-            {% for presentation in speaker.presentations.all %}
-                {% if presentation.type == 5 %} {# Keynote talk #}
-                <div class="keynote__wrapper">
-                    <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                    <p>{{ presentation.description|markdownify }}</p>
-                </div>
-                {% elif presentation.type == 10 %} {# Normal talk #}
-                <div class="talk__wrapper">
-                    <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                    <p>{{ presentation.description|markdownify }}</p>
-                </div>
-                {% elif presentation.type == 15 %} {# Workshop #}
-                <div class="workshop__wrapper">
-                    <h4 class="speaker__presentation">{{ presentation.title }}</h4>
-                    <p>{{ presentation.description|markdownify }}</p>
-                </div>
-                {% endif %}
+            {% for conference, presentations in conf.items %}
+                <h3>PyCon Balkan {{ conference }} talks</h3>
+                {% for presentation in presentations %}
+                    {% if presentation.type == 5 %} {# Keynote talk #}
+                    <div class="keynote__wrapper">
+                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                        <p>{{ presentation.description|markdownify }}</p>
+                    </div>
+                    {% elif presentation.type == 10 %} {# Normal talk #}
+                    <div class="talk__wrapper">
+                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                        <p>{{ presentation.description|markdownify }}</p>
+                    </div>
+                    {% elif presentation.type == 15 %} {# Workshop #}
+                    <div class="workshop__wrapper">
+                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                        <p>{{ presentation.description|markdownify }}</p>
+                    </div>
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
 
             <div class="social__links">
