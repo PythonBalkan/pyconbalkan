@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Styles -->
+    {{ search_speakers.media.css }}
     <link rel="stylesheet" href="{% static 'css/_fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/event-sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/page.css' %}">
@@ -264,6 +265,8 @@
     <video autoplay muted loop id="bgVideo">
         <source src="{% static 'video/pycon-bg-2019-loop.mp4' %}" type="video/mp4">
     </video>
+{{ search_speakers.media.js }}
+
 </body>
     {% block scripts %}{% endblock %}
 </html>

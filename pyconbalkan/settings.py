@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'markdownify',
     'ckeditor',
     'embed_video',
+    'django_select2',
 ]
 
 MARKDOWNIFY_WHITELIST_TAGS = [

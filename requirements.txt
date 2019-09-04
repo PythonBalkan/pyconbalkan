@@ -11,6 +11,7 @@ certifi==2019.6.16        # via requests
 chardet==3.0.4            # via requests
 dj-database-url==0.5.0
 dj-static==0.0.6
+django-appconf==1.0.3     # via django-select2
 django-choices==1.7.0
 django-ckeditor==5.7.1
 django-countries==5.3.3
@@ -22,6 +23,7 @@ django-markdownx==2.0.28
 django-meta==1.5.2
 django-money==0.15
 django-moneyfield==0.2.1
+django-select2==7.1.1
 django-storages==1.7.1
 django-tagging==0.4.6
 django-taggit==1.1.0
@@ -43,7 +45,7 @@ pytz==2019.2
 raven==6.10.0
 requests==2.22.0
 s3transfer-python3==0.2.0  # via boto3-python3
-six==1.12.0               # via bleach, python-dateutil
+six==1.12.0               # via bleach, django-appconf, python-dateutil
 sqlparse==0.3.0           # via django
 static3==0.7.0            # via dj-static
 text-unidecode==1.2       # via python-slugify

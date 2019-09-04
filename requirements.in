@@ -26,3 +26,4 @@ raven
 django-markdownify
 requests
 django-embed-video
+django-select2
