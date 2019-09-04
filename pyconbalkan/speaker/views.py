@@ -1,6 +1,7 @@
 from collections import defaultdict
 
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q
+from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.template.defaultfilters import truncatewords
 from django.utils import timezone
@@ -18,8 +19,15 @@ class SpeakerViewSet(viewsets.ModelViewSet):
     serializer_class = SpeakerSerializer
 
 
-def speaker_detail(request, slug):
-    speaker = get_object_or_404(Speaker, slug=slug)
+def speaker_detail(request, slug=None):
+    if slug:
+        q = Q(slug=slug)
+    elif "pk" in request.GET.keys():
+        q = Q(pk=request.GET['pk'])
+    else:
+        raise Http404()
+
+    speaker = get_object_or_404(Speaker, q)
     presentations = speaker.presentations.filter(active=True).prefetch_related('conference').order_by('-conference__year')
     conf = defaultdict(list)
     for presentation in presentations:

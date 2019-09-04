@@ -45,11 +45,11 @@ router.extend(faq)
 
 urlpatterns = [
     path('', views.home, name='index'),
-    path('speaker/<slug:slug>/', speaker_detail, name='speaker_detail'),
     path('sponsors', sponsors_view, name='sponsor_list'),
-    path('speakers/?', presentation_list, name='speakers'),
-    path('speakers/<int:year>/', presentation_list, name='speakers'),
     path('sponsors/<int:id>/', sponsor_view, name='sponsor_detail'),
+    path('speaker/', speaker_detail, name='speaker_detail'),
+    path('speaker/<slug:slug>/', speaker_detail, name='speaker_detail'),
+    path('speakers/<int:year>/', presentation_list, name='speakers'),
     path('sponsoring', sponsoring_view, name='sponsoring'),
     path('venue', venue_view, name='venue'),
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
@@ -74,6 +74,7 @@ urlpatterns = [
     path('timetable/', timetable_view, name='timetable'),
     path('faq', faq_view, name='faq'),
     path('archive/<int:year>/', archive_detail, name='archive_detail'),
+    path('select2/', include('django_select2.urls')),
 ]
 
 # Add Django site authentication urls (for login, logout, password management)

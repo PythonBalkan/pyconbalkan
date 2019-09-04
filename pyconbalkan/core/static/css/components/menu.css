@@ -194,7 +194,7 @@
                 display: flex;
             }
 
-            .dropdown-menu a {
+            .dropdown-menu a, .dropdown-menu div {
                 flex: 1;
                 width: 100%;
                 background-color: #343C3E;
@@ -202,6 +202,10 @@
                 padding: 10px 20px;
                 text-align: left;
                 text-decoration: none;
+            }
+
+            .dropdown-menu div .select2-container {
+                width: 143px !important;
             }
 
             .dropdown-menu a:hover {
