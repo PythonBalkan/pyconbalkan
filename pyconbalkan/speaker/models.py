@@ -12,7 +12,7 @@ class Speaker(Person):
 
     @property
     def preffered_talk_type(self):
-        return self.presentations.first().get_type_display().lower()
+        return self.presentations.order_by("type").first().get_type_display().lower()
 
     class Meta:
         ordering = ('full_name',)
