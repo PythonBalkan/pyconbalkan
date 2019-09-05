@@ -7,81 +7,85 @@
     {# Speaker INFO #}
 
     <div class="speaker">
-        <div class="speaker__image">
-            <img src="{{ speaker.images.first.profile_picture.url }}">
-        </div>
-
-        <div class="speaker__details">
-            <h2 class="speaker__name">
-                {% if speaker.country %}
-                    <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
-                {% endif %}
-                {{ speaker.name }}
-            </h2>
-
-            <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
-            <div class="bio__wrapper">
-                {{ speaker.description|markdownify }}
+        <div class="speaker__details border--bottom">
+            <div class="speaker__image">
+                <img src="{{ speaker.images.first.profile_picture.url }}">
             </div>
+            <div class="speaker__info">
+                <h1 class="speaker__name">
+                    {% if speaker.country %}
+                        <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                    {% endif %}
+                    {{ speaker.name }}
+                </h1>
+    
+                <h4 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h4>
+                <div class="bio__wrapper">
+                    {{ speaker.description|markdownify }}
+                </div>
+            </div>
+        </div>
+        <div class="speaker__conferences">
             {% for conference, presentations in conf.items %}
-                <h3>PyCon Balkan {{ conference }} talks</h3>
+                <h2>PyCon Balkan {{ conference }} Talks</h2>
                 {% for presentation in presentations %}
-                    {% for tag in presentation.tags.all %}
-                        <div class="speaker__presentation__tag">{{ tag }}</div>
-                    {% endfor %}
                     {% if presentation.type == 5 %} {# Keynote talk #}
                     <div class="keynote__wrapper">
-                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                        <h3 class="speaker__presentation">{{ presentation.title }}</h3>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% elif presentation.type == 10 %} {# Normal talk #}
                     <div class="talk__wrapper">
-                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                        <h3 class="speaker__presentation">{{ presentation.title }}</h3>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% elif presentation.type == 15 %} {# Workshop #}
                     <div class="workshop__wrapper">
-                        <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                        <h3 class="speaker__presentation">{{ presentation.title }}</h3>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% endif %}
+                    <div class="speaker__tags">
+                        {% for tag in presentation.tags.all %}
+                            <div class="speaker__presentation__tag">{{ tag }}</div>
+                        {% endfor %}
+                    </div>
                     {% if presentation.youtube %}
-                    <div class="iframe__wrapper">
+                    <div class="iframe__wrapper border--bottom">
                         {% video presentation.youtube "small" %}
                     </div>
                     {% endif %}
-
                 {% endfor %}
             {% endfor %}
+        </div>
 
-            <div class="social__links">
-                {% if speaker.personal_website %}
-                <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
-                {% endif %}
-                {% if speaker.github %}
-                    <a href="{{ speaker.github }}" class="github" target="_ blank"></a>
-                {% endif %}
-                {% if speaker.linkedin %}
-                    <a href="{{ speaker.linkedin }}" class="linkedin" target="_ blank"></a>
-                {% endif %}
-                {% if speaker.twitter %}
-                    <a href="{{ speaker.twitter }}" class="twitter" target="_ blank"></a>
-                {% endif %}
-                {% if speaker.facebook %}
-                    <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
-                {% endif %}
-            </div>
+        <div class="social__links">
+            {% if speaker.personal_website %}
+            <a href="{{ speaker.personal_website }}" class="website" target="_ blank"></a>
+            {% endif %}
+            {% if speaker.github %}
+                <a href="{{ speaker.github }}" class="github" target="_ blank"></a>
+            {% endif %}
+            {% if speaker.linkedin %}
+                <a href="{{ speaker.linkedin }}" class="linkedin" target="_ blank"></a>
+            {% endif %}
+            {% if speaker.twitter %}
+                <a href="{{ speaker.twitter }}" class="twitter" target="_ blank"></a>
+            {% endif %}
+            {% if speaker.facebook %}
+                <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
+            {% endif %}
+        </div>
 
-            <div class="previous__talks">
-                <h4>More {{ speaker.name }}'s public appearances</h4>
-                {% for video_item in speaker.videos.all %}
-                <div class="iframe__wrapper">
-                    {% video video_item.video "small" %}
-                </div>
-                {% empty %}
-                No records.
-                {%endfor %}
+        <div class="previous__talks">
+            <h2>More {{ speaker.name }}'s public appearances</h2>
+            {% for video_item in speaker.videos.all %}
+            <div class="iframe__wrapper">
+                {% video video_item.video "small" %}
             </div>
+            {% empty %}
+            No records.
+            {%endfor %}
         </div>
     </div>
 
