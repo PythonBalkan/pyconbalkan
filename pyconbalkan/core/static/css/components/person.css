@@ -214,6 +214,7 @@
 
         .social__links {
             height: 40px;
+            padding-top: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid rgba(0,0,0,.1);
             box-sizing: content-box;
