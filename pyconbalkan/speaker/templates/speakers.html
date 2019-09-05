@@ -18,41 +18,46 @@
             {% for speaker in speakers %}
                 {% if speaker.presentations.all|length %}
 
-                <div class="speaker speaker__type__{{ speaker.preffered_talk_type }}" id="{{ speaker.slug }}">
-                    <div class="speaker__image">
-                        <a href="{% url 'speaker_detail' slug=speaker.slug %}">
-                            <img src="{{ speaker.images.first.profile_picture.url }}">
-                        </a>
-                    </div>
+                <div class="speaker border--bottom" id="{{ speaker.slug }}">
                     <div class="speaker__details">
-                        <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
-                            <h2 class="speaker__name">
-                                {% if speaker.country %}
-                                    <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
-                                {% endif %}
-                                {{ speaker.name }}
-                            </h2>
-                        </a>
-                        <h3 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h3>
-                        <p>
-                            {{ speaker.description|markdownify|truncatewords:20 }}
-                        </p>
+                        <div class="speaker__image speaker__type__{{ speaker.preffered_talk_type }}">
+                            <a href="{% url 'speaker_detail' slug=speaker.slug %}">
+                                <img src="{{ speaker.images.first.profile_picture.url }}">
+                            </a>
+                        </div>
+                        <div class="speaker__info">
+                            <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
+                                <h1 class="speaker__name">
+                                    {% if speaker.country %}
+                                        <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                                    {% endif %}
+                                    {{ speaker.name }}
+                                </h1>
+                            </a>
+                            <h4 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h4>
+                            <div class="bio__wrapper">
+                                {{ speaker.description|markdownify|truncatewords:20 }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="speaker__conferences">
                         {% for presentation in speaker.presentations.all %}
                             {% if presentation.type == 5 %} {# Keynote talk #}
-                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}"">{{ presentation.title }}</h3>
                                 <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
                             {% elif presentation.type == 10 %} {# Normal talk #}
-                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
                                 <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
                             {% elif presentation.type == 15 %} {# Workshop #}
-                                <h4 class="speaker__presentation">{{ presentation.title }}</h4>
+                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
                                 <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
                             {% endif %}
                         {% endfor %}
-                        <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
-                            Find out more
-                        </a>
                     </div>
+                    <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                        Find out more
+                    </a>
                 </div>
 
                 {% endif %}
