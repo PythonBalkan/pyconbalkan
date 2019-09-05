@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'pyconbalkan.venue',
     'pyconbalkan.faq',
     'pyconbalkan.archive',
+    'pyconbalkan.onsite',
     # others
     'rest_framework',
     'django_countries',
