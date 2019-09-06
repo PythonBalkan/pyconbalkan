@@ -56,3 +56,47 @@
 .hidden {
     display: none;
 }
+
+#sessionize .sz-day__title {
+    font-size: 1.6rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sessionize .sz-grid .sz-session--service .sz-session__card:hover,
+#sessionize .sz-grid .sz-session__card:hover {
+    background: white !important;
+}
+
+@media (min-width: 48em) {
+    #sessionize .sz-grid .sz-day__container {
+        min-width: 100% !important;
+    }
+}
+
+#sessionize .sz-grid .sz-track {
+    min-width: auto !important;
+}
+
+.sz-day__container {
+    padding-right: 0 !important;
+}
+
+#sessionize .sz-grid .sz-track {
+    margin-right: 20px !important;
+}
+
+@media (max-width: 1024px) {
+    #sessionize .sz-grid .sz-track {
+        min-width: calc(100% - 20px) !important;
+    }  
+}
+
+#sessionize .sz-grid .sz-track:last-of-type {
+    margin-right: 0 !important;
+}
+
+.sz-session__title {
+    font-size: 14px !important;
+}
