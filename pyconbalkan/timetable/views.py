@@ -36,4 +36,4 @@ def timetable_view(request):
         'rooms': rooms,
         'DAYS': DAYS
     }
-    return render(request, 'timetable.html', context)
+    return render(request, 'timetable_sessionize.html', context)
