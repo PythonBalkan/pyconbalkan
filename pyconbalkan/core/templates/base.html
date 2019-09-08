@@ -1,5 +1,6 @@
 {% load static %}
 {% load meta %}
+{% load startswith %}
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -196,16 +197,16 @@
                         <a class="footer--menu__list__link {% if request.path == '/' %}active{% endif %}" href="/#" role="button">Home</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'cfp' %}" role="button">CFP</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/cfp' %}active{% endif %}" href="{% url 'cfp' %}" role="button">CFP</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/news' %}active{% endif %}" href="{% url 'news' %}" role="button">News</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/news' %}active{% endif %}" href="{% url 'news' %}" role="button">News</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/news' %}active{% endif %}" href="{% url 'sponsorship' %}" role="button">Sponsorship</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/sponsorship' %}active{% endif %}" href="{% url 'sponsorship' %}" role="button">Sponsorship</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/contact' %}active{% endif %}" href="{% url 'contact' %}" role="button">Contact</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/contact' %}active{% endif %}" href="{% url 'contact' %}" role="button">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -213,22 +214,33 @@
                 <h3>Info</h3>
                 <ul class="footer--menu__list">
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/venue' %}active{% endif %}" href="{% url 'venue' %}" role="button">Venue</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/venue' %}active{% endif %}" href="{% url 'venue' %}" role="button">Venue</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/about' %}active{% endif %}" href="{% url 'about' %}">About Us</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'faq' %}">F.A.Q</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/faq' %}active{% endif %}" href="{% url 'faq' %}">F.A.Q</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'organizers' %}">Organizers</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/organizers' %}active{% endif %}" href="{% url 'organizers' %}">Organizers</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'coc' %}">CoC</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/coc' %}active{% endif %}" href="{% url 'coc' %}">CoC</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footerColumn">
+                <h3>On-Site Events</h3>
+                <ul class="footer--menu__list">
+                    <li class="footer--menu__list__item">
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/lightning-talks' %}active{% endif %}" href="{% url 'lightning-talks' %}" role="button">Lightning Talks</a>
+                    </li>
+                    <li class="footer--menu__list__item">
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/venue' %}active{% endif %}" href="{% url 'open-spaces' %}" role="button">Open Spaces</a>
                     </li>
                 </ul>
             </div>
@@ -237,17 +249,18 @@
                 <ul class="footer--menu__list">
                 {% for conf in current_conferences %}
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'speakers' year=conf.year %}">PyCon {{ conf.year }} Speakers</a>
+                        <a class="footer--menu__list__link" href="{% url 'speakers' year=conf.year %}">PyCon {{ conf.year }} Speakers</a>
                     </li>
                 {% endfor %}
                 </ul>
             </div>
+
             <div class="footerColumn">
                 <h3>Recap</h3>
                 <ul class="footer--menu__list">
                     {% for conf in previous_conferences %}
                     <li class="footer--menu__list__item">
-                        <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'archive_detail' year=conf.year %}">PyCon {{ conf.year }} Recap</a>
+                        <a class="footer--menu__list__link {% if request.path|startswith:'/archive' %}active{% endif %}" href="{% url 'archive_detail' year=conf.year %}">PyCon {{ conf.year }} Recap</a>
                     </li>
                     {% endfor %}
                 </ul>
