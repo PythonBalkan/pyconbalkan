@@ -27,6 +27,7 @@
                     <a href="{% url 'about' %}">About Us</a>
 					<a href="{% url 'faq' %}">F.A.Q</a>
                     <a href="{% url 'organizers' %}">Organizers</a>
+                    <a href="{% url 'sponsorship' %}">Sponsorship</a>
                     <a href="{% url 'coc' %}">CoC</a>
                 </div>
             </li>
@@ -50,7 +51,7 @@
                 <a class="menu__list__link {% if request.path|startswith:'/contact' %}active{% endif %}" href="{% url 'contact' %}" role="button">Contact</a>
             </li>
             <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path|startswith:'/sponsorship' %}active{% endif %}" href="{% url 'sponsorship' %}" role="button">Sponsorship</a>
+
             </li>
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path|startswith:'/archive' %}active{% endif %} dropdown" href="#">Recap</a>
