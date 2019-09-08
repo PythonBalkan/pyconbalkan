@@ -28,7 +28,7 @@ from pyconbalkan.speaker.api_urls import router as speaker
 from pyconbalkan.speaker.views import *
 from pyconbalkan.sponsors.api_urls import router as sponsors
 from pyconbalkan.sponsors.views import sponsor_view, sponsoring_view, sponsors_view
-from pyconbalkan.timetable.views import timetable_view, timetable_pdf_view
+from pyconbalkan.timetable.views import timetable_view
 
 router = routers.DefaultRouter()
 router.extend(conference)
@@ -70,7 +70,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API
     path('markdownx/', include(markdownx)),
-    path('timetable_pdf/', timetable_pdf_view, name='timetable_pdf'),
     path('timetable/', timetable_view, name='timetable'),
     path('faq', faq_view, name='faq'),
     path('archive/<int:year>/', archive_detail, name='archive_detail'),

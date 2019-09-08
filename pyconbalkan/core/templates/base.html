@@ -228,11 +228,7 @@
                         <a class="footer--menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'coc' %}">CoC</a>
                     </li>
                     <li class="footer--menu__list__item">
-                        {% if request.conference.timetable_pdf %}
-                            <a class="footer--menu__list__link {% if request.path == '/timetable_pdf' %}active{% endif %}" href="{% url 'timetable_pdf' %}" role="button">Timetable</a>
-                        {% else %}
-                            <a class="footer--menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
-                        {% endif %}
+                        <a class="footer--menu__list__link {% if request.path == '/timetable' %}active{% endif %}" href="{% url 'timetable' %}" role="button">Timetable</a>
                     </li>
                 </ul>
             </div>
