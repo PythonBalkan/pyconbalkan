@@ -29,6 +29,7 @@
                     <a href="{% url 'organizers' %}">Organizers</a>
                     <a href="{% url 'sponsorship' %}">Sponsorship</a>
                     <a href="{% url 'coc' %}">CoC</a>
+                    <a href="{% url 'cfp' %}">CFP</a>
                 </div>
             </li>
             <li class="menu__list__item">
@@ -40,9 +41,6 @@
                     <a href="{% url 'lightning-talks' %}">Lightning Talks</a>
                     <a href="{% url 'open-spaces' %}">Open Spaces</a>
                 </div>
-            </li>
-            <li class="menu__list__item">
-                <a class="menu__list__link {% if request.path == '/cfp' %}active{% endif %}" href="{% url 'cfp' %}" role="button">CFP</a>
             </li>
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path|startswith:'/news' %}active{% endif %}" href="{% url 'news' %}" role="button">News</a>
