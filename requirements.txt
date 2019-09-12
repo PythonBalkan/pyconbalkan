@@ -30,6 +30,7 @@ django-taggit==1.1.0
 django==2.2.4
 djangorestframework==3.10.2
 docutils-python3==0.13    # via botocore-python3
+fuzzyfinder==2.1.0
 gunicorn==19.9.0
 idna==2.8                 # via requests
 jmespath==0.9.4           # via boto3-python3, botocore-python3

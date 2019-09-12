@@ -8,14 +8,6 @@ from pyconbalkan.speaker.models import Speaker
 from django.db.models import CASCADE
 
 
-class Timetable(ActiveModel):
-    title = models.CharField(null=True, blank=True, max_length=100)
-    date = models.DateField(null=True, blank=True)
-
-    def __str__(self):
-        return self.title
-
-
 class Presentation(AbstractConference, ActiveModel):
     TALK = 10  # 0
     WORKSHOP = 15  # 1
@@ -37,18 +29,18 @@ class Presentation(AbstractConference, ActiveModel):
         return '[{}] {}'.format(self.get_type_display(), self.title)
 
 
-class Room(ActiveModel):
+class Room(AbstractConference, ActiveModel):
     name = models.CharField(null=True, blank=True, max_length=100)
+    sort_order = models.IntegerField()
 
     def __str__(self):
         return self.name
 
 
-class Slot(ActiveModel):
+class Slot(AbstractConference, ActiveModel):
     from_date = models.DateTimeField(null=True, blank=True)
     to_date = models.DateTimeField(null=True, blank=True)
 
-    timetable = models.ForeignKey(Timetable, blank=True, null=True, related_name='slot', on_delete=CASCADE)
     talk = models.ForeignKey(Presentation, blank=True, null=True, related_name='slot', on_delete=CASCADE)
     room = models.ForeignKey(Room, blank=True, null=True, related_name='slot', on_delete=CASCADE)
 

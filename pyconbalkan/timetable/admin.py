@@ -1,12 +1,7 @@
 from django.contrib import admin
 
 from pyconbalkan.conference.abstractions import ConferenceAbstractAdmin
-from pyconbalkan.timetable.models import Timetable, Presentation, Room, Slot
-
-
-@admin.register(Timetable)
-class TimetableAdmin(admin.ModelAdmin):
-    pass
+from pyconbalkan.timetable.models import Presentation, Room, Slot
 
 
 @admin.register(Presentation)
