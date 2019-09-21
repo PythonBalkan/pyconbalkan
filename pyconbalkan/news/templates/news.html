@@ -22,12 +22,11 @@
                                 {{ post.title|safe }}
                             </a>
                         </h2>
+                        <h4 class="post__published_date">
+                            Published on {{ post.published_date|date:"D d M Y" }}
+                        </h4>
                         <p class="post__description">
                             {{ post.text|safe|truncatewords:20 }}
-                        </p>
-
-                        <p class="post__published_date">
-                            Published on: {{ post.published_date|date:"D d M Y" }}
                         </p>
                     </div>
                 </div>

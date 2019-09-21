@@ -35,39 +35,44 @@
     </div>
     {% endif %}
 
-    {% if mission_statement %}
-    <div class="row">
-        <p>{{ mission_statement.content|safe }}</p>
-    </div>
-    {% endif %}
-
     {% for news in promoted_news %}
     {% if forloop.first %}
     <div class="important">
         <h3>Important announcement.</h3>
-        <h4>We break this HTML to annoy you and make things generally more irritating</h4>
-        <div class="card">
+        <h4 class="subtitle">We break this HTML to annoy you and make things generally more irritating.</h4>
+        <div class="post">
     {% endif %}
-    <a href="{% url 'post_detail' slug=news.slug %}">
-
-        <div class="card__item">
-            <a href="{% url 'post_detail' slug=news.slug %}" class="speaker__link">
-                <div class="card__image speaker__image">
-                    <img src="{{ news.image.url }}" />
+            <div class="post__item">
+                <div class="post__short_image">
+                    <a href="{% url 'post_detail' slug=news.slug %}">
+                        <img src="{{ news.image.url }}" />
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="card__item">
-            <a href="{% url 'post_detail' slug=news.slug %}" class="speaker__link">
-                <h2 class="speaker__name">{{ news.title }}</h2>
-                <p class="card__job">{{ news.text|safe|truncatewords:20 }}</p>
-            </a>
-        </div>
+                <div class="post__content">
+                    <h2>
+                        <a href="{% url 'post_detail' slug=news.slug %}">
+                            {{ news.title }}
+                        </a>
+                    </h2>
+                    <h4 class="post__published_date">
+                        Published on {{ news.published_date|date:"D d M Y" }}
+                    </h4>
+                    <p class="post__description">
+                        {{ news.text|safe|truncatewords:20 }}
+                    </p>
+                </div>
+            </div>
     {% if forloop.last %}
         </div>
     {% endif %}
     </div>
     {% endfor %}
+
+    {% if mission_statement %}
+    <div class="row mission__statement">
+        <p>{{ mission_statement.content|safe }}</p>
+    </div>
+    {% endif %}
 
     {# Keynote Speakers #}
 
