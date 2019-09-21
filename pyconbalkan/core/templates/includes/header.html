@@ -48,6 +48,11 @@
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path|startswith:'/contact' %}active{% endif %}" href="{% url 'contact' %}" role="button">Contact</a>
             </li>
+            {% comment %}
+
+            Kole 7:54 PM
+            remove the recap menu item until we fix that page
+
             <li class="menu__list__item">
                 <a class="menu__list__link {% if request.path|startswith:'/archive' %}active{% endif %} dropdown" href="#">Recap</a>
 
@@ -57,6 +62,7 @@
                     {% endfor %}
                 </div>
             </li>
+            {% endcomment %}
         </ul>
     </nav>
 </header>
