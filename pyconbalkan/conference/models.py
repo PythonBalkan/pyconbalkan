@@ -24,6 +24,7 @@ class Conference(SingleActiveModel, ModelMeta):
     type = models.IntegerField(choices=CONF_TYPE)
     sponsor_email = models.EmailField(null=True, blank=True)
     contact_email = models.EmailField(null=True, blank=True)
+    conference_logo = models.ImageField(null=True, blank=True)
 
     # Links
     tickets = models.URLField(blank=True, null=True)
