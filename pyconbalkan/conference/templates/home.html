@@ -47,6 +47,8 @@
         <h2>We break this HTML to annoy you and make things generally more irritating</h2>
         <div class="card">
     {% endif %}
+    <a href="{% url 'post_detail' slug=news.slug %}">
+
         <div class="card__item">
             <a href="{% url 'post_detail' slug=news.slug %}" class="speaker__link">
                 <div class="card__image speaker__image">
@@ -55,10 +57,11 @@
             </a>
         </div>
         <div class="card__item">
-            <h2 class="speaker__name">{{ news.title }}</h2>
-            <p class="card__job">{{ news.text|safe|truncatewords:20 }}</p>
+            <a href="{% url 'post_detail' slug=news.slug %}" class="speaker__link">
+                <h2 class="speaker__name">{{ news.title }}</h2>
+                <p class="card__job">{{ news.text|safe|truncatewords:20 }}</p>
+            </a>
         </div>
-
     {% if forloop.last %}
         </div>
     {% endif %}
