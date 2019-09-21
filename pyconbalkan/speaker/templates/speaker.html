@@ -30,7 +30,9 @@
                 <h2>PyCon Balkan {{ conference }} Talks</h2>
                 {% for presentation in presentations %}
                     <div class="{{ presentation.get_type_display|lower }}__wrapper">
-                        <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        <a style="text-decoration: none" href="#talk-{{ presentation.slugify }}" name="talk-{{ presentation.slugify }}">
+                            <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        </a>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     <div class="speaker__tags">
