@@ -41,6 +41,28 @@
     </div>
     {% endif %}
 
+    {% for news in promoted_news %}
+    {% if forloop.first %}
+        <h1>Important announcement.</h1>
+        <h2>We break this HTML to annoy you and make things generally more irritating</h2>
+        <div class="card">
+    {% endif %}
+        <div class="card__item">
+            <a href="{% url 'post_detail' slug=news.slug %}" class="speaker__link">
+                <div class="card__image speaker__image">
+                    <img src="{{ news.image.url }}" />
+                </div>
+            </a>
+        </div>
+        <div class="card__item">
+            <h2 class="speaker__name">{{ news.title }}</h2>
+            <p class="card__job">{{ news.text|safe|truncatewords:20 }}</p>
+        </div>
+
+    {% if forloop.last %}
+        </div>
+    {% endif %}
+    {% endfor %}
 
     {# Keynote Speakers #}
 
