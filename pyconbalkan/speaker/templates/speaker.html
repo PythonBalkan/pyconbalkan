@@ -29,22 +29,10 @@
             {% for conference, presentations in conf.items %}
                 <h2>PyCon Balkan {{ conference }} Talks</h2>
                 {% for presentation in presentations %}
-                    {% if presentation.type == 5 %} {# Keynote talk #}
-                    <div class="keynote__wrapper">
+                    <div class="{{ presentation.get_type_display|lower }}__wrapper">
                         <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
-                    {% elif presentation.type == 10 %} {# Normal talk #}
-                    <div class="talk__wrapper">
-                        <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
-                        <p>{{ presentation.description|markdownify }}</p>
-                    </div>
-                    {% elif presentation.type == 15 %} {# Workshop #}
-                    <div class="workshop__wrapper">
-                        <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
-                        <p>{{ presentation.description|markdownify }}</p>
-                    </div>
-                    {% endif %}
                     <div class="speaker__tags">
                         {% for tag in presentation.tags.all %}
                             <div class="speaker__presentation__tag">{{ tag }}</div>
