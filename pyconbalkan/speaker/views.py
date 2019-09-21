@@ -62,13 +62,13 @@ def presentation_list(request, year=None):
         )
     )
 
-    presentation_count = presentations.filter(type=Presentation.TALK).count()
+    presentation_count = presentations.count()
 
     context = {
         'speakers': speakers,
         'meta': Meta(
-            description=f"This year we will be hosting {presentation_count} presentations including "
-                        f"normal talks, keynotes as well as workshops at {conference}."
+            description=f"This year we will be hosting {presentation_count} presentations including"
+                        f" talks, keynotes as well as workshops at {conference}."
                         f" Follow this link to get more details !",
             title=f"{conference} - Speakers",
             image=conference.conference_logo.url if conference.conference_logo else None
