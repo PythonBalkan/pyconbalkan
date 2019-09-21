@@ -1,3 +1,23 @@
+.important {
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    margin-bottom: 20px;
+}
+
+.important h1,
+.important h2,
+.important h3 {
+    color: red;
+}
+
+.important h4 {
+    margin-bottom: 20px;
+}
+
+.important .card__item {
+    margin-bottom: 0;
+}
+
 .page {
     display: grid;
     width: 100%;
