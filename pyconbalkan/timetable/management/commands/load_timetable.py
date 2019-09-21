@@ -51,13 +51,12 @@ class Command(BaseCommand):
         Slot.objects.filter(conference=conference).delete()
 
         for room in rooms:
-            if not Room.objects.filter(pk=room['id']).exists():
-                Room.objects.create(
-                    pk=room['id'],
-                    conference=conference,
-                    name=room['name'],
-                    sort_order=room['sort']
-                )
+            Room.objects.get_or_create(
+                pk=room['id'],
+                conference=conference,
+                name=room['name'],
+                sort_order=room['sort']
+            )
 
 
         for session in sessions:
@@ -69,30 +68,26 @@ class Command(BaseCommand):
             else:
                 speaker = speaker.id
 
-            if not Presentation.objects.filter(pk=session['id']).exists():
-                presentation = Presentation.objects.create(
-                    pk=session['id'],
-                    active=False,
-                    title=session['title'],
-                    description=session['description'],
-                    type=self.PRESENTATION_TYPE[types[session['categoryItems'][0]]],
-                    speaker_id=speaker,
-                    conference_id=conference.id,
-                )
-            else:
-                presentation = Presentation.objects.filter(pk=session['id'])
+            presentation, created = Presentation.objects.get_or_create(
+                pk=session['id'],
+                active=False,
+                title=session['title'],
+                description=session['description'],
+                type=self.PRESENTATION_TYPE[types[session['categoryItems'][0]]],
+                speaker_id=speaker,
+                conference_id=conference.id,
+            )
 
             start = timezone.make_aware(datetime.strptime(session['startsAt'], "%Y-%m-%dT%H:%M:%S"))
             end = timezone.make_aware(datetime.strptime(session['endsAt'], "%Y-%m-%dT%H:%M:%S"))
-            if not Slot.objects.filter(from_date=start,to_date=end,room_id=session['roomId']):
-                Slot.objects.create(
-                    active=False,
-                    from_date=start,
-                    to_date=end,
-                    room_id=session['roomId'],
-                    talk_id=presentation.id,
-                    conference_id=conference.id,
-                )
+            Slot.objects.get_or_create(
+                active=False,
+                from_date=start,
+                to_date=end,
+                room_id=session['roomId'],
+                talk_id=presentation.id,
+                conference_id=conference.id,
+            )
 
         if any(_cant_find):
             if options['force']:
