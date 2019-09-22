@@ -25,6 +25,7 @@ class Conference(SingleActiveModel, ModelMeta):
     sponsor_email = models.EmailField(null=True, blank=True)
     contact_email = models.EmailField(null=True, blank=True)
     conference_logo = models.ImageField(null=True, blank=True)
+    workshop_application_embed_code = models.TextField("Embed code that is usually an iframe from google docs", null=True, blank=True)
 
     # Links
     tickets = models.URLField(blank=True, null=True)

@@ -18,4 +18,10 @@ urlpatterns = [
                         "read more here to get up to speed on how open-spaces work !"
         )
     }), name='open-spaces'),
+    path('workshops', TemplateView.as_view(template_name="workshops.html", extra_context={
+        "meta": Meta(
+            title="PyCon Balkan - Workshops",
+            description="Page containing the signup form for workshops during the PyCon Balkan event."
+        )
+    }), name='workshops'),
 ]

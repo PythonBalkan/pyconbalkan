@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <div class="workshop" xmlns="http://www.w3.org/1999/html">
+        <h2>Workshop Signup page</h2>
+        {% if request.conference.workshop_application_embed_code %}
+            {{ request.conference.workshop_application_embed_code|safe }}
+        {% else %}
+            <p>Signup form for workshops is not either not yet been published, or someone intentionally closed it !</p>
+            <p>In case you think that this is an error, please ping us on slack or through our <a href="{% url "contact" %}">contact us</a> form.</p>
+            <p>Thank you, <br />PyCon Balkan Organizational team <3</p>
+        {% endif %}
+    </div>
+{% endblock %}
