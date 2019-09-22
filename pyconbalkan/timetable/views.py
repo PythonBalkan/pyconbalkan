@@ -2,25 +2,21 @@
 from django.shortcuts import render
 
 from pyconbalkan.timetable.models import Room, Slot
+from django.db.models.functions import TruncDate
 
 
 def timetable_view(request):
-    slots_by_rooms = {}
     rooms = Room.objects.all()
     slots = Slot.objects.all()
-    slots_order_by_date = slots.order_by('from_date')
-    for room in rooms:
-        slots_by_rooms[room.name] = slots_order_by_date.filter(room=room)
-    days_count = 0
-    DAYS = {}
-    for slot in slots:
-        if slot.from_date.date() not in DAYS:
-            DAYS[slot.from_date.date()] = 'Day {}'.format(days_count + 1)
-            days_count += 1
+    dates = slots.annotate(date=TruncDate('from_date')).values('date').distinct()
+    slots_by_date = {}
+
+    for i, date in enumerate(dates):
+        slots_by_date[i] = Slot.objects.filter(from_date__date=date['date'])
+
     context = {
-        'slots': slots_order_by_date,
-        'slots_by_rooms': slots_by_rooms,
+        'slots_by_date': slots_by_date,
         'rooms': rooms,
-        'DAYS': DAYS
+        'dates': dates
     }
-    return render(request, 'timetable_sessionize.html', context)
+    return render(request, 'timetable.html', context)
