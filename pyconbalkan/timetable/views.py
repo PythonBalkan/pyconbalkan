@@ -8,15 +8,17 @@ from django.db.models.functions import TruncDate
 def timetable_view(request):
     rooms = Room.objects.all()
     slots = Slot.objects.all()
-    dates = slots.annotate(date=TruncDate('from_date')).values('date').distinct()
+    unique_dates = slots.annotate(date=TruncDate('from_date')).values('date').distinct()
     slots_by_date = {}
+    dates = []
 
-    for i, date in enumerate(dates):
+    for i, date in enumerate(unique_dates):
         slots_by_date[i] = Slot.objects.filter(from_date__date=date['date'])
+        dates.append(date['date'])
 
     context = {
         'slots_by_date': slots_by_date,
         'rooms': rooms,
-        'dates': dates
+        'dates': sorted(dates)
     }
     return render(request, 'timetable.html', context)
