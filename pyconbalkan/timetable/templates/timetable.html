@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="{% static 'css/timetablejs.css' %}">
 <script src="{% static 'js/timetable.js' %}" type="text/javascript"></script>
 
-<div>
+<div id="dates-wrapper">
 {% for date in dates %}
-    <button data-day="day-{{ date|date:"j" }}">{{ date|date:"j/n/Y" }}</button>
+    <button class="day-select" data-day="day-{{ date|date:"j" }}">{{ date|date:"j-n-Y" }}</button>
 {% endfor %}
 </div>
 
@@ -31,7 +31,7 @@
                 new Date({{ slot.from_date|date:"Y,n-1,j,H,i"}}),
                 new Date({{ slot.to_date|date:"Y,n-1,j,H,i"}}),
                 {
-                  url: '/speaker/{{ slot.talk.slugify_speaker }}/#{{ slot.talk.slugify }}', // makes the event clickable
+                  url: {% if slot.talk.speaker %}'/speaker/{{ slot.talk.slugify_speaker }}/#{{ slot.talk.slugify }}'{% else %}'#'{% endif %}, // makes the event clickable
                   class: 'day-{{ slot.from_date|date:"j" }}', // additional css class
                   data: { // each property will be added to the data-* attributes of the DOM node for this event
                     day: '{{ slot.from_date|date:"Y,n-1,j" }}',
@@ -56,12 +56,13 @@
     $(window).ready(function() {
         $(".time-entry").hide();
         $(".day-3").show();
+        $(".day-select:first").addClass('selected-day');
         $("button").click(function(e){
-            console.log(timetable);
             $(".time-entry").hide();
+            $(".day-select").removeClass('selected-day');
             var cl = $(this).data('day');
-            console.log(cl);
             $('.'+cl).show();
+            $(this).addClass('selected-day');
         });
     });
     </script>

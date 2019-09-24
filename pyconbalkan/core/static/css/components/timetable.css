@@ -1,3 +1,55 @@
+#dates-wrapper {
+    text-align: center;
+}
+
+.day-select {
+    border: 1px solid #343C3E;
+    border-radius: 6px;
+    background: white;
+    font-size: 16px;
+    padding: 6px;
+    text-decoration: none;
+    margin: 1em;
+}
+
+.day-select:focus {outline:0;}
+
+.day-select:active,
+.day-select:hover,
+.selected-day {
+    background: #27aae1;
+    color: white;
+    border: 1px solid transparent;
+}
+
+.room-timeline {
+    width: 1800px !important;
+    overflow: hidden !important;
+}
+
+.timetable .time-entry {
+    background-color: #27aae1 !important;
+    border: 1px solid #efefef !important;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.timetable .time-entry:hover {
+    background-color: #343c3e !important;
+}
+
+.timetable>section>header li {
+    width: 218px !important;
+}
+
+.timetable ul.room-timeline li:before {
+    background-image: unset !important;
+}
+
+.timetable ul.room-timeline li:after {
+    background-size: 107px auto !important;
+}
+
 .presentation {
     display: flex;
     margin: 15px 0;
