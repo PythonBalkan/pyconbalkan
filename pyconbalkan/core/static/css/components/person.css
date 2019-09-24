@@ -32,10 +32,29 @@
 
 .presentation__talk {
     color: #343C3E;
+
 }
 
 .presentation__workshop {
     color: #666;
+}
+
+.presentation__keynote,
+.presentation__talk,
+.presentation__workshop {
+    padding-left: 1em;
+}
+
+.cat-session {
+    border: 1px solid;
+    border-radius: 2px;
+    width: 3em;
+    text-align: center;
+    color: #3aaee2;
+    font-size: 14px;
+    font-weight: 700;
+    float:left;
+    margin-top: 1.3em;
 }
 
 .speaker,
