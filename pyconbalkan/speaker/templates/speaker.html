@@ -31,17 +31,27 @@
                 {% for presentation in presentations %}
                     {% if presentation.type == 5 %} {# Keynote talk #}
                     <div class="keynote__wrapper">
-                        <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        <div class="cat__wrapper">
+                            <div class="cat-session">KEY</div>
+                            <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        </div>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% elif presentation.type == 10 %} {# Normal talk #}
                     <div class="talk__wrapper">
-                        <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        <div class="cat__wrapper">
+                            <p class="cat-session">TLK</p>
+                            <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        </div>
                         <p>{{ presentation.description|markdownify }}</p>
+
                     </div>
                     {% elif presentation.type == 15 %} {# Workshop #}
                     <div class="workshop__wrapper">
-                        <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        <div class="cat__wrapper">
+                            <p class="cat-session">WRK</p>
+                            <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                        </div>
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% endif %}
