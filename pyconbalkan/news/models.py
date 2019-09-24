@@ -16,6 +16,7 @@ class Post(ActiveModel):
     published_date = models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to='posts/image')
     slug = models.CharField(unique=True, blank=True, max_length=100)
+    front_page = models.BooleanField("Promote news article to frontpage", default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:

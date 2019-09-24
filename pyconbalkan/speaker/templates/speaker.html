@@ -55,6 +55,7 @@
                         <p>{{ presentation.description|markdownify }}</p>
                     </div>
                     {% endif %}
+
                     <div class="speaker__tags">
                         {% for tag in presentation.tags.all %}
                             <div class="speaker__presentation__tag">{{ tag }}</div>

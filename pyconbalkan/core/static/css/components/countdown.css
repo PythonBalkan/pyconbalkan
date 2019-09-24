@@ -3,10 +3,14 @@
  * Timer in the home page.
  */
 
+ h1.countdownTitle {
+     padding-bottom: 10px;
+ }
+
 .countdown {
     display: flex;
-    margin-top: 35px;
-    margin-bottom: 45px;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 @media (max-width: 768px) {
     .countdown {
@@ -16,44 +20,43 @@
 
     .countdown__days {
         font-family: 'Montserrat', sans-serif;
-        font-weight: 900;
-        font-size: 4.8rem;
+        font-weight: 700;
+        font-size: 4rem;
         color: #28AAE1;
         margin-right: 20px;
     }
 
         .countdown__days__number {
-            border: 10px solid white;
-            border-radius: 20px;
-            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #2BAAE1;
+            color: white;
         }
 
     .countdown__time {
         flex: 1;
         display: flex;
         width: 300px;
-        padding-top: 17px;
     }
 
         .countdown__time__digit {
             text-align: center;
-            padding: 0 2px;
         }
 
             .countdown__time__number {
                 min-width: 35px;
                 display: block;
                 font-size: 2.9rem;
-                color: #F3D66C;
+                color: #2BAAE1;
             }
 
             .countdown__time__dots {
                 display: block;
                 font-size: 2.9rem;
-                color: #F3D66C;
+                color: #2BAAE1;
             }
 
             .countdown__time__text {
                 display: block;
-                color: #fff;
+                color: #2BAAE1;
             }

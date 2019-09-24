@@ -9,6 +9,7 @@ from django.utils.html import strip_tags
 from meta.views import Meta
 from rest_framework import viewsets
 
+from pyconbalkan.conference.models import Conference
 from pyconbalkan.speaker.models import Speaker
 from pyconbalkan.speaker.serializers import SpeakerSerializer
 from pyconbalkan.timetable.models import Presentation
@@ -52,14 +53,25 @@ def speaker_detail(request, slug=None):
 
 def presentation_list(request, year=None):
     year = year or timezone.now().year
-
+    conference = get_object_or_404(Conference, year=year)
+    presentations = Presentation.objects.filter(active=True, conference__year=year).order_by("type")
     speakers = Speaker.objects.all().prefetch_related(
         Prefetch(
             "presentations",
-            queryset=Presentation.objects.filter(active=True, conference__year=year).order_by("type")
+            queryset=presentations
         )
     )
+
+    presentation_count = presentations.count()
+
     context = {
         'speakers': speakers,
+        'meta': Meta(
+            description=f"This year we will be hosting {presentation_count} presentations including"
+                        f" talks, keynotes as well as workshops at {conference}."
+                        f" Follow this link to get more details !",
+            title=f"{conference} - Speakers",
+            image=conference.conference_logo.url if conference.conference_logo else None
+        )
     }
     return render(request, 'speakers.html', context)

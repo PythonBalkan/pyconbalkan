@@ -1,5 +1,6 @@
 from django.db import models
 from markdownx.models import MarkdownxField
+from slugify import slugify
 from taggit.managers import TaggableManager
 
 from pyconbalkan.conference.models import AbstractConference
@@ -24,6 +25,15 @@ class Presentation(AbstractConference, ActiveModel):
     tags = TaggableManager()
     speaker = models.ForeignKey(Speaker, blank=True, null=True, related_name='presentations', on_delete=CASCADE)
     youtube = models.URLField(null=True, blank=True)
+
+    @property
+    def slugify(self):
+        return slugify(self.title)
+
+    @property
+    def slugify_speaker(self):
+        if self.speaker:
+            return slugify(self.speaker.name)
 
     def __str__(self):
         return '[{}] {}'.format(self.get_type_display(), self.title)

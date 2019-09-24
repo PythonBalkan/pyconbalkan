@@ -1,3 +1,36 @@
+.important {
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    margin-bottom: 20px;
+}
+
+.important h1,
+.important h2,
+.important h2 a,
+.important h3 {
+    color: red;
+}
+
+h4.subtitle {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.important .card__item {
+    margin-bottom: 0;
+}
+
+.important .post__item {
+    margin: 0;
+    border: 0;
+}
+
+.mission__statement {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 20px; 
+}
+
 .page {
     display: grid;
     width: 100%;
