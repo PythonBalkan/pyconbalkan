@@ -39,7 +39,9 @@
                                 <p class="cat-session tooltip">{{ presentation.get_type_short }}
                                     <span class="tooltiptext">PyCon {{ presentation.get_type_display }}</span>
                                 </p>
-                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                                <a style="text-decoration: none" href="{% url "speaker_detail" presentation.speaker.slug %}#talk-{{ presentation.slugify }}" id="talk-{{ presentation.slugify }}">
+                                    <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                                </a>
                             </div>
                             <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
                         {% endfor %}
