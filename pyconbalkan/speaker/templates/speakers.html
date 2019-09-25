@@ -35,7 +35,12 @@
 
                     <div class="speaker__conferences">
                         {% for presentation in speaker.presentations.all %}
-                            <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                            <div class="cat__wrapper">
+                                <p class="cat-session tooltip">{{ presentation.get_type_short }}
+                                    <span class="tooltiptext">PyCon {{ presentation.get_type_display }}</span>
+                                </p>
+                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                            </div>
                             <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
                         {% endfor %}
                     </div>
