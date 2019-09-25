@@ -22,10 +22,10 @@
     border: 1px solid transparent;
 }
 
-.room-timeline {
-    width: 1800px !important;
-    overflow: hidden !important;
-}
+/*.room-timeline {*/
+/*    width: 1800px !important;*/
+/*    overflow: hidden !important;*/
+/*}*/
 
 .timetable .time-entry {
     background-color: #27aae1 !important;
@@ -38,16 +38,16 @@
     background-color: #343c3e !important;
 }
 
-.timetable>section>header li {
-    width: 218px !important;
-}
+/*.timetable>section>header li {*/
+/*    width: 233px !important;*/
+/*}*/
 
 .timetable ul.room-timeline li:before {
     background-image: unset !important;
 }
 
 .timetable ul.room-timeline li:after {
-    background-size: 107px auto !important;
+    background-size: 112px auto !important
 }
 
 .presentation {

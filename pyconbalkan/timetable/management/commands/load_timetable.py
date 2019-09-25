@@ -16,14 +16,7 @@ ALL_DATA_URL = "https://sessionize.com/api/v2/fwv5aino/view/All"
 
 
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
-
-    # this should be synced with timetable model somehow, not hardcoded
-    PRESENTATION_TYPE = {
-        'Talk': 10,
-        'Workshop': 15,
-        'Keynote': 5
-    }
+    help = 'Import data from sessionize'
 
     def add_arguments(self, parser):
         pass
@@ -73,7 +66,7 @@ class Command(BaseCommand):
                 active=False,
                 title=session['title'],
                 description=session['description'],
-                type=self.PRESENTATION_TYPE[types[session['categoryItems'][0]]],
+                type=Presentation.PRESENTATION_TYPE_REVERSE[types[session['categoryItems'][0]]],
                 speaker_id=speaker,
                 conference_id=conference.id,
             )

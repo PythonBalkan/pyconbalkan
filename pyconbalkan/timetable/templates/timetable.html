@@ -8,7 +8,9 @@
 
 <div id="dates-wrapper">
 {% for date in dates %}
-    <button class="day-select" data-day="day-{{ date|date:"j" }}">{{ date|date:"j-n-Y" }}</button>
+    {%  with i=forloop.counter %}
+    <button class="day-select" data-day="day-{{ i }}"><p>{{ date|date:"l" }}</p> {{ date|date:"j-n-Y" }}</button>
+    {% endwith %}
 {% endfor %}
 </div>
 
@@ -23,6 +25,7 @@
     timetable.addLocations(rooms);
 
     {% for date, slots in slots_by_date.items %}
+        {%  with i=forloop.counter %}
         {% for slot in slots %}
 
             timetable.addEvent(
@@ -32,9 +35,9 @@
                 new Date({{ slot.to_date|date:"Y,n-1,j,H,i"}}),
                 {
                   url: {% if slot.talk.speaker %}'/speaker/{{ slot.talk.slugify_speaker }}/#{{ slot.talk.slugify }}'{% else %}'#'{% endif %}, // makes the event clickable
-                  class: 'day-{{ slot.from_date|date:"j" }}', // additional css class
+                  class: 'day-{{ i }}', // additional css class
                   data: { // each property will be added to the data-* attributes of the DOM node for this event
-                    day: '{{ slot.from_date|date:"Y,n-1,j" }}',
+                    day: '{{ slot.from_date|date:"Y-n-j" }}',
                     description: '{{ slot.talk.description | linebreaksbr }}',
                   },
                   onClick: function(event, timetable, clickEvent) {},
@@ -42,7 +45,7 @@
             );
 
         {% endfor %}
-
+        {% endwith %}
         var renderer = new Timetable.Renderer(timetable);
         renderer.draw('.timetable');
 
@@ -55,7 +58,7 @@
     <script>
     $(window).ready(function() {
         $(".time-entry").hide();
-        $(".day-3").show();
+        $(".day-1").show();
         $(".day-select:first").addClass('selected-day');
         $("button").click(function(e){
             $(".time-entry").hide();
