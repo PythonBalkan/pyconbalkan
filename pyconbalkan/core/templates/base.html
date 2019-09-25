@@ -50,7 +50,17 @@
 	<link rel="stylesheet" href="{% static 'css/components/faq-accordion.css' %}">
     <link rel="stylesheet" href="https://afeld.github.io/emoji-css/emoji.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
+    <!-- Hotjar Tracking Code for pyconbalkan.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1500306,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     <!-- Timer JS -->
     <!-- Set the date we're counting down to -->
     <script type="text/javascript"> var countDownDate = parseInt("{{ count_down.count_down|date:"U" }}".concat("000"));</script>
