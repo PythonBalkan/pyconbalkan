@@ -38,9 +38,9 @@
     background-color: #343c3e !important;
 }
 
-/*.timetable>section>header li {*/
-/*    width: 233px !important;*/
-/*}*/
+.timetable>section>header li {
+    width: 115px !important;
+}
 
 .timetable ul.room-timeline li:before {
     background-image: unset !important;
