@@ -35,16 +35,8 @@
 
                     <div class="speaker__conferences">
                         {% for presentation in speaker.presentations.all %}
-                            {% if presentation.type == 5 %} {# Keynote talk #}
-                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
-                                <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
-                            {% elif presentation.type == 10 %} {# Normal talk #}
-                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
-                                <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
-                            {% elif presentation.type == 15 %} {# Workshop #}
-                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
-                                <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
-                            {% endif %}
+                            <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                            <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
                         {% endfor %}
                     </div>
                     <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
