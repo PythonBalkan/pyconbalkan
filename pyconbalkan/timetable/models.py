@@ -18,6 +18,11 @@ class Presentation(AbstractConference, ActiveModel):
         (WORKSHOP, 'Workshop'),
         (KEYNOTE, 'Keynote'),
     )
+    PRESENTATION_TYPE_SHORT = dict((
+        (TALK, 'TLK'),
+        (WORKSHOP, 'WRK'),
+        (KEYNOTE, 'KEY'),
+    ))
 
     title = models.CharField(null=True, blank=True, max_length=100)
     description = MarkdownxField(null=True, blank=True)
@@ -29,6 +34,10 @@ class Presentation(AbstractConference, ActiveModel):
     @property
     def slugify(self):
         return slugify(self.title)
+
+    @property
+    def get_type_short(self):
+        return self.PRESENTATION_TYPE_SHORT[self.type]
 
     def __str__(self):
         return '[{}] {}'.format(self.get_type_display(), self.title)
