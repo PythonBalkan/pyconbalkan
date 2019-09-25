@@ -16,6 +16,10 @@
     .countdown {
         flex-direction: column;
     }
+
+    .countdown__time {
+        padding-top: 3em;
+    }
 }
 
     .countdown__days {
