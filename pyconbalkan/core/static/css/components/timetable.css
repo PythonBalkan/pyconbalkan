@@ -50,6 +50,10 @@
     background-size: 112px auto !important
 }
 
+.timetable ul.room-timeline li .time-entry {
+    height: 140px;
+}
+
 .presentation {
     display: flex;
     margin: 15px 0;
