@@ -4,6 +4,8 @@ from django.shortcuts import render
 from pyconbalkan.timetable.models import Room, Slot
 from django.db.models.functions import TruncDate
 
+def timetable_sessionize_view(request):
+    return render(request, 'timetable_sessionize.html')
 
 def timetable_view(request):
     rooms = Room.objects.all()

@@ -34,7 +34,7 @@
                 new Date({{ slot.from_date|date:"Y,n-1,j,H,i"}}),
                 new Date({{ slot.to_date|date:"Y,n-1,j,H,i"}}),
                 {
-                  url: {% if slot.talk.speaker %}'/speaker/{{ slot.talk.slugify_speaker }}/#{{ slot.talk.slugify }}'{% else %}'#'{% endif %}, // makes the event clickable
+                  url: {% if slot.talk.speaker %}'/speaker/{{ slot.talk.speaker.slugify }}/#{{ slot.talk.slugify }}'{% else %}'#'{% endif %}, // makes the event clickable
                   class: 'day-{{ i }}', // additional css class
                   data: { // each property will be added to the data-* attributes of the DOM node for this event
                     day: '{{ slot.from_date|date:"Y-n-j" }}',

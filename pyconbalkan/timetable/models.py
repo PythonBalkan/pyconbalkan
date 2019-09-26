@@ -36,11 +36,6 @@ class Presentation(AbstractConference, ActiveModel):
     def slugify(self):
         return slugify(self.title)
 
-    @property
-    def slugify_speaker(self):
-        if self.speaker:
-            return slugify(self.speaker.name)
-
     def __str__(self):
         return '[{}] {}'.format(self.get_type_display(), self.title)
 
