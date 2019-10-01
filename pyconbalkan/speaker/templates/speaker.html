@@ -71,17 +71,19 @@
                 <a href="{{ speaker.facebook }}" class="facebook" target="_ blank"></a>
             {% endif %}
         </div>
-
+    {% for video_item in speaker.videos.all %}
+        {% if forloop.first	%}
         <div class="previous__talks">
             <h2>More {{ speaker.name }}'s public appearances</h2>
-            {% for video_item in speaker.videos.all %}
+        {% endif %}
             <div class="iframe__wrapper">
                 {% video video_item.video "small" %}
             </div>
-            {% empty %}
-            No records.
-            {%endfor %}
+
+        {% if forloop.first %}
         </div>
+        {% endif %}
+    {% endfor %}
     </div>
 
 {% endblock %}
