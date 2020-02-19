@@ -1,0 +1,13 @@
+name: bento
+on: [pull_request]
+jobs:
+  bento:
+    runs-on: ubuntu-latest
+    name: check
+    steps:
+    - uses: actions/checkout@v1
+    - name: bento check
+      id: bento
+      uses: returntocorp/bento-action@v1
+      with:
+        acceptTermsWithEmail: website@pyconbalkan.com
