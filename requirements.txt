@@ -27,7 +27,7 @@ django-select2==7.1.1
 django-storages==1.7.1
 django-tagging==0.4.6
 django-taggit==1.1.0
-django==2.2.8
+django==2.2.10
 djangorestframework==3.10.2
 docutils-python3==0.13    # via botocore-python3
 fuzzyfinder==2.1.0
