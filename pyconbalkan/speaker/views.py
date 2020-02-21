@@ -52,8 +52,7 @@ def speaker_detail(request, slug=None):
 
 
 def presentation_list(request, year=None):
-    year = year or timezone.now().year
-    conference = get_object_or_404(Conference, year=year)
+    conference = get_object_or_404(Conference, year=year or timezone.now().year)
     presentations = Presentation.objects.filter(active=True, conference__year=year).order_by("type")
     speakers = Speaker.objects.all().prefetch_related(
         Prefetch(
@@ -61,6 +60,7 @@ def presentation_list(request, year=None):
             queryset=presentations
         )
     )
+    speakers = filter(lambda speaker: any(speaker.presentations.all()), speakers)
 
     presentation_count = presentations.count()
 

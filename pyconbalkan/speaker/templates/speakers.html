@@ -5,58 +5,56 @@
 {# Speakers #}
 
     <h1 class="title title--yellow mb-xs-20">Speakers</h1>
-    {% if speakers %}
-        <div class="card">
-            {% for speaker in speakers %}
-                {% if speaker.presentations.all|length %}
+    <div class="card">
+        {% for speaker in speakers %}
+            {% if speaker.presentations.all|length %}
 
-                <div class="speaker border--bottom" id="{{ speaker.slug }}">
-                    <div class="speaker__details">
-                        <div class="speaker__image speaker__type__{{ speaker.preffered_talk_type }}">
-                            <a href="{% url 'speaker_detail' slug=speaker.slug %}">
-                                <img src="{{ speaker.images.first.profile_picture.url }}">
-                            </a>
-                        </div>
-                        <div class="speaker__info">
-                            <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
-                                <h1 class="speaker__name">
-                                    {% if speaker.country %}
-                                        <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
-                                    {% endif %}
-                                    {{ speaker.name }}
-                                </h1>
-                            </a>
-                            <h4 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h4>
-                            <div class="bio__wrapper">
-                                {{ speaker.description|markdownify|truncatewords:20 }}
-                            </div>
+            <div class="speaker border--bottom" id="{{ speaker.slug }}">
+                <div class="speaker__details">
+                    <div class="speaker__image speaker__type__{{ speaker.preffered_talk_type }}">
+                        <a href="{% url 'speaker_detail' slug=speaker.slug %}">
+                            <img src="{{ speaker.images.first.profile_picture.url }}">
+                        </a>
+                    </div>
+                    <div class="speaker__info">
+                        <a href="{% url 'speaker_detail' slug=speaker.slug %}" class="speaker__link">
+                            <h1 class="speaker__name">
+                                {% if speaker.country %}
+                                    <i class="flag em em-flag-{{ speaker.country.code|lower }}"></i>
+                                {% endif %}
+                                {{ speaker.name }}
+                            </h1>
+                        </a>
+                        <h4 class="speaker__job"> {{ speaker.job }} {% if speaker.company %}- {{ speaker.company }}{% endif %}</h4>
+                        <div class="bio__wrapper">
+                            {{ speaker.description|markdownify|truncatewords:20 }}
                         </div>
                     </div>
-
-                    <div class="speaker__conferences">
-                        {% for presentation in speaker.presentations.all %}
-                            <div class="cat__wrapper">
-                                <p class="cat-session tooltip">{{ presentation.get_type_short }}
-                                    <span class="tooltiptext">PyCon {{ presentation.get_type_display }}</span>
-                                </p>
-                                <a style="text-decoration: none" href="{% url "speaker_detail" presentation.speaker.slug %}#talk-{{ presentation.slugify }}" id="talk-{{ presentation.slugify }}">
-                                    <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
-                                </a>
-                            </div>
-                            <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
-                        {% endfor %}
-                    </div>
-                    <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
-                        Find out more
-                    </a>
                 </div>
 
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% else %}
+                <div class="speaker__conferences">
+                    {% for presentation in speaker.presentations.all %}
+                        <div class="cat__wrapper">
+                            <p class="cat-session tooltip">{{ presentation.get_type_short }}
+                                <span class="tooltiptext">PyCon {{ presentation.get_type_display }}</span>
+                            </p>
+                            <a style="text-decoration: none" href="{% url "speaker_detail" presentation.speaker.slug %}#talk-{{ presentation.slugify }}" id="talk-{{ presentation.slugify }}">
+                                <h3 class="speaker__presentation presentation__{{ speaker.preffered_talk_type }}">{{ presentation.title }}</h3>
+                            </a>
+                        </div>
+                        <p>{{ presentation.description|markdownify|truncatewords:20 }}</p>
+                    {% endfor %}
+                </div>
+                <a class="button button--blue speaker__button" href="{% url 'speaker_detail' slug=speaker.slug %}" role="button">
+                    Find out more
+                </a>
+            </div>
+            {% endif %}
+
+        {% empty %}
         <h2 class="coming-soon">
             Coming Soon
         </h2>
-    {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
