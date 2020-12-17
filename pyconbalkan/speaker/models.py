@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import CASCADE
 from embed_video.fields import EmbedVideoField
+from slugify import slugify
 
 from pyconbalkan.conference.models import AbstractConference
 from pyconbalkan.core.models import Person, ActiveModel
@@ -9,6 +10,10 @@ from pyconbalkan.core.models import Person, ActiveModel
 class Speaker(Person):
     def __str__(self):
         return self.name
+
+    @property
+    def slugify(self):
+        return slugify(self.name)
 
     @property
     def preffered_talk_type(self):

@@ -24,6 +24,12 @@ class Presentation(AbstractConference, ActiveModel):
         (KEYNOTE, 'KEY'),
     ))
 
+    PRESENTATION_TYPE_REVERSE = {
+        'Talk': TALK,
+        'Workshop': WORKSHOP,
+        'Keynote': KEYNOTE
+    }
+
     title = models.CharField(null=True, blank=True, max_length=100)
     description = MarkdownxField(null=True, blank=True)
     type = models.IntegerField(choices=PRESENTATION_TYPE, default=TALK)

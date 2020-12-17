@@ -10,11 +10,13 @@ from pyconbalkan.conference.models import Conference
 from pyconbalkan.speaker.models import Speaker
 from pyconbalkan.timetable.models import Presentation, Room, Slot
 
+from django.core.exceptions import ObjectDoesNotExist
+
 ALL_DATA_URL = "https://sessionize.com/api/v2/fwv5aino/view/All"
 
 
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
+    help = 'Import data from sessionize'
 
     def add_arguments(self, parser):
         pass
@@ -24,20 +26,25 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         conference = Conference.objects.get(year=options['year'])
+        _cant_find = []
 
         data = requests.get(options['data_url']).json()
 
         questions = data['questions']
         categories = data['categories']
         rooms = data['rooms']
+        sessions = data['sessions']
+        speakers = data['speakers']
 
-        # Sync rooms
+        types = categories[0]['items']
+        types = {x['id']:x['name'] for x in types}
+
+        Presentation.objects.filter(conference=conference).delete()
         Room.objects.filter(conference=conference).delete()
         Slot.objects.filter(conference=conference).delete()
-        all_presentations_this_year = list(Presentation.objects.filter(conference=conference).values_list("id", "title"))
 
         for room in rooms:
-            Room.objects.create(
+            Room.objects.get_or_create(
                 pk=room['id'],
                 conference=conference,
                 name=room['name'],
@@ -45,58 +52,48 @@ class Command(BaseCommand):
             )
 
 
-        # Make speaker dict
-        speakers = {}
-        for _ in data['speakers']:
-            first_name = _.pop('firstName')
-            last_name = _.pop('lastName')
-            speakers[f"{first_name} {last_name}"] = _
+        for session in sessions:
+            speaker_id = session['speakers'][0]
+            speaker = self.get_speaker(speaker_id, speakers)
 
-        for speaker in speakers.values():
-            for i, session in enumerate(speaker['sessions']):
-                speaker['sessions'][i] = list(filter(lambda _: int(_['id']) == session, data['sessions']))[0]
+            if speaker == None:
+                print(speaker_id, 'Not found')
+            else:
+                speaker = speaker.id
 
-        #  Attach Speaker obj from DB
-        speakers_qs = Speaker.objects.all().prefetch_related(
-            Prefetch(
-                "presentations",
-                queryset=Presentation.objects.filter(active=True, conference=conference).order_by("type")
+            presentation, created = Presentation.objects.get_or_create(
+                pk=session['id'],
+                active=False,
+                title=session['title'],
+                description=session['description'],
+                type=Presentation.PRESENTATION_TYPE_REVERSE[types[session['categoryItems'][0]]],
+                speaker_id=speaker,
+                conference_id=conference.id,
             )
-        )
 
-        _cant_find = []
-        for speaker in speakers_qs:
-            if not any(speaker.presentations.all()):
-                continue
-
-            r = list(fuzzyfinder(speaker.full_name, speakers.keys()))
-            if not any(r):
-                _cant_find.append(speaker)
-                continue
-            speakers[r[0]]["model_speaker"] = speaker
-            speaker = speakers[r[0]]
-
-            for _ in speaker['sessions']:
-                r = list(fuzzyfinder(_['title'], list(zip(*all_presentations_this_year))[1]))
-                if not any(r):
-                    _cant_find.append(_)
-
-
-                try:
-                    presentation = Presentation.objects.get(title__icontains=_['title'])
-                except Presentation.DoesNotExist:
-                    _cant_find.append(_)
-                # TODO NEXT YEAR MAYBE, GET TZ FROM CONFERENCE OBJECT ?!
-                Slot.objects.create(
-                    from_date=timezone.make_aware(datetime.strptime(_['startsAt'], "%Y-%m-%dT%H:%M:%S")),
-                    to_date=timezone.make_aware(datetime.strptime(_['endsAt'], "%Y-%m-%dT%H:%M:%S")),
-                    talk=presentation,
-                    room=Room.objects.get(pk=_['roomId']),
-                    conference=conference
-                )
+            start = timezone.make_aware(datetime.strptime(session['startsAt'], "%Y-%m-%dT%H:%M:%S"))
+            end = timezone.make_aware(datetime.strptime(session['endsAt'], "%Y-%m-%dT%H:%M:%S"))
+            Slot.objects.get_or_create(
+                active=False,
+                from_date=start,
+                to_date=end,
+                room_id=session['roomId'],
+                talk_id=presentation.id,
+                conference_id=conference.id,
+            )
 
         if any(_cant_find):
             if options['force']:
                 print(_cant_find)
             else:
                 raise Exception("Had problems with the following", _cant_find)
+
+    def get_speaker(self, speaker_id, speakers):
+        for speaker in speakers:
+            if speaker['id'] == speaker_id:
+                full_name = " ".join(speaker['fullName'].split())
+                try:
+                    return Speaker.objects.get(full_name=full_name)
+                except ObjectDoesNotExist:
+                    return None
+        return None
