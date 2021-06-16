@@ -27,7 +27,7 @@ class UniqueNameMixin(object):
 
 
 class S3Storage(UniqueNameMixin, S3Boto3Storage):
-    bucket_name = "pyconbalkan"
+    bucket_name = "pyconbalkan-us"
 
 
 class LocalStorage(UniqueNameMixin, FileSystemStorage):
