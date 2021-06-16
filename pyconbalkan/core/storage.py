@@ -1,6 +1,7 @@
 import os
 from time import time
 
+from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from storages.backends.s3boto3 import S3Boto3Storage
 
@@ -27,7 +28,7 @@ class UniqueNameMixin(object):
 
 
 class S3Storage(UniqueNameMixin, S3Boto3Storage):
-    bucket_name = "pyconbalkan-us"
+    bucket_name = settings.AWS_S3_BUCKET_NAME
 
 
 class LocalStorage(UniqueNameMixin, FileSystemStorage):
