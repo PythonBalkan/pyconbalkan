@@ -20,6 +20,19 @@ dj-database-url==0.5.0
     # via -r requirements.in
 dj-static==0.0.6
     # via -r requirements.in
+django==2.2.28
+    # via
+    #   -r requirements.in
+    #   django-appconf
+    #   django-choices
+    #   django-embed-video
+    #   django-filter
+    #   django-markdownify
+    #   django-markdownx
+    #   django-money
+    #   django-select2
+    #   django-storages
+    #   django-taggit
 django-appconf==1.0.3
     # via django-select2
 django-choices==1.7.0
@@ -52,19 +65,6 @@ django-tagging==0.4.6
     # via -r requirements.in
 django-taggit==1.1.0
     # via -r requirements.in
-django==2.2.10
-    # via
-    #   -r requirements.in
-    #   django-appconf
-    #   django-choices
-    #   django-embed-video
-    #   django-filter
-    #   django-markdownify
-    #   django-markdownx
-    #   django-money
-    #   django-select2
-    #   django-storages
-    #   django-taggit
 djangorestframework==3.10.2
     # via -r requirements.in
 fuzzyfinder==2.1.0
